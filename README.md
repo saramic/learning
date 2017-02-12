@@ -63,6 +63,14 @@ Goals and progress of my learning
 ## Progress
 
 * Sun 12th Feb 2017
+  * watched (HTTP2 CampJS 2016)[https://vimeo.com/171333277]
+    * take a look at:
+      * curl,
+      * setup in nginx,
+      * how to do a push?
+      * can you make a chat client in telnet/curl (assuming no TLS)?,
+      * speed improvement comparison for many assets (images),
+      * take a look at QICK?
   * setup watching of test file
 
     cd dojo/es6/tennis
