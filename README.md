@@ -2,7 +2,7 @@
 
 Goals and progress of my learning
 
-## Feb 2017
+## Goals - Feb 2017
 
 ### Mastery Guild
   - [ ] Read articles on guilds/societies
@@ -35,9 +35,47 @@ Goals and progress of my learning
 ### Teach
   - [ ] prepare functional Programming workshop
 
+## Goals - Jun 2017
+
+### Mastery guild
+  - [ ] running self development brownbags in streams at work to instill an
+    always learning mentality at work
+  - [ ] run a coding dojo series to get as many people up to speed to
+    effectively and efficiently take part in TDD randori dojo
+
+### New Language
+  - [ ] elm
+  - [ ] elixir
+  - [ ] clojure
+
+### Programming
+  - [ ] POODR, Patterns & OO, Exceptions, refactoring
+  - [ ] basics of FP
+
+### Teach
+  - [ ] run a workshop on new technology like: functional programming, speed,
+    haproxy/nginx, serverless technology, react/redux, elm
+  - [ ] plan a talk
+
+### Build
+  - [ ] ...
+
 ## Progress
 
+* Sun 12th Feb 2017
+  * setup watching of test file
+
+    cd dojo/es6/tennis
+    yarn add -D gulp
+    cat >> gulpfile.js
+    ...^D
+    gulp test
+    gulp tdd
+
+  * continue with dojo
+
 * Sat 11th Feb 2017
+  * started reading serverless architecture on AWS
   * setup es6 dojo
 
     cd dojo/es6
