@@ -62,7 +62,19 @@ Goals and progress of my learning
 
 ## Progress
 
+* Mon 13th Feb 2017
+  * read Ch 3 serverless
+  * started notes on RubyConfAU 2017
 * Sun 12th Feb 2017
+  * (Performance Profiling Node Apps - Tom
+    Gallacher)[https://www.youtube.com/watch?v=BtBh4VW5eDE]
+    not really useful need to look elswehre on how to use these tools
+    * flamegraph
+    * Chrome CPU inspector
+    * Chrome Tracing
+    * dtruss/strace
+    * `node --perf-basic-prof`
+    * (IRHydra2)[http://mrale.ph/irhydra/2/] - see video
   * watched (HTTP2 CampJS 2016)[https://vimeo.com/171333277]
     * take a look at:
       * curl,
