@@ -1,6 +1,7 @@
 # Learning
 
-Goals and progress of my learning
+This is a work in progress of my learning. Some goals achievements and a way to
+track that I am actively spending time learning and hopefully improving.
 
 ## Easy list of TODOs
 
