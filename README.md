@@ -90,6 +90,33 @@ Goals and progress of my learning
 
 ## Progress
 
+* Wed 15th Feb 2017
+  * went to elixir meetup
+  * Envato's stools were cool
+    Paimio by Artek $350 via http://www.anibou.com.au/
+  * Elixir camp Apr 21-24 Mittagong NSW http://elixir.camp/
+  * Talk: Monoids in elixir
+    * allow for concurrent split and join as order is not important
+    * reminds me of talk "Parallel Programming, Fork Join
+      - [ ] https://www.youtube.com/watch?v=eRq5UBx6cbA
+      - [ ] book "Clojure for the brave and true
+      - [ ] braveclojure.com
+    * protocols used by Enum and [] square bracket opperator
+    * `defprotocol` and `defimpl`
+    * monoid shouldn't know about data types
+    * example of joining 2 carts with various types
+    * could be extended to merge recursively
+    * felt that there were a few issues about min/max time and typing that felt
+      forced
+    * @madlep admitted that this all makes more sense in haskel
+    * haskel does type and function inference based on arguments and return
+      type.
+    - [ ] checkout his dot files https://github.com/madlep/dotfiles
+      - NERD tree
+      - tabs
+      - column/row highlight
+    - [ ] propose talk "Patterns from ruby to elixir - how I will learn elixir in a month"
+      - https://github.com/elixir-melbourne/meetup
 * Tue 14th Feb 2017
   * elixir enumerables and streams
 * Mon 13th Feb 2017
