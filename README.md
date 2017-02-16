@@ -94,6 +94,7 @@ track that I am actively spending time learning and hopefully improving.
 ## Progress
 
 * Thu 16th Feb 2017
+  * a coding dojo in ruby - roman numerals
   * bash challenge 5
   * read FP in scala & clojure:
     - pattern 12 - tail recursion
