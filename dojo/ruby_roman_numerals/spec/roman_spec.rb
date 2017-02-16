@@ -9,4 +9,5 @@ RSpec.describe Roman do
   it_should_behave_like 'roman', 1, 'I'
   it_should_behave_like 'roman', 2, 'II'
   it_should_behave_like 'roman', 3, 'III'
+  it_should_behave_like 'roman', 5, 'V'
 end
