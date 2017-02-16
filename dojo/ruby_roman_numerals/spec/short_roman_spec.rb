@@ -1,8 +1,8 @@
-require 'roman'
+require 'short_roman'
 
-RSpec.describe Roman do
+RSpec.describe ShortRoman do
   shared_examples_for 'roman' do |arabic, roman|
-    subject { Roman }
+    subject { ShortRoman }
     it "#{arabic} == #{roman}" do
       expect(subject.from_arabic(arabic)).to eql roman
     end
