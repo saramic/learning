@@ -6,13 +6,27 @@ RSpec.describe Roman do
     it { expect(subject.from_arabic(arabic)).to eql roman}
   end
 
-  it_should_behave_like 'roman', 1, 'I'
-  it_should_behave_like 'roman', 2, 'II'
-  it_should_behave_like 'roman', 3, 'III'
-  it_should_behave_like 'roman', 5, 'V'
-  it_should_behave_like 'roman', 10, 'X'
-  it_should_behave_like 'roman', 50, 'L'
-  it_should_behave_like 'roman', 100, 'C'
-  it_should_behave_like 'roman', 500, 'D'
-  it_should_behave_like 'roman', 1000, 'M'
+  context 'base numerals' do
+    it_should_behave_like 'roman', 1, 'I'
+    it_should_behave_like 'roman', 2, 'II'
+    it_should_behave_like 'roman', 3, 'III'
+    it_should_behave_like 'roman', 5, 'V'
+    it_should_behave_like 'roman', 10, 'X'
+    it_should_behave_like 'roman', 50, 'L'
+    it_should_behave_like 'roman', 100, 'C'
+    it_should_behave_like 'roman', 500, 'D'
+    it_should_behave_like 'roman', 1000, 'M'
+  end
+
+  context '3 of a kind for 10s' do
+    it_should_behave_like 'roman', 1, 'I'
+    it_should_behave_like 'roman', 2, 'II'
+    it_should_behave_like 'roman', 3, 'III'
+    it_should_behave_like 'roman', 20, 'XX'
+    it_should_behave_like 'roman', 30, 'XXX'
+    it_should_behave_like 'roman', 200, 'CC'
+  end
+
+  context '1 less then numeral'
+  context 'complex types'
 end

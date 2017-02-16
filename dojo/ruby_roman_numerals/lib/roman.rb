@@ -11,10 +11,15 @@ class Roman
     }
 
     def from_arabic(arabic)
+      result = []
       NUMERALS.keys.reverse.each do |key_arabic|
-        return NUMERALS[key_arabic] if arabic == key_arabic
+        while arabic >= key_arabic
+          arabic -= key_arabic
+          result << NUMERALS[key_arabic]
+        end
       end
-      Array.new(arabic, 'I').join
+      #Array.new(arabic, 'I').join
+      result.join
     end
   end
 end
