@@ -28,6 +28,8 @@ Random ideas and hacks
     * C-Bus
       * http://www2.clipsal.com/cis/technical/downloads/c-gate
 			* http://www2.clipsal.com/cis/technical/product_groups/cbus
+    * forums - http://www.cbusforums.com/forums/
+    * developer kit - http://www.cbus-enabled.com/
 
 ## Done
   * bash challenge 5
