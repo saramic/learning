@@ -17,14 +17,10 @@ class ShortRoman
     }
 
     def from_arabic(arabic)
-      result = []
-      NUMERALS.keys.reverse.each do |key_arabic|
-        while arabic >= key_arabic
-          arabic -= key_arabic
-          result << NUMERALS[key_arabic]
-        end
-      end
-      result.join
+      NUMERALS.keys.reverse.reduce([]) do |acc, key_arabic|
+        acc << NUMERALS[key_arabic] while arabic >= key_arabic && arabic -= key_arabic
+        acc
+      end.join
     end
   end
 end
