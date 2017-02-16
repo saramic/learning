@@ -30,6 +30,8 @@ track that I am actively spending time learning and hopefully improving.
     - [ ] predicting JJJ's top 100 PyCon - https://www.youtube.com/watch?v=qjTc5q7MsMg&index=12&list=PLs4CJRBY5F1IU2xckJUEj5ILWd4cta3vo
     - [ ] Unicode PyCon like RubyConf - https://www.youtube.com/watch?v=HVqbL8Sl4YM
   - [ ] dojo - http://codingdojo.org/kata/ or similar
+  - [ ] look up truffleruby
+        https://pragtob.wordpress.com/2017/01/24/benchmarking-a-go-ai-in-ruby-cruby-vs-rubinius-vs-jruby-vs-truffle-a-year-later/
 
 ## Goals - Feb 2017
 
@@ -95,6 +97,11 @@ track that I am actively spending time learning and hopefully improving.
   * bash challenge 5
   * read FP in scala & clojure:
     - pattern 12 - tail recursion
+      - [ ] tail call vs body with examples from clojure
+        https://pragtob.wordpress.com/2016/06/16/tail-call-optimization-in-elixir-erlang-not-as-efficient-and-important-as-you-probably-think/
+      - [ ] flags for javascript TCO
+        `strict` and `--harmony` (v6.2.0 `--harmony_tailcalls`)
+        http://stackoverflow.com/questions/23260390/node-js-tail-call-optimization-possible-or-not
     - pattern 13 - mutual recursion
     - pattern 14 - filter-map-reduce
 * Wed 15th Feb 2017
