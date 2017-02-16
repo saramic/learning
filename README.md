@@ -91,6 +91,12 @@ track that I am actively spending time learning and hopefully improving.
 
 ## Progress
 
+* Thu 16th Feb 2017
+  * bash challenge 5
+  * read FP in scala & clojure:
+    - pattern 12 - tail recursion
+    - pattern 13 - mutual recursion
+    - pattern 14 - filter-map-reduce
 * Wed 15th Feb 2017
   * went to elixir meetup
   * Envato's stools were cool
