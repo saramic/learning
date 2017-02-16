@@ -8,6 +8,10 @@ RSpec.describe Roman do
     end
   end
 
+  context 'zero is empty' do
+    it_should_behave_like 'roman', 0, ''
+  end
+
   context 'base numerals' do
     it_should_behave_like 'roman', 1, 'I'
     it_should_behave_like 'roman', 2, 'II'
