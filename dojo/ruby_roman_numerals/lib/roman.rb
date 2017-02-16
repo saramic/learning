@@ -1,7 +1,7 @@
 class Roman
   class << self
     def from_arabic(arabic)
-      'I'
+      Array.new(arabic, 'I').join
     end
   end
 end
