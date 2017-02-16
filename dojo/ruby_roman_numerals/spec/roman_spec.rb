@@ -1,10 +1,12 @@
 require 'roman'
 
 RSpec.describe Roman do
-  it 'returns I for 1' do
-    expect(Roman.from_arabic(1)).to eql 'I'
+  shared_examples_for 'roman' do |arabic, roman|
+    subject { Roman }
+    it { expect(subject.from_arabic(arabic)).to eql roman}
   end
-  it 'returns II for 2' do
-    expect(Roman.from_arabic(2)).to eql 'II'
-  end
+
+  it_should_behave_like 'roman', 1, 'I'
+  it_should_behave_like 'roman', 2, 'II'
+  it_should_behave_like 'roman', 3, 'III'
 end
