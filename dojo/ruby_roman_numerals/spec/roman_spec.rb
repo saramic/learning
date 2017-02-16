@@ -38,5 +38,8 @@ RSpec.describe Roman do
     it_should_behave_like 'roman', 6, 'VI'
     it_should_behave_like 'roman', 7, 'VII'
     it_should_behave_like 'roman', 8, 'VIII'
+    it_should_behave_like 'roman', 457, 'CDLVII'
+    it_should_behave_like 'roman', 1995, 'MCMXCV'
+    it_should_behave_like 'roman', 2017, 'MMXVII'
   end
 end

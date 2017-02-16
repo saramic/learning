@@ -25,7 +25,6 @@ class Roman
           end
         end
       end
-      #Array.new(arabic, 'I').join
       result.join
     end
   end
