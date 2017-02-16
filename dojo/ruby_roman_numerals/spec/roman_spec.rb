@@ -24,9 +24,19 @@ RSpec.describe Roman do
     it_should_behave_like 'roman', 3, 'III'
     it_should_behave_like 'roman', 20, 'XX'
     it_should_behave_like 'roman', 30, 'XXX'
+    it_should_behave_like 'roman', 80, 'LXXX'
     it_should_behave_like 'roman', 200, 'CC'
   end
 
-  context '1 less then numeral'
-  context 'complex types'
+  context '1 less then numeral' do
+    it_should_behave_like 'roman', 4, 'IV'
+    it_should_behave_like 'roman', 40, 'XL'
+    it_should_behave_like 'roman', 400, 'CD'
+  end
+
+  context 'complex types' do
+    it_should_behave_like 'roman', 6, 'VI'
+    it_should_behave_like 'roman', 7, 'VII'
+    it_should_behave_like 'roman', 8, 'VIII'
+  end
 end
