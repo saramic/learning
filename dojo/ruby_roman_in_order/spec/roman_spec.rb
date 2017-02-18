@@ -8,4 +8,5 @@ describe Roman do
   end
 
   it_should_behave_like 'roman', 0, ''
+  it_should_behave_like 'roman', 1, 'I'
 end
