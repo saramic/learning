@@ -13,4 +13,5 @@ describe Roman do
   it_should_behave_like 'roman', 3, 'III'
   it_should_behave_like 'roman', 4, 'IV'
   it_should_behave_like 'roman', 5, 'V'
+  it_should_behave_like 'roman', 6, 'VI'
 end
