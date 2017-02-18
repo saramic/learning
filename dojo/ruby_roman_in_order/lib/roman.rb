@@ -11,19 +11,13 @@ class Roman
     10 => 'X',
     9 => 'IX',
     5 => 'V',
-    4 => 'IV'
+    4 => 'IV',
+    1 => 'I'
   }
   def self.from_arabic(arabic)
-    acc = NUMERALS.keys.map do |key|
-      2.times.map {
-      if arabic >= key
-        arabic -= key
-        NUMERALS[key]
-      end
-      }
-    end
-    acc << ('I' * arabic if arabic >= 1)
-    acc.join
+    NUMERALS.keys.map do |key|
+      3.times.map { NUMERALS[key] if arabic >= key && arabic -= key }
+    end.join
   end
 end
 
