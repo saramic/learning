@@ -1,5 +1,6 @@
 class Roman
   NUMERALS = {
+    9 => 'IX',
     5 => 'V',
     4 => 'IV'
   }
