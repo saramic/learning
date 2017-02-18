@@ -1,6 +1,10 @@
 class Roman
+  NUMERALS = {
+    4 => 'IV',
+    5 => 'V'
+  }
   def self.from_arabic(arabic)
-    return 'IV' if arabic == 4
+    return NUMERALS[arabic] if NUMERALS.key?(arabic)
     arabic >= 1 ? ('I' * arabic) : ''
   end
 end
