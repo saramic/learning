@@ -28,4 +28,5 @@ describe Roman do
   it_should_behave_like 'roman', 1000, 'M'
   it_should_behave_like 'roman', 457, 'CDLVII'
   it_should_behave_like 'roman', 1995, 'MCMXCV'
+  it_should_behave_like 'roman', 2017, 'MMXVII'
 end
