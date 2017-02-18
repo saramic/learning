@@ -17,4 +17,5 @@ describe Roman do
   it_should_behave_like 'roman', 7, 'VII'
   it_should_behave_like 'roman', 8, 'VIII'
   it_should_behave_like 'roman', 9, 'IX'
+  it_should_behave_like 'roman', 10, 'X'
 end
