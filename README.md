@@ -93,6 +93,11 @@ track that I am actively spending time learning and hopefully improving.
 
 ## Progress
 
+* Sat 18th Feb 2017
+  * a coding dojo in ruby - roman numerals
+    maybe doing it in order of counting is not that bad after all
+* Fri 17th Feb 2017
+  * a coding dojo in ruby - roman numerals
 * Thu 16th Feb 2017
   * a coding dojo in ruby - roman numerals
   * bash challenge 5
