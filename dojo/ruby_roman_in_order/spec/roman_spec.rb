@@ -9,4 +9,5 @@ describe Roman do
 
   it_should_behave_like 'roman', 0, ''
   it_should_behave_like 'roman', 1, 'I'
+  it_should_behave_like 'roman', 2, 'II'
 end
