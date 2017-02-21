@@ -93,6 +93,13 @@ track that I am actively spending time learning and hopefully improving.
 
 ## Progress
 
+* Tue 21th Feb 2017
+  * read pattern 16 function builder operations FP scala & clj
+  * notes from RubyConfAU: learning and elm
+* Mon 20th Feb 2017
+  * read pattern 15 chain of operations FP scala & clj
+* Sun 19th Feb 2017
+  * NOTHING
 * Sat 18th Feb 2017
   * a coding dojo in ruby - roman numerals
     maybe doing it in order of counting is not that bad after all

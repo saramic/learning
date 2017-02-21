@@ -11,7 +11,21 @@
 - level of talks was dissapointing, very few taught me anything nor inspired me
   to learn anything new.
 
+An asside on Aboriginal introduction:
+  - very well done
+  - interesting around history of William Barak and his image on Melbourne building
+  - difficulty in being a half-caste
+
 ## Talk by talk
+  @timriley
+  - ruby faces challenges:
+    - elixir, clojure
+    - Rust, Go
+    - Javascript
+  - ruby is comfortable but
+    - people have left the community
+    - level of complacency
+    - we are too focused on rails
 
 ### Reinvesting in Ruby - Tim Riley
 
@@ -60,7 +74,62 @@
 
 ### Elm & rails - Louis Simoneau, Rahul Trikha
 
+  * client side compiles into JS
+  * why care?
+    - no errors - will break on compile
+    - fun to use - accessible for beginners
+    - batterires included
+    - low barrier to entry
+  * syntax overview
+    - union types - highlight from presenter
+    - shopping cart sample - https://github.com/lsimoneau/elm-cart
+    - elm with rails - https://github.com/fbonetti/elm-rails
+  * get started
+    - start with architecture guide - https://guide.elm-lang.org/architecture/
+    - (html.BeginnerProgram)[http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#beginnerProgram]
+      - basic all in browser app
+    - (html.Program)[http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#program]
+      - allows external calls
+
 ### Self learning - Elle Meredith
+
+  * "learning is a marathon not a sprint"
+  * prodigy myth vs growth mindset, growth vs fixed, associate hard work with
+    education not success.
+  * continuous self improvement
+  * styles of learning
+    - visual/linguistic - read
+    - auditory
+    - knesthetic - just build it
+    - face to face
+    - active
+  * perception of progress - can help
+  * Grit - self determination
+    - dedicate time to keep learning new things
+  * risk to be stupid - make mistakes
+  * hard vs soft skills
+  * set a goal
+  * set deadlines
+  * create challenges
+  * don't make excuses
+  * making something bad is a step closer to making something good
+  * small steps - find a learning sweetspot
+  * find a mentor
+    - who loves teaching
+    - short and to the point
+  * mistakes & success
+    - like retro
+    - remember felling of getting it right
+  * metrics
+  * when stuck shift
+  * do things now
+  * self study techniques
+    - small & daily
+    - first thing in the morning - 4:30 club (thoughtbot)
+    - 100 challenge (do daily for 100 days)
+    - create a routime
+    - active reading - not just reading
+
 
 ### Types - Andy Nicholson
 
