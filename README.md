@@ -93,5 +93,5 @@ track that I am actively spending time learning and hopefully improving.
 
 ## Progress
 
-  * (Feb 2017)[blob/master/blog/201701_progress.md]
+  * [Feb 2017](blob/master/blog/201701_progress.md)
 
