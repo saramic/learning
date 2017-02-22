@@ -54,7 +54,14 @@ track that I am actively spending time learning and hopefully improving.
   - [ ] elixir - continue on reading basic guide
   - [ ] clojure - basic guide? books? dojo?
   - [ ] elm - basic guide from web
-  - [ ] re-read react book 
+  - [ ] re-read react book
+  - [ ] GraphQL
+    - https://medium.com/react-weekly/relay-facebook-on-rails-8b4af2057152#.onrp81l7i
+    - https://github.com/rmosolgo/graphql-ruby
+    - https://github.com/rmosolgo/graphql-ruby-demo
+    - http://graphql-ruby-demo.herokuapp.com/graphiql
+    - https://facebook.github.io/relay/docs/tutorial.html#content
+    - http://mgiroux.me/2015/getting-started-with-rails-graphql-relay/
 
 ### Programming
   - [ ] daily dojo in ES6
