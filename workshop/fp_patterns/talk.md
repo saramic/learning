@@ -91,6 +91,57 @@ for tail call optimisation (TCO) to work we need to pass an accumulator
 
 ## Tail Recursion
 
+Clojure
+
+  ```clojure
+      (defn sum [n]
+        (if (= n 0)
+          0
+          (+ n (sum (dec n)))))
+
+      ;; run it using lein
+
+      cd tail_recursion
+      lein run 100
+      lein run 10000
+      cd -
+  ```
+
+
+## Tail Recursion
+
+Clojure with TCO
+
+  ```clojure
+      (defn sum_tail_recursive [n]
+        (loop [n n acc 0]
+          (if (= n 0)
+            acc
+            (recur
+              (dec n)
+              (+ acc n)))))
+
+      ;; run it using lein
+
+      cd tail_recursion && lein run 10000 && cd -
+  ```
+
+
+## Tail Recursion
+
+Of course with the help of Gauss we could have just
+
+  ```ruby
+      puts number*(number + 1)/2
+
+      # in the shell
+
+      ruby -e 'number = ARGV.join.to_i; puts number*(number + 1)/2'
+  ```
+
+
+## Tail Recursion
+
 roman numerals with recursion
 
   ```sh
@@ -123,4 +174,3 @@ WIP on roman numerals with tail recursion
         require "roman"; \
         puts roman_tail(10_000_000)'
   ```
-

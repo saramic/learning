@@ -1,6 +1,18 @@
 # Progress Feb 2017
 
 * Wed 22nd
+  * can run clojure via
+
+    java -cp ~/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar clojure.main
+
+  * most basic clojure setup
+
+    ```sh
+      project.clj   # with a main
+      ./src/        #for the main
+      lein run      # to run
+    ```
+
   * read pattern 17 memoization FP scala & clj
   * [dasht install](https://github.com/sunaku/dasht)
 
