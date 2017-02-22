@@ -1,3 +1,28 @@
+## Learning
+
+    “ Live as if you were to die tomorrow. Learn as if you were to live
+      forever.”
+                                                              ― Mahatma Gandhi
+
+
+## Learning
+
+    “ You should plan on working 60 hours per week. The first 40 are for your
+      employer. The remaining 20 are for you. During this remaining 20 are for
+      you. During this remaining 20 hours you should be reading, practicing,
+      learning, and otherwise enhancing your career.”
+
+                                                            - Robert C. Martin
+
+
+## Learning
+
+    “ Most of what Boom is doing was not common practice 2 years ago. It would
+      take you more then 38 hours/week to become productive”
+
+                                                            - Michael Milewski
+
+
 # FP Patterns
 
 *Using functional programming patterns to learn and evaluate functional
