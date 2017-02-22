@@ -1,5 +1,9 @@
 # Functinal Programming Patterns
 
+run presentation
+
+    vimdeck talk.md
+
 In an attempt to compare and contrast Object Oriented (OO) and Functional
 Programming (FP), a look at OO patterns and their alternatives in FP. This is
 also a learning exercise for FP and associated languages. In particular how

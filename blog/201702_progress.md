@@ -1,5 +1,38 @@
 # Progress Feb 2017
 
+* Wed 22nd
+  * read pattern 17 memoization FP scala & clj
+  * [dasht install](https://github.com/sunaku/dasht)
+
+      dasht-docsets-install bash JavaScript ...
+      dasht 'c - v'
+      dasht-server
+
+    * [vim-dasht](https://github.com/sunaku/vim-dasht)
+    * whole heap of stuff in neovim/init.vim about: search by text; search
+      under cursor; search highlight; specify related docsets
+
+  * [vimdeck](https://github.com/tybenz/vimdeck)
+
+    gem install vimdeck
+    # failed to get it working with nvim so
+
+    wget [SyntaxRange-1.02.vmb.gz](http://www.vim.org/scripts/download_script.php?src_id=23217)
+    vim SyntaxRange*.vmb.gz
+      :UseVimball command.
+      :so %
+
+    wget [ingo-library-1.029.vmb.gz](http://www.vim.org/scripts/download_script.php?src_id=24918)
+    vim ingo-library*.vmb.gz
+      :UseVimball
+      :so %
+
+    # some missing bundles?
+    :NeoBundleInstall
+
+    # maybe there was some
+    https://github.com/tpope/vim-markdown
+
 * Tue 21st
   * read pattern 16 function builder operations FP scala & clj
   * notes from RubyConfAU: learning and elm
