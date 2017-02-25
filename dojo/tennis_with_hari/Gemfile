@@ -1,0 +1,5 @@
+source 'http://rubygems.rc'
+
+gem 'guard'
+gem 'guard-rspec'
+gem 'rspec'
