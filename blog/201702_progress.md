@@ -1,5 +1,12 @@
 # Progress Feb 2017
 
+* Sat 25th
+  * advent calendar day 4 - 6
+* Fri 24rd
+  * Tensor flow ch 1
+  * advent calendar day 1 - 3
+* Thu 23rd
+  * NOTHING
 * Wed 22nd
   * can run clojure via
 
