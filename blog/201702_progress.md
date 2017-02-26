@@ -1,7 +1,85 @@
 # Progress Feb 2017
 
 * Sat 25th
+  - [ ] charlespeach for pc build
+  - [ ] ergodox to build awesome keyboard
+  - investigate
+    alias single-win="defaults write com.apple.doc single-app -bool true && killall Dock"
+    alias multi-win="defaults write com.apple.doc single-app -bool false && killall Dock"
+    LICEcap
+  * follow Samuel on github and his teapot for clang
+  * RC showcase
+    * Solidus and capybara-guides to generate image grabs and docs based on
+      capybara test script
+    * Curses and .puz file which has a spec for crossword puzzle
+    * high spirit dry-web-rota
+    * edges to cats (open source tensor flow)
+      * pokemon api (720 in previous to last generation)
+    * envato styleguide @lukearndt
+      * gem envato/guide
+    * liquid templating engine in elixir (Solid there is another one fluid)
+    * hpervisor
+    * 3D game
+    * chrome game - trex
+    * learn to speak maori
+    * faster JSON parser keithduncan/yajil-ruby
+    * vini DB snapshot - stellar (and own nutirtion app)
+    * rails camp
+
+  *
+  mix new --sup  (mix help new)
+  mix run --no-halt
+
+permenant true in mix.exs
+    iex -S mix
+    recompile
+
+    iex
+    h <name>
+
+    :observer.start - observe
+
+  * talk "Why the Functional"
+    dry-rb has left/right as in scala
+    referential transparency - take the functional stuff out and separte from
+    stte changing
+
+  * organising elixir project
+
+    mix new name
+    mix run -e 'ElxAdventMd5.CLI.run(["-h"])'
+    mix run -e 'ElxAdventMd5.CLI.run(["abc", "123"])'
+
+  - [ ] Sarah Mil ruby talk on writing RSpec in 25 min End of year 2014?
+  - [ ] Talk by creator of clojure at RubyConf circa 2015 a keynote
+  * ruby DATA and __END__ only accessible in first file loaded, won't work with RSpec
+  * reminded myself of ffmpeg commands to create a animated gif, given file
+    my_movie.mp4:
+
+    create a palette file
+
+      ffmpeg -y -t 10 \
+        -i my_movie.mp4 \
+        -vf fps=10,scale=320:-1:flags=lanczos,palettegen \
+        palette.png
+
+    create gif
+
+      ffmpeg -t 10 \
+        -i my_movie.mp4 \
+        -i palette.png \
+        -filter_complex "fps=10,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse" \
+        my_movie.gif
+  * elixir http://elixir-lang.org/getting-started/processes.html
+    iex to run repl
+    spawn new processes
+    send and receive to talk between processes
+    links, tasks and state
+    agents probably the better way of doing this
+    Idea to do split process for MD5 calculation from advent calendar
+* Sat 25th
   * advent calendar day 4 - 6
+  * pairing with Hari on tennis
 * Fri 24rd
   * Tensor flow ch 1
   * advent calendar day 1 - 3
