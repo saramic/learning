@@ -93,6 +93,9 @@ An asside on Aboriginal introduction:
 
 ### Self learning - Elle Meredith
 
+  * bookclub notes - ellemeredith@gmail.com
+  * repetative learning throught different mediums
+
   * "learning is a marathon not a sprint"
   * prodigy myth vs growth mindset, growth vs fixed, associate hard work with
     education not success.
@@ -103,11 +106,11 @@ An asside on Aboriginal introduction:
     - knesthetic - just build it
     - face to face
     - active
-  * perception of progress - can help
+  * perception of progress - can help - Sinek videos
   * Grit - self determination
     - dedicate time to keep learning new things
   * risk to be stupid - make mistakes
-  * hard vs soft skills
+  * hard(precision playing an instrumet) vs soft skills(interpreting situations)
   * set a goal
   * set deadlines
   * create challenges
