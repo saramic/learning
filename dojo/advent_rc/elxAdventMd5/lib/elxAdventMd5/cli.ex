@@ -5,7 +5,9 @@ defmodule ElxAdventMd5.CLI do
   """
 
   def run(argv) do
-    parse_args(argv)
+    argv
+      |> parse_args
+      |> process
   end
 
   @doc """
@@ -26,5 +28,16 @@ defmodule ElxAdventMd5.CLI do
         -> { key, String.to_integer(number) }
       _ -> :help
     end
+  end
+
+  def process(:help) do
+    IO.puts """
+    usage: elxAdventMd5 <key> <number>
+    """
+    System.halt(0)
+  end
+
+  def process({key, number}) do
+    ElxAdventMd5.Solver.run(key, number)
   end
 end
