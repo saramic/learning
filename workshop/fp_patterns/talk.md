@@ -23,6 +23,13 @@
                                                             - Michael Milewski
 
 
+## Learning
+
+  *Aims:*
+    * help, encourage, and nurture an environment of continual learning
+    * share learnings
+
+
 # FP Patterns
 
 *Using functional programming patterns to learn and evaluate functional
