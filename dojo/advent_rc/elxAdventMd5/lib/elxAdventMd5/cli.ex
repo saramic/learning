@@ -38,6 +38,6 @@ defmodule ElxAdventMd5.CLI do
   end
 
   def process({key, number}) do
-    ElxAdventMd5.Solver.run(key, number)
+    ElxAdventMd5.Solver.do_md5(key, number)
   end
 end
