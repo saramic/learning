@@ -1,6 +1,11 @@
 # Progress Feb 2017
 
 * Sat 25th
+  * Programming Elixir 1.3 book
+
+    iex> c("name_of_file.ex")
+
+  * TODO meetup notes from AI meetup
   - [ ] charlespeach for pc build
   - [ ] ergodox to build awesome keyboard
   - investigate
