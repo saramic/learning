@@ -154,3 +154,12 @@ This would lead to
     user	2m22.809s
     sys	0m1.157s
 
+## Bash?
+
+WIP
+
+    count = 0; while true; do `md5 -s "abbhdwsy$count"`; $count=$count + 1; done
+
+    md5 -s abbhdwsy1739529 | cut -d ' ' -f 4 | grep ^00000 | cut -c 6
+    8
+
