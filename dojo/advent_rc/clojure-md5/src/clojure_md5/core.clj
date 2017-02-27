@@ -16,12 +16,6 @@
 (defn md5_for_int [num]
   (md5 (clojure.string/join "" ["abbhdwsy" num])))
 
-(defn counter []
-  (let [tick (atom 0)]
-    #(swap! tick inc)))
-
-(def tick (counter))
-
 (defn char_5 [md5-str]
   (nth (char-array md5-str) 5))
 
@@ -29,16 +23,12 @@
 
 (defn do_md5 []
   (join
-  (map char_5
-  (take 8 (filter is_00000?
-      (map md5_for_int
-        (repeatedly tick)))))))
+    (map char_5
+         (take 2
+               (filter is_00000?
+                       (map md5_for_int
+                            (range)))))))
         ;[1739529, 1910966, 1997199, 2854555, 2963716, 3237361, 4063427, 7777889]))))))
-  ;(md5_for_int 1739529))
-  ;(->> [1739529, 1910966, 1997199, 2854555, 2963716, 3237361, 4063427, 7777889]
-    ;(map (md5_for_int num))
-    ;(filter is_00000?)))
-      ;(range 2000000)))
 
 (defn -main [& args]
   (println (do_md5)))
