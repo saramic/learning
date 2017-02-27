@@ -1,25 +1,78 @@
 # Advent MD5
 
+As day 5 of advent calendar at RC the reuirement was to solve a puzzle
+involving brute forcing md5 hashing.
+
+Given a key `abbhdwsy` find the first 8 md5 hashes of that key and a counter
+0..infnity that start with `/^00000/` then use the 6th character to create a
+"code"
+
+This would lead to
+    0..1739529..1910966..1997199..2854555..2963716..3237361..4063427..7777889
+
+    md5 -s abbhdwsy1739529
+    00000`8`bfb72caf77542c32b53a73439b
+    00000`0`4ed0ede071d293b5f33de2dc2f
+    00000`1`2be6057b2554c26bfddab18b08
+    00000`b`f3f1ca8d1f229aa50b3093b2be
+    00000`5`12874cc40b764728993dd71ffb
+    00000`6`9710beec5f9a1943a610be52d8
+    00000`a`8da36ee9b7e193f956cf701911
+    00000`7`76b6ff41a7e30ed2d4b6663351
+
+    leading to an answer of
+
+    801b56a7
+
+    an initial implementation in ruby took 10 seconds and thinking that "elixir
+    is new and fast" I was surprised a base implementation took 3 times longer!
+    I decided to investigate a bit more and take a look at:
+
+      * speed of other implementations: perl, clojure, C?, java?
+      * profiling of current implementations?
+      * threading options: elixir processes, clojure?, bash fork?
+        Ruby threading probably does not make sense here as this is a cpu bound
+        operation.
+
+## Performance overview
+
+  language |  time
+  ---------+------
+  perl     |  3.9s
+  ruby     | 11.8s
+  elixir   | 32.0s
+  clojure  | 92.0s (user 142s)
+  bash     |
+  C
+  Java     |
+
+
 ## perl
 
-    time perl -e 'use Digest::MD5 qw(md5_hex); use Data::Dumper; @a; \
-      $count = 0; while($#a < 7){ $md5 = md5_hex("abbhdwsy${count}"); \
-      push @a, $md5 if $md5 =~ /^00000/; $count++; }; print Dumper @a'
+		time ./md5_solver.pl
+		801b56a7
 
-    $VAR1 = '000008bfb72caf77542c32b53a73439b';
-    $VAR2 = '0000004ed0ede071d293b5f33de2dc2f';
-    $VAR3 = '0000012be6057b2554c26bfddab18b08';
-    $VAR4 = '00000bf3f1ca8d1f229aa50b3093b2be';
-    $VAR5 = '00000512874cc40b764728993dd71ffb';
-    $VAR6 = '0000069710beec5f9a1943a610be52d8';
-    $VAR7 = '00000a8da36ee9b7e193f956cf701911';
-    $VAR8 = '00000776b6ff41a7e30ed2d4b6663351';
+		real  0m3.906s
+		user  0m3.895s
+		sys 0m0.008s
 
-    real	0m3.990s
-    user	0m3.897s
-    sys	0m0.075s
+*TODO:* can I not wrap lines in `perl -e`???
+
+    time perl -e 'use Digest::MD5 qw(md5_hex); @a; $count = 0; while($#a < 7){ $md5 = md5_hex("abbhdwsy${count}"); push @a, $md5 if $md5 =~ /^00000/; $count++; }; print join("", map { (split(//, $_))[5] } @a), "\n"'
+    801b56a7
+
+    real	0m3.884s
+    user	0m3.877s
+    sys	0m0.004s
 
 ## ruby
+
+    time ./md5_solver.rb
+    801b56a7
+
+    real	0m11.755s
+    user	0m11.695s
+    sys	0m0.050s
 
     time ruby -e 'require "digest"; a = []; count = 0; while(a.size < 8) do; \
       md5 = Digest::MD5.hexdigest "abbhdwsy#{count}"; count += 1; \
@@ -33,19 +86,12 @@
 
 ## Elixir
 
-    time elixir md5_solver.exs
-    8
-    0
-    1
-    b
-    5
-    6
-    a
-    7
+    time ./md5_solver.exs 
+    801b56a7
 
-    real	0m30.174s
-    user	0m29.947s
-    sys	0m0.325s
+    real	0m31.955s
+    user	0m30.635s
+    sys	0m1.403s
 
 ## Elixir GenServer
 
@@ -97,3 +143,14 @@
         md5(parent, number + step, step)
       end
     end
+
+## Clojure
+
+    cd clojure-md5/
+    time lein run
+    801b56a7
+
+    real	1m32.045s
+    user	2m22.809s
+    sys	0m1.157s
+
