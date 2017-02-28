@@ -1,5 +1,9 @@
 # Progress Feb 2017
 * Tue 28th
+  - [ ] checkout pro clojure talks from https://www.quora.com/Functional-Programming-Why-choose-Clojure-over-Elixir
+  - [ ] [let go of your best
+    people](https://www.linkedin.com/pulse/best-hr-idea-i-ever-stole-didier-elzinga?trk=v-feed&lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BHeCUIWjKGuXYx4d0ISyseA%3D%3D)
+    share with tech articles
   * first 2 chapeters on Mastery
     * plataeus get used to them, enjoy them they are inevitable
     * 3 types:
@@ -10,6 +14,10 @@
     * none of these persue mastery
     * our culture of instant gratification through things like TV has made
       riding the plateaus to mastery no acceptable to most.
+  * reading clojure hate http://martintrojer.github.io/beyond-clojure/2016/04/19/beyond-clojure-prelude
+    - [ ] https://www.youtube.com/watch?v=XTl7Jn_kmio typed racket as dynamic languages rot quickly
+    - also [F# type providers](https://msdn.microsoft.com/en-us/library/hh156509.aspx)
+    - and [why they are a big deal](http://martintrojer.github.io/fsharp/2013/06/04/comparing-fp-repl-sessions)
 
 * Mon 27th
   * NZ AI meetup
@@ -95,7 +103,7 @@ permenant true in mix.exs
     :observer.start - observe
 
   * talk "Why the Functional"
-    dry-rb has left/right as in scala
+    dry-rb has either left/right as in scala
     referential transparency - take the functional stuff out and separte from
     stte changing
 
@@ -107,6 +115,9 @@ permenant true in mix.exs
 
   - [ ] Sarah Mil ruby talk on writing RSpec in 25 min End of year 2014?
   - [ ] Talk by creator of clojure at RubyConf circa 2015 a keynote
+    [Rails conf 2012 Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
+    someones [notes](https://github.com/newhavenrb/conferences/wiki/Rich-Hickey-Keynote)
+    other interesting videos https://www.google.com/search?q=rich+hickey+ruby+conf+keynote&oq=rich+hickey+ruby+conf+keynote&aqs=chrome..69i57.6391j0j4&sourceid=chrome&ie=UTF-8#q=rich+hickey+ruby+conf+keynote&tbm=vid&*
   * ruby DATA and __END__ only accessible in first file loaded, won't work with RSpec
   * reminded myself of ffmpeg commands to create a animated gif, given file
     my_movie.mp4:
