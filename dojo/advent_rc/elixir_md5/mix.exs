@@ -4,6 +4,7 @@ defmodule ElixirMd5.Mixfile do
   def project do
     [app: :elixir_md5,
      version: "0.1.0",
+     escript: escript_config(),
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -29,5 +30,9 @@ defmodule ElixirMd5.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     []
+  end
+
+  defp escript_config do
+    [ main_module: ElixirMd5.CLI ]
   end
 end
