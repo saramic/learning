@@ -1,4 +1,54 @@
 # Progress Feb 2017
+* Tue 28th
+  * first 2 chapeters on Mastery
+    * plataeus get used to them, enjoy them they are inevitable
+    * 3 types:
+      1. dabler - loves to start but quits in plateau after first success,
+      2. obsessive - tries too hard to keep success when in plateau and finally
+         it falls appart
+      3. hacker - happy just to stay on 2nd plataeu
+    * none of these persue mastery
+    * our culture of instant gratification through things like TV has made
+      riding the plateaus to mastery no acceptable to most.
+
+* Mon 27th
+  * NZ AI meetup
+    * Jaco Stewart - Intro Neural Networks
+      - mention guerilla gate - bad Google image tagging
+      - Neural networks are:
+        - not a model of human brain
+        - does not need to be a black box
+        - not hard to implement
+      * mention of pubilicly available datasets - this is a challenge, to get big
+        enough datasets
+      * Kaggle.com
+      - [ ] sign up to google translate
+    * Andrew Masters - Microsoft Cognitive Toolkit MS CNTK
+      * CEO inductive.co.nz
+      * MS CNTK and brainscript/python equivalent to TensorFlow
+      * in beta 12 and open source on https://github.com/microsoft/cntk
+      * very fast especially on NVIDIA GPU
+      * designed for multi machine out of the box
+      * Example - read handwritten digits and letters for chess scoring
+        * had files of test images per letter, both good and bad versions of
+          letters
+        * used bad as identifying scribble
+        * feature set was only grey scale of pixel but could have been edge
+          detection data, number of loops, number of vertical lines etc.
+    * ___ http://aif.nz
+      * Artifitial Intelligence Form NZ
+      * start conversation, train public/media help inform policy around AI
+      * how to apply to existing businesses: construction, mining, tourisnm,
+        farming
+      * very few startups in this area
+      - [ ] AirNZ had a press release about some kind of AI bot
+  * MD5 advent calculation in: perl, ruby, elixir and clojure
+  * started exercises on elixir processes (elixir 1.3 prag prog book)
+  
+* Sun 26th
+  * pairing with Hari on ruby TDD tennis and got him setup on windows
+  * paring with ___ (from Brazil, now Aukland) on link shortner implementation.
+  * started on MD5 in perl - it has been a long time
 
 * Sat 25th
   * Programming Elixir 1.3 book
