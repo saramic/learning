@@ -1,4 +1,8 @@
 # Progress Mar 2017
 
 * Wed 1st
-  *
+  * mastery book - so good
+    * instruction ...
+    * practice ...
+    * submit ...
+  * elixir tail recursion
