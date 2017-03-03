@@ -24,7 +24,7 @@
 (defn do_md5 []
   (join
     (map char_5
-         (take 2
+         (take 8
                (filter is_00000?
                        (map md5_for_int
                             (range)))))))
