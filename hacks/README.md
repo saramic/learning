@@ -53,6 +53,14 @@ Random ideas and hacks
     * forums - http://www.cbusforums.com/forums/
     * developer kit - http://www.cbus-enabled.com/
 
+  * hub-start
+    A script to create a git repo with a date history that in particular shows an interesting history in the green histogram of commits over time.
+    * I presume that this is created based on time stamps in a git repo
+    * you could have various pre configured commits like: random, random but
+      getting more popular, random but post techinical, spell out l33t.
+    * also could create an editor or image to bitmat generator to make your own
+      images
+
 ## Done
   * bash challenge 5
     from https://itsfoss.com/bash-challenge-5/
