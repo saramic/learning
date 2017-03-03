@@ -32,6 +32,11 @@ track that I am actively spending time learning and hopefully improving.
   - [ ] dojo - http://codingdojo.org/kata/ or similar
   - [ ] look up truffleruby
         https://pragtob.wordpress.com/2017/01/24/benchmarking-a-go-ai-in-ruby-cruby-vs-rubinius-vs-jruby-vs-truffle-a-year-later/
+  - [ ] if I were to evaluate frontend frameworks at this point in time they would be
+    - [ ] react/redux
+    - [ ] ember
+    - [ ] elm
+    - [ ] [Vue.js](https://vuejs.org/v2/guide/)
 
 ## Goals - Feb 2017
 
