@@ -36,15 +36,15 @@ This would lead to
 
 ## Performance overview
 
-  language |  time
-  ---------+------
-  perl     |  3.9s
-  ruby     | 11.8s
-  elixir   | 32.0s
-  clojure  | 92.0s (user 142s)
-  bash     |
-  C
-  Java     |
+    language |  time
+    ---------+------
+    perl     |  3.9s
+    ruby     | 11.8s
+    elixir   | 32.0s
+    clojure  | 92.0s (user 142s)
+    bash     |
+    C
+    Java     |
 
 
 ## perl
