@@ -1,7 +1,31 @@
 # Progress Mar 2017
 
+* Sat 4th
+  * building out Front end for React to display data components for upcoming
+    unearthed hackathon, [Data FE](https://github.com/saramic/data-fe)
+
+    following https://github.com/ctrlplusb/react-universally/blob/master/docs/FEATURE_BRANCHES.md
+    git clone https://github.com/ctrlplusb/react-universally my-project
+    cd my-project
+    git remote rename origin upstream
+    git remote add origin https://github.com/my-github-username/my-project
+    git push -u origin master
+
+    looked at adding simple charts http://www.reactd3.org/ still a work in progress
+
+  * read summaries of GraphX in Action
+    * start with Spark Job Server to get simple REST API endpoint up
+    * probably do the hard work of working through most of the algorithms and
+      the kind of problems they solve
+    * look at Zepplin and D3.js for simple visualisation
+    * look into state of GraphFrames as they are faster
+  * read summaries of TensorFlow in Action books
+    * probably need to work through most of this linearly although Ch9 is
+      around image classification
+    * probably look at the default problems on the website
+
 * Fri 3rd
-  * 
+  * coding dojo ruby - Roman to arabic converter
 * Thu 2nd
   * **NOTHING**
   * Study club at work
