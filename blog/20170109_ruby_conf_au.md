@@ -146,3 +146,8 @@ An asside on Aboriginal introduction:
 
 ### Datacenter fires - Aja Hammerly
 
+
+## Other
+
+[Adam's
+notes](https://gist.github.com/adamthalhammer/e85ea3ce6cb17500c6a2e1f5e701d32f)
