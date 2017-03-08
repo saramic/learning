@@ -1,5 +1,16 @@
 # Progress Mar 2017
 
+* Thu 9th
+  * ...
+* Wed 8th
+  * TensorFlow book on regressions
+* Tue 7th
+  * Redux wired up in data-fe
+  * charting libs Plotly and SigmaJS added to data-fe
+* Mon 6th
+  * added api to data-fe
+* Sun 5th
+  * spark-jobserver attempt to run
 * Sat 4th
   * building out Front end for React to display data components for upcoming
     unearthed hackathon, [Data FE](https://github.com/saramic/data-fe)
