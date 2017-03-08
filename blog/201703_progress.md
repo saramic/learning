@@ -3,7 +3,8 @@
 * Thu 9th
   * ...
 * Wed 8th
-  * TensorFlow book on regressions
+  * TensorFlow book: linear regression, multi classifiers, k-means and audio
+    segmentation example
 * Tue 7th
   * Redux wired up in data-fe
   * charting libs Plotly and SigmaJS added to data-fe
