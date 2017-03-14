@@ -1,10 +1,55 @@
 # Progress Mar 2017
 
+* Mon 14th
+  * examples ch 3 of tensorflow book
+* Mon 13th
+  * examples ch 2 of tensorflow book
+  * reading GraphX summaries of chapters
+    - [ ] read pregel ch 4
+    - [ ] demo of built in algos ch 5
+* Sun 12th
+  * NOTHING
+* Sat 11th
+  * NOTHING
+* Fri 10th
+  * work react info
+  * tennis dojo with junio
 * Thu 9th
-  * ...
+  * looking at working with optaplanner again
+    - [ ] someones demo project http://appwriter.com/new-easier-optaplanner-example-project.html
+    - [ ] and code https://bitbucket.org/betterology/optaplannerhellotest
+    - [ ] currently breaking on https://issues.apache.org/jira/browse/SMX4-581
+  * Study Club notes
+    * Adam - AI and more elixir flow merge sort
+      * AI
+       * reinforcement learning algorithms https://gym.openai.com/
+          * Teach your game to play itself
+            * https://openai.com/blog/universe/
+            * https://universe.openai.com/
+          * UC Berkeley Pac Man as intro to AI http://ai.berkeley.edu/project_overview.html
+      * Flow Discussion of https://en.wikipedia.org/wiki/Schwartzian_transform
+    * Me - Readme docs are hard
+      * Played with react-universally (as used in boom) but struggled with
+        instructions like "You need to add your own version of Weather Icons
+        CSS." from react-weathericons made me think: how? where? from where?
+        what syntax? how to incorporate in react? in webpack? give me
+        something!!!
+      * OptaPlanner is a constraint satisfaction solver to solve
+        things like bin packing, travelling salesman, rostering etc. Running a
+        demo is easy but getting a simple program written from scratch is
+        impossible solving shortest path with a number of trucks and constraints on when customers accept deliveries
+        * uses https://en.wikipedia.org/wiki/Tabu_search under the covers
+        * blog how to win the US election with less then a quarter of the vote
+        * some insight on running/starting an open source project https://www.optaplanner.org/blog/2016/08/07/ADecadeOfOptaPlanner.html
+      * Book Review Machine Learning with TensorFlow easy to follow along with and a lightweight approach but unfortunately no meaty examples to really solve a problem. More of a backgrounder and reminded me that python is a language that is very much alive.
+      * playing with HAWK use python httpie
+        pip install requests-hawk httpie
+
 * Wed 8th
   * TensorFlow book: linear regression, multi classifiers, k-means and audio
-    segmentation example
+    segmentation example, Hidden Markov Models, autoencoders for images
+    * starting to feel that the examples may get you started but will not solve
+      a real world problem at the level of the book, maybe in a later chapter?
 * Tue 7th
   * Redux wired up in data-fe
   * charting libs Plotly and SigmaJS added to data-fe
