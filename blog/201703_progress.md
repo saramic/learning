@@ -2,6 +2,20 @@
 
 * Mon 14th
   * examples ch 3 of tensorflow book
+  * issues from ch3 code
+    - for pyplotlib to work needed to
+      ```bash
+      cat ~/.matplotlib/matplotlibrc
+      backend: TkAgg
+      ^D
+      ```
+    - index for csv 'r' not 'rb' and next(csvreader)
+      ```python
+        with open(filename, 'r') as csvfile:
+          ...
+          next(csvreader)
+      ```
+
 * Mon 13th
   * examples ch 2 of tensorflow book
   * reading GraphX summaries of chapters

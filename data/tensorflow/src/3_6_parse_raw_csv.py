@@ -3,7 +3,7 @@ import time
 
 # via https://data.lacity.org/A-Well-Run-City/311-Call-Center-Tracking-Data-Archived-/ukiu-8trj
 # curl 'https://data.lacity.org/api/views/ukiu-8trj/rows.csv?accessType=DOWNLOAD' > 311.csv 
-#   will take about .... for ... B
+#   will take about 13 min for 257 MB
 #
 def read(filename, date_idx, date_parse, year, bucket=7):
     days_in_year = 365
