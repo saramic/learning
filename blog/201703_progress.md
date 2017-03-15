@@ -1,5 +1,12 @@
 # Progress Mar 2017
 
+* Thu 17th
+  * started reading clojure std lib book
+  * examples of clojure std lib demo from ch1
+* Wed 16th
+  NOTHING
+* Tue 15th
+  NOTHING
 * Mon 14th
   * examples ch 3 of tensorflow book
   * issues from ch3 code
@@ -15,6 +22,7 @@
           ...
           next(csvreader)
       ```
+  * spark GraphX examples of pageRank
 
 * Mon 13th
   * examples ch 2 of tensorflow book
