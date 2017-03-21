@@ -1,10 +1,31 @@
 # Progress Mar 2017
 
+* Wed 23rd
+  * read ch 1 DL with python a good history - again a new wave of innovation of
+    sorts that i seem to have missed but was somewhat concious of happening
+    - Keras for DL - perceptual problems
+    - XGB Gradient boosting machine - for structured data
+    also look at CUDA GPU interface, Google's TPU specific for tensor
+    processing, Decision trees and Random forrests
+* Tue 22nd
+  * read ch3 grokking Deep Learning
+* Mon 21st
+  * consolidate learnings from jupyter notebooks
+* Sun 20th
+  * unearthed hackathon - took 3rd place
+* Sat 19th
+  * unearthed hackathon
+    * struggling with jupyter notebooks and merging data
+    * struggling to use pentaho data-integration (PDI formerly kettle)
+* Fri 18th
+  * some initial investigation with python and jupyter notebooks for data analysis
 * Thu 17th
   * started reading clojure std lib book
   * examples of clojure std lib demo from ch1
 * Wed 16th
   NOTHING
+  * Quote from Lunia's Dzymulska's funeral via her granddaughter
+    "love the smallthings that you do every day"
 * Tue 15th
   NOTHING
 * Mon 14th
