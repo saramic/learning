@@ -1,6 +1,56 @@
 # Progress Mar 2017
 
 * Wed 23rd
+  * how to spark innovation - a series of questions?
+    * [7 tips for generating new ideas](https://www.bdc.ca/en/articles-tools/business-strategy-planning/innovate/pages/7-ways-generate-innovative-new-ideas.aspx)
+      break down industry into components - attribute listing (proces, price,
+      artists, etc) - ask questions about each attribute, cluster common areas
+      Achieveable innovation is a sideways step rather than revolutionary
+      upheaval. use **SCAMPER** to generate ideas
+
+        1. Substitue something
+        1. Combine it with something else
+        1. Adapt something to it
+        1. Modify or magnify it
+        1. Put it to some other use
+        1. Eliminate something
+        1. Reverse or rearrange it
+
+    * [7 strategies for generating ideas](http://www.innovationresource.com/innovation-speaker-resources/seven-strategies-for-generating-ideas/)
+      * Ideas cannot be forced but organisations can still rethink the way
+        ideas happen.
+      * Be more involving of whole organisation, customers, suppliers, etc
+      * Organisations have I-mentors to foster ideation techniques across company
+      - [ ] Put forward a problem/challenge to be solved
+
+    * [7 Ways to Generate Great Ideas](http://www.inc.com/kevin-daum/7-ways-to-generate-great-ideas.html)
+      * from Dr. Blaine McCormick 10 minutes timed to come up with 42 ideas on
+        a specific problem or topic
+
+    * [Thinking Inside the Box: 5 Ways to Generate Breakthrough Ideas](http://www.coca-colacompany.com/stories/thinking-inside-the-box-5-ways-to-generate-breakthrough-ideas)
+      Systematic Initiative Thinking SIT
+      1. Subtraction - remove recording to make a walkman
+      1. Task unification - backpack straps that also massage the wearer
+      1. Multiplication - component copied or changed - camera flash used for
+         redeye reduction
+      1. Division - component used elsewhere - oven changed into warming draw
+      1. Attribute Dependency - 2 product attributes that correlate -
+         transition sunglasses change when in sun
+      Start with a conceptual solution and work back to a problem
+
+    * [Build innovation engine in 90 days](https://hbr.org/2014/12/build-an-innovation-engine-in-90-days)
+      Minimal Viable Innovation System - maybe next step to bring ideas to life
+      in an organisation
+
+    * also remember
+      * use post it notes
+      * go outside
+      * listen to music or do sport
+      * give people a platform to hack on - boom could be just this
+      * look at what's bugging you
+      * what are you driven to solve
+      * mix up recent startups, tech libs or things you read on HN
+
   * read ch 1 DL with python a good history - again a new wave of innovation of
     sorts that i seem to have missed but was somewhat concious of happening
     - Keras for DL - perceptual problems
