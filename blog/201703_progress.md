@@ -1,6 +1,20 @@
 # Progress Mar 2017
 
-* Wed 23rd
+* Tue 28th
+  * ch 4 Deep Learning with Python - ready to re-do as practical
+    key concepts are: do their examples, do your own and jiggle the variables
+  * instructions for running an ES6 dojo
+* Mon 27th
+  * work on roxoff: pivot of minetec locations
+* Sun 26th
+  * work on roxoff: merge bogger cycle
+* Sat 25th
+  * work on roxoff: what to present, vehicle data overview
+* Fri 24th
+  * work on roxoff: histogram for bogging and wait red light
+* Thu 23rd
+  NOTHING
+* Wed 22nd
   * how to spark innovation - a series of questions?
     * [7 tips for generating new ideas](https://www.bdc.ca/en/articles-tools/business-strategy-planning/innovate/pages/7-ways-generate-innovative-new-ideas.aspx)
       break down industry into components - attribute listing (proces, price,
@@ -57,28 +71,28 @@
     - XGB Gradient boosting machine - for structured data
     also look at CUDA GPU interface, Google's TPU specific for tensor
     processing, Decision trees and Random forrests
-* Tue 22nd
+* Tue 21st
   * read ch3 grokking Deep Learning
-* Mon 21st
+* Mon 20th
   * consolidate learnings from jupyter notebooks
-* Sun 20th
+* Sun 19th
   * unearthed hackathon - took 3rd place
-* Sat 19th
+* Sat 18th
   * unearthed hackathon
     * struggling with jupyter notebooks and merging data
     * struggling to use pentaho data-integration (PDI formerly kettle)
-* Fri 18th
+* Fri 17th
   * some initial investigation with python and jupyter notebooks for data analysis
-* Thu 17th
+* Thu 16th
   * started reading clojure std lib book
   * examples of clojure std lib demo from ch1
-* Wed 16th
+* Wed 15th
   NOTHING
   * Quote from Lunia's Dzymulska's funeral via her granddaughter
     "love the smallthings that you do every day"
-* Tue 15th
+* Tue 14th
   NOTHING
-* Mon 14th
+* Mon 13th
   * examples ch 3 of tensorflow book
   * issues from ch3 code
     - for pyplotlib to work needed to
@@ -94,8 +108,6 @@
           next(csvreader)
       ```
   * spark GraphX examples of pageRank
-
-* Mon 13th
   * examples ch 2 of tensorflow book
   * reading GraphX summaries of chapters
     - [ ] read pregel ch 4
