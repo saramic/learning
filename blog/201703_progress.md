@@ -1,5 +1,38 @@
 # Progress Mar 2017
 
+* Thu 30th
+  * re look at pubnub eon
+    - [ ] https://github.com/pubnub/eon
+      - other charting stuff https://github.com/chriswhong/nyctaxi
+      - this kind of view of the loaders would be fun
+        http://www.wired.co.uk/partnerships/infographic-renault-sport-formula-one-team-by-numbers/
+    - [ ] self updating chart https://www.pubnub.com/developers/eon/chart/builder/
+  * Neo4j "webinar" around fraudster rings
+    * data lake :)
+    * a guy has a dry throat and the presentation tanks
+    * interesting ideas about looking back to a common bad transaction place to
+      check against other users
+    * not convinced about their idea of sophisticated fraud rings yet also
+      starting with $2 test transactions in person not online
+    * large adoption in banks and government
+    * Should look at this as a recommendation engine for connected artists.
+    * also
+      * neo4jsandbox.com to play
+      * use-cases/fraud-detection and other use cases
+      * visualise https://linkurio.us/
+    - [ ] makes me think of 3 fraud things
+      - [ ] how they worked out about sting operation
+      - [ ] v1 rocket via articles
+      - [ ] lates scammer that used mobsters locally
+        - NA 910 - 913? cannot seem to find the recent mention of this
+        - http://adam.curry.com/art/1372156350_pP2fUe6K.html
+        - http://www.nytimes.com/2013/05/10/nyregion/eight-charged-in-45-million-global-cyber-bank-thefts.html
+        - https://www.wsj.com/articles/SB10001424127887324744104578472891453678074
+        - http://www.theverge.com/2013/5/9/4316626/criminal-flash-mob-accused-stealing-45-million-hours-atm-attack
+        - or similar? http://thehackernews.com/2016/03/bank-hacking-malware.html
+
+* Wed 29th
+  NOTHING
 * Tue 28th
   * ch 4 Deep Learning with Python - ready to re-do as practical
     key concepts are: do their examples, do your own and jiggle the variables
