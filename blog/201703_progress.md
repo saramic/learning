@@ -1,6 +1,7 @@
 # Progress Mar 2017
 
 * Thu 30th
+  * ch1 react quickly and hello world example
   * re look at pubnub eon
     - [ ] https://github.com/pubnub/eon
       - other charting stuff https://github.com/chriswhong/nyctaxi
