@@ -1,6 +1,36 @@
 # Progress Mar 2017
 
+* Fri 31st
+  * ruby http pagination data pull and transform to csv
 * Thu 30th
+  * Study Club
+    Alex Gibson
+      * personal daily art practice 5-7am at https://studio11brunswick.com/
+      * monthly art subscription service https://artbox.io/
+    Gonzalo Bulnes
+      * a second reading of "How to Design Programs, Second Edition" 2nd
+        edition free online using Racket for code examples also recommends
+        "Realm of Racket" although a games programming book very enjoyable
+    Hugh Middleton
+      * Still in R refresher about to get stuck into ML in about 4 hours
+        * Michael Milewski highly recommends watching the 30min starting video
+          from http://course.fast.ai/lessons/lesson1.html to get into ML
+          programming without the refresher
+    Michael Milewski
+      * Consolidating my learnings from recent hackathon in jupyter notebooks
+        https://github.com/saramic/roxoff/blob/master/prelim_analysis/Vehicle_data_overview.ipynb
+      * About to get stuck into some trilateration and maybe multilateration 
+      * Started reading React quickly and was good to see back to basics
+        development of react without all the bells an whistles
+      * Why do people webinar? discussion of why you would choose a webinar
+        over a video, a white-paper/blog post, a book/tutorial, a conference?
+        do some companies treat this as some tax break differently from other
+          learning?
+    Alexandre Nucera
+      * Sleep cycles app how to wake up early and a whole heap of click bait articles that say so
+      * Recent book "The Hard Thing About Hard Things: Building a Business When
+        There Are No Easy Answers" An easy and good read
+
   * ch1 react quickly and hello world example
   * re look at pubnub eon
     - [ ] https://github.com/pubnub/eon
