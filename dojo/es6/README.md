@@ -16,13 +16,16 @@ In light of running an ES6 dojo I thought I would document the setup steps.
     yarn add --dev babel-cli babel-preset-latest
     ```
 
-* and need some babel presets
+* and need some babel presets in package.json
 
-    ```bash
-    cat >> .babelrc
-    {
-      "presets": ["latest"]
-    }
+    ```json
+		...
+    "babel": {
+      "presets": [
+        "latest"
+      ]
+    },
+		...
     ```
 
 * add a test framework like
@@ -87,5 +90,22 @@ To use the new class syntax you can do something like the following
       }
     }
     export default foo;
+    ```
+
+or with a constructor
+
+    ```bash
+    cat > foo.js
+    class Foo {
+      constructor() {
+        this.fooStr = 'foo';
+      }
+
+      bar() {
+        return this.fooStr;
+      }
+    }
+
+    export default Foo;
     ```
 
