@@ -108,4 +108,38 @@ or with a constructor
 
     export default Foo;
     ```
+## Wire into a React app
 
+```bash
+ npm install -g create-react-app
+ create-react-app react-foo
+ cd react-foo
+ yarn start
+ ```
+
+ make sure the lib is in src `cp .../foo.js src/`
+
+ edit `src/App.js`
+
+ ```javascript
+ import Foo from './foo';
+ ...
+ constructor(props) {
+   super(props);
+   this.fooAction = this.fooAction.bind(this);
+   this.foo = new Foo();
+   this.state = {
+     foo: this.foo.bar()
+   };
+...
+fooAction() {
+  this.foo.fooAction();
+  this.setState({
+    foo: this.foo.bar()
+  });
+}
+...
+<button onClick={this.fooAction}>the foo action</button>
+<span key='the-score'>{this.state.foo}</span>
+...
+ ```
