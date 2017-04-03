@@ -143,3 +143,28 @@ fooAction() {
 <span key='the-score'>{this.state.foo}</span>
 ...
  ```
+
+## Rules of TDD
+
+1. do not write any code till you have written a test
+1. make the test pass as quickly as possible with minimal amount of code
+1. refactor (change the code without adding any functionality to make it more
+   readable, extensible, etc)
+
+## Refactoring ideas
+
+* *DRY*
+  - Don't repeat yourself - try and remove duplication
+* *Rule of 3's*
+  - if it is a copy 3 times there is a better abstraction
+* *SOLID*
+ - *S* - SRP Single responsibility principle - do one thing
+ - *O* - OCP Open Close - entities should be open for extension closed for
+   modification
+ - *L* - LSP Liskov substitution principle - object replaceable with instances
+   of subtype
+ - *I* - ISP Interface segregation principle - many client specific interfaces
+   better then 1 general purpose one
+ - *D* - DIP Dependency inversion principle - depend on abstraction not
+   concretions
+
