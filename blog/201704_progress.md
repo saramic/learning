@@ -1,5 +1,10 @@
 # Progress Apr 2017
 
+* Tue 4th
+  *
+* Mon 3rd
+  * es6 tennis dojo for practice
+  * read - ch3 React Quickly - JSX
 * Sun 2nd
   * watched pubnub
     [tutorial/webinar](https://www.pubnub.com/developers/webinars/view-on-demand/?vidid=22815)
