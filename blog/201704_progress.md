@@ -1,7 +1,11 @@
 # Progress Apr 2017
 
-* Tue 4th
+* Wed 5th
   *
+* Tue 4th
+  * es6 dojo x2
+  * read - ch 9 D3 - react
+  * started watching fast.ai week 1
 * Mon 3rd
   * es6 tennis dojo for practice
   * read - ch3 React Quickly - JSX
