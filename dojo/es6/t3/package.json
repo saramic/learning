@@ -1,0 +1,19 @@
+{
+  "name": "tennis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-latest": "^6.24.0",
+    "jest": "^19.0.2"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
