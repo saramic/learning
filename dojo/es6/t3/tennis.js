@@ -14,21 +14,21 @@ class Tennis {
   }
 
   isSameScore() {
-    return this.scores[1] === this.scores[2];
+    return this.min() === this.max();
   }
 
   scoreDiff(number) {
-    return Math.abs(this.scores[1] - this.scores[2])
+    return this.max() - this.min();
   }
 
   isAdvantage() {
     return !this.isSameScore()
-      && this.scores[this.whoIsWinning()] > 3
+      && this.max() > 3
       && this.scoreDiff() === 1;
   }
 
   isDeuce() {
-    return this.isSameScore() && this.scores[1] >= 3;
+    return this.isSameScore() && this.max() >= 3;
   }
 
   statusText(status) {
@@ -36,16 +36,32 @@ class Tennis {
   }
 
   whoIsWinning(){
-    return this.scores[1]>this.scores[2] ? 1 : 2;
+    const max = this.max();
+    return this.keys().find((x) => this.scores[x] == max);
   }
 
   advantageText() {
     if (this.isAdvantage()) return this.statusText('advantage');
   }
 
+  max() {
+    return Math.max.apply(null, this.vals());
+  }
+
+  min() {
+    return Math.min.apply(null, this.vals());
+  }
+
+  keys() {
+    return Object.keys(this.scores).map((x) => parseInt(x));
+  }
+
+  vals() {
+    return this.keys().map((x) => this.scores[x]);
+  }
+
   isWinner() {
-    return this.scoreDiff() >= 2
-    && (this.scores[1] >= 4 || this.scores[2] >= 4);
+    return this.max() - this.min() >= 2 && this.max() >= 4
   }
 
   gameText() {
@@ -57,23 +73,24 @@ class Tennis {
   }
 
   standardScore() {
-    let scores = [SCORES[this.scores[1]], SCORES[this.scores[2]]];
-    scores = Array.from(new Set(scores));
-    if (this.isSameScore()) scores = scores.concat(['all']);
+    let scores = this.keys().map((x) => SCORES[this.scores[x]]);
+    if (this.isSameScore()) {
+      scores = Array.from(new Set(scores));
+      scores = scores.concat(['all']);
+    }
     return scores.join(" ")
   }
 
   score() {
-    return [
-      this.gameText(),
-      this.advantageText(),
-      this.deuceText(),
-      this.standardScore(),
-      ].find((x) => x)
+    return this.gameText()
+    || this.advantageText()
+    || this.deuceText()
+    || this.standardScore()
   }
 
   playerScores(player) {
-    this.scores[player]++
+    if (!this.scores[player]) this.scores[player] = 0;
+    this.scores[player]++;
   }
 }
 
