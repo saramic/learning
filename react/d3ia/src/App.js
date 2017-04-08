@@ -3,6 +3,7 @@ import './App.css';
 import BarChart from './BarChart';
 import WorldMap from './WorldMap';
 import worlddata from './world';
+import StreamGraph from './StreamGraph';
 import { range } from 'd3-array';
 import { scaleThreshold } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
@@ -25,10 +26,9 @@ class App extends Component {
           <h2>d3ia dashboard</h2>
         </div>
         <div>
-          <BarChart colorScale={colorScale} data={appdata} size={[500,500]} />
-        </div>
-        <div>
+          <StreamGraph colorScale={colorScale} data={appdata} size={[1000,250]} />
           <WorldMap colorScale={colorScale} data={appdata} size={[500,400]} />
+          <BarChart colorScale={colorScale} data={appdata} size={[500,500]} />
         </div>
       </div>
     );
