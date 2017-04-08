@@ -20,6 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.onResize = this.onResize.bind(this);
+    this.onHover = this.onHover.bind(this);
     this.state = { screenWidth: 1000, screenHeight: 500 };
   }
 
@@ -31,6 +32,10 @@ class App extends Component {
   onResize() {
     this.setState({ screenWidth: window.innerWidth,
       screenHeight: window.innerHeight - 70 });
+  }
+
+  onHover(d) {
+    this.setState({ hover: d.id });
   }
 
   render() {
@@ -45,14 +50,20 @@ class App extends Component {
           <StreamGraph
             colorScale={colorScale}
             data={appdata}
+            hoverElement={this.state.hover}
+            onHover={this.onHover}
             size={[this.state.screenWidth, this.state.screenHeight /2]} />
           <WorldMap
             colorScale={colorScale}
             data={appdata}
+            hoverElement={this.state.hover}
+            onHover={this.onHover}
             size={[this.state.screenWidth / 2, this.state.screenHeight /2]} />
           <BarChart
             colorScale={colorScale}
             data={appdata}
+            hoverElement={this.state.hover}
+            onHover={this.onHover}
             size={[this.state.screenWidth / 2, this.state.screenHeight /2]} />
         </div>
       </div>

@@ -13,7 +13,9 @@ class WorldMap extends Component {
       .map((d,i) => <path
           key={"path" + i}
           d={pathGenerator(d)}
-          style={{fill: this.props.colorScale(d.launchday),
+          onMouseEnter={() => {this.props.onHover(d)}}
+          style={{fill: this.props.hoverElement === d.id ?
+            "#FCBC34" : this.props.colorScale(i),
             stroke: "black", strokeOpacity: 0.5 }}
           className="countries"
       />)
