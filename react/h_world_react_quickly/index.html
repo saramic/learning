@@ -3,10 +3,12 @@
   <head>
     <script src="node_modules/react/dist/react.js"></script>
     <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <!--script src="node_modules/babel-core/lib/api/browser.js"></script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
   </head>
   <body>
     <div id="content"></div>
-    <script type="text/javascript">
+    <script type="text/babel">
 
 var data ={
   "post":{
@@ -46,25 +48,13 @@ var Post = React.createClass({
   },
   render: function() {
     return (
-        React.createElement('div',
-          {
-            className: 'post'
-          },
-          React.createElement('h2',
-            {
-              className: 'postAuthor',
-              id: this.props.id
-            },
-            this.props.user + ': ',
-            React.createElement('span',
-              {
-                className: 'postBody',
-              },
-              this.props.content
-						),
-						this.props.children
-					)
-        )
+      <div className='post'>
+        <h2 className='postAuthor' id={this.props.id}>
+          {this.props.user}:
+          <span className='postBody'>{this.props.content}</span>
+          {this.props.children}
+        </h2>
+      </div>
     );
   }
 });
@@ -77,21 +67,15 @@ var Comment = React.createClass({
   },
   render: function() {
     return (
-      React.createElement('div', {
-          className: 'comment'
-        },
-        React.createElement('h2', {
-            className: 'commentAuthor'
-          },
-          this.props.user + ': ',
-          React.createElement('span', {
-              className: 'commentContent'
-            },
-            this.props.content
-          ),
-          this.props.children
-        )
-      )
+      <div className='comment'>
+        <h2 className='commentAuthor'>
+          {this.props.user}:
+          <span className='commentContent'>
+            {this.props.content}
+          </span>
+          {this.props.children}
+        </h2>
+      </div>
     );
   }
 });
@@ -129,27 +113,20 @@ var CreateComment = React.createClass({
     });
   },
   render: function() {
-    return React.createElement('form', {
-      className: 'createComment',
-      onSubmit: this.handleSubmit
-    },
-    React.createElement('input', {
-      type: 'text',
-      placeholder: 'Your name',
-      value: this.state.user,
-      onChange: this.handleAuthorChange
-    }),
-    React.createElement('input', {
-      type: 'text',
-      placeholder: 'Thoughts?',
-      onChange: this.handleTextChange,
-      value: this.state.content
-
-    }),
-    React.createElement('input', {
-      type: 'submit',
-      value: 'Post'
-    })
+    return (
+      <form className='createComment' onSubmit={this.handleSubmit}>
+        <input
+          type='text'
+          placeholder='Your name'
+          value={this.state.user}
+          onChange={this.handleAuthorChange} /> 
+        <input
+          type='text'
+          placeholder='Thoughts?'
+          onChange={this.handleTextChange}
+          value={this.state.content} />
+        <input type='submit' value='Post' />
+      </form>
     )
   }
 });
@@ -174,25 +151,23 @@ var CommentBox = React.createClass({
   },
   render: function() {
     return (
-        React.createElement('div', {
-            className: 'commentBox'
-          },
-          React.createElement(Post, {
-            id: this.props.post.id,
-            content: this.props.post.content,
-            user: this.props.post.user,
-          }),
-          this.state.comments.map(function(comment){
-            return React.createElement(Comment, {
-              key: comment.id,
-              content: comment.content,
-              user: comment.user,
-            });
-          }),
-          React.createElement(CreateComment, {
-            onCommentSubmit: this.handleCommentSubmit
+      <div className='commentBox'>
+        <Post
+          id={this.props.post.id}
+          content={this.props.post.content}
+          user={this.props.post.user} />
+        {
+          this.state.comments.map(function(comment) {
+            return(
+              <Comment
+                key={comment.id}
+                content={comment.content}
+                user={comment.user} />
+            )
           })
-        )
+        }
+        <CreateComment onCommentSubmit={this.handleCommentSubmit} />
+      </div>
     )
   }
 });
