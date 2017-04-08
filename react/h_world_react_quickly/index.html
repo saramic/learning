@@ -7,6 +7,37 @@
   <body>
     <div id="content"></div>
     <script type="text/javascript">
+
+var data ={
+  "post":{
+    "id":123,
+    "content": "What we hope ever to do with ease, we must first learn to do with diligence. — Samuel Johnson",
+    "user": "Mark Thomas"
+  },
+  "comments":[
+    {
+      "id": 0,
+      "user": "David",
+      "content": "such. win."
+    }, {
+      "id": 1,
+      "user": "Haley",
+      "content": "Love it."
+    }, {
+      "id": 2,
+      "user": "Peter",
+      "content": "Who was Samuel Johnson?"
+    }, {
+      "id":3,
+      "user": "Mitchell",
+      "content": "@Peter get off Letters and do your homework"
+    }, {
+      "id": 4,
+      "user": "Peter",
+      "content": "@mitchell ok :P"
+    }
+  ]
+};
 var Post = React.createClass({
   PropTypes:{
     user: React.PropTypes.string.isRequired,
@@ -24,7 +55,7 @@ var Post = React.createClass({
               className: 'postAuthor',
               id: this.props.id
             },
-            this.props.user,
+            this.props.user + ': ',
             React.createElement('span',
               {
                 className: 'postBody',
@@ -52,7 +83,7 @@ var Comment = React.createClass({
         React.createElement('h2', {
             className: 'commentAuthor'
           },
-          this.props.user,
+          this.props.user + ': ',
           React.createElement('span', {
               className: 'commentContent'
             },
@@ -65,22 +96,116 @@ var Comment = React.createClass({
   }
 });
 
-var h1 = React.createElement('h1', null, 'Hello Wrold!');
+var CreateComment = React.createClass({
+  propTypes: {
+    onCommentSubmit: React.PropTypes.func.isRequired,
+    content: React.PropTypes.string,
+  },
+  getInitialState: function(){
+    return {
+      content: '',
+      user: ''
+    };
+  },
+  handleAuthorChange: function(event) {
+    this.setState({
+      user: event.target.value
+    });
+  },
+  handleTextChange: function(event) {
+    this.setState({
+      content: event.target.value
+    });
+  },
+  handleSubmit: function(event) {
+    event.preventDefault();
+    this.props.onCommentSubmit({
+      user: this.state.user.trim(),
+      content: this.state.content.trim()
+    }),
+    this.setState( {
+      user: '',
+      content: ''
+    });
+  },
+  render: function() {
+    return React.createElement('form', {
+      className: 'createComment',
+      onSubmit: this.handleSubmit
+    },
+    React.createElement('input', {
+      type: 'text',
+      placeholder: 'Your name',
+      value: this.state.user,
+      onChange: this.handleAuthorChange
+    }),
+    React.createElement('input', {
+      type: 'text',
+      placeholder: 'Thoughts?',
+      onChange: this.handleTextChange,
+      value: this.state.content
+
+    }),
+    React.createElement('input', {
+      type: 'submit',
+      value: 'Post'
+    })
+    )
+  }
+});
+
+var CommentBox = React.createClass({
+  propTypes: {
+    post: React.PropTypes.object,
+    comments: React.PropTypes.arrayOf(React.PropTypes.object)
+  },
+  getInitialState: function(){
+    return {
+      comments: this.props.comments
+    }
+  },
+  handleCommentSubmit: function(comment) {
+    var comments = this.state.comments;
+    comment.id = Date.now()
+    var newComments = comments.concat([comment]);
+    this.setState({
+      comments: newComments
+    });
+  },
+  render: function() {
+    return (
+        React.createElement('div', {
+            className: 'commentBox'
+          },
+          React.createElement(Post, {
+            id: this.props.post.id,
+            content: this.props.post.content,
+            user: this.props.post.user,
+          }),
+          this.state.comments.map(function(comment){
+            return React.createElement(Comment, {
+              key: comment.id,
+              content: comment.content,
+              user: comment.user,
+            });
+          }),
+          React.createElement(CreateComment, {
+            onCommentSubmit: this.handleCommentSubmit
+          })
+        )
+    )
+  }
+});
+
+var h1 = React.createElement('h1', null, 'Hello World!');
 class HelloWorld extends React.Component {
   render() {
     return React.createElement('div',
       null,
       h1,
-      React.createElement(Post, {
-          id: 1,
-          content: " said this is a post!",
-          user: "mark",
-        }
-      ),
-      React.createElement(Comment, {
-          id: 2,
-          user: 'bob',
-          content: " commented: wow! how cool!"
+      React.createElement(CommentBox, {
+          comments: data.comments,
+          post: data.post,
         }
       )
     );
