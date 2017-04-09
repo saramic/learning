@@ -1,5 +1,15 @@
 # Progress Apr 2017
 
+* Mon 10th
+  * skimmed ch 6 & 7 d3ia - hierarchical and network visualization
+* Sun 9th
+  * NOTHING
+* Sat 8th
+  * practical D3 with React d3ia
+  * practical React in Action Ch 2
+  * read ch 6 GraphX in action - deriving taxonomies from Word2Vec MST
+* Fri 7th
+* Thu 6th
 * Wed 5th
   *
 * Tue 4th
