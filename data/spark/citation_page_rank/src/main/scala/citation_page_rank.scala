@@ -29,11 +29,20 @@ object citation_page_rank {
     // (110163,0.15)
     // ...
 
-    val result = v.reduce((a,b) => if(a._2 > b._2) a else b)
     println("PageRank vertex")
-    println(result)
+    println(v.reduce((a,b) => if(a._2 > b._2) a else b))
     // (9207016,85.27317386053808)
  
+    // TODO in a loop read in a paper Id
+    val paperId = 9207016
+    println("Personalized page rank for: " + paperId)
+    println(
+      graph.personalizedPageRank(paperId, 0.001)
+        .vertices
+        .filter(_._1 != paperId)
+        .reduce((a,b) => if (a._2 > b._2) a else b)
+    )
+
     sc.stop
   }
 }
