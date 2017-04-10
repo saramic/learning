@@ -1,5 +1,36 @@
+# Learning Spark
 
-# page rank demo
+base on Spark in Action and GraphX in Action.
+
+## TODO
+
+- [ ] run pagerank/triangle count in an interactive way
+- [ ] run pagerank/triangle as a service
+- [ ] read up on latest Spark releases (book is 1.6 current is 2.1)
+- [ ] apply pagerank to own data
+- [ ] deriving taxonomies
+- [ ] apply taxonomy derivation to
+  - [ ] image taxonomy problem
+  - [ ] search term taxonomy problem
+- [ ] integrate with a visualization frontend
+
+## Page Rank
+
+```
+cd citation_page_rank
+sbt run
+```
+
+## Triangle Count
+
+```
+cd slashdot_friend_foe
+sbt run
+```
+
+## In spark shell
+
+### page rank demo
 
 page rank on high energy physics theory
 
@@ -31,14 +62,3 @@ page rank on high energy physics theory
     9711200 was cited 2414 times
     9207016 was most influential according to page rank
 
-
-# triange count
-
-    ```bash
-    wget http://snap.stanford.edu/data/soc-Slashdot0811.txt.gz
-    gunzip soc-Slashdot0811.txt.gz
-    ```
-
-    ```spark
-    
-    ```
