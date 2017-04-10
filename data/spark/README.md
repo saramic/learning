@@ -7,12 +7,32 @@ base on Spark in Action and GraphX in Action.
 - [ ] run pagerank/triangle count in an interactive way
 - [ ] run pagerank/triangle as a service
 - [ ] read up on latest Spark releases (book is 1.6 current is 2.1)
+  - [ ] [via release notes](http://spark.apache.org/releases/spark-release-2-1-0.html)
+  - [ ] [graphX overview](http://spark.apache.org/docs/latest/graphx-programming-guide.html)
+  - [ ] new [CSV data souroce](https://github.com/databricks/spark-csv)
+  - [ ] changes in [MLlib 2.0.0 ?](http://spark.apache.org/docs/2.0.0/ml-guide.html)
+  - [ ] changes in [MLlib 2.1.0 !](http://spark.apache.org/docs/2.1.0/ml-guide.html)
+	- [ ] [model persistance changes in Spark 2.0](https://databricks.com/blog/2016/05/31/apache-spark-2-0-preview-machine-learning-model-persistence.html)
+	- [ ] [MLlib 2.0 preivew video](https://spark-summit.org/2016/events/apache-spark-mllib-20-preview-data-science-and-production/)
+	- [ ] [SparkR video](https://spark-summit.org/2016/events/recent-developments-in-sparkr-for-advanced-analytics/)
+	- [ ] [SparR (R on Spark)](http://spark.apache.org/docs/2.1.0/sparkr.html)
+	- [ ] [handling late data and watermarking](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#handling-late-data-and-watermarking)
+  - [ ] [structured streaming + kafka integration](http://spark.apache.org/docs/2.1.0/structured-streaming-kafka-integration.html)
 - [ ] apply pagerank to own data
 - [ ] deriving taxonomies
 - [ ] apply taxonomy derivation to
   - [ ] image taxonomy problem
   - [ ] search term taxonomy problem
 - [ ] integrate with a visualization frontend
+- [ ] use a spark cluster
+
+## Deriving Taxonomies
+
+for a list of words, generate a graph based on Google news word similarity
+
+```
+cd deriving_taxonomies
+```
 
 ## Page Rank
 
