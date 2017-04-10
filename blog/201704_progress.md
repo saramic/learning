@@ -1,6 +1,10 @@
 # Progress Apr 2017
 
+* Tue 11th
+  * ...
 * Mon 10th
+  * deriving taxonomies 6.3.1 gxia
+  * triangel count 5.2.2 gxia
   * skimmed ch 6 & 7 d3ia - hierarchical and network visualization
 * Sun 9th
   * NOTHING
