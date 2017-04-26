@@ -3,6 +3,55 @@
 This is a work in progress of my learning. Some goals achievements and a way to
 track that I am actively spending time learning and hopefully improving.
 
+## Current themese
+
+### Data
+
+**Machine Learning**
+
+**Spark**
+  - [ ] setup cluster in databricks and code along with example from
+    [Spark MLlib 2.0 preview](https://youtu.be/kvk4gnXL9H4). The Notebook
+    was originally available at http:/dbricks.co/1UfvAH9 but not there any
+    longer. I am sure something like this one
+    [Saving & loading ML models](http://cdn2.hubspot.net/hubfs/438089/notebooks/spark2.0/ML%20persistence%20in%202.0.html)
+    via [Spark 2.0 Preview: ML Model
+    Persistence](https://databricks.com/blog/2016/05/31/apache-spark-2-0-preview-machine-learning-model-persistence.html)
+    or something newer would work well too.
+  - [ ] look at zepplin notebooks according to [Intro to ML Spark and Zepplin](https://youtu.be/k4KOmnenuFk)
+    following http://tinyurl.com/hwx-intro-to-ml-with-spark
+    to get to [Spark tutorials](https://hortonworks.com/apache/spark/#tutorials) and getting started with
+    [ML spark and zepplin](https://hortonworks.com/hadoop-tutorial/intro-machine-learning-apache-spark-apache-zeppelin/)
+    Data set recommendations
+    - LIBSVM datasets: http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/
+    - Public datasets: https://github.com/caesar0301/awesome-public-datasets
+    - Machine Learning dataset repo: http://archive.ics.uci.edu/ml/datasets.html
+    - Reddit datasets: https://www.reddit.com/r/datasets/
+    - Quora datasets: https://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public
+    - Name generator: http://www.fakenamegenerator.com/order.php
+  - [ ] [Spark MLlib on Googles Dataproc](https://www.youtube.com/watch?v=6tgvHDYT_AM)
+    running python on googles data lab. A good example to follow along with to start wlth
+      - BigQuery on the NYC taxi public data
+      - start a cluster
+      - random forrest with Map output
+      - save model for later use
+    probably start here - from links from end of video
+      - https://cloud.google.com/dataproc/docs/quickstarts
+      - https://cloud.google.com/dataproc/docs/tutorials
+      - MLLib http://spark.apache.org/docs/latest/ml-guide
+      - NYC data https://cloud.google.com/bigquery/public-data/nyc-tlc-trips
+      - Datalab https://cloud.google.com/datalab/docs/
+      - dataproc initializer https://github.com/GoogleCloudPlatform/dataproc-initialization-actions
+
+**Solr indexing**
+
+**Graph analysis**
+
+### UI
+
+React
+D3.js data visualisation
+
 ## Easy list of TODOs
 
   - [ ] Elm basics - https://guide.elm-lang.org/
