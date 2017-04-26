@@ -7,7 +7,10 @@
 * Fri 28th
 
 * Thu 27th
-
+  convert a number of renamed png screen captures to jpg for better compression
+  ls | egrep 'all_|exp_' | xargs  convert -quality 60 {} {}.jpg
+  - [ ] need to understand this {} syntax
+  - [ ] need to resize as they seemed to get bigger?
 * Wed 26th
   Node TDD - day digit calculator - how many days over 100 years do you have
   unique digits in your age.
