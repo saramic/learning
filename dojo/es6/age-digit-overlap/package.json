@@ -1,0 +1,19 @@
+{
+  "name": "age-digit-overlap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "jest": "^19.0.2",
+    "moment": "^2.18.1",
+    "twix": "^1.1.5"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "babel": {
+    "presets": "latest"
+  }
+}
