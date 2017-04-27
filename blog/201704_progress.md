@@ -7,10 +7,23 @@
 * Fri 28th
 
 * Thu 27th
-  convert a number of renamed png screen captures to jpg for better compression
-  ls | egrep 'all_|exp_' | xargs  convert -quality 60 {} {}.jpg
+  * convert a number of renamed png screen captures to jpg for better compression
+    ```
+    ls | egrep 'all_|exp_' | xargs  convert -quality 60 {} {}.jpg
+    ```
   - [ ] need to understand this {} syntax
   - [ ] need to resize as they seemed to get bigger?
+  * Lecture 1.1 on [category theory - Bartosz Milewski](https://www.youtube.com/watch?v=I8LbkfSSR58&index=1&list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)
+    https://youtu.be/I8LbkfSSR58
+    * Category Theory is a higher abstraction
+    * Type theory, logic, and 1 other are related
+    * Haskel is a higher abstraction then C++
+    * c++ hard problem is template metaprogramming
+    * in Haskel that is 1 line
+    Found by article
+      * via https://news.ycombinator.com/item?id=14138196
+      * https://hackernoon.com/why-functional-programming-matters-c647f56a7691 in comments from author
+      - [ ] also should watch [Structure and interpretation of computer programs](https://www.youtube.com/playlist?list=PLF4E3E1B72A58B492)
 * Wed 26th
   Node TDD - day digit calculator - how many days over 100 years do you have
   unique digits in your age.

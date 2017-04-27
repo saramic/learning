@@ -3,6 +3,28 @@
 This is a work in progress of my learning. Some goals achievements and a way to
 track that I am actively spending time learning and hopefully improving.
 
+## Short list
+
+ - watch category theory lectures
+  * [category theory - Bartosz
+    Milewski](https://www.youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)
+- Datathon Melbourne 2017
+  - GraphX
+  - Keras
+  - Tensor Flow
+  - technologies
+    - Google Big Query
+    - Google datalab
+    - Google dataproc
+    - python notebooks
+- React
+  - React Quickly
+  - React in Action
+  - D3.js - network diagrams
+- Clojure
+  - clojure applied
+  - functional patterns
+
 ## Current themese
 
 ### Data
