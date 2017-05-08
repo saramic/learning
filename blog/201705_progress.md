@@ -3,6 +3,11 @@
 * Tue 9th
 
 * Mon 8th
+  still want to learn Lua at some stage
+  - [Redis in action](https://redislabs.com/resources/ebook/) ch11 scripting Redis with Lua
+  - Lua world of warcraft book
+  - learning Game AI programming with Lua
+  - [Programming in Lua](https://www.lua.org/pil/contents.html)
 
 * Sun 7th
   Run through logistic regression in spark Ch 8.2 SIA and use it to submit an entry in kaggle competition
@@ -11,7 +16,7 @@
       - [ ] use predictions
       - [ ] in scala [sum output](http://stackoverflow.com/questions/37032025/how-to-sum-the-values-of-one-column-of-a-dataframe-in-spark-scala)
       - [ ] [sum of row values](http://stackoverflow.com/questions/36360540/spark-sum-of-row-values)
-    - [ ] write it up
+    - [x] write it up
     ...
     - [ ] get data straight from BigQuery [BigQuery Connector](https://cloud.google.com/hadoop/examples/bigquery-connector-spark-example)
     - [ ] get my head around more scala/spark
@@ -19,7 +24,7 @@
       - [ ] read this git book https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details
       - [ ] [joins](http://kirillpavlov.com/blog/2016/04/23/beyond-traditional-join-with-apache-spark/)
     - [ ] other classification problem examples
-      - [ ] [Breast Cancer](https://mapr.com/blog/predicting-breast-cancer-using-apache-spark-machine-learning-logistic-regression/)
+      - [x] [Breast Cancer](https://mapr.com/blog/predicting-breast-cancer-using-apache-spark-machine-learning-logistic-regression/)
       - [ ] [predictive analysis on food inspection](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-machine-learning-mllib-ipython)
     ...
     - [ ] run in python
@@ -47,6 +52,9 @@
   Logistic Regression Ch 8.2 SIA and getting head around some spark
 
 * Fri 5th
+
+  tic tac toe[Intro to react tutorial](https://facebook.github.io/react/tutorial/tutorial.html)
+
   Watched presentations in MelbDatathon2015
   1. Depression related stats and how pharmacies can help augment treatment
   1. Dangerous drug combinations
