@@ -1,11 +1,14 @@
 # Progress Apr 2017
 
 * Sun 30th
+  NOTHING?
 
 * Sat 29th
-
+  * first kaggle entry with a baseline for MelbHackathon2017
+  * facet wrap plot in ggplot
 * Fri 28th
-
+  * quantiles (percentages) vs quartiles (0%, 25%, 50%, 75%, 100%) I think
+  * sort out what I want to achieve in datathon
 * Thu 27th
   * convert a number of renamed png screen captures to jpg for better compression
     ```
