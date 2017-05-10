@@ -1,7 +1,17 @@
 # Progress May 2017
 
+* Wed 10th
+  * look at facial recognition for a community historical application
+    - [ ] [Open Face](https://cmusatyalab.github.io/openface/)
+    - [ ] number of links at [face detection .com](https://facedetection.com/software/)
+    - [ ] [free + open source tools to build a facial recognition app](http://tilomitra.com/architecture-facial-recognition-system/)
+    - [ ] [raspi open face for home survailance](https://github.com/BrandonJoffe/home_surveillance)
+    - [ ] http://openbiometrics.org/
+    - [ ] [Build a Face Detection App Using Node.js and OpenCV](https://www.sitepoint.com/face-detection-nodejs-opencv/)
+    - [ ] [ML is fun part 4 modern face recognition with deep learning](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
+    - [ ] [Makezine Build Face-Recognition System with Intel Edison using OpenCV](http://makezine.com/projects/make-43/photographic-memory/)
 * Tue 9th
-
+  NOTHING
 * Mon 8th
   still want to learn Lua at some stage
   - [Redis in action](https://redislabs.com/resources/ebook/) ch11 scripting Redis with Lua
