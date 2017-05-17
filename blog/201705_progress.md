@@ -1,5 +1,88 @@
 # Progress May 2017
 
+* Wed 17th
+  - [ ] should I learn **rust?**
+    - [ ] [Rust and node when performance matters](https://blog.risingstack.com/how-to-use-rust-with-node-when-performance-matters/)
+    - [ ] [Use cases for Neon](https://www.quora.com/What-are-some-use-cases-for-Neon-Node-+-Rust) rust and node
+    - [ ] [Rust for node devs](http://fredrik.anderzon.se/2016/05/10/rust-for-node-developers-part-1-introduction/)
+    - [ ] [Rust lang of future](https://cburgdorf.wordpress.com/2014/07/17/rust-will-be-the-language-of-the-future/)
+    - [ ] [Rust Books](https://github.com/sger/RustBooks)
+    - [ ] [Rust lang.org](https://doc.rust-lang.org/book/) and on [github rust-lang](https://github.com/rust-lang/book)
+
+  - [ ] **Redshift?**
+    - [ ] [Getting started with Amazon Redshift Packt](https://www.packtpub.com/big-data-and-business-intelligence/getting-started-amazon-redshift)
+    - [ ] [Jupyter Notebooks and Redshift](https://blog.rjmetrics.com/2016/02/08/setting-up-your-analytics-stack-with-jupyter-notebook-aws-redshift/)
+
+  - [ ] take a look at [Solidus](https://github.com/solidusio/solidus)
+
+  * read artice [Pairing with junior developers](https://www.devmynd.com/blog/2015-1-pairing-with-junior-developers/)
+  mostly things I know and have thought about in the past. The key is let them
+  type. I also like the let them make mistakes and find things to have in
+  common, what they can teach you, what are they good at.
+
+  - [ ] interesting looking at closure trees
+    * https://github.com/mceachen/closure_tree
+    * https://blog.openshift.com/tmp-part-2-using-clojure-tree-with-activerecord/
+    * https://www.slideshare.net/billkarwin/models-for-hierarchical-data
+  - [ ] would be interesting to build closure tree in rails/dry-rb/react as a
+    tree creator and drag and drop component
+  - [ ] would be interesting to build a nested key-value store with deep
+    updates, drag and drop re-ordering using rails and react
+    - or using dry-rb?
+
+  **Dry RB**
+    - [ ] http://dry-rb.org/news/2016/08/15/introducing-dry-system/
+    - [ ] http://dry-rb.org/
+    - [ ] [dry-web-roda](https://github.com/dry-rb/dry-web-roda)
+    - [ ] [dry-rb](http://dry-rb.org/gems/dry-system/)
+    - [ ] demo dry-rb project [berg](https://github.com/icelab/berg)
+
+* Tue 16th
+  NOTHING
+* Mon 15th
+  NOTHING
+* Sun 14th
+  NOTHING
+* Sat 13th
+  NOTHING
+* Fri 12th
+  NOTHING
+* Thu 11th
+  [clj-melb](https://www.meetup.com/clj-melb/events/238715004/) meetup
+  Study club
+  * **Fast.ai**
+    * need 'iterative deepening' (is that a term) to go back to restudy certain parts of the video
+    * ended writing down time codes to find the key parts of the video
+    * someone wrote down time codes in the learning wiki but they are not the same things I wanted to review
+    * Beware that the course can be rough around the edges and links change but nothing in the documents tells you about it
+    * **Hidden AWS costs**
+      * IP and volume are charged (can cost as much as $20/month) even if they are stopped (but not released/deleted)
+    * Still looking at setting up GPU on mac
+  * **MelbURN - R user meetup**
+    * More of a Microsoft pitch then about Galaxy classification
+    * still here is the code https://github.com/Microsoft/acceleratoRs/tree/master/GalaxyClassificationWorkflow
+    * the slides (pptx) https://github.com/Microsoft/acceleratoRs/blob/master/GalaxyClassificationWorkflow/docs/galaxy-ignite.pptx
+    * previous same presentation https://channel9.msdn.com/events/Ignite/Australia-2017/DA334
+  * **MelbDatathon2017**
+    * should do a correlation between variables - [correlation in R](http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software)
+  * **Books**
+    * Ben Horowitz, The hard things about hard things
+    * Peter Thiel - From zero to one
+      * as a startup avoid competition become a monopoly then you will have
+        time to develop something for your customers rather then always being
+        busy competing. Remember that the landscape will change and in good
+        time your monopoly will be over, the world is not static
+  * **Category Theory**
+    * via [HN link](https://news.ycombinator.com/item?id=14138196)
+    * this article on [Why Functional Programming Matters](https://hackernoon.com/why-functional-programming-matters-c647f56a7691)
+    * got to the
+      [comments](https://medium.com/@mikolajszabo/hey-cedric-548d01fd094a) and
+      found that the 2 most revolutionary materials on functional programming
+      were:
+      * [Category Theory](https://www.youtube.com/playlist?list=PLbgaMIhjbmEnaH_LTkxLI7FMa2HsnawM_)
+      * or via text https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/
+      * and [Structure and interpretation of computer programs](https://www.youtube.com/playlist?list=PLF4E3E1B72A58B492)
+
 * Wed 10th
   * look at facial recognition for a community historical application
     - [ ] [Open Face](https://cmusatyalab.github.io/openface/)
