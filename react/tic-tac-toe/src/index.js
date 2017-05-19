@@ -10,15 +10,11 @@ const times = x => f => {
   }
 }
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square" onClick={this.props.onClick}>
-        {this.props.value}
-      </button>
-    );
-  }
-}
+const Square = ({value, onClick}) => (
+  <button className="square" onClick={onClick}>
+    {value}
+  </button>
+);
 
 class Board extends React.Component {
   constructor() {
