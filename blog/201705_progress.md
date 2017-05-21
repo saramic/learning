@@ -1,5 +1,35 @@
 # Progress May 2017
 
+* Mon 22nd
+
+* Sun 21st
+  * step 8 tic-tac-toe react
+* Sat 20th
+  * step 0 - 7 tic-tac-toe react
+* Fri 19th
+  - [x] read https://dtrejo.com/questions-that-senior-systems-engineers-want-answered.html
+    * some great questions to ask of a future employer
+    * would be interesting to answer them of the current empoyer
+* Thu 18th
+  - [x] read https://dtrejo.com/tools-for-hiring-engineers.html
+    * great article on how to use referrals and tools around the process
+    * also keep emailing prospective candidates with ongoing job offers, ranges
+      and blog posts
+
+  - tic-tac-toe
+  - **Rust resources**
+    - https://github.com/rust-unofficial/awesome-rust
+    - https://crates.io/
+  - **Study Club**
+    - should I learn rust? it goes with node? there is a #rust-lang at work?
+    - pairing with juniours article
+    - hour of code via https://code.org - ran a session and things resonated from pairing with juniors
+    - paired with a 2nd year and had free beer and pizza at clj-melb
+    - rails 5
+    - closure tables
+    - need to focus on practice and not just reading about new things - focus on react
+    NOTES to come
+
 * Wed 17th
   - [ ] should I learn **rust?**
     - [ ] [Rust and node when performance matters](https://blog.risingstack.com/how-to-use-rust-with-node-when-performance-matters/)
@@ -49,6 +79,7 @@
   NOTHING
 * Thu 11th
   [clj-melb](https://www.meetup.com/clj-melb/events/238715004/) meetup
+  * went home and paired instead
   Study club
   * **Fast.ai**
     * need 'iterative deepening' (is that a term) to go back to restudy certain parts of the video
