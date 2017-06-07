@@ -1,7 +1,52 @@
 # Progress May 2017
 
-* Mon 22nd
+* Wed 31st
+  NOTHING
+* Tue 30th
+  NOTHING
+* Mon 29th
+  NOTHING
+* Sun 28th
+  NOTHING
+* Sat 27th
+  NOTHING
+* Fri 26th
+  NOTHING
+* Thu 25th
+  NOTHING
+* Wed 24th
+  2011 hots living throught the next 50 year on earth
+  - everything seems to be going worst case
+  This changes everything Naomi Kleine
+  j
 
+* Tue 23rd
+  - [ ] calendar view in react of holidays
+    - https://zinoui.com/blog/react-calendar-component
+    - https://www.codementor.io/chrisharrington/building-a-calendar-using-react-js--less-css-and-font-awesome-du107z6nt
+    - http://www.fullstack4u.com/react-js/top-10-react-js-calendar-examples/
+    - https://github.com/dptoot/react-event-calendar
+    - https://github.com/aaron9000/react-image-timeline
+    - https://npm.runkit.com/react-timeline-component
+    - https://www.npmjs.com/package/react-timeline-component
+    - https://github.com/rcdexta/react-event-timeline
+    - https://github.com/sherubthakur/react-horizontal-timeline
+    - https://github.com/arvindkumarc/react-horizontal-timeline
+    - https://github.com/namespace-ee/react-calendar-timeline
+    - http://visjs.org/docs/timeline/#Example
+    - http://poddvr.com/?exposure=
+    - https://github.com/Lighthouse-io/react-visjs-timeline
+    - https://github.com/freiksenet/react-calendar
+    - https://github.com/intljusticemission/react-big-calendar
+    - Google calendar API - https://developers.google.com/google-apps/calendar/v3/reference/events/list
+      - https://developers.google.com/google-apps/calendar/v3/reference/freebusy/query#try-it
+  - good ggplot in r http://www.sthda.com/english/wiki/print.php?id=248
+  - manning 50% off
+    unity, elm, algorithms, kafka, isomorphic web design, getting mean,
+    grocking FRP, progressive web apps, web performance, natural language
+    processing
+* Mon 22nd
+  NOTHING
 * Sun 21st
   * step 8 tic-tac-toe react
 * Sat 20th
@@ -41,7 +86,8 @@
 
   - [ ] **Redshift?**
     - [ ] [Getting started with Amazon Redshift Packt](https://www.packtpub.com/big-data-and-business-intelligence/getting-started-amazon-redshift)
-    - [ ] [Jupyter Notebooks and Redshift](https://blog.rjmetrics.com/2016/02/08/setting-up-your-analytics-stack-with-jupyter-notebook-aws-redshift/)
+    - [x] [Jupyter Notebooks and Redshift](https://blog.rjmetrics.com/2016/02/08/setting-up-your-analytics-stack-with-jupyter-notebook-aws-redshift/)
+      - [ ] follow along
 
   - [ ] take a look at [Solidus](https://github.com/solidusio/solidus)
 
