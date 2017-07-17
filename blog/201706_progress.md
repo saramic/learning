@@ -3,7 +3,12 @@
 TOMORROW?
   - [ ] [books I've read](https://sivers.org/book)
   - [ ] [A unified styling language](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660)
+* Sat 10th
+  ...
+
 * Fri 9th
+  * Functional R
+  ...
 
 * Thu 8th
   * [Keynote: Building and Motivating Engineering Teams - Camille Fournier](http://www.camilletalk.com/)
