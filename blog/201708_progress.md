@@ -1,6 +1,56 @@
 # Progress August 2017
 
 * Sun 13th
+  - [ ] Book: 7 DB - Ch8 redis
+    - [ ] when `brew services start redis` and `redis-cli` then continual new line?
+    - [ ] how to VI in `redis-cli`
+    - [ ] ruby bundle install with no internet but local gems?
+    - [ ] up to sorted sets (pp269)
+    - [ ] WIP ...
+    - [ ] started looking at day 3 need npm/yarn install hiredis redis csv
+    - [ ] WIP ...
+
+  - [ ] can we expand the url shortner to be the `tennis` of TDD and `scrabble` of modelling?
+    - short url table
+    - short url has many visit stats
+    - a user owns a short url and visit stat
+    - allow 2 users to merge into a single user - not complicated enough as a
+      simple set operation will do it is here that the move complexity would be
+      nice to have, maybe in parsing something from the site?
+    - ... WIP
+    - URL shortner - basics of rails
+    - tennis - TDD cycles, code refactoring, small simple steps for something
+      that we are not sure of
+    - scrabble - basic modelling around a game, players, objects and ownership
+      as well as added complexity about figuring out you need a move class to
+      hold state during an attempted move, validation of move and or word,
+      coming up which words need to be validated especially in a 2 words being
+      created as well as complexity of scoring with potential for
+      horizontal/vertical words as well as bonus scores
+
+  - [ ] Book: 7 DB - Ch2 postgresql
+    - vi in repl
+      ```sh
+      cat >> .inputrc
+      # attempt to get vi/readline in psql
+      set editing-mode vi  kkkkkk 
+      ```
+    - [ ] how to get more info on `\h CREATE TABLE FOREIGN KEY MATCH FULL` ?
+    - windowing with `PARTITION BY`
+    - [ ] read CAP theorem Appendix 2
+    - [ ] updates now work on views? this a difference between books PostgreSQL
+      9.0 and my 9.6.3?
+    - [ ] crosstab function does not exist? and complete day 2 and wrap up
+      exercises
+    - how to measure speed of query in psql? how much faster is the
+      text_pattern_ops index? (pp37)
+    - [ ] missing `levenshtein` function (pp38)
+    - [ ] missing `show_trgm` function (pp38)
+    - [ ] `to_tsquery` example does not work with spaces?
+    - [ ] `\h` does not seem to explain much
+    - [ ] `metaphones` (pp43)
+    - [ ] till the end of the chapter ...
+
   - [x] read <https://hacks.mozilla.org/2017/02/what-makes-webassembly-fast/>
 
     - webassembly more optimised from the get go for faster download and optimisation
@@ -72,6 +122,7 @@
     - start/name/detatch/list/attach/share ssh?
     - new window/rename/jump/reorganise
     - split vertical|horizontal/reorganise/resize/jump
+    - look back in scrolled history/visual cut
 
   **When am I going to tech with...**
     - [ ] <https://spark.apache.org/docs/2.1.0/ml-classification-regression.html#random-forest-classifier>
