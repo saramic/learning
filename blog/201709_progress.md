@@ -1,5 +1,17 @@
 # Progress September 2017
 
+* Sat 2nd
+  - letter diamond dojo
+    quick dojo for letter diamonds
+
+    as per discussion in blog
+      http://alistair.cockburn.us/Thinking+before+programming
+    which suggests that blind TDD with this problem is
+    not possible? I disagree
+
+    also started with discussion on rules of 3
+      https://erikbern.com/2017/08/29/the-software-engineering-rule-of-3.html
+
 * Fri 1st
   - **setup chromebook dev**
   - using AWS micro and Termius app to ssh in
