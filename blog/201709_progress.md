@@ -1,5 +1,11 @@
 # Progress September 2017
 
+* Mon 4th
+  - vim updates using FZF and Plug
+    - [ ] look at linuxbrew? http://linuxbrew.sh/
+
+* Sun 3rd
+  NOTHING
 * Sat 2nd
   - letter diamond dojo
     quick dojo for letter diamonds
