@@ -4,6 +4,13 @@
     - [ ] look at ansible to build out environment
     - [ ] start on 7 DB stuff again
     - [ ] commit version 1 of image search
+    - [ ] got some gizmos today that I need to play with:
+        - [ ] tilt and pan servo arrangement
+        - [ ] bluetooth wireless module to work with arduino
+        - [ ] arduino compatable 3-axis accelerometer
+        - [ ] Relay module
+        - which will now go into a box along with modules like: lazers, ultrasonic transducers, neo pixels
+          sense hat etc.
 
 * Mon 4th
   - vim updates using FZF and Plug
