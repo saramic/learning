@@ -1,7 +1,7 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 
 <ul>
-  {{#each songs.content as |song|}}
+  {{#each songs.sortedContent as |song|}}
     <li>{{song.title}} by {{song.band}} ({{song.raging}})</li>
   {{/each}}
 </ul>

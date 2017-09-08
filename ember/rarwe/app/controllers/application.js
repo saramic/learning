@@ -27,7 +27,7 @@ var pretender = Song.create({
 var SongCollection = Ember.Object.extend({
   content: [],
   sortProperties: ['rating:desc'],
-  sonrtedContent: Ember.computed.sort('content', 'sortProperties'),
+  sortedContent: Ember.computed.sort('content', 'sortProperties'),
 });
 
 var songs = SongCollection.create();
