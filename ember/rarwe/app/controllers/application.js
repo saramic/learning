@@ -30,11 +30,19 @@ var SongCollection = Ember.Object.extend({
   sortedContent: Ember.computed.sort('content', 'sortProperties'),
 });
 
-var songs = SongCollection.create();
+window.songs = SongCollection.create();
 songs.get('content').pushObject(blackDog);
 songs.get('content').pushObject(yellowLedbetter);
 songs.get('content').pushObject(pretender);
 
+var alwaysWaiting = Song.create({
+  title: 'Always Waiting',
+  band: 'Kaya Project',
+  rating: 5
+})
+
+window.newSong = alwaysWaiting;
+
 export default Ember.Controller.extend({
-  songs: songs
+  songs: window.songs
 });
