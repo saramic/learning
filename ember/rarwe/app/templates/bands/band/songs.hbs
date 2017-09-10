@@ -1,8 +1,16 @@
-<ul class="list-group songs">
-  {{#each model.songs as |song|}}
-    <li class="list-group-item song">
-      {{song.title}}
-      <span class="raging pull-right">{{song.rating}}</span>
+<div calss="row">
+  <ul class="list-group songs">
+    <li calss="list-group-item">
+      {{input type="text" class="new-song" placeholder="New song" value=title}}
+      <button class="btn btn-primary btn-sm new-song-buitton" {{action "createSong"}}>
+        Add
+      </button>
     </li>
-  {{/each}}
-</ul>
+    {{#each model.songs as |song|}}
+      <li class="list-group-item song">
+        {{song.title}}
+        <span class="raging pull-right">{{song.rating}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</div>
