@@ -1,7 +1,15 @@
-<div class="row list-wrapper">
+<div class="col-md-4">
   <ul class="list-group">
-    {{#each model as |band|}}
-      <li class="list-group-item">{{band.name}}</li>
+    {{#each model.sortedContent as |band|}}
+      {{#link-to "bands.band.songs" band class="list-group-item band-link"}}
+        {{band.name}}
+        <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      {{/link-to}}
     {{/each}}
   </ul>
+</div>
+<div class="col-md-8">
+  <div class="list-group">
+    {{outlet}}
+  </div>
 </div>

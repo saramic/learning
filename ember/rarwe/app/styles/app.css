@@ -15,7 +15,7 @@ html, body {
 
 .list-wrapper {
   margin-left: 0;
-  maring-right: 0;
+  margin-right: 0;
 }
 
 .push-down-m {
@@ -25,4 +25,24 @@ html, body {
 .songs .rating {
   color: #aaa;
   font-size: 1.1em;
+}
+
+.empty-list {
+  min-height: 100px;
+  text-align: center;
+}
+
+.empty-list .empty-message {
+  display: inline-block;
+  color: #555;
+  line-height: 100px;
+}
+
+.band-link .pointer {
+  float: right;
+  display: none;
+}
+
+.band-link.active .pointer {
+  display: block;
 }
