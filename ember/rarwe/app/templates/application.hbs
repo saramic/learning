@@ -1,8 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-
-<ul>
-  {{#each songs.sortedContent as |song|}}
-    <li>{{song.title}} by {{song.band}} ({{song.rating}})</li>
-  {{/each}}
-</ul>
-{{outlet}}
+<div class="container">
+  <div class="col-md-6">
+    <div class="page-header">
+      <h1>Rock &amp; Roll<small> with Ember.js</small></h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row list-wrapper push-down-m">
+    <div class="col-md-6">
+      <ul class="list-group songs">
+        {{#each songs.sortedContent as |song|}}
+          <li class="list-group-item">
+            {{song.title}} by <em>{{song.band}}</em>
+            <span class="rating pull-right">{{song.rating}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

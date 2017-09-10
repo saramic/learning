@@ -1,0 +1,17 @@
+html, body {
+  margin: 20px;
+}
+
+.list-wrapper {
+  margin-left: 0;
+  maring-right: 0;
+}
+
+.push-down-m {
+  margin-top: 50px;
+}
+
+.songs .rating {
+  color: #aaa;
+  font-size: 1.1em;
+}
