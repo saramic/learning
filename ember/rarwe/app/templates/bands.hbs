@@ -2,7 +2,9 @@
   <div class="list-group">
     <div class="list-group-item">
       {{input type="text" class="new=band" placeholder="New Band" value=name}}
-      <button class="btn btn-primary btn-sm new-band-button" {{action "createBand"}}>
+      <button class="btn btn-primary btn-sm new-band-button"
+        disabled={{isAddButtonDisabled}}
+        {{action "createBand"}}>
         Add
       </button>
     </div>
