@@ -2,7 +2,9 @@
   <ul class="list-group songs">
     <li calss="list-group-item">
       {{input type="text" class="new-song" placeholder="New song" value=title}}
-      <button class="btn btn-primary btn-sm new-song-buitton" {{action "createSong"}}>
+      <button class="btn btn-primary btn-sm new-song-buitton"
+        disabled={{isAddButtonDisabled}}
+        {{action "createSong"}}>
         Add
       </button>
     </li>

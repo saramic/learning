@@ -8,5 +8,10 @@ export default Ember.Controller.extend({
 
       song.set('rating', rating);
     }
-  }
+  },
+
+  title: '',
+  isAddButtonDisabled: Ember.computed('title', function() {
+    return Ember.isEmpty(this.get('title'));
+  })
 });
