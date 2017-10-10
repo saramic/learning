@@ -2,6 +2,11 @@
 
 look at creating a custom iterator over pages which are represented as lines.
 
+# TODO
+  - [ ] use Enumerable as per [Design patterns in ruby - Iterator
+    example](https://github.com/davidgf/design-patterns-in-ruby/blob/master/iterator.md)
+  - [ ] focus on simplifying the `pages` method
+
   ```ruby
   doc = [
     "Heading on page 1",
