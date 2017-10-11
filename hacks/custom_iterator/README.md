@@ -6,6 +6,12 @@ look at creating a custom iterator over pages which are represented as lines.
   - [ ] use Enumerable as per [Design patterns in ruby - Iterator
     example](https://github.com/davidgf/design-patterns-in-ruby/blob/master/iterator.md)
   - [ ] focus on simplifying the `pages` method
+  - [ ] waht about using currying?
+    https://stackoverflow.com/questions/4272114/simple-currying-in-ruby
+    http://genua.github.io/ruby/2015/03/17/ruby-function-composition-and-more/
+    http://andrewberls.com/blog/post/partial-function-application-for-humans
+    https://neiro.io/2016/03/08/partial-function-application-and-currying-in-ruby.html
+    https://www.sitepoint.com/functional-programming-techniques-with-ruby-part-ii/
 
   ```ruby
   doc = [
