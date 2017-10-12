@@ -1,0 +1,6 @@
+[package]
+name = "ch2-some-foundations"
+version = "0.1.0"
+authors = ["Michael Milewski <saramic@gmail.com>"]
+
+[dependencies]
