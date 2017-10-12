@@ -5,6 +5,7 @@ look at creating a custom iterator over pages which are represented as lines.
 # TODO
   - [ ] use Enumerable as per [Design patterns in ruby - Iterator
     example](https://github.com/davidgf/design-patterns-in-ruby/blob/master/iterator.md)
+  - [ ] more on pattern http://www.informit.com/articles/article.aspx?p=1398604
   - [ ] focus on simplifying the `pages` method
   - [ ] waht about using currying?
     https://stackoverflow.com/questions/4272114/simple-currying-in-ruby
