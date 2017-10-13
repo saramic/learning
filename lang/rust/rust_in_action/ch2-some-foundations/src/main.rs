@@ -1,4 +1,15 @@
 fn main() {
+    let needle = 42;
+    let haystack = [1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862];
+
+    for reference in haystack.iter() {
+        let item = *reference;
+        if item == needle {
+            println!("{}", item);
+        }
+    }
+    println!("");
+
     let three = 0b11;
     let thirty = 0o36;
     let three_hundred = 0x12C;
