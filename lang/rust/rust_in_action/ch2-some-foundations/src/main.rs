@@ -5,13 +5,12 @@ fn main() {
     let quote = "Every face, every shop, bedroom window, public-house, and
     dark square is a picture feverishly turned--in search of what?
     It is the same with books. What do we seek through millions of pages?";
-    let mut line_num: usize = 1;
 
-    for line in quote.lines() {
+    for (idx, line) in quote.lines().enumerate() {
         if line.contains(search_term) {
+            let line_num = idx + 1;
             println!("{}: {}", line_num, line);
         }
-        line_num += 1;
     }
     println!("");
 
