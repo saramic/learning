@@ -1,4 +1,16 @@
+use std::ops::{Add};
+
 fn main() {
+    let (a, b) = (1.2, 3.4);
+    let (x, y) = (10, 20);
+
+    let c = add(a,b);
+    let z = add(x, y);
+
+    println!("{} + {} = {}", a, b, c);
+    println!("{} + {} = {}", x, y, z);
+    println!("");
+
     let haystack = [1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862];
 
     for reference in haystack.iter() {
@@ -40,6 +52,6 @@ fn main() {
     println!("a + b = {}", c);
 }
 
-fn add(i: i32, j: i32) -> i32 {
+fn add<T: Add<Output = T>>(i: T, j: T) -> T {
     i + j
 }
