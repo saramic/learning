@@ -1,6 +1,10 @@
 extern crate clap;
 extern crate regex;
 
+use std::fs::File;
+use std::io::BufReader;
+use std::io::prelude::*;
+
 use regex::Regex;
 use clap::{App,Arg};
 
@@ -12,10 +16,18 @@ fn main() {
              .help("the pattern to search for")
              .takes_value(true)
              .required(true))
+        .arg(Arg::with_name("input")
+             .help("File to search")
+             .takes_value(true)
+             .required(true))
         .get_matches();
 
     let pattern = args.value_of("pattern").unwrap();
     let re = Regex::new(pattern).unwrap();
+
+    let input = args.value_of("input").unwrap();
+    let f = File::open(input).unwrap();
+    let mut reader = BufReader::new(f);
 
     // PARAMETERS
     let context_lines = 2;
@@ -69,17 +81,24 @@ fn main() {
     }
     println!();
 
-    let quote = "Every face, every shop, bedroom window, public-house, and
-    dark square is a picture feverishly turned--in search of what?
-    It is the same with books. What do we seek through millions of pages?";
+    let mut line = String::new();
+    let mut idx = 0;
+    loop {
+        let len = reader.read_line(&mut line).unwrap();
+        if len == 0 {
+            break
+        }
 
-    for (idx, line) in quote.lines().enumerate() {
-        match re.find(line) {
+        match re.find(&line) {
             Some(_) => {
                 let line_num = idx + 1;
-                println!("{}: {}", line_num, line)
+                println!("{}: {}", line_num, line);
+                println!("{} ({} bytes long)", line, len);
             },
             None => (),
         }
+
+        line.truncate(0);
+        idx = idx + 1;
     }
 }
