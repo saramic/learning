@@ -2,11 +2,27 @@ extern crate clap;
 extern crate regex;
 
 use std::fs::File;
+use std::io;
 use std::io::BufReader;
 use std::io::prelude::*;
-
 use regex::Regex;
 use clap::{App,Arg};
+
+fn process_lines<T: BufRead + Sized>(reader: T, re: Regex) {
+    let mut idx = 0;
+    for line_ in reader.lines() {
+        let line = line_.unwrap();
+        match re.find(&line) {
+            Some(_) => {
+                let line_num = idx + 1;
+                println!("{}: {}", line_num, line);
+            },
+            None => (),
+        }
+        idx = idx + 1;
+    }
+
+}
 
 fn main() {
     let args = App::new("grep-lite")
@@ -25,9 +41,18 @@ fn main() {
     let pattern = args.value_of("pattern").unwrap();
     let re = Regex::new(pattern).unwrap();
 
-    let input = args.value_of("input").unwrap();
-    let f = File::open(input).unwrap();
-    let reader = BufReader::new(f);
+    let input = args.value_of("input").unwrap_or("-");
+
+    if input == "-" {
+        let stdin = io::stdin();
+        let reader = stdin.lock();
+        process_lines(reader, re);
+    } else {
+        let f = File::open(input).unwrap();
+        let reader = BufReader::new(f);
+        process_lines(reader, re);
+    }
+    println!();
 
     // PARAMETERS
     let context_lines = 2;
@@ -78,19 +103,5 @@ fn main() {
             let line_num = i + 1;
             println!("{}: {}", line_num, line);
         }
-    }
-    println!();
-
-    let mut idx = 0;
-    for line_ in reader.lines() {
-        let line = line_.unwrap();
-        match re.find(&line) {
-            Some(_) => {
-                let line_num = idx + 1;
-                println!("{}: {}", line_num, line);
-            },
-            None => (),
-        }
-        idx = idx + 1;
     }
 }
