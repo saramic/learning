@@ -1,8 +1,22 @@
+extern crate clap;
 extern crate regex;
 
 use regex::Regex;
+use clap::{App,Arg};
 
 fn main() {
+    let args = App::new("grep-lite")
+        .version("0.1")
+        .about("searches for patterns")
+        .arg(Arg::with_name("pattern")
+             .help("the pattern to search for")
+             .takes_value(true)
+             .required(true))
+        .get_matches();
+
+    let pattern = args.value_of("pattern").unwrap();
+    let re = Regex::new(pattern).unwrap();
+
     // PARAMETERS
     let context_lines = 2;
     let needle = "oo";
@@ -54,8 +68,6 @@ fn main() {
         }
     }
     println!();
-
-    let re = Regex::new("picture").unwrap();
 
     let quote = "Every face, every shop, bedroom window, public-house, and
     dark square is a picture feverishly turned--in search of what?
