@@ -27,7 +27,7 @@ fn main() {
 
     let input = args.value_of("input").unwrap();
     let f = File::open(input).unwrap();
-    let mut reader = BufReader::new(f);
+    let reader = BufReader::new(f);
 
     // PARAMETERS
     let context_lines = 2;
@@ -81,24 +81,16 @@ fn main() {
     }
     println!();
 
-    let mut line = String::new();
     let mut idx = 0;
-    loop {
-        let len = reader.read_line(&mut line).unwrap();
-        if len == 0 {
-            break
-        }
-
+    for line_ in reader.lines() {
+        let line = line_.unwrap();
         match re.find(&line) {
             Some(_) => {
                 let line_num = idx + 1;
                 println!("{}: {}", line_num, line);
-                println!("{} ({} bytes long)", line, len);
             },
             None => (),
         }
-
-        line.truncate(0);
         idx = idx + 1;
     }
 }
