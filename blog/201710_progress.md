@@ -1,6 +1,41 @@
 # Progress October 2017
 
+* Tue 17th
+  *
+
 * Mon 16th
+  * **Learning assembler**
+    since playing the [Human Resource
+    Machine](http://tomorrowcorporation.com/humanresourcemachine) game with my
+    son, was thinking what could be a logical next step in learning. I would
+    presume it would be Assembler, then C and then move into something higher
+    order like Haskel. looking on the web for assembler I found the following:
+    - [ ] [TIS-100](http://www.zachtronics.com/tis-100/) similar but more formal looking game
+    - [ ] [6502 programming via JS emulator](http://skilldrick.github.io/easy6502/)
+    - [ ] [ARM assembler programming for Ras Pi](http://thinkingeek.com/2013/01/09/arm-assembler-raspberry-pi-chapter-1/)
+    - [ ] [writing 64bit assembly on Mac OSX](http://www.idryman.org/blog/2014/12/02/writing-64-bit-assembly-on-mac-os-x/)
+    - [ ] [Descent into C](http://www.chiark.greenend.org.uk/~sgtatham/cdescent/)
+    - [ ] [Native Assember programming for arduino](https://www.cypherpunk.at/2014/09/native-assembler-programming-on-arduino/)
+    - [ ] [AVR Assember tutorial](http://www.instructables.com/id/Command-Line-Assembly-Language-Programming-for-Ard/)
+    - https://en.wikipedia.org/wiki/Human_Resource_Machine
+
+  * **Cameras**
+    - Open ROV camera https://openrov.dozuki.com/Guide/Guide+0+-+Introduction/103
+      https://openrov.dozuki.com/Guide/Guide+3+-+Electronics/120
+    - 1080p as per Open ROV https://www.mwave.com.au/product/genius-widecam-f100-ultra-wide-angle-full-hd-webcam-ab83737
+    - spy style button hole cameras https://www.ebay.com/sch/items/?_nkw=spy+button+camera&_sacat=&_ex_kw=&_mPrRngCbx=1&_udlo=&_udhi=&_sop=12&_fpos=&_fspt=1&_sadis=&LH_CAds=&rmvSB=true
+    - generic search https://www.google.com.au/search?q=1080p+camera+ras+pi+telephoto&source=univ&tbm=shop&tbo=u&sa=X&ved=0ahUKEwily_vx5vTWAhWFEpQKHWLCCRsQsxgIKw&biw=1680&bih=949
+    - generic camera for bikes blog http://sf.streetsblog.org/2017/01/30/legal-update-and-getting-a-bike-camera-for-peace-of-mind/
+      * cycliq fly 6 https://cycliq.com/
+        * review https://www.dcrainmaker.com/2015/10/cycliq-fly6-review.html
+      * rideye http://www.rideye.com/
+
+  * **Office Hacks**
+    - [ ] look at writing a slack bot
+
+  * **Lang learning**
+    - [ ] https://blog.bradfieldcs.com/in-2017-learn-every-language-59b11f68eee
+
   * **Calistenics**
     - [ ] try https://www.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine
     - [ ] look at book https://www.dragondoor.com/b69/
