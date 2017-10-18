@@ -1,5 +1,28 @@
 # Progress October 2017
 
+* Thu 19th
+  * **Vim**
+    - [ ] how to sort out commenting?
+      https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim
+      https://github.com/scrooloose/nerdcommenter
+    - [ ]  should try vimagit https://github.com/jreybert/vimagit
+      https://www.reddit.com/r/vim/comments/5lebqe/magit_but_for_vim/
+    - [ ] waka time for time tracking? https://github.com/wakatime/vim-wakatime
+      https://wakatime.com/
+    - [ ] sort out my FZF mapping and other http://nerditya.com/code/guide-to-neovim/ as well as buffer usage
+      https://github.com/junegunn/fzf/wiki/Examples-(vim)
+      buffer commands http://vim.wikia.com/wiki/Buffers
+      ```
+      :ls           # list buffers
+      :e <filename> # edit filename
+      :bn           # next buffer
+      :bp           # previous buffer
+      :b<number>    # got to specific buffer by number
+      :bd           # delete current buffer
+      :bd!          # delete all buffer
+      ```
+    - [ ] do I get anything from ctrlp vim plugin http://kien.github.io/ctrlp.vim/ around fuzzy searching?
+
 * Wed 18th
   * **REST**
     - [ ] take a look into nested routes, best practices and the like http://guides.rubyonrails.org/routing.html#nested-resources
