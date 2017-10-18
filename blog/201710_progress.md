@@ -1,7 +1,23 @@
 # Progress October 2017
 
-* Tue 17th
-  *
+* Wed 18th
+  * **REST**
+    - [ ] take a look into nested routes, best practices and the like http://guides.rubyonrails.org/routing.html#nested-resources
+    - [ ] look at REST and all the things https://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something
+
+  * **Molding**
+    - [ ] get shapes made for you https://www.shapeways.com/marketplace/tech/drone-parts/
+    - [ ] look at molding as per iestra axe video
+    - [ ] which printer https://all3dp.com/1/best-3d-printer-reviews-top-3d-printers-home-3-d-printer-3d/#monoprice-mp-select-mini
+    - [ ] what are the good things to build with 3D printer? gears, honeycomb shapes,
+    - [ ] maybe a pursa https://all3dp.com/original-prusa-i3-mk3-review/
+
+  * **Ras Pi**
+    - [ ] turn ras pi into game emulator like NES
+      https://www.google.com.au/search?q=raspberry+pi+nes+emulator&oq=ras+pi+nes&aqs=chrome.1.69i57j0l5.4730j0j7&sourceid=chrome&ie=UTF-8
+
+  * **OpenCV**
+  - [ ] get python and openCV setup https://www.learnopencv.com/install-opencv3-on-macos/
 
 * Mon 16th
   * **Learning assembler**
@@ -169,4 +185,3 @@
       as discussed in [A Decade of Optaplanner](https://www.optaplanner.org/blog/2016/08/07/ADecadeOfOptaPlanner.html)
     - [ ] ras pi control everything, incubate eggs, clothes dry, compost
     - [ ] ras pi scanner
-    - [ ] 
