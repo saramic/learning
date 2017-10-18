@@ -2,6 +2,10 @@
 
 * Thu 19th
   * **Vim**
+    - [ ] auto format code?
+    - [ ] line up on a character?
+    - [ ] sort lines?
+    - [ ] tree view? nerd tree?
     - [ ] how to sort out commenting?
       https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim
       https://github.com/scrooloose/nerdcommenter
