@@ -1,5 +1,106 @@
 # Progress October 2017
 
+* Fri 27th
+  * **Ember Modals and async**
+    - [ ] [follow modal write up](http://ember.guru/2014/master-your-modals-in-ember-js)
+    - [ ] [write a waitUntil async qunit tests](https://discuss.emberjs.com/t/waituntil-async-helper-feedback/9444)
+    - [ ] [more on async behaviour in ember](https://spin.atomicobject.com/2015/07/23/testing-asynchronous-behavior-ember/)
+    - [ ] [another example of building a flash message component](https://emberway.io/adding-flash-messages-to-an-ember-app-437b13e49c1b)
+    - [ ] [test modal with setTimeout](https://discuss.emberjs.com/t/test-bootstrap-modal-open-settimeout-async/7085)
+    - [ ] [test ember modal?](https://stackoverflow.com/questions/27973099/ember-cli-unit-test-controller-opens-bootstrap-modal)
+    - [ ] [test modal on page load?](https://stackoverflow.com/questions/39965948/ember-2-8-test-that-a-ember-bootstrap-modal-is-open-on-page-load)
+    - [ ] [Ember cli flash](https://github.com/poteto/ember-cli-flash)
+    - [ ] [Ember flash messages](https://github.com/sir-dunxalot/ember-flash-messages)
+
+  * **AWS**
+    why is copying some files with a wild card so hard?
+    ```
+    aws s3 cp s3://<path> . --recursive --exclude "*" --include "*.png"
+    ```
+
+  * **Hardware**
+    pulling appart a DVD drive, here are the useful compnents to scavange as
+    per [Indistructables CD/DVD
+    reuse](http://www.instructables.com/id/Disassembling-a-CDDVD-reader-and-reusing-its-parts/)
+    - [ ] take a good read and all the links
+
+  * **Stepper motors**
+    - 5V 28BYJ-48 With driver board ULN2003 5 Line 4 Phase [ebay $2.44](https://www.ebay.com.au/i/222563678061) [ebay $18 for 5](https://www.ebay.com.au/i/182533752230)
+    - 5 Pcs 3-5V 2 Phase 4 Wire 20 Ohm 6mm Dia Mini [ebay $1](https://www.ebay.com.au/i/152737079198)
+    - [ebay $2 just motor](https://www.ebay.com.au/i/282556665111) or [ebay 5pc $20](https://www.ebay.com.au/i/282653352519)
+    - tiny with linear screw [ebay $3](https://www.ebay.com.au/i/252660799313)
+
+  * **Uke**
+    - [ ] learn some blues finger picking http://www.ukulelemag.com/stories/blues-ukulele-learn-to-fingerpick-deep-ellum-blues-a-rollicking-country-and-blues-favorite
+      or maybe even subscribe to the magazine?
+
+* Wed 25th
+  * **Pok3r keyboard**
+    so not having arrow keys kind of sux, also having no default ~ is also a
+    nusance. In the end ended up using layer 2 and remapping some keys also
+    layer 3 for arrow mapped keys but still a bit clumsy to switch between
+    layers just to use arrow keys. Mapping the capslock to be fn would fix this
+    but then I would have no easy esc key. Judging by the web this is a bit of
+    a problem for quite a few people. Should I build a mini keyboard just for
+    the arrow keys?
+
+    Re program the keyboard
+    ```
+    FN-<          # go to layer 2 (blue LED under space bar)
+    FN-R_ctrl     # second LED lights
+    ESC           # key to be re mapped
+    FN-SHIFT-ESC  # map to ~
+    PN            # lock it in
+    FN-R_ctrl     # end
+    ```
+    as per
+      * [user manual PDF](http://www.vortexgear.tw/db/upload/webdata4/6vortex_20166523361966663.pdf)
+      * [reddit programming layers](https://www.reddit.com/r/MechanicalKeyboards/comments/35uy60/guide_howto_program_your_pok3r_programming_layers/)
+  * **RC**
+    - [ ] take a look at something like https://hobbyking.com/en_us/h-king-volador-kit.html
+  * **hardware**
+    - [ ] bitscope https://tronixlabs.com.au/super-specials/bitscope-bs05u-usb-oscilloscope-logic-analyser-2-analogue-6-digital-channels-20-mhz-australia/
+    - [ ] 4 letter display https://tronixlabs.com.au/raspberry-pi/display/pimoroni-four-letter-phat-for-raspberry-pi-zero-3-2-model-b-australia/
+  * **Nvim**
+    - [terminal emulator](https://neovim.io/doc/user/nvim_terminal_emulator.html)
+  * **Ground antenna**
+    - https://www.groundedreason.com/how-to-ground-an-outdoor-antenna/
+
+* Tue 24th
+  * **Ras Pi gaming machine**
+    inspired by someone in Cogent office to build my own NES emulator to play retro games at home
+    Requirements:
+    - [ ] ras pi 3 or similar
+    - [ ] power supply
+    - [ ] container
+      - [fancy Ras Pi Desktop Encloure $90](https://tronixlabs.com.au/raspberry-pi/new-3-model-b/raspberry-pi-desktop-enclosure-australia/)
+      - [one of a number of basic encosures $3 - $20](https://tronixlabs.com.au/b-and-2-model-b-enclosures/)
+      - [one with removable top for prototype boards](https://tronixlabs.com.au/raspberry-pi/new-3-model-b/pi-hat-enclosure-for-raspberry-pi-3-2-model-b-and-b-australia/)
+    - [ ] 2 x controllers
+      - [ ] [Carelove8Bitdo Bluetooth Wireless Classic NES Controller](https://www.amazon.com/Carelove8Bitdo-Bluetooth-Wireless-Classic-Controller/dp/B00NBN1NA4?tag=pcworld02-20&SubscriptionId=AKIAIRZJHSP2SKQIWVZA&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00NBN1NA4)
+        ship Aus
+      - [ ] [Tomee SNES USB Controller](https://www.amazon.com/gp/product/B0034ZOAO0/ref=oh_details_o00_s00_i00?tag=lifehackeramzn-20&ascsubtag=[type|link[postId|498561192)
+        pretty purple
+      - [ ] [8Bitdo SFC30 Wireless Gamepad Bluetooth Controller](https://www.amazon.co.uk/dp/B01MEFZKHZ/?tag=pocketlintc07-21)
+      - [BUFFALO 2145487 Classic USB Gamepad](https://www.amazon.com/BUFFALO-2145487-Classic-USB-Gamepad/dp/B002B9XB0E?tag=pcworld02-20&SubscriptionId=AKIAIRZJHSP2SKQIWVZA&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B002B9XB0E)
+      - [ ] [Gam3Gear 8Bitdo NES30 Pro wireless](https://www.amazon.com/Gam3Gear-NES30-Wireless-Controller-Keychain/dp/B014RFBVGK?tag=pcworld02-20&SubscriptionId=AKIAIRZJHSP2SKQIWVZA&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B014RFBVGK)
+    - [ ] wireless keyboard
+      - [Rii I8 Mini 2.4Ghz Wireless Touchpad Keyboard With Mouse](https://www.amazon.com/Rii-Wireless-Touchpad-Keyboard-Android/dp/B00B9996LA?tag=pcworld02-20&psc=1&SubscriptionId=AKIAIRZJHSP2SKQIWVZA&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B00B9996LA)
+      wire less
+    Build:
+      - [ ] https://www.lifehacker.com.au/2013/05/how-to-build-a-cheap-all-in-one-retro-game-console-the-easy-way/
+      - [ ] https://arstechnica.com/gaming/2017/04/one-upping-the-nes-classic-edition-with-the-raspberry-pi-3-and-retropie/
+      - [ ] http://www.techradar.com/news/gaming/how-to-turn-your-raspberry-pi-2-into-a-retro-games-console-1289146
+      - [ ] http://www.pocket-lint.com/news/137374-can-t-buy-a-snes-classic-mini-how-to-build-your-own-retro-console-for-just-50
+      - [ ] https://www.pcworld.com/article/3190347/gaming/how-to-build-a-raspberry-pi-retrogaming-emulation-console.html
+
+* Mon 23rd
+  * **RubyMine**
+    take a look into performance
+    - [ ] [issues IDEA](https://youtrack.jetbrains.com/issues/IDEA)
+    - [ ] [reporting performance problems](https://intellij-support.jetbrains.com/hc/en-us/articles/207241235)
+    - [ ] [idea slow and hangs](https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000142650-idea-ultimate-2017-1-1-slow-and-hangs)
+
 * Thu 19th
   * **Vim**
     - [ ] auto format code?
@@ -106,6 +207,9 @@
 * Wed 11th
   * what is http://www.shippable.com/ going on about DevOps Assembly lines? watch
     [DevOps — Getting Beyond the Happy Talk: Avi Cavale, CEO of Shippable](https://youtu.be/bJtEdTeR16Q)
+    - think of deployment as a pipeline
+    - pipeline should work without any human intervention (email, chat, other)
+    - only then can you reach next level
 
   * **RabbitMQ**
     just got the "RabbitMQ in depth" book shipped from Manning - didn't even
