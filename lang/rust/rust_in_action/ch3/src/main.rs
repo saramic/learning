@@ -11,9 +11,9 @@ enum FileState {
 }
 #[derive(Debug)]
 struct File {
-    name: String,
+    pub name: String,
     data: Vec<u8>,
-    state: FileState,
+    pub state: FileState,
 }
 
 impl Display for FileState {
@@ -32,7 +32,7 @@ impl Display for File {
 }
 
 impl File {
-    fn new(name: &str) -> File {
+    pub fn new(name: &str) -> File {
         File {
             name: String::from(name),
             data: Vec::new(),
@@ -78,4 +78,5 @@ fn main() {
     println!("{:?}", file);
     println!("{} is {} bytes long", &file.name, length);
     println!("{}", text);
+    println!("{:?}", file);
 }
