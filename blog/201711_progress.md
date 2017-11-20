@@ -93,6 +93,16 @@ in progress
     and javascripting https://github.com/workshopper/javascripting
 
   - [ ] css grid soccer formations http://www.opihana.com/2017/11/08/Soccer-Formations-in-CSS-Grid/
+
+# Mon 20th
+  * Ruby SOAP library - http://savonrb.com/
+    mentions WS-Security
+  * run a simple rack app on a given port
+    ```
+    ruby -e 'require "rack"; Rack::Handler.default.run(proc{|env| ['200', {}, []] }, Port: ARGV.join.to_i)' 49154
+    ```
+    as per https://rack.github.io/
+
 # Fri 17th
   * **Computer Electronics**
     This build lite indicator https://github.com/hooroo/squinty suggest a mix of
