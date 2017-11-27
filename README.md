@@ -23,6 +23,11 @@ track that I am actively spending time learning and hopefully improving.
     - [ ] put it on github and sort out hosting
     - [ ] "pioneering style lashed lettering"
   - kids coding
+    - [x] setup github https://github.com/tamadillo
+    - [x] start blog https://github.com/tamadillo/learning
+    - [x] some python coding https://github.com/tamadillo/learning/tree/master/python
+    - [ ] more blog
+    - [ ] more python turtle
     - arduino advent calendar
     - wearable electronics and knitting
     - coding laptop

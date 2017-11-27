@@ -1,5 +1,18 @@
 # Progress November 2017
 
+# Mon 27th
+  * Setup github with my daughter https://github.com/tamadillo
+
+# Fri 24th
+  * **Bash** - run command many times
+    ```
+    for i in {1..10}; do rspec spec/my_spec.rb; done
+    ```
+  * **Mac OSX** - insert UTF8 charcter
+    ```
+    <ctrl>-<cmd>-<space>
+    ```
+
 # Tue 21st
   **idea buncrupcy**
     in progress in browser tabs
