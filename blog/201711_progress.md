@@ -355,6 +355,7 @@ https://spring.io/understanding/HATEOAS
     banana pi?
 
     esp 8266 32
+      like [aliexpress esp32](https://www.google.com.au/search?q=aliexpress+esp32&tbm=shop)
 
     ftdi cable
     arduino ide
