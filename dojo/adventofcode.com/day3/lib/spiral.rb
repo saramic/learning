@@ -1,13 +1,22 @@
 class Spiral
+  attr_reader :adjacent_sums
+
   def initialize(limit)
     @limit = limit
     @ary = set_blank_array
+    @adjacent_sums = set_blank_array
     (@x_inc, @y_inc) = [1, 0] # bottom right
     ary_fill
   end
 
   def show
     @ary
+  end
+
+  def pretty_print(ary: @ary, writer: $stdout)
+    output = []
+    ary.each{|l| output << l.map{|d| sprintf("%#{@limit.to_s.chars.length}d", d)}.join(" ") }
+    writer.puts [output.join("\n"), "\n"].join
   end
 
   def fit_limit(limit)
@@ -22,10 +31,29 @@ class Spiral
       #puts [x, y, @x_inc, @y_inc, @ary].inspect
       set_increment(counter,x,y)
       @ary[y][x] = counter if @ary[y][x] == 0 # don't let overwrite
+      @adjacent_sums[y][x] = sum_adjacents(y, x)
+      @adjacent_sums[y][x] = 1 if @adjacent_sums[y][x] == 0 # first number on board
       x += @x_inc
       y += @y_inc
       #puts [x, y, @x_inc, @y_inc, @ary].inspect
     end
+  end
+
+  def sum_adjacents(y, x)
+    vals = [
+      [-1, -1], [ 0, -1], [ 1, -1],
+      [-1,  0], [ 0,  0], [ 1,  0], # center being calculated is zero, left in for completness
+      [-1,  1], [ 0,  1], [ 1,  1],
+    ].map do |x_offset, y_offset|
+      x_val = x + x_offset
+      y_val = y + y_offset
+      next if x_val < 0 ||
+        y_val < 0 ||
+        x_val > height(@limit).ceil - 1 ||
+        y_val > height(@limit).ceil - 1
+      @adjacent_sums[y_val][x_val]
+    end
+    vals.compact.sum
   end
 
   def set_increment(count, x, y)

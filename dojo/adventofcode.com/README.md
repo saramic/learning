@@ -71,6 +71,21 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   taking a WIP approach to actually print this out and then change to do the calculation
 
+  for 60 numbers got `295229`
+
+  ```
+   ruby -I lib -e 'require "spiral"; number = 60; spiral = Spiral.new(number); spiral.pretty_print(ary: spiral.adjacent_sums)'
+     0      0      0      0      0 295229 279138 266330 130654
+     0   6591   6444   6155   5733   5336   5022   2450 128204
+     0  13486    147    142    133    122     59   2391 123363
+     0  14267    304      5      4      2     57   2275 116247
+     0  15252    330     10      1      1     54   2105 109476
+     0  16295    351     11     23     25     26   1968 103128
+     0  17008    362    747    806    880    931    957  98098
+     0  17370  35487  37402  39835  42452  45220  47108  48065
+     0      0      0      0      0      0      0      0      0
+  ```
+
   ```
   ruby -I lib -e 'require "spiral"; number = 1000; Spiral.new(number).show.each{|l| puts l.map{|d| sprintf("%#{number.to_s.chars.length}d", d)}.join(", ") }'
   ```
