@@ -69,6 +69,12 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   Your puzzle input is still 289326.
 
+  taking a WIP approach to actually print this out and then change to do the calculation
+
+  ```
+  ruby -I lib -e 'require "spiral"; number = 1000; Spiral.new(number).show.each{|l| puts l.map{|d| sprintf("%#{number.to_s.chars.length}d", d)}.join(", ") }'
+  ```
+
 ## Day 2
 
   The spreadsheet consists of rows of apparently-random numbers. To make sure
