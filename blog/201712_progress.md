@@ -1,5 +1,60 @@
 # Progress December 2017
 
+# Wed 6th
+  * **Work related**
+    - **Property based testing with JS**
+      - [ ] https://medium.com/front-end-hacking/an-introduction-to-property-based-testing-with-js-verfiy-c194d60222f8
+      - [ ] http://jsverify.github.io/
+    * **table to record CSS transformer**
+      - https://exisweb.net/responsive-table-plugins-and-patterns
+      - https://www.liquidlight.co.uk/blog/article/tables-in-responsive-design/
+    - [ ] look at inserting calendar invites for pagerduty https://developers.google.com/google-apps/calendar/v3/reference/events/insert
+
+  * **Arduino**
+    - [ ] read up on possibilities with [adafruit flora](https://learn.adafruit.com/getting-started-with-flora/blink-onboard-neopixel)
+    * **leostick**
+      - [ ] get it working locally [leostic](https://www.freetronics.com.au/products/leostick#.WicKurT1XMU)
+      - [ ] look at an alternate [AVR tool chain](http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/)
+      - [ ] or get it working with Arduino IDE
+        - [leostick getting started](https://www.freetronics.com.au/pages/leostick-getting-started-guide#.WicLaLT1XMU)
+        - [compatible boards](https://www.freetronics.com.au/pages/using-arduino-compatible-boards-as-external-programmers#.WicLaLT1XMU)
+    - [ ] read up [arduino reference](https://www.arduino.cc/reference/en/)
+    - [ ] read up [arduino tutorials](https://www.arduino.cc/en/Tutorial/HomePage)
+
+  * **Look into**
+    - [ ] [q for csv querying](http://harelba.github.io/q/)
+
+  * **Rust**
+    - [ ] [rust tdd](https://matthewkmayer.github.io/blag/public/post/tdd-with-rust/)
+      - [ ] [tdd example](http://carol-nichols.com/2015/03/28/tdd-example-in-rust/)
+      - [ ] https://github.com/carols10cents/prime_factors
+      - [ ] https://www.reddit.com/r/rust/comments/30xcuh/tdd_example_in_rust_with_the_prime_factors_kata/
+    - [ ] [game with rust on wasm](https://aochagavia.github.io/blog/rocket---a-rust-game-running-on-wasm/)
+    - [ ] [Rust for Mercurial](https://www.mercurial-scm.org/wiki/OxidationPlan#)
+    - [ ] [rust to unwrap or not to unwrap](https://users.rust-lang.org/t/to-unwrap-or-not-to-unwrap/10900)
+    - [ ] [option unwrap](https://rustbyexample.com/error/option_unwrap.html)
+    - [ ] [Pi bare metal prog with rust](https://medium.com/@thiagopnts/raspberry-pi-bare-metal-programming-with-rust-a6f145e84024)
+      - https://github.com/Ogeon/rust-on-raspberry-pi
+      - https://github.com/rust-embedded/rust-sysfs-gpio
+      - https://news.ycombinator.com/item?id=10915735
+      - https://users.rust-lang.org/t/suitability-of-rust-for-embedded-development/371
+      - https://users.rust-lang.org/t/rust-for-embedded-development-where-we-are-and-whats-missing/10861
+      - https://www.reddit.com/r/raspberry_pi/comments/5kosiw/rust_language_on_the_raspberry_pi/
+
+  - [ ] [embedded elixir with nerves](http://nerves-project.org/)
+    - http://embedded-elixir.com/
+  - [ ] [Halite AP programming challange](https://halite.io/)
+  - [ ] https://monades.roperzh.com/error-correction-reed-solomon/?cm=slack
+  - [ ] https://blog.hackages.io/why-you-should-spoil-your-web-developer-team-with-training-always-4a326f0bd091
+
+  - * **API workshop**
+    - [ ] https://spring.io/understanding/HATEOAS
+    - [ ] add section on etags and caching etc.
+
+  * **Watch**
+    - [ ] [RubyConf AU 2013: Keith and Mario’s Guide to Fast Websites by Keith Pitt & Mario Visic](https://www.youtube.com/watch?v=d3e5zaiBR-c)
+    - [ ] [Guy Steele Clojure conf 2017](https://www.youtube.com/watch?v=dCuZkaaou0Q)
+
 # Tue 5th
 
   * **Advent of Code**
