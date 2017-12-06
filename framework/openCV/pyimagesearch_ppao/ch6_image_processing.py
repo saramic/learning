@@ -69,11 +69,13 @@ cv2.imshow("Resized (Height)", resized)
 
 # 6.11
 # 6.9 resize in imutils.py
-resized = imutils.resize(image, width = 100)
+resized = imutils.resize(image, width = 66)
+print("shape: {} pixels".format(resized.shape)) # NOTE: height width order not width height
 cv2.imshow("Resized via Function", resized)
 
 # 6.10 resize height via imutils.py
-resized = imutils.resize(image, height = 50)
+resized = imutils.resize(image, height = 110)
+print("shape: {} pixels".format(resized.shape)) # NOTE: height width order not width height
 cv2.imshow("Resized via Function height 50", resized)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
