@@ -1,8 +1,29 @@
 # Progress December 2017
 
 # Wed 6th
+  * **Advent of Code**
+    http://adventofcode.com/2017/day/6
+
   * **PyImageSearch Gurus Course**
     - [x] 0.1: getting yourself oriented
+
+    * **more install**
+      - based on https://gurus.pyimagesearch.com/setting-up-your-python-opencv-development-environment/
+      ```
+      brew install boost --with-pyton boost-python
+      brew list | grep 'boost'
+
+      mkvirtualenv gurus
+
+      brew tap homebrew/science
+
+      pip3 install scipy matplotlib scikit-learn
+      pip3 install -U scikit-image
+      pip3 install mahotas imutils Pillow commentjson
+
+      cd ~/.virtualenvs/gurus/lib/python3.6/site-packages/
+      ln -s /usr/local/lib/python3.6/site-packages/cv2.cpython-36m-darwin.so .
+      ```
 
   * **Work related**
     - **Property based testing with JS**
@@ -68,7 +89,7 @@
 
   * **Advent of Code**
     http://adventofcode.com/2017/day/5
-  
+
   * **Arduino Advent Kit**
     * [Day 5 - button](http://guides.littlebird.com.au/Guide/Arduino+Advent+Calendar+Day+05+-+Button/24)
     * [Day 6 - rgb led](http://guides.littlebird.com.au/Guide/Arduino+Advent+Calendar+Day+06+-+RGB+LED/25)
