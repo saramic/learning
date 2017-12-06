@@ -15,7 +15,7 @@ image = cv2.imread(args["image"])
 
 cv2.imshow("Original", image)
 
-# 6.1 translation
+# 6.1 translation Left(-ve)/right(+ve) followed by up(-ve)/down(+ve)
 M = np.float32([[1, 0, 25], [0, 1, 50]])
 shifted = cv2.warpAffine(image, M, (image.shape[1], image.shape[0]))
 cv2.imshow("Shifted Down and Right", shifted)
@@ -32,7 +32,7 @@ cv2.imshow("Shifted Down", shifted)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-# 6.4 rotate
+# 6.4 rotate counter-clockwise by default
 (h, w) = image.shape[:2]
 center = (w // 2, h // 2)
 
@@ -40,7 +40,7 @@ M = cv2.getRotationMatrix2D(center, 45, 1.0)
 rotated = cv2.warpAffine(image, M, (w, h))
 cv2.imshow("rotated by 45 degrees", rotated)
 
-# 6.4 rotate
+# 6.4 rotate -ve to rotate clockwise
 M = cv2.getRotationMatrix2D(center, -90, 1.0)
 rotated = cv2.warpAffine(image, M, (w, h))
 cv2.imshow("rotated by -90 degrees", rotated)
@@ -91,7 +91,7 @@ flipped = cv2.flip(image, -1)
 cv2.imshow("Flipped Horizontally & Vertically", flipped)
 cv2.waitKey(0)
 
-# 6.13 crop
+# 6.13 crop [y_start:y_end, x_start:x_end]
 cropped = image[30:120, 240:335]
 cv2.imshow("T-Rex Face", cropped)
 cv2.waitKey(0)
