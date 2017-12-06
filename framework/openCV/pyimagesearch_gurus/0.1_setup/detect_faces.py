@@ -3,7 +3,8 @@ import cv2
 image = cv2.imread("orientation_example.jpg")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+#detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+detector = cv2.CascadeClassifier("/usr/local/Cellar/opencv/3.3.1_1/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml")
 rects = detector.detectMultiScale(
         gray,
         scaleFactor = 1.05,
