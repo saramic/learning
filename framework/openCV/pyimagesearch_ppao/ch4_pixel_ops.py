@@ -11,7 +11,7 @@ image = cv2.imread(args["image"])
 # NOTE: CHPAPTER 4
 
 # 4.2 getting pixels
-(b, g, r) = image[0, 0] # NOTE: BGR not RGB
+(b, g, r) = image[219, 90] # NOTE: BGR not RGB also image[Y, X]
 print("Pixel at (0, 0) - Red: {}, Green: {}, Blue: {}".format(r, g, b))
 
 # 4.2 setting pixels
