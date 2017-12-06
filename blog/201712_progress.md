@@ -1,6 +1,9 @@
 # Progress December 2017
 
 # Wed 6th
+  * **PyImageSearch Gurus Course**
+    - [x] 0.1: getting yourself oriented
+
   * **Work related**
     - **Property based testing with JS**
       - [ ] https://medium.com/front-end-hacking/an-introduction-to-property-based-testing-with-js-verfiy-c194d60222f8
@@ -14,10 +17,16 @@
     - [ ] read up on possibilities with [adafruit flora](https://learn.adafruit.com/getting-started-with-flora/blink-onboard-neopixel)
     * **leostick**
       - [ ] get it working locally [leostic](https://www.freetronics.com.au/products/leostick#.WicKurT1XMU)
-      - [ ] look at an alternate [AVR tool chain](http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/)
       - [ ] or get it working with Arduino IDE
         - [leostick getting started](https://www.freetronics.com.au/pages/leostick-getting-started-guide#.WicLaLT1XMU)
         - [compatible boards](https://www.freetronics.com.au/pages/using-arduino-compatible-boards-as-external-programmers#.WicLaLT1XMU)
+      - [ ] look at an alternate [AVR tool chain](http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/)
+        or is this simply
+        [Crosspack](https://www.obdev.at/products/crosspack/index.html)? when
+        would this be needed? does it even do what I need to do? or si this
+        for more advanced AVR? That said it would be good to have a command
+        line tool chain for deploying to arduino! one day
+
     - [ ] read up [arduino reference](https://www.arduino.cc/reference/en/)
     - [ ] read up [arduino tutorials](https://www.arduino.cc/en/Tutorial/HomePage)
 
