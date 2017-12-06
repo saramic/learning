@@ -4,6 +4,19 @@
   * **Advent of Code**
     http://adventofcode.com/2017/day/6
 
+  * **PyImageSearch PPoA** Practical Pathon and OpenCV
+    - [x] ch1 - 2 install
+    - [x] ch3 loading and displaying
+    - [x] ch4 image basics
+    - [x] ch5 drawing
+    - [x] ch6 image processing
+    - [x] ch7 histograms
+    - [ ] ch8 smoothing and blurring
+    - [ ] read supplamentary material for above chapters in particular
+        - showing images in pgplot
+        - histogram search engine
+        - pattern search engines
+
   * **PyImageSearch Gurus Course**
     - [x] 0.1: getting yourself oriented
 
