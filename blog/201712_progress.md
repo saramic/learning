@@ -97,6 +97,10 @@
   * **Watch**
     - [ ] [RubyConf AU 2013: Keith and Mario’s Guide to Fast Websites by Keith Pitt & Mario Visic](https://www.youtube.com/watch?v=d3e5zaiBR-c)
     - [ ] [Guy Steele Clojure conf 2017](https://www.youtube.com/watch?v=dCuZkaaou0Q)
+      - history and changes in CSM - Computer Science Metanotation
+      - history of regex 3 decades of development till 1981 since then mostly unchanged
+      - hisotry of BNF - Backus-Naur form
+      - [ ]https://youtu.be/dCuZkaaou0Q?t=1677
 
 # Tue 5th
 
