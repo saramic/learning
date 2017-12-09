@@ -3,7 +3,7 @@
 # Sat 9th
   * **Advent of Code**
     - [x] http://adventofcode.com/2017/day/9
-    - [ ] http://adventofcode.com/2017/day/8
+    - [x] http://adventofcode.com/2017/day/8
     - [x] http://adventofcode.com/2017/day/7
 
 # Wed 6th
