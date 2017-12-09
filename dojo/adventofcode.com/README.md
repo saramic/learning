@@ -222,7 +222,30 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   Although it hasn't changed, you can still get your puzzle input.
 
   ```
+  cat day7/data.txt | ruby day7/script.rb
+  1
+  xegshds
+  {:branches=>["upqkbq", "hsdkmdv", "ggxgmci", "owjvny", "gqiczm"], :value=>53}
+  upqkbq
+  {:branches=>["dfnak", "szsny", "ehkrs", "eynrs", "cbpsyx", "bbixr", "zsckv"], :value=>26244}
+  102044
+  hsdkmdv
+  {:branches=>["unhnq", "crsjegg", "abfkpur", "qfqnrvt", "etsxvmj"], :value=>50286}
+  102044
+  ggxgmci
+  {:branches=>["nsvan", "qcbfbfz", "anygv", "gefrwix", "kkeafw", "jepbpw"], :value=>66063}
+  102050
+  owjvny
+  {:branches=>["lgdbaig", "yskay", "uvftw"], :value=>68748}
+  102044
+  gqiczm
+  {:branches=>["gwsceo", "ucocdl", "hdqow", "fjqccm", "oxvqjeh"], :value=>61}
+  102044
   ```
+
+  TODO: so the off balance disk is `nsvan` with 102,050 instead of 102,044
+  which suggests that changing the value of `66,063` down by `6` to `66,057`
+  would be the solution? is there a chance I am miss summing something?
 
 ## Day 6
 
