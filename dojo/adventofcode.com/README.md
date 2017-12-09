@@ -8,6 +8,217 @@ can use session cookie for downloads
 $ export ADVENT_OF_CODE_COOKIE=536...9fa
 ```
 
+## Day 9
+
+  --- Day 9: Stream Processing ---
+
+  A large stream blocks your path. According to the locals, it's not safe to
+  cross the stream at the moment because it's full of garbage. You look down at
+  the stream; rather than water, you discover that it's a stream of characters.
+
+  You sit for a while and record part of the stream (your puzzle input). The
+  characters represent groups - sequences that begin with { and end with }.
+  Within a group, there are zero or more other things, separated by commas:
+  either another group or garbage. Since groups can contain other groups, a }
+  only closes the most-recently-opened unclosed group - that is, they are
+  nestable. Your puzzle input represents a single, large group which itself
+  contains many smaller ones.
+
+  Sometimes, instead of a group, you will find garbage. Garbage begins with <
+  and ends with >. Between those angle brackets, almost any character can
+  appear, including { and }. Within garbage, < has no special meaning.
+
+  In a futile attempt to clean up the garbage, some program has canceled some
+  of the characters within it using !: inside garbage, any character that comes
+  after ! should be ignored, including <, >, and even another !.
+
+  You don't see any characters that deviate from these rules. Outside garbage,
+  you only find well-formed groups, and garbage always terminates according to
+  the rules above.
+
+  Here are some self-contained pieces of garbage:
+
+  <>, empty garbage.
+  <random characters>, garbage containing random characters.
+  <<<<>, because the extra < are ignored.
+  <{!>}>, because the first > is canceled.
+  <!!>, because the second ! is canceled, allowing the > to terminate the garbage.
+  <!!!>>, because the second ! and the first > are canceled.
+  <{o"i!a,<{i<a>, which ends at the first >.
+  Here are some examples of whole streams and the number of groups they contain:
+
+  {}, 1 group.
+  {{{}}}, 3 groups.
+  {{},{}}, also 3 groups.
+  {{{},{},{{}}}}, 6 groups.
+  {<{},{},{{}}>}, 1 group (which itself contains garbage).
+  {<a>,<a>,<a>,<a>}, 1 group.
+  {{<a>},{<a>},{<a>},{<a>}}, 5 groups.
+  {{<!>},{<!>},{<!>},{<a>}}, 2 groups (since all but the last > are canceled).
+  Your goal is to find the total score for all groups in your input. Each group
+  is assigned a score which is one more than the score of the group that
+  immediately contains it. (The outermost group gets a score of 1.)
+
+  {}, score of 1.
+  {{{}}}, score of 1 + 2 + 3 = 6.
+  {{},{}}, score of 1 + 2 + 2 = 5.
+  {{{},{},{{}}}}, score of 1 + 2 + 3 + 3 + 3 + 4 = 16.
+  {<a>,<a>,<a>,<a>}, score of 1.
+  {{<ab>},{<ab>},{<ab>},{<ab>}}, score of 1 + 2 + 2 + 2 + 2 = 9.
+  {{<!!>},{<!!>},{<!!>},{<!!>}}, score of 1 + 2 + 2 + 2 + 2 = 9.
+  {{<a!>},{<a!>},{<a!>},{<ab>}}, score of 1 + 2 = 3.
+  What is the total score for all groups in your input?
+
+  ```
+  curl 'http://adventofcode.com/2017/day/9/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day9/data.txt
+  ```
+
+  ```
+  cd day9
+  rspec
+  cat data.txt | ruby -I lib -e 'require "parser"; puts Parser.new(ARGF.read).score'
+  14190
+  ```
+
+  Your puzzle answer was 14190.
+
+  The first half of this puzzle is complete! It provides one gold star: *
+
+  --- Part Two ---
+
+  Now, you're ready to remove the garbage.
+
+  To prove you've removed it, you need to count all of the characters within
+  the garbage. The leading and trailing < and > don't count, nor do any
+  canceled characters or the ! doing the canceling.
+
+  <>, 0 characters.
+  <random characters>, 17 characters.
+  <<<<>, 3 characters.
+  <{!>}>, 2 characters.
+  <!!>, 0 characters.
+  <!!!>>, 0 characters.
+  <{o"i!a,<{i<a>, 10 characters.
+  How many non-canceled characters are within the garbage in your puzzle input?
+
+  Although it hasn't changed, you can still get your puzzle input.  
+
+## Day 8
+
+## Day 7
+
+  --- Day 7: Recursive Circus ---
+
+  Wandering further through the circuits of the computer, you come upon a tower
+  of programs that have gotten themselves into a bit of trouble. A recursive
+  algorithm has gotten out of hand, and now they're balanced precariously in a
+  large tower.
+
+  One program at the bottom supports the entire tower. It's holding a large
+  disc, and on the disc are balanced several more sub-towers. At the bottom of
+  these sub-towers, standing on the bottom disc, are other programs, each
+  holding their own disc, and so on. At the very tops of these
+  sub-sub-sub-...-towers, many programs stand simply keeping the disc below
+  them balanced but with no disc of their own.
+
+  You offer to help, but first you need to understand the structure of these
+  towers. You ask each program to yell out their name, their weight, and (if
+  they're holding a disc) the names of the programs immediately above them
+  balancing on that disc. You write this information down (your puzzle input).
+  Unfortunately, in their panic, they don't do this in an orderly fashion; by
+  the time you're done, you're not sure which program gave which information.
+
+  For example, if your list is the following:
+
+  pbga (66)
+  xhth (57)
+  ebii (61)
+  havc (66)
+  ktlj (57)
+  fwft (72) -> ktlj, cntj, xhth
+  qoyq (66)
+  padx (45) -> pbga, havc, qoyq
+  tknk (41) -> ugml, padx, fwft
+  jptl (61)
+  ugml (68) -> gyxo, ebii, jptl
+  gyxo (61)
+  cntj (57)
+  ...then you would be able to recreate the structure of the towers that looks like this:
+
+                  gyxo
+                /     
+           ugml - ebii
+         /      \     
+        |         jptl
+        |        
+        |         pbga
+       /        /
+  tknk --- padx - havc
+       \        \
+        |         qoyq
+        |             
+        |         ktlj
+         \      /     
+           fwft - cntj
+                \     
+                  xhth
+  In this example, tknk is at the bottom of the tower (the bottom program), and
+  is holding up ugml, padx, and fwft. Those programs are, in turn, holding up
+  other programs; in this example, none of those programs are holding up any
+  other programs, and are all the tops of their own towers. (The actual tower
+  balancing in front of you is much larger.)
+
+  Before you're ready to help them, you need to make sure your information is
+  correct. What is the name of the bottom program?
+
+  ```
+  curl 'http://adventofcode.com/2017/day/7/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day7/data.txt
+  ```
+
+  ```
+  cat day7/data.txt | ruby -e 'tree = {}; ARGF.read.split("\n").map{|l| tree[l.split.first] = l.split(" -> ")[1].split(", ") rescue [];}; root =  tree.keys.uniq.sort - tree.values.flatten.uniq.sort; puts root.first'
+  xegshds
+  ```
+
+  Your puzzle answer was xegshds.
+
+  The first half of this puzzle is complete! It provides one gold star: *
+
+  --- Part Two ---
+
+  The programs explain the situation: they can't get down. Rather, they could
+  get down, if they weren't expending all of their energy trying to keep the
+  tower balanced. Apparently, one program has the wrong weight, and until it's
+  fixed, they're stuck here.
+
+  For any program holding a disc, each program standing on that disc forms a
+  sub-tower. Each of those sub-towers are supposed to be the same weight, or
+  the disc itself isn't balanced. The weight of a tower is the sum of the
+  weights of the programs in that tower.
+
+  In the example above, this means that for ugml's disc to be balanced, gyxo,
+  ebii, and jptl must all have the same weight, and they do: 61.
+
+  However, for tknk to be balanced, each of the programs standing on its disc
+  and all programs above it must each match. This means that the following sums
+  must all be the same:
+
+  ugml + (gyxo + ebii + jptl) = 68 + (61 + 61 + 61) = 251
+  padx + (pbga + havc + qoyq) = 45 + (66 + 66 + 66) = 243
+  fwft + (ktlj + cntj + xhth) = 72 + (57 + 57 + 57) = 243
+  As you can see, tknk's disc is unbalanced: ugml's stack is heavier than the
+  other two. Even though the nodes above ugml are balanced, ugml itself is too
+  heavy: it needs to be 8 units lighter for its stack to weigh 243 and keep the
+  towers balanced. If this change were made, its weight would be 60.
+
+  Given that exactly one program is the wrong weight, what would its weight
+  need to be to balance the entire tower?
+
+  Although it hasn't changed, you can still get your puzzle input.
+
+  ```
+  ```
+
 ## Day 6
 
   --- Day 6: Memory Reallocation ---
