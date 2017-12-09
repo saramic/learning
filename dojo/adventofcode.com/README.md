@@ -103,6 +103,11 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   Although it hasn't changed, you can still get your puzzle input.  
 
+  ```
+  cat data.txt | ruby -I lib -e 'require "parser"; puts Parser.new(ARGF.read).count'
+  7053
+  ```
+
 ## Day 8
 
 ## Day 7

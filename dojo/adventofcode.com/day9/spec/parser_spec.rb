@@ -48,5 +48,22 @@ EOF
       end
     end
   end
+
+  context '#cancelled_char_count' do
+    [
+      [                 '<>',  0],
+      ['<random characters>', 17],
+      [              '<<<<>',  3],
+      [             '<{!>}>',  2],
+      [               '<!!>',  0],
+      [             '<!!!>>',  0],
+      [     '<{o"i!a,<{i<a>', 10],
+    ].each do |(input, count)|
+      context "#{count} for #{input}" do
+        subject(:count) { Parser.new(input).count }
+        it { is_expected.to eq count }
+      end
+    end
+  end
 end
 
