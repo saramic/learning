@@ -223,29 +223,24 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   ```
   cat day7/data.txt | ruby day7/script.rb
+  cat data.txt | ruby  script.rb 
   1
   xegshds
-  {:branches=>["upqkbq", "hsdkmdv", "ggxgmci", "owjvny", "gqiczm"], :value=>53}
-  upqkbq
-  {:branches=>["dfnak", "szsny", "ehkrs", "eynrs", "cbpsyx", "bbixr", "zsckv"], :value=>26244}
-  102044
-  hsdkmdv
-  {:branches=>["unhnq", "crsjegg", "abfkpur", "qfqnrvt", "etsxvmj"], :value=>50286}
-  102044
-  ggxgmci
+  branches with uneven weights
+  ["fabacam", 776]
+  for values [770, 770, 776]
+  {:branches=>["dlcxjg", "dlactl", "falrf"], :value=>305}
+  ["anygv", 5994]
+  for values [5988, 5988, 5994, 5988, 5988, 5988]
+  {:branches=>["tghfe", "ybzqi", "fabacam"], :value=>3678}
+  ["ggxgmci", 101997]
+  for values [101991, 101991, 101997, 101991, 101991]
   {:branches=>["nsvan", "qcbfbfz", "anygv", "gefrwix", "kkeafw", "jepbpw"], :value=>66063}
-  102050
-  owjvny
-  {:branches=>["lgdbaig", "yskay", "uvftw"], :value=>68748}
-  102044
-  gqiczm
-  {:branches=>["gwsceo", "ucocdl", "hdqow", "fjqccm", "oxvqjeh"], :value=>61}
-  102044
   ```
 
-  TODO: so the off balance disk is `nsvan` with 102,050 instead of 102,044
-  which suggests that changing the value of `66,063` down by `6` to `66,057`
-  would be the solution? is there a chance I am miss summing something?
+  fabacam is out as 776 for it's branch so it needs 6 less so `305 - 6 = 299`
+
+  ...
 
 ## Day 6
 

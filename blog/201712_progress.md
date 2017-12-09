@@ -1,8 +1,14 @@
 # Progress December 2017
 
+# Sat 9th
+  * **Advent of Code**
+    - [x] http://adventofcode.com/2017/day/9
+    - [ ] http://adventofcode.com/2017/day/8
+    - [x] http://adventofcode.com/2017/day/7
+
 # Wed 6th
   * **Advent of Code**
-    http://adventofcode.com/2017/day/6
+    - [x] http://adventofcode.com/2017/day/6
 
   * **PyImageSearch PPoA** Practical Pathon and OpenCV
     - [x] ch1 - 2 install

@@ -21,16 +21,22 @@ def sum_branch(branch)
   #puts branch.inspect
   #puts @tree[branch].inspect
   if @tree[branch][:branches].length == 0
-    return @tree[branch][:value]
+    @tree[branch][:value]
   else
-    return @tree[branch][:value] + @tree[branch][:branches].map{|b| sum_branch(b) }.sum
+    branch_sums = @tree[branch][:branches].inject({}) {|hash, b| hash[b] = sum_branch(b); hash }
+    if branch_sums.values.uniq.count != 1
+      branch_sums.keys.each do |key|
+        if branch_sums.values.find_all{|b| b == branch_sums[key]}.length == 1
+          puts [key, branch_sums[key]].inspect
+          puts "for values #{branch_sums.values}"
+          puts @tree[key]
+        end
+      end
+    end
+    @tree[branch][:value] + branch_sums.values.sum
   end
 end
 
-puts @tree[overall_root.first.to_s].inspect
-@tree[overall_root.first][:branches].each{|branch|
-  puts branch
-  puts @tree[branch].inspect
-  puts sum_branch(branch) + @tree[overall_root.first.to_s][:value]
-}
+puts "branches with uneven weights"
+sum_branch(overall_root.first)
 
