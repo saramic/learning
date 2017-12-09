@@ -5,6 +5,8 @@
     - [x] http://adventofcode.com/2017/day/9
     - [x] http://adventofcode.com/2017/day/8
     - [x] http://adventofcode.com/2017/day/7
+  * **PyImageSearch PPoA** Practical Pathon and OpenCV
+    - [x] ch8 smoothing and blurring
 
 # Wed 6th
   * **Advent of Code**
@@ -17,7 +19,6 @@
     - [x] ch5 drawing
     - [x] ch6 image processing
     - [x] ch7 histograms
-    - [ ] ch8 smoothing and blurring
     - [ ] read supplamentary material for above chapters in particular
         - showing images in pgplot
         - histogram search engine
