@@ -353,6 +353,7 @@ https://spring.io/understanding/HATEOAS
     orange pi - arm-bian
     apple pi?
     banana pi?
+    orange pi https://www.aliexpress.com/item/New-Orange-Pi-Zero-H2-Quad-Core-Open-source-512MB-development-board-beyond-Raspberry-Pi/32761500374.html
 
     esp 8266 32
       like [aliexpress esp32](https://www.google.com.au/search?q=aliexpress+esp32&tbm=shop)
