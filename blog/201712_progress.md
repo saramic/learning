@@ -1,10 +1,17 @@
 # Progress December 2017
 
+# Mon 11th
+
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2017/day/11
+
 # Sun 10th
   * **Advent of Code**
+    - [x] http://adventofcode.com/2017/day/10
 
   * **PyImageSearch PPoA** Practical Pathon and OpenCV
     - [x] ch9 thresholding
+    - [x] ch10 gradients and edge detection
 
 # Sat 9th
   * **Advent of Code**
