@@ -15,6 +15,7 @@ image = cv2.imread(args["image"])
 print("width: {} pixels".format(image.shape[1])) # NOTE: height width order not width height
 print("height: {} pixels".format(image.shape[0]))
 print("channels: {} ".format(image.shape[2]))
+print("shape: {}".format(image.shape))
 
 # 3.3 show image
 cv2.imshow("Image", image)
