@@ -1,10 +1,17 @@
 # Progress December 2017
 
+# Sun 10th
+  * **Advent of Code**
+
+  * **PyImageSearch PPoA** Practical Pathon and OpenCV
+    - [x] ch9 thresholding
+
 # Sat 9th
   * **Advent of Code**
     - [x] http://adventofcode.com/2017/day/9
     - [x] http://adventofcode.com/2017/day/8
     - [x] http://adventofcode.com/2017/day/7
+
   * **PyImageSearch PPoA** Practical Pathon and OpenCV
     - [x] ch8 smoothing and blurring
 
