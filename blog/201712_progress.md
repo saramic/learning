@@ -1,5 +1,27 @@
 # Progress December 2017
 
+# Tue 12th
+  * came across "Today I Learnt" https://til.hashrocket.com/ a real short form
+    blog of little nuggets of knowledge
+
+  * map select
+
+    ``` ruby
+
+    [1,2,3].map(&:to_s)
+    => ["1", "2", "3"]
+
+    sqr = lambda {|x| x*x }
+    [1,2,3].map(&sqr)
+    => [1, 4, 9]
+
+    def neg_odd(x)
+      x%2 == 1 ? -x : x
+    end
+    [1,2,3,4].map(&method(:neg_odd))
+    => [-1, 2, -3, 4]
+    ```
+
 # Mon 11th
 
   * **Advent of Code**
@@ -121,7 +143,10 @@
       - history and changes in CSM - Computer Science Metanotation
       - history of regex 3 decades of development till 1981 since then mostly unchanged
       - hisotry of BNF - Backus-Naur form
-      - [ ]https://youtu.be/dCuZkaaou0Q?t=1677
+      - [x] https://youtu.be/dCuZkaaou0Q?t=1677
+        - wild variance in substitution symbols
+        - hisotry of underline - quite intersting
+      - [ ] https://youtu.be/dCuZkaaou0Q?t=2482
 
 # Tue 5th
 
