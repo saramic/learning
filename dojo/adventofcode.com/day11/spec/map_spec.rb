@@ -10,16 +10,17 @@ valid_test_cases = [
   ['se,sw,se,sw,sw', 3],
 ]
 
-not_valid_test_cases = [
+actual_test = [
   [
     File.read(File.join(File.dirname(__FILE__), '..', 'data.txt')).chomp,
-    791
+    784
   ],
 ]
 
 RSpec.describe MapCoord do
   [
     *valid_test_cases,
+    *actual_test,
   ].each do |(path, steps)|
     path_string = path[0..19]
     path_string += '...' if path.length > 20
@@ -33,6 +34,7 @@ end
 RSpec.describe MapCancel do
   [
     *valid_test_cases,
+    *actual_test,
   ].each do |(path, steps)|
     path_string = path[0..19]
     path_string += '...' if path.length > 20

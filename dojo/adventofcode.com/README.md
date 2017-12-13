@@ -109,6 +109,16 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   curl 'http://adventofcode.com/2017/day/11/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day11/data.txt
   ```
 
+  ```
+  cat data.txt | ruby -I lib -e 'require "map_cancel"; puts MapCancel.new(ARGF.read.chomp).steps'
+  784
+  ```
+
+  --- Part Two ---
+
+  How many steps away is the furthest he ever got from his starting position?
+
+
 ## Day 10
 
   --- Day 10: Knot Hash ---
