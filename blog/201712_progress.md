@@ -4,6 +4,7 @@
 
   * **Advent of Code**
     - [ ] http://adventofcode.com/2017/day/11
+    - [ ] http://adventofcode.com/2017/day/12
 
 # Tue 12th
   * came across "Today I Learnt" https://til.hashrocket.com/ a real short form
