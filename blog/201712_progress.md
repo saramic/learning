@@ -3,8 +3,8 @@
 # Wed 12th
 
   * **Advent of Code**
-    - [ ] http://adventofcode.com/2017/day/11
-    - [ ] http://adventofcode.com/2017/day/12
+    - [x] http://adventofcode.com/2017/day/11
+    - [ ] http://adventofcode.com/2016/day/12
 
 # Tue 12th
   * came across "Today I Learnt" https://til.hashrocket.com/ a real short form
@@ -31,7 +31,7 @@
 # Mon 11th
 
   * **Advent of Code**
-    - [ ] http://adventofcode.com/2017/day/11
+    - [x] http://adventofcode.com/2017/day/11
 
 # Sun 10th
   * **Advent of Code**

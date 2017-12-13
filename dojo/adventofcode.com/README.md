@@ -119,6 +119,11 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   How many steps away is the furthest he ever got from his starting position?
 
 
+  ```
+  cat data.txt | ruby -I lib -e 'require "map_cancel"; puts MapCancel.new(ARGF.read.chomp).max_steps'
+  1558
+  ```
+
 ## Day 10
 
   --- Day 10: Knot Hash ---

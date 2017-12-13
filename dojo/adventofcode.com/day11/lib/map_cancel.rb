@@ -11,8 +11,8 @@ class MapCancel
     }
   end
 
-  def steps
-    @directions.merge!(@input.group_by { |w| w }.map { |w, ws| [w, ws.length] }.to_h)
+  def steps(route: @input)
+    @directions.merge!(route.group_by { |w| w }.map { |w, ws| [w, ws.length] }.to_h)
 
     loop do
       length = @directions.values.sum
@@ -39,5 +39,11 @@ class MapCancel
     @directions[dir1] -= canceled
     @directions[dir2] -= canceled
     canceled
+  end
+
+  def max_steps
+    @input.each_with_index.map do |_dir, index|
+      steps(route: @input.slice(0, index))
+    end.max
   end
 end
