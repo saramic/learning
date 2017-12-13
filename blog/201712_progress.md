@@ -1,5 +1,10 @@
 # Progress December 2017
 
+# Wed 12th
+
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2017/day/11
+
 # Tue 12th
   * came across "Today I Learnt" https://til.hashrocket.com/ a real short form
     blog of little nuggets of knowledge
