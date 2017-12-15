@@ -1,6 +1,33 @@
 # Progress December 2017
 
-# Wed 12th
+# Fri 15th
+
+  * **learning ember**
+    - [ ] [async testing](https://medium.com/@chrisdmasters/testing-async-in-ember-js-part-one-7ec9bc070c0e)
+    - [ ] [graphQL with Ember](https://github.com/alphasights/ember-graphql-adapter)
+      - [ ] https://www.manning.com/livevideo/graphql-in-motion
+    - [ ] [Ember debounce](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/debounce)
+    - [ ] [Ember one way controls](https://github.com/DockYard/ember-one-way-controls)
+
+  * **Postgresql**
+    - [ ] [postgresql-uuid](http://www.postgresqltutorial.com/postgresql-uuid/)
+    - [ ] [be careful with UUID or GUID as primary keys - HN](https://news.ycombinator.com/item?id=14523523)
+      - [ ] [be careful UUID and GUID as primary keys - article](https://tomharrisonjr.com/uuid-or-guid-as-primary-keys-be-careful-7b2aa3dcb439)
+    - [ ] [why auto increment is a  bad idea](https://www.clever-cloud.com/blog/engineering/2015/05/20/why-auto-increment-is-a-terrible-idea/)
+
+  * **General work**
+    - [ ] [Rollbar error grouping](https://rollbar.com/blog/error-grouping-tutorial/)
+      - [ ] [Rollbar algo for grouping](https://rollbar.com/docs/grouping-algorithm/)
+
+  * **Adventofcode**
+    - [ ] pull solutions from [reddit/adventofcode](https://www.reddit.com/r/adventofcode/) that are
+      - written in Rust
+      - use ruby shortcuts I am not familiar with
+      - use other clever tricks or algorithms
+    - [ ] graph algos from previous year http://billleidy.com/blog/advent-of-code-and-graph-data-structure.html
+    - [ ] more on hexagon systems https://www.redblobgames.com/grids/hexagons/#coordinates-offset
+
+# Wed 13th
 
   * **Advent of Code**
     - [x] http://adventofcode.com/2017/day/11
