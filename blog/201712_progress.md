@@ -1,5 +1,9 @@
 # Progress December 2017
 
+# Sat 16th
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2017/day/16
+
 # Fri 15th
 
   * **learning ember**
@@ -20,6 +24,47 @@
       - [ ] [Rollbar algo for grouping](https://rollbar.com/docs/grouping-algorithm/)
 
   * **Adventofcode**
+    - [x] http://adventofcode.com/2017/day/15
+
+      ```
+      # for 2 numbers
+      a = 245556042; b = 1431495498;
+      puts a; puts b;
+      > 245556042
+      > 1431495498
+
+      # see if their 16 lowest value bits are the same
+      # pack them into 16bit values
+      puts [a].pack("S");
+      puts [b].pack("S");
+      > J?
+      > J?
+
+      # and them with the maximum 16 bit value
+      puts a & 0xFFFF;
+      puts b & 0xFFFF;
+      > 58186
+      > 58186
+
+      # print them as binary and just the last 16 characters
+      puts a.to_s(2).rjust(32, "0")[16..-1];
+      puts b.to_s(2).rjust(32, "0")[16..-1];
+      > 1110001101001010
+      > 1110001101001010
+
+      # and them and print them as 0 right justivied binary
+      puts (a & 0xFFFF).to_s(2).rjust(16, "0")
+      puts (b & 0xFFFF).to_s(2).rjust(16, "0")
+      > 1110001101001010
+      > 1110001101001010
+
+      # mod them with a 16 bit maximum number
+      puts a % 2**16
+      puts b % 2**16'
+      > 58186
+      > 58186
+      ```
+
     - [ ] pull solutions from [reddit/adventofcode](https://www.reddit.com/r/adventofcode/) that are
       - written in Rust
       - use ruby shortcuts I am not familiar with
