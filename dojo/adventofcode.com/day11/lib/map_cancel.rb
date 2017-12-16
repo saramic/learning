@@ -43,7 +43,8 @@ class MapCancel
 
   def max_steps
     @input.each_with_index.map do |_dir, index|
-      steps(route: @input.slice(0, index))
+      steps = steps(route: @input.slice(0, index))
+      puts [index, steps].inspect
     end.max
   end
 end

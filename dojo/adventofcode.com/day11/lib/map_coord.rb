@@ -3,10 +3,10 @@ class MapCoord
     @input = input.split(',')
   end
 
-  def steps
+  def steps(route: @input)
     ewcount = 0
     dist = {x: 0, y: 0}
-    @input.each do |s|
+    route.each do |s|
       # east west counter
       ewcount += s.chars.last == "e" ? 1 : s.chars.last == "w" ? -1 : 0
       # east west inc only on odd number of east west count
@@ -32,5 +32,13 @@ class MapCoord
     y = y.abs
     x_half_ceil = ((x/2)+1).ceil
     x_half_ceil >= y ? x : x + (y - x_half_ceil)
+  end
+
+  def max_steps
+    @input.each_with_index.map do |_dir, index|
+      steps = steps(route: @input.slice(0, index))
+      puts [index, steps].inspect
+      steps
+    end.max
   end
 end
