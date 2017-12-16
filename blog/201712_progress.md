@@ -3,6 +3,7 @@
 # Sat 16th
   * **Advent of Code**
     - [ ] http://adventofcode.com/2017/day/16
+    - [x] http://adventofcode.com/2017/day/13
 
 # Fri 15th
 

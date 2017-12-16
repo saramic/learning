@@ -44,7 +44,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   In binary, these pairs are (with generator A's value first in each pair):
 
-  ``` 
+  ```
   00000000000100001010101101100111
   00011001101010101101001100110111
 
@@ -168,7 +168,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   Although it hasn't changed, you can still get your puzzle input.
 
-  Answer: 
+  Answer:
    [Submit]
 
   test with
@@ -187,13 +187,13 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
       amul = 16807
       bmul = 48271
       remainder = 2147483647
-      tot = 0               
+      tot = 0              
       (0..5_000_000).each{ |i|
         loop do; a = (a * amul) % remainder; break  if a % 4 == 0; end;
         loop do; b = (b * bmul) % remainder; break if b % 8 == 0; end;
         #puts [a, b].inspect;
         tot += 1 if ([a].pack("S") == [b].pack("S"))
-      }                                             
+      }                                            
       puts tot'
   a is 873
   b is 583
@@ -585,6 +585,11 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   What is the fewest number of picoseconds that you need to delay the packet to
   pass through the firewall without being caught?
 
+  ```
+  cat day13/data.txt | ruby day13/script.rb                                                                                                                                        
+
+  3896406
+  ```                                                                                                                                                                              
 
 ## Day 12
 
@@ -975,7 +980,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   <{o"i!a,<{i<a>, 10 characters.
   How many non-canceled characters are within the garbage in your puzzle input?
 
-  Although it hasn't changed, you can still get your puzzle input.  
+  Although it hasn't changed, you can still get your puzzle input. 
 
   ```
   cat data.txt | ruby -I lib -e 'require "parser"; puts Parser.new(ARGF.read).count'
@@ -1019,7 +1024,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   What is the largest value in any register after completing the instructions
   in your puzzle input?
 
-  To begin, get your puzzle input.  
+  To begin, get your puzzle input. 
 
   ```
   curl 'http://adventofcode.com/2017/day/8/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day8/data.txt
@@ -1102,21 +1107,21 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   ...then you would be able to recreate the structure of the towers that looks like this:
 
                   gyxo
-                /     
+                /    
            ugml - ebii
-         /      \     
+         /      \    
         |         jptl
-        |        
+        |       
         |         pbga
        /        /
   tknk --- padx - havc
        \        \
         |         qoyq
-        |             
+        |            
         |         ktlj
-         \      /     
+         \      /    
            fwft - cntj
-                \     
+                \    
                   xhth
   In this example, tknk is at the bottom of the tower (the bottom program), and
   is holding up ugml, padx, and fwft. Those programs are, in turn, holding up
@@ -1174,7 +1179,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   ```
   cat day7/data.txt | ruby day7/script.rb
-  cat data.txt | ruby  script.rb 
+  cat data.txt | ruby  script.rb
   1
   xegshds
   branches with uneven weights
@@ -1497,7 +1502,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   41919
 
   # or
-  $ cat day2/data.txt | ruby day2/day_2.rb 
+  $ cat day2/data.txt | ruby day2/day_2.rb
   41919
   ```
 
