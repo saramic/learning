@@ -7,7 +7,7 @@
     - [ ] http://adventofcode.com/2017/day/16 - part 2
     - [ ] http://adventofcode.com/2017/day/17
     - [ ] http://adventofcode.com/2017/day/18 - part 2
-    - [ ] http://adventofcode.com/2017/day/19
+    - [x] http://adventofcode.com/2017/day/19
 
 # Sat 16th
   * **Advent of Code**

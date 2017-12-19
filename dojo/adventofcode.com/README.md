@@ -10,6 +10,207 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
 ## Day 18
 
+  --- Day 19: A Series of Tubes ---
+
+  Somehow, a network packet got lost and ended up here. It's trying to follow a
+  routing diagram (your puzzle input), but it's confused about where to go.
+
+  Its starting point is just off the top of the diagram. Lines (drawn with |,
+  -, and +) show the path it needs to take, starting by going down onto the
+  only line connected to the top of the diagram. It needs to follow this path
+  until it reaches the end (located somewhere within the diagram) and stop
+  there.
+
+  Sometimes, the lines cross over each other; in these cases, it needs to
+  continue going the same direction, and only turn left or right when there's
+  no other option. In addition, someone has left letters on the line; these
+  also don't change its direction, but it can use them to keep track of where
+  it's been. For example:
+
+  ```
+       |
+       |  +--+
+       A  |  C
+   F---|----E|--+
+       |  |  |  D
+       +B-+  +--+
+  ```
+
+  Given this diagram, the packet needs to take the following path:
+
+  Starting at the only line touching the top of the diagram, it must go down,
+  pass through A, and continue onward to the first +.
+
+  Travel right, up, and right, passing through B in the process.
+
+  Continue down (collecting C), right, and up (collecting D).
+
+  Finally, go all the way left through E and stopping at F.
+
+  Following the path to the end, the letters it sees on its path are ABCDEF.
+
+  The little packet looks up at you, hoping you can help it find the way. What
+  letters will it see (in the order it would see them) if it follows the path?
+  (The routing diagram is very wide; make sure you view it without line
+  wrapping.)
+
+  ```
+  curl 'https://adventofcode.com/2017/day/19/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day19/data.txt
+  ```
+
+  Your puzzle answer was GEPYAWTMLK.
+
+  --- Part Two ---
+
+  The packet is curious how many steps it needs to go.
+
+  For example, using the same routing diagram from the example above...
+
+  ```
+       |
+       |  +--+
+       A  |  C
+   F---|--|-E---+
+       |  |  |  D
+       +B-+  +--+
+  ```
+
+  ...the packet would go:
+
+  ```
+  6 steps down (including the first line at the top of the diagram).
+  3 steps right.
+  4 steps up.
+  3 steps right.
+  4 steps down.
+  3 steps right.
+  2 steps up.
+  13 steps left (including the F it stops on).
+  This would result in a total of 38 steps.
+  ```
+
+  How many steps does the packet need to go?
+
+  Your puzzle answer was 17628.
+
+  demo
+  ```
+  echo "    |
+    |  +--+
+    A  |  C
+F---|----E|--+
+    |  |  |  D
+    +B-+  +--+" | ruby -e '
+  maze = ARGF.read.split("\n").map{|l| l.chars }
+  @width = maze.map(&:length).max
+  puts @width
+  def draw_maze(maze, x, y)
+    maze.each_with_index{|line,idx_y|
+      maze[idx_y].fill(" ", maze[idx_y].length..@width)
+      line.each_with_index{|e, idx_x|
+        lead = idx_x == x && idx_y == y ? "#" : " "
+        print [lead, e].join("")
+      }
+      puts ""
+    }
+  end
+  acc = []
+  x, y = maze.first.index("|"), 0
+  inc_x, inc_y = 0, 1
+  draw_maze(maze, x, y)
+  puts step_count = 0
+  loop do
+    puts "step"
+    draw_maze(maze, x, y)
+    puts maze[y][x].inspect
+    puts acc.inspect
+    case maze[y][x]
+      when "|"
+      when "-"
+      when "+"
+        if((inc_x==0 && inc_y==1) || (inc_x==0 && inc_y==-1)) # south or north
+          inc_x, inc_y = maze[y+0][x-1] != " " ? [-1, 0] : [1, 0] # west else east
+        elsif ((inc_x==1 && inc_y==0) || (inc_x==-1 && inc_y==0))  # east or west
+          inc_x, inc_y = maze[y-1][x+0] != " " ? [0, -1] : [0, 1] # north else south
+        else
+          raise "unhandled inc #{[x, y, inc_x, inc_y].inspect}"
+        end
+      when /[A-Z]/
+        acc << maze[y][x]
+      else
+        break
+    end
+    step_count += 1
+    x += inc_x
+    y += inc_y
+    break if x < 0 || y < 0 || x > maze[0].length || y > maze.length
+  end
+  draw_maze(maze, x, y)
+  puts acc.join.inspect
+  puts step_count'
+  ```
+
+  actual
+  ```
+  cat day19/data.txt | ruby -e '
+  maze = ARGF.read.split("\n").map{|l| l.chars }
+  @width = maze.map(&:length).max
+  puts @width
+  def draw_maze(maze, x, y)
+    maze.each_with_index{|line,idx_y|
+      maze[idx_y].fill(" ", maze[idx_y].length..@width)
+      line.each_with_index{|e, idx_x|
+        lead = idx_x == x && idx_y == y ? "#" : " "
+        print [lead, e].join("")
+      }
+      puts ""
+    }
+  end
+  acc = []
+  x, y = maze.first.index("|"), 0
+  inc_x, inc_y = 0, 1
+  #draw_maze(maze, x, y)
+  puts step_count = 0
+  loop do
+    #puts "step"
+    #draw_maze(maze, x, y)
+    #puts maze[y][x].inspect
+    #puts acc.inspect
+    case maze[y][x]
+      when "|"
+      when "-"
+      when "+"
+        if((inc_x==0 && inc_y==1) || (inc_x==0 && inc_y==-1)) # south or north
+          inc_x, inc_y = maze[y+0][x-1] != " " ? [-1, 0] : [1, 0] # west else east
+        elsif ((inc_x==1 && inc_y==0) || (inc_x==-1 && inc_y==0))  # east or west
+          inc_x, inc_y = maze[y-1][x+0] != " " ? [0, -1] : [0, 1] # north else south
+        else
+          raise "unhandled inc #{[x, y, inc_x, inc_y].inspect}"
+        end
+      when /[A-Z]/
+        acc << maze[y][x]
+      else
+        break
+    end
+    step_count += 1
+    #puts [x, y].inspect
+    #puts [inc_x, inc_y].inspect
+    #puts maze[y][x].inspect
+    x += inc_x
+    y += inc_y
+    break if x < 0 || y < 0 || x > maze[0].length || y > maze.length
+  end
+  draw_maze(maze, x, y)
+  puts acc.join.inspect
+  puts step_count
+  '
+
+  "GEPYAWTMLK"
+  17628
+  ```
+
+## Day 18
+
   --- Day 18: Duet ---
 
   You discover a tablet containing some strange assembly code labeled simply
