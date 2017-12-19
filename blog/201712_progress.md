@@ -1,8 +1,16 @@
 # Progress December 2017
 
+# Tue 19th
+  * **Advent of Code**
+    - [x] http://adventofcode.com/2016/day/12
+    - [ ] http://adventofcode.com/2017/day/14
+    - [ ] http://adventofcode.com/2017/day/16 - part 2
+    - [ ] http://adventofcode.com/2017/day/17
+    - [ ] http://adventofcode.com/2017/day/18 - part 2
+    - [ ] http://adventofcode.com/2017/day/19
+
 # Sat 16th
   * **Advent of Code**
-    - [ ] http://adventofcode.com/2017/day/16
     - [x] http://adventofcode.com/2017/day/13
 
 # Fri 15th
@@ -77,7 +85,6 @@
 
   * **Advent of Code**
     - [x] http://adventofcode.com/2017/day/11
-    - [ ] http://adventofcode.com/2016/day/12
 
 # Tue 12th
   * came across "Today I Learnt" https://til.hashrocket.com/ a real short form
