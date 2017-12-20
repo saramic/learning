@@ -56,7 +56,7 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   p=<-2,0,0>, v=<-4,0,0>, a=<-2,0,0>          (1)               (0)
 
   p=< 3,0,0>, v=<-1,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
-  p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>                         (0)   
+  p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>                         (0)
   ```
   At this point, particle 1 will never be closer to <0,0,0> than particle 0,
   and so, in the long run, particle 0 will stay closest.
@@ -67,33 +67,183 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   curl 'https://adventofcode.com/2017/day/20/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day20/data.txt
   ```
 
-  WIP - doing the wrong thing, actually need to apply the accelerations etc
-
   ```
-  $ echo "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>
-  p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>
-  p=< 4,0,0>, v=< 1,0,0>, a=<-1,0,0>
-  p=< 2,0,0>, v=<-2,0,0>, a=<-2,0,0>
-  p=< 4,0,0>, v=< 0,0,0>, a=<-1,0,0>
-  p=<-2,0,0>, v=<-4,0,0>, a=<-2,0,0>
-  p=< 3,0,0>, v=<-1,0,0>, a=<-1,0,0>
-  p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>" | ruby -e '
-  lowest = nil                                            
-  closest_particle = nil
-  ARGF.read.split("\n").each_with_index do |line, particle|
+  cat day20/data.txt | ruby -e '
+  lowest = nil
+  particles = ARGF.read.split("\n").map do |line|
     p_str, v_str, a_str = line.split(", ")
     parse_xyz = /.*<\s*(-?\d+),\s*(-?\d+),\s*(-?\d+)>/
     p = parse_xyz.match(p_str).to_a.slice(1,3).map(&:to_f)
     v = parse_xyz.match(v_str).to_a.slice(1,3).map(&:to_f)
     a = parse_xyz.match(a_str).to_a.slice(1,3).map(&:to_f)
     new_lowest = p.reject{|v| v == 0}.inject(:*)
-    if lowest == nil || new_lowest < lowest
-      lowest = new_lowest
-      closest_particle = particle
-    end
-    puts [p, v, a].inspect
+    {p: p, v: v, a: a}
   end
+
+  (0..1_000).each do |tic|
+    #puts particles.inspect
+    particles.each_with_index do |particle, index|
+      particle[:v] = particle[:v].zip(particle[:a]).map{|v,a| v+a }
+      particle[:p] = particle[:p].zip(particle[:v]).map{|p,v| p+v }
+    end
+  end
+  #puts particles.inspect
+  closest_distance = nil
+  closest_particle = nil
+  distances = {}
+  particles.each_with_index do |particle, index|
+    distance = particle[:p].map(&:abs).sum
+    distances[index] = distance
+    if closest_distance.nil? || distance < closest_distance
+      closest_distance = distance
+      closest_particle = index
+    end
+  end
+  #puts distances.inspect
+  puts closest_distance
   puts closest_particle
+  '
+  1163919.0
+  161
+
+  ```
+  --- Part Two ---
+
+  To simplify the problem further, the GPU would like to remove any particles
+  that collide. Particles collide if their positions ever exactly match.
+  Because particles are updated simultaneously, more than two particles can
+  collide at the same time and place. Once particles collide, they are removed
+  and cannot collide with anything else after that tick.
+
+  For example:
+
+  ```
+  p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
+  p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>    -6 -5 -4 -3 -2 -1  0  1  2  3
+  p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>    (0)   (1)   (2)            (3)
+  p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>
+
+  p=<-3,0,0>, v=< 3,0,0>, a=< 0,0,0>
+  p=<-2,0,0>, v=< 2,0,0>, a=< 0,0,0>    -6 -5 -4 -3 -2 -1  0  1  2  3
+  p=<-1,0,0>, v=< 1,0,0>, a=< 0,0,0>             (0)(1)(2)      (3)
+  p=< 2,0,0>, v=<-1,0,0>, a=< 0,0,0>
+
+  p=< 0,0,0>, v=< 3,0,0>, a=< 0,0,0>
+  p=< 0,0,0>, v=< 2,0,0>, a=< 0,0,0>    -6 -5 -4 -3 -2 -1  0  1  2  3
+  p=< 0,0,0>, v=< 1,0,0>, a=< 0,0,0>                       X (3)
+  p=< 1,0,0>, v=<-1,0,0>, a=< 0,0,0>
+
+  ------destroyed by collision------
+  ------destroyed by collision------    -6 -5 -4 -3 -2 -1  0  1  2  3
+  ------destroyed by collision------                      (3)
+  p=< 0,0,0>, v=<-1,0,0>, a=< 0,0,0>
+  ```
+
+  In this example, particles 0, 1, and 2 are simultaneously destroyed at the
+  time and place marked X. On the next tick, particle 3 passes through
+  unharmed.
+
+  How many particles are left after all collisions are resolved?
+
+  ```
+  echo "p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
+  p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>
+  p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>
+  p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>" | ruby -e '
+  lowest = nil
+  particles = {}
+  ARGF.read.split("\n").each_with_index.map do |line, index|
+    p_str, v_str, a_str = line.split(", ")
+    parse_xyz = /.*<\s*(-?\d+),\s*(-?\d+),\s*(-?\d+)>/
+    p = parse_xyz.match(p_str).to_a.slice(1,3).map(&:to_f)
+    v = parse_xyz.match(v_str).to_a.slice(1,3).map(&:to_f)
+    a = parse_xyz.match(a_str).to_a.slice(1,3).map(&:to_f)
+    new_lowest = p.reject{|v| v == 0}.inject(:*)
+    particles[index] = {p: p, v: v, a: a}
+  end
+
+  (0..10).each do |tic|
+    #puts particles.inspect
+    particles.keys.each do |particle_index|
+      particle = particles[particle_index]
+      particle[:v] = particle[:v].zip(particle[:a]).map{|v,a| v+a }
+      particle[:p] = particle[:p].zip(particle[:v]).map{|p,v| p+v }
+      collisions = particles.detect{|k,v| particles.count{|s_k,s_v| s_v[:p] == v[:p] } > 1 }
+      collisions.map{|a,b| particles.delete(a) } if collisions
+    end
+  end
+  #puts particles.inspect
+  closest_distance = nil
+  closest_particle = nil
+  distances = {}
+  particles.keys.each do |particle_index|
+    particle = particles[particle_index]
+    distance = particle[:p].map(&:abs).sum
+    distances[particle_index] = distance
+    if closest_distance.nil? || distance < closest_distance
+      closest_distance = distance
+      closest_particle = particle_index
+    end
+  end
+  #puts distances.inspect
+  puts closest_distance
+  puts closest_particle
+  puts particles.keys.count
+  '
+  ```
+
+  with the answer
+  ```
+  cat day20/data.txt | ruby -e '
+  lowest = nil
+  particles = {}
+  ARGF.read.split("\n").each_with_index.map do |line, index|
+    p_str, v_str, a_str = line.split(", ")
+    parse_xyz = /.*<\s*(-?\d+),\s*(-?\d+),\s*(-?\d+)>/
+    p = parse_xyz.match(p_str).to_a.slice(1,3).map(&:to_f)
+    v = parse_xyz.match(v_str).to_a.slice(1,3).map(&:to_f)
+    a = parse_xyz.match(a_str).to_a.slice(1,3).map(&:to_f)
+    new_lowest = p.reject{|v| v == 0}.inject(:*)
+    particles[index] = {p: p, v: v, a: a}
+  end
+
+  last_collision = 0
+  (0..1_000).each do |tic|
+    #puts tic.inspect
+    #puts particles.inspect
+    particles.keys.each do |particle_index|
+      particle = particles[particle_index]
+      next unless particle
+      particle[:v] = particle[:v].zip(particle[:a]).map{|v,a| v+a }
+      particle[:p] = particle[:p].zip(particle[:v]).map{|p,v| p+v }
+    end
+    collisions = particles.find_all{|k,v| particles.count{|s_k,s_v| s_v[:p] == v[:p] } > 1 }
+    if collisions
+      collisions.map{|a,b| particles.delete(a) }
+      last_collision = tic
+    end
+    break if last_collision + 50  < tic
+  end
+  #puts particles.inspect
+  closest_distance = nil
+  closest_particle = nil
+  distances = {}
+  particles.keys.each do |particle_index|
+    particle = particles[particle_index]
+    distance = particle[:p].map(&:abs).sum
+    distances[particle_index] = distance
+    if closest_distance.nil? || distance < closest_distance
+      closest_distance = distance
+      closest_particle = particle_index
+    end
+  end
+  #puts distances.inspect
+  #puts closest_distance
+  #puts closest_particle
+  puts particles.keys.count
+  '
+
+  438
   ```
 
 ## Day 19

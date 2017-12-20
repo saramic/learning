@@ -1,5 +1,9 @@
 # Progress December 2017
 
+# Wed 20th
+  * **Advent of Code**
+    - [x] http://adventofcode.com/2016/day/20
+
 # Tue 19th
   * **Advent of Code**
     - [x] http://adventofcode.com/2016/day/12
