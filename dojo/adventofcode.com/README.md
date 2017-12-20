@@ -8,7 +8,93 @@ can use session cookie for downloads
 $ export ADVENT_OF_CODE_COOKIE=536...9fa
 ```
 
+## Day 21
+
 ## Day 20
+
+  --- Day 20: Particle Swarm ---
+
+  Suddenly, the GPU contacts you, asking for help. Someone has asked it to
+  simulate too many particles, and it won't be able to finish them all in time
+  to render the next frame at this rate.
+
+  It transmits to you a buffer (your puzzle input) listing each particle in
+  order (starting with particle 0, then particle 1, particle 2, and so on). For
+  each particle, it provides the X, Y, and Z coordinates for the particle's
+  position (p), velocity (v), and acceleration (a), each in the format <X,Y,Z>.
+
+  Each tick, all particles are updated simultaneously. A particle's properties
+  are updated in the following order:
+
+  ```
+  Increase the X velocity by the X acceleration.
+  Increase the Y velocity by the Y acceleration.
+  Increase the Z velocity by the Z acceleration.
+  Increase the X position by the X velocity.
+  Increase the Y position by the Y velocity.
+  Increase the Z position by the Z velocity.
+  ```
+  Because of seemingly tenuous rationale involving z-buffering, the GPU would
+  like to know which particle will stay closest to position <0,0,0> in the long
+  term. Measure this using the Manhattan distance, which in this situation is
+  simply the sum of the absolute values of a particle's X, Y, and Z position.
+
+  For example, suppose you are only given two particles, both of which stay
+  entirely on the X-axis (for simplicity). Drawing the current states of
+  particles 0 and 1 (in that order) with an adjacent a number line and diagram
+  of current X positions (marked in parenthesis), the following would take
+  place:
+
+  ```
+  p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+  p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>                         (0)(1)
+
+  p=< 4,0,0>, v=< 1,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+  p=< 2,0,0>, v=<-2,0,0>, a=<-2,0,0>                      (1)   (0)
+
+  p=< 4,0,0>, v=< 0,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+  p=<-2,0,0>, v=<-4,0,0>, a=<-2,0,0>          (1)               (0)
+
+  p=< 3,0,0>, v=<-1,0,0>, a=<-1,0,0>    -4 -3 -2 -1  0  1  2  3  4
+  p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>                         (0)   
+  ```
+  At this point, particle 1 will never be closer to <0,0,0> than particle 0,
+  and so, in the long run, particle 0 will stay closest.
+
+  Which particle will stay closest to position <0,0,0> in the long term?
+
+  ```
+  curl 'https://adventofcode.com/2017/day/20/input' -H "Cookie: session=${ADVENT_OF_CODE_COOKIE}" > day20/data.txt
+  ```
+
+  WIP - doing the wrong thing, actually need to apply the accelerations etc
+
+  ```
+  $ echo "p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>
+  p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>
+  p=< 4,0,0>, v=< 1,0,0>, a=<-1,0,0>
+  p=< 2,0,0>, v=<-2,0,0>, a=<-2,0,0>
+  p=< 4,0,0>, v=< 0,0,0>, a=<-1,0,0>
+  p=<-2,0,0>, v=<-4,0,0>, a=<-2,0,0>
+  p=< 3,0,0>, v=<-1,0,0>, a=<-1,0,0>
+  p=<-8,0,0>, v=<-6,0,0>, a=<-2,0,0>" | ruby -e '
+  lowest = nil                                            
+  closest_particle = nil
+  ARGF.read.split("\n").each_with_index do |line, particle|
+    p_str, v_str, a_str = line.split(", ")
+    parse_xyz = /.*<\s*(-?\d+),\s*(-?\d+),\s*(-?\d+)>/
+    p = parse_xyz.match(p_str).to_a.slice(1,3).map(&:to_f)
+    v = parse_xyz.match(v_str).to_a.slice(1,3).map(&:to_f)
+    a = parse_xyz.match(a_str).to_a.slice(1,3).map(&:to_f)
+    new_lowest = p.reject{|v| v == 0}.inject(:*)
+    if lowest == nil || new_lowest < lowest
+      lowest = new_lowest
+      closest_particle = particle
+    end
+    puts [p, v, a].inspect
+  end
+  puts closest_particle
+  ```
 
 ## Day 19
 
