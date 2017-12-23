@@ -8,7 +8,190 @@ can use session cookie for downloads
 $ export ADVENT_OF_CODE_COOKIE=536...9fa
 ```
 
+## Day 23
+
+  --- Day 23: Coprocessor Conflagration ---
+
+  You decide to head directly to the CPU and fix the printer from there. As you
+  get close, you find an experimental coprocessor doing so much work that the
+  local programs are afraid it will halt and catch fire. This would cause
+  serious issues for the rest of the computer, so you head in and see what you
+  can do.
+
+  The code it's running seems to be a variant of the kind you saw recently on
+  that tablet. The general functionality seems very similar, but some of the
+  instructions are different:
+
+  ```
+  set X Y sets register X to the value of Y.
+  sub X Y decreases register X by the value of Y.
+  mul X Y sets register X to the result of multiplying the value contained in
+          register X by the value of Y.
+  jnz X Y jumps with an offset of the value of Y, but only if the value of X is
+          not zero. (An offset of 2 skips the next instruction, an offset of -1
+          jumps to the previous instruction, and so on.)
+  ```
+  Only the instructions listed above are used. The eight registers here, named
+  a through h, all start at 0.
+
+  The coprocessor is currently set to some kind of debug mode, which allows for
+  testing, but prevents it from doing any meaningful work.
+
+  If you run the program (your puzzle input), how many times is the mul instruction invoked?
+
+
+  ```
+  cat day23/data.txt | ruby day23/script.rb
+
+  6724
+  ```
+
+  Your puzzle answer was 6724.
+
+  The first half of this puzzle is complete! It provides one gold star: *
+
+  --- Part Two ---
+  Now, it's time to fix the problem.
+
+  The debug mode switch is wired directly to register a. You flip the switch,
+  which makes register a now start at 1 when the program is executed.
+
+  Immediately, the coprocessor begins to overheat. Whoever wrote this program
+  obviously didn't choose a very efficient implementation. You'll need to
+  optimize the program if it has any hope of completing before Santa needs that
+  printer working.
+
+  The coprocessor's ultimate goal is to determine the final value left in
+  register h once the program completes. Technically, if it had that... it
+  wouldn't even need to run the program.
+
+  After setting register a to 1, if the program were to run to completion, what
+  value would be left in register h?
+
+  Although it hasn't changed, you can still get your puzzle input.
+
+
+## Day 22
+
 ## Day 21
+
+  --- Day 21: Fractal Art ---
+  You find a program trying to generate some art. It uses a strange process
+  that involves repeatedly enhancing the detail of an image through a set of
+  rules.
+
+  The image consists of a two-dimensional square grid of pixels that are either
+  on (#) or off (.). The program always begins with this pattern:
+
+  ```
+  .#.
+  ..#
+  ###
+  ```
+  Because the pattern is both 3 pixels wide and 3 pixels tall, it is said to
+  have a size of 3.
+
+  Then, the program repeats the following process:
+
+  If the size is evenly divisible by 2, break the pixels up into 2x2 squares,
+  and convert each 2x2 square into a 3x3 square by following the corresponding
+  enhancement rule.
+
+  Otherwise, the size is evenly divisible by 3; break the pixels up into 3x3
+  squares, and convert each 3x3 square into a 4x4 square by following the
+  corresponding enhancement rule.
+
+  Because each square of pixels is replaced by a larger one, the image gains
+  pixels and so its size increases.
+
+  The artist's book of enhancement rules is nearby (your puzzle input);
+  however, it seems to be missing rules. The artist explains that sometimes,
+  one must rotate or flip the input pattern to find a match. (Never rotate or
+  flip the output pattern, though.) Each pattern is written concisely: rows are
+  listed as single units, ordered top-down, and separated by slashes. For
+  example, the following rules correspond to the adjacent patterns:
+
+  ```
+  ../.#  =  ..
+            .#
+
+                  .#.
+  .#./..#/###  =  ..#
+                  ###
+
+                          #..#
+  #..#/..../#..#/.##.  =  ....
+                          #..#
+                          .##.
+  ```
+  When searching for a rule to use, rotate and flip the pattern as necessary.
+  For example, all of the following patterns match the same rule:
+
+  ```
+  .#.   .#.   #..   ###
+  ..#   #..   #.#   ..#
+  ###   ###   ##.   .#.
+  ```
+  Suppose the book contained the following two rules:
+
+  ```
+  ../.# => ##./#../...
+  .#./..#/### => #..#/..../..../#..#
+  ```
+  As before, the program begins with this pattern:
+
+  ```
+  .#.
+  ..#
+  ###
+  ```
+  The size of the grid (3) is not divisible by 2, but it is divisible by 3. It
+  divides evenly into a single square; the square matches the second rule,
+  which produces:
+
+  ```
+  #..#
+  ....
+  ....
+  #..#
+  ```
+  The size of this enhanced grid (4) is evenly divisible by 2, so that rule is
+  used. It divides evenly into four squares:
+
+  ```
+  #.|.#
+  ..|..
+  --+--
+  ..|..
+  #.|.#
+  ```
+  Each of these squares matches the same rule (../.# => ##./#../...), three of
+  which require some flipping and rotation to line up with the rule. The output
+  for the rule is the same in all four cases:
+
+  ```
+  ##.|##.
+  #..|#..
+  ...|...
+  ---+---
+  ##.|##.
+  #..|#..
+  ...|...
+  ```
+  Finally, the squares are joined into a new grid:
+
+  ```
+  ##.##.
+  #..#..
+  ......
+  ##.##.
+  #..#..
+  ......
+  ```
+  Thus, after 2 iterations, the grid contains 12 pixels that are on.
+
+  How many pixels stay on after 5 iterations?
+
 
 ## Day 20
 

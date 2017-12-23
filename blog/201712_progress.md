@@ -1,5 +1,53 @@
 # Progress December 2017
 
+# day?
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2016/day/23
+    - [ ] http://adventofcode.com/2016/day/24
+    - [ ] http://adventofcode.com/2016/day/25
+
+# Sat 23rd
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2016/day/23 part 2
+  * **Rust**
+    - [ ] ch5
+
+# Fri 22nd
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2016/day/22
+
+# Thu 21st
+  * **API workshop**
+    * cover off things like e-tags when and how they should be updated
+      [bust rails etag on deployment](https://ninjasandrobots.com/how-to-bust-your-rails-etag-cache-on-deployment)
+
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2016/day/21
+
+  * **Tech session**
+    - watched [Sandi Metz: "Go Ahead, Make a Mess"](https://www.youtube.com/watch?v=mpA2F1In41w)
+    - about containt mess
+    - 4 quadrants
+
+    ```
+               within my purpose
+                      |
+              Expose  |  Hide
+                      |
+      stable ---------+----------- unstable
+                      |
+            Minimize  |  Move
+                      |
+              outside my purpose
+    ```
+
+    - the idea is you can hide bad unstable code and as long as no one touches
+      it or sees it it is ok
+    - the stable abstractions you have are your API which you expose
+    - you need to talk to the outside world by minize this
+    - if you need to dig into messy parts of the outside world that is a bad
+      thing and you NEED to fix this
+
 # Wed 20th
   * **Advent of Code**
     - [x] http://adventofcode.com/2016/day/20
