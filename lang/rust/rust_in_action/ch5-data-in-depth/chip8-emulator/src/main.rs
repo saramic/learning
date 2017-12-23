@@ -1,22 +1,33 @@
-const ADD_XY: u8 = 0x8; // constant for addition
+const ARITHMETIC_AND_LOGIC: u8 = 0x8;
+const HALT: u8 = 0x0;
+const ADD_XY: u8 = 0x4; // constant for addition
 
 struct CPU {
-    current_operation: u16,
-    registers: [u8; 2],
+    // current_operation: u16,
+    registers: [u8; 16],
+    position_in_memory: usize,
+    memory: [u8; 4096],
 }
 
 impl CPU {
     fn run(&mut self) {
-        let enocded_op = self.current_operation;
-        let op = ((enocded_op & 0xF000) >> 12) as u8; // assign each bit field to own
-        let x  = ((enocded_op & 0x0F00) >>  8) as u8; // variable
-        let y  = ((enocded_op & 0x00F0) >>  4) as u8; // variable
+        loop {
+            let op_byte1 = self.memory[self.position_in_memory] as u16;
+            let op_byte2 = self.memory[self.position_in_memory + 1] as u16;
+            let raw_op = op_byte1 << 8 | op_byte2;
 
-        match op {
-            ADD_XY => {
-                self.add_xy(x,y);
-            },
-            _ => unimplemented!(),
+            let op_major = ((raw_op & 0xF000) >> 12) as u8;
+            let x        = ((raw_op & 0x0F00) >>  8) as u8;
+            let y        = ((raw_op & 0x00F0) >>  4) as u8;
+            let op_minor = ((raw_op & 0x000F))       as u8;
+
+            self.position_in_memory += 2;
+
+            match (op_major, op_minor) {
+                (HALT, HALT) => { return; },
+                (ARITHMETIC_AND_LOGIC, ADD_XY) => self.add_xy(x, y),
+                _ => unimplemented!(),
+            }
         }
     }
 
@@ -27,17 +38,24 @@ impl CPU {
 
 fn main() {
     let mut cpu = CPU {
-        current_operation: 0x8014,
-        registers: [0; 2],
+        registers: [0; 16],
+        memory: [0; 4096],
+        position_in_memory: 0,
     };
 
     cpu.registers[0] = 5;
     cpu.registers[1] = 10;
+    cpu.registers[2] = 10;
+    cpu.registers[3] = 10;
+
+    cpu.memory[0] = 0x80; cpu.memory[1] = 0x14; // 0x8014 = add reg1 to reg0
+    cpu.memory[2] = 0x80; cpu.memory[3] = 0x24; // 0x8024 = add reg2 to reg0
+    cpu.memory[4] = 0x80; cpu.memory[5] = 0x34; // 0x8034 = add reg3 to reg0
 
     cpu.run();
 
-    assert_eq!(cpu.registers[0], 15);
+    assert_eq!(cpu.registers[0], 35);
 
-    println!("5 + 10 = {}", cpu.registers[0]);
+    println!("5 + 10 + 10 + 10 = {}", cpu.registers[0]);
 }
 
