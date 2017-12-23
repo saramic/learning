@@ -31,4 +31,12 @@ fn main() {
 
     print!("{}, {}, {}, ..., ", zero, one, two);
     println!("{}, {}, {}, ", num_65_533, num_65_534, num_65_535);
+
+    println!("");
+    println!("impossible addition");
+
+    let (a, b) = (200, 200);
+    let c: u8 = a + b;
+    println!("200 + 200 = {}", c);
+
 }
