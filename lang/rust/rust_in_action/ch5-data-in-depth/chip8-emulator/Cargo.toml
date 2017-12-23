@@ -1,0 +1,6 @@
+[package]
+name = "chip8-emulator"
+version = "0.1.0"
+authors = ["Michael Milewski <saramic@gmail.com>"]
+
+[dependencies]
