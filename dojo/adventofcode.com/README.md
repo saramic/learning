@@ -70,6 +70,19 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
 
   Although it hasn't changed, you can still get your puzzle input.
 
+  ```
+  ?? refactor out the assembly code
+
+  the program is counting composite numbers between b and c, in jumps of size 17
+  based on https://www.reddit.com/r/adventofcode/comments/7lms6p/2017_day_23_solutions/drngmhm/
+
+  ??
+  perl -MMath::Prime::Util=is_prime -E 'say scalar grep{!is_prime(108400*$_)}0..1000;'
+  1001
+
+  ruby -e 'require "prime"; puts ((84 * 100 + 100000)..(84 * 100 + 100000 + 17000)).step(17).count { |n| !Prime.prime?(n) }'
+  903
+  ```
 
 ## Day 22
 
