@@ -6,11 +6,25 @@
     - [ ] http://adventofcode.com/2016/day/24
     - [ ] http://adventofcode.com/2016/day/25
 
+# Sun 24th
+  * **Chromebook**
+    - [ ] setup [crouton](https://github.com/dnschneid/crouton)
+
+  * **Rust**
+    - [ ] ch5.53 - ...
+
+  * **Advent of Code**
+    - [ ] http://adventofcode.com/2016/day/24
+
+  * **PyImageSearch**
+    - review how handy the gurus course could be
+    - probably have more of a read of the blog https://www.pyimagesearch.com/
+
 # Sat 23rd
   * **Advent of Code**
-    - [ ] http://adventofcode.com/2016/day/23 part 2
+    - [x] http://adventofcode.com/2016/day/23
   * **Rust**
-    - [ ] ch5
+    - [x] ch5 - ch5.53
 
 # Fri 22nd
   * **Advent of Code**
