@@ -3,13 +3,8 @@
 # registers with initial values
 a, b, c, d, e, f, g, h = 1, 0, 0, 0, 0 ,0 ,0 ,0
 
-b = 84
-c = b
-
-if (a != 0)
-  b = b * 100 + 10_0000
-  c = b + 17_000
-end
+b = 84 * 100 + 10_0000
+c = b + 17_000
 
 loop do
   f = 1
