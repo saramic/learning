@@ -11,7 +11,9 @@
     - [ ] setup [crouton](https://github.com/dnschneid/crouton)
 
   * **Rust**
-    - [ ] ch5.53 - ...
+    - [x] ch5 complete adding functions to chip-8 emulator
+      - [ ] look at ch5/ch5-cpu4 for multiplication and other operations
+      - [ ] look at above to solve the assembly problems in advent of code
 
   * **Advent of Code**
     - [ ] http://adventofcode.com/2016/day/24
