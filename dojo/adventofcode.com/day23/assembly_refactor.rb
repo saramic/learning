@@ -2,19 +2,19 @@
 # assuming you have __goto__ and __label__ enabled in your ruby
 # http://patshaughnessy.net/2012/2/29/the-joke-is-on-us-how-ruby-1-9-supports-the-goto-statement
 
+# registers with initial values
+a, b, c, d, e, f, g, h = 1, 0, 0, 0, 0 ,0 ,0 ,0
+
 #  0 set b 84
 b = 84
 #  1 set c b
 c = b
-#  2 jnz a 2
-__goto__(:line_4) if a != 0
-#  3 jnz 1 5
-__goto__(:line_8)
-#  4 mul b 100
-__label__(:line_4)
-b = b * 100 + 10_0000
-#  6 set c b
-c = b + 17_000
+
+if (a != 0) {
+  b = b * 100 + 10_0000
+  c = b + 17_000
+}
+
 #  8 set f 1
 __label__(:line_8)
 f = 1
