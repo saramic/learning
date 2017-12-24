@@ -17,31 +17,29 @@ end
 
 loop
   f = 1
-  #  9 set d 2
   d = 2
-  # 10 set e 2
-  __label__(:line_10)
-  e = 2
-  # 11 set g d
-  __label__(:line_11)
-  g = d * e - b
-  # 14 jnz g 2
-  __goto__(:line_16) if g != 0
-  # 15 set f 0
-  f = 0
-  # 16 sub e -1
-  __label__(:line_16)
-  e += 1
-  # 17 set g e
-  g = e - b
-  # 19 jnz g -8
-  __goto__(:line_11) if g != 0
-  # 20 sub d -1
-  d += 1
-  # 21 set g d
-  g = d - b
-  # 23 jnz g -13
-  __goto__(:line_10) if g != 0
+  do
+    e = 2
+    # 11 set g d
+    __label__(:line_11)
+    g = d * e - b
+    # 14 jnz g 2
+    __goto__(:line_16) if g != 0
+    # 15 set f 0
+    f = 0
+    # 16 sub e -1
+    __label__(:line_16)
+    e += 1
+    # 17 set g e
+    g = e - b
+    # 19 jnz g -8
+    __goto__(:line_11) if g != 0
+    # 20 sub d -1
+    d += 1
+    # 21 set g d
+    g = d - b
+    # 23 jnz g -13
+  end while (d != b)
 
   h += 1 if f == 0
   break if b == c
