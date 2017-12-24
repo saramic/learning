@@ -20,20 +20,17 @@ loop
   d = 2
   do
     e = 2
-    # 11 set g d
-    __label__(:line_11)
-    g = d * e - b
-    # 14 jnz g 2
-    __goto__(:line_16) if g != 0
-    # 15 set f 0
-    f = 0
-    # 16 sub e -1
-    __label__(:line_16)
-    e += 1
-    # 17 set g e
-    g = e - b
-    # 19 jnz g -8
-    __goto__(:line_11) if g != 0
+    loop
+      g = d * e - b
+      # 14 jnz g 2
+      __goto__(:line_16) if g != 0
+      # 15 set f 0
+      f = 0
+      # 16 sub e -1
+      __label__(:line_16)
+      e += 1
+      break if d != b
+    end
     # 20 sub d -1
     d += 1
     # 21 set g d
