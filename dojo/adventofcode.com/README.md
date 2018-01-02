@@ -8,6 +8,174 @@ can use session cookie for downloads
 $ export ADVENT_OF_CODE_COOKIE=536...9fa
 ```
 
+## Day 25
+
+  --- Day 25: The Halting Problem ---
+  Following the twisty passageways deeper and deeper into the CPU, you finally
+  reach the core of the computer. Here, in the expansive central chamber, you
+  find a grand apparatus that fills the entire room, suspended nanometers above
+  your head.
+
+  You had always imagined CPUs to be noisy, chaotic places, bustling with
+  activity. Instead, the room is quiet, motionless, and dark.
+
+  Suddenly, you and the CPU's garbage collector startle each other. "It's not
+  often we get many visitors here!", he says. You inquire about the stopped
+  machinery.
+
+  "It stopped milliseconds ago; not sure why. I'm a garbage collector, not a
+  doctor." You ask what the machine is for.
+
+  "Programs these days, don't know their origins. That's the Turing machine!
+  It's what makes the whole computer work." You try to explain that Turing
+  machines are merely models of computation, but he cuts you off. "No, see,
+  that's just what they want you to think. Ultimately, inside every CPU,
+  there's a Turing machine driving the whole thing! Too bad this one's broken.
+  We're doomed!"
+
+  You ask how you can help. "Well, unfortunately, the only way to get the
+  computer running again would be to create a whole new Turing machine from
+  scratch, but there's no way you can-" He notices the look on your face, gives
+  you a curious glance, shrugs, and goes back to sweeping the floor.
+
+  You find the Turing machine blueprints (your puzzle input) on a tablet in a
+  nearby pile of debris. Looking back up at the broken Turing machine above,
+  you can start to identify its parts:
+
+  A tape which contains 0 repeated infinitely to the left and right.
+  A cursor, which can move left or right along the tape and read or write
+  values at its current position.
+  A set of states, each containing rules about what to do based on the current
+  value under the cursor.
+  Each slot on the tape has two possible values: 0 (the starting value for all
+  slots) and 1. Based on whether the cursor is pointing at a 0 or a 1, the
+  current state says what value to write at the current position of the cursor,
+  whether to move the cursor left or right one slot, and which state to use
+  next.
+
+  For example, suppose you found the following blueprint:
+
+  Begin in state A.
+  Perform a diagnostic checksum after 6 steps.
+
+  In state A:
+    If the current value is 0:
+      - Write the value 1.
+      - Move one slot to the right.
+      - Continue with state B.
+    If the current value is 1:
+      - Write the value 0.
+      - Move one slot to the left.
+      - Continue with state B.
+
+  In state B:
+    If the current value is 0:
+      - Write the value 1.
+      - Move one slot to the left.
+      - Continue with state A.
+    If the current value is 1:
+      - Write the value 1.
+      - Move one slot to the right.
+      - Continue with state A.
+  Running it until the number of steps required to take the listed diagnostic
+  checksum would result in the following tape configurations (with the cursor
+  marked in square brackets):
+
+  ```
+  ... 0  0  0 [0] 0  0 ... (before any steps; about to run state A)
+  ... 0  0  0  1 [0] 0 ... (after 1 step;     about to run state B)
+  ... 0  0  0 [1] 1  0 ... (after 2 steps;    about to run state A)
+  ... 0  0 [0] 0  1  0 ... (after 3 steps;    about to run state B)
+  ... 0 [0] 1  0  1  0 ... (after 4 steps;    about to run state A)
+  ... 0  1 [1] 0  1  0 ... (after 5 steps;    about to run state B)
+  ... 0  1  1 [0] 1  0 ... (after 6 steps;    about to run state A)
+  ```
+  The CPU can confirm that the Turing machine is working by taking a diagnostic
+  checksum after a specific number of steps (given in the blueprint). Once the
+  specified number of steps have been executed, the Turing machine should
+  pause; once it does, count the number of times 1 appears on the tape. In the
+  above example, the diagnostic checksum is 3.
+
+  Recreate the Turing machine and save the computer! What is the diagnostic
+  checksum it produces once it's working again?
+
+  To begin, get your puzzle input.
+
+  Answer:
+   [Submit]
+
+  You can also [Share] this puzzle.
+
+## Day 24
+
+  --- Day 24: Electromagnetic Moat ---
+  The CPU itself is a large, black building surrounded by a bottomless pit.
+  Enormous metal tubes extend outward from the side of the building at regular
+  intervals and descend down into the void. There's no way to cross, but you
+  need to get inside.
+
+  No way, of course, other than building a bridge out of the magnetic
+  components strewn about nearby.
+
+  Each component has two ports, one on each end. The ports come in all
+  different types, and only matching types can be connected. You take an
+  inventory of the components by their port types (your puzzle input). Each
+  port is identified by the number of pins it uses; more pins mean a stronger
+  connection for your bridge. A 3/7 component, for example, has a type-3 port
+  on one side, and a type-7 port on the other.
+
+  Your side of the pit is metallic; a perfect surface to connect a magnetic,
+  zero-pin port. Because of this, the first port you use must be of type 0. It
+  doesn't matter what type of port you end with; your goal is just to make the
+  bridge as strong as possible.
+
+  The strength of a bridge is the sum of the port types in each component. For
+  example, if your bridge is made of components 0/3, 3/7, and 7/4, your bridge
+  has a strength of 0+3 + 3+7 + 7+4 = 24.
+
+  For example, suppose you had the following components:
+
+  ```
+  0/2
+  2/2
+  2/3
+  3/4
+  3/5
+  0/1
+  10/1
+  9/10
+  ```
+  With them, you could make the following valid bridges:
+
+  ```
+  0/1
+  0/1--10/1
+  0/1--10/1--9/10
+  0/2
+  0/2--2/3
+  0/2--2/3--3/4
+  0/2--2/3--3/5
+  0/2--2/2
+  0/2--2/2--2/3
+  0/2--2/2--2/3--3/4
+  0/2--2/2--2/3--3/5
+  ```
+  (Note how, as shown by 10/1, order of ports within a component doesn't
+  matter. However, you may only use each port on a component once.)
+
+  Of these bridges, the strongest one is 0/1--10/1--9/10; it has a strength of
+  0+1 + 1+10 + 10+9 = 31.
+
+  What is the strength of the strongest bridge you can make with the components
+  you have available?
+
+  To begin, get your puzzle input.
+
+  Answer:
+   [Submit]
+
+  You can also [Share] this puzzle.
+
 ## Day 23
 
   --- Day 23: Coprocessor Conflagration ---
@@ -85,6 +253,139 @@ $ export ADVENT_OF_CODE_COOKIE=536...9fa
   ```
 
 ## Day 22
+
+  --- Day 22: Sporifica Virus ---
+  Diagnostics indicate that the local grid computing cluster has been
+  contaminated with the Sporifica Virus. The grid computing cluster is a
+  seemingly-infinite two-dimensional grid of compute nodes. Each node is either
+  clean or infected by the virus.
+
+  To prevent overloading the nodes (which would render them useless to the
+  virus) or detection by system administrators, exactly one virus carrier moves
+  through the network, infecting or cleaning nodes as it moves. The virus
+  carrier is always located on a single node in the network (the current node)
+  and keeps track of the direction it is facing.
+
+  To avoid detection, the virus carrier works in bursts; in each burst, it
+  wakes up, does some work, and goes back to sleep. The following steps are all
+  executed in order one time each burst:
+
+  If the current node is infected, it turns to its right. Otherwise, it turns
+  to its left. (Turning is done in-place; the current node does not change.)
+  If the current node is clean, it becomes infected. Otherwise, it becomes
+  cleaned. (This is done after the node is considered for the purposes of
+  changing direction.)
+  The virus carrier moves forward one node in the direction it is facing.
+  Diagnostics have also provided a map of the node infection status (your
+  puzzle input). Clean nodes are shown as .; infected nodes are shown as #.
+  This map only shows the center of the grid; there are many more nodes beyond
+  those shown, but none of them are currently infected.
+
+  The virus carrier begins in the middle of the map facing up.
+
+  For example, suppose you are given a map like this:
+
+  ```
+  ..#
+  #..
+  ...
+  ```
+  Then, the middle of the infinite grid looks like this, with the virus
+  carrier's position marked with [ ]:
+
+  ```
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . # . . .
+  . . . #[.]. . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  The virus carrier is on a clean node, so it turns left, infects the node, and
+  moves left:
+
+  ```
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . # . . .
+  . . .[#]# . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  The virus carrier is on an infected node, so it turns right, cleans the node,
+  and moves up:
+
+  ```
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . .[.]. # . . .
+  . . . . # . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  Four times in a row, the virus carrier finds a clean, infects it, turns left,
+  and moves forward, ending in the same place and still facing up:
+
+  ```
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . #[#]. # . . .
+  . . # # # . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  Now on the same node as before, it sees an infection, which causes it to turn
+  right, clean the node, and move forward:
+
+  ```
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . # .[.]# . . .
+  . . # # # . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  After the above actions, a total of 7 bursts of activity had taken place. Of
+  them, 5 bursts of activity caused an infection.
+
+  After a total of 70, the grid looks like this, with the virus carrier facing
+  up:
+
+  ```
+  . . . . . # # . .
+  . . . . # . . # .
+  . . . # . . . . #
+  . . # . #[.]. . #
+  . . # . # . . # .
+  . . . . . # # . .
+  . . . . . . . . .
+  . . . . . . . . .
+  ```
+  By this time, 41 bursts of activity caused an infection (though most of those
+  nodes have since been cleaned).
+
+  After a total of 10000 bursts of activity, 5587 bursts will have caused an
+  infection.
+
+  Given your actual map, after 10000 bursts of activity, how many bursts cause
+  a node to become infected? (Do not count nodes that begin infected.)
+
+  To begin, get your puzzle input.
+
+  Answer:
+   [Submit]
+
+  You can also [Share] this puzzle.
 
 ## Day 21
 
