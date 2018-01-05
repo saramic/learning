@@ -55,5 +55,35 @@
 
     * [Day 7] onwards
 
-# Wed 3rd
+# Sat 6th
+  * **Exercism.io**
+    * http://exercism.io/saramic
+    * ruby: hamming, rna-transcription, word-count
+    * rust: gigasecond
+    * r: leap
+
+    ```
+    exercism configure --key=***
+    exercism fetch ruby
+    cd ~/exercism/ruby
+    ruby -r minitest/pride ***_test.rb
+    exercism submit ***.rb
+
+    exercism fetch rust
+    cd ~/exercism/rust
+    cargo test
+    exercism submit src/lib.rs
+
+    exercism fetch r
+    cd ~/exercism/r
+    rscript test_***.R
+    exercism submit ***.R
+
+    exercism fetch ecmascript
+    exercism fetch elixir
+    exercism fetch clojure
+    exercism fetch c
+    exercism fetch cpp
+    exercism fetch python
+    ```
 
