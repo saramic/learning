@@ -12,7 +12,7 @@ class GearRatioDomain
     when /find gear (\d+) and return it's ratio/
       # TODO find gear
     else
-      raise ArgumentError "not supported command #{command.inspect}"
+      raise ArgumentError.new("not supported command #{command.inspect}")
     end
   end
 end
