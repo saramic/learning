@@ -1,0 +1,8 @@
+---
+:gears:
+- :id: 1
+  :chainring: 52
+  :cog: 11
+- :id: 2
+  :chainring: 30
+  :cog: 27
