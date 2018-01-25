@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'yaml'
+require 'rexml/document'
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
 require 'adaptor_pattern'
@@ -105,8 +106,9 @@ describe AdaptorPattern do
           </tbody>
         </table>
       END_OF_HTML
-      # TODO space agnostic XML comparison
-      assert_equal expected_output, output
+      expected_xml = REXML::Document.new(expected_output)
+      output_xml =   REXML::Document.new(output)
+      assert_equal expected_xml.to_s(2), output_xml.to_s(2)
     end
   end
 
