@@ -1,0 +1,71 @@
+---
+- row_index: '1'
+  Name: Allen, Miss Elisabeth Walton
+  PClass: 1st
+  Age: '29'
+  Sex: female
+  Survived: '1'
+  SexCode: '1'
+- row_index: '2'
+  Name: Allison, Miss Helen Loraine
+  PClass: 1st
+  Age: '2'
+  Sex: female
+  Survived: '0'
+  SexCode: '1'
+- row_index: '3'
+  Name: Allison, Mr Hudson Joshua Creighton
+  PClass: 1st
+  Age: '30'
+  Sex: male
+  Survived: '0'
+  SexCode: '0'
+- row_index: '4'
+  Name: Allison, Mrs Hudson JC (Bessie Waldo Daniels)
+  PClass: 1st
+  Age: '25'
+  Sex: female
+  Survived: '0'
+  SexCode: '1'
+- row_index: '5'
+  Name: Allison, Master Hudson Trevor
+  PClass: 1st
+  Age: '0.92'
+  Sex: male
+  Survived: '1'
+  SexCode: '0'
+- row_index: '6'
+  Name: Anderson, Mr Harry
+  PClass: 1st
+  Age: '47'
+  Sex: male
+  Survived: '1'
+  SexCode: '0'
+- row_index: '7'
+  Name: Andrews, Miss Kornelia Theodosia
+  PClass: 1st
+  Age: '63'
+  Sex: female
+  Survived: '1'
+  SexCode: '1'
+- row_index: '8'
+  Name: Andrews, Mr Thomas, jr
+  PClass: 1st
+  Age: '39'
+  Sex: male
+  Survived: '0'
+  SexCode: '0'
+- row_index: '9'
+  Name: Appleton, Mrs Edward Dale (Charlotte Lamson)
+  PClass: 1st
+  Age: '58'
+  Sex: female
+  Survived: '1'
+  SexCode: '1'
+- row_index: '10'
+  Name: Artagaveytia, Mr Ramon
+  PClass: 1st
+  Age: '71'
+  Sex: male
+  Survived: '0'
+  SexCode: '0'
