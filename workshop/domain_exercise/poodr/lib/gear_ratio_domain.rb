@@ -11,6 +11,7 @@ class GearRatioDomain
     case command
     when /find gear (\d+) and return it's ratio/
       # TODO find gear
+      # Gear.find_by_id($1)
     else
       raise ArgumentError.new("not supported command #{command.inspect}")
     end
