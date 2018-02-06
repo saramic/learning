@@ -3,15 +3,15 @@ require 'yaml'
 require 'rexml/document'
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
-require 'adaptor_pattern'
+require 'adapter_pattern'
 
-describe AdaptorPattern do
+describe AdapterPattern do
   before(:all) do
     data = File.open(File.join(File.dirname(__FILE__), 'data.yaml')).read
-    @adaptor_pattern = AdaptorPattern.new(YAML.load(data))
+    @adapter_pattern = AdapterPattern.new(YAML.load(data))
   end
 
-  let(:output) { @adaptor_pattern.execute(self.class.to_s) }
+  let(:output) { @adapter_pattern.execute(self.class.to_s) }
 
   describe "outputs the data as CSV" do
     it do
@@ -52,7 +52,7 @@ describe AdaptorPattern do
       assert_equal expected_output, output
     end
   end
-  describe "outputs the data as an ASCII table" do
+  describe "outputs the data as ASCII table" do
     it do
       # skip
       expected_output = <<-END_OF_ASCII_TABLE.gsub(/^\s*/, '')
@@ -86,7 +86,7 @@ describe AdaptorPattern do
 
   describe "outputs the data as HTML" do
     it do
-      # skip
+      skip
       expected_output = <<-END_OF_HTML.gsub(/^\s*/, '')
         <table class="table table-bordered table-hover table-condensed">
           <thead>

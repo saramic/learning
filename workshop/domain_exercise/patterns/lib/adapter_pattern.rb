@@ -1,15 +1,16 @@
-class AdaptorPattern
+class AdapterPattern
   def initialize(data)
     # TODO your domain initializations gets kicked off here
-    # @data = AdaptorData.new(data)
+    # @data = AdapterData.new(data)
 
   end
 
   def execute(command)
     case command
     when /outputs the data as (.*)$/
-      # TODO find gear
-      # @data.output($1)
+      # TODO format data
+      # @data.format = $1
+      # @data.output
     else
       raise ArgumentError.new("not supported command #{command.inspect}")
     end
@@ -17,4 +18,3 @@ class AdaptorPattern
 end
 
 # TODO maybe add some classes
-
