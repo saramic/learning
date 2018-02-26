@@ -131,6 +131,67 @@
     - https://www.opticscentral.com.au/saxon-3-3-inch-mini-dobsonian-w-accessory-kit.html
     - http://www.007telescope.com/ and https://www.youtube.com/watch?v=VwpIUzS5PA0
 
+# Mon 26th
+  - [ ] sort out a mapping file for non english keyboard based on
+    - https://superuser.com/questions/141811/what-is-the-%C2%A7-%C2%B1-key-for-on-mac-keyboards/141818
+    - http://www.gingerbeardman.com/UK.keylayout/
+    - https://discussions.apple.com/thread/825888
+
+  - [ ] get my domain exercise concept finished
+    - https://www.sitepoint.com/using-and-testing-the-adapter-design-pattern/
+
+  - [ ] ember related concepts
+    - [ ] https://blog.gennady.pp.ua/how-to-upload-files-with-ember-js-creating-your-own-uploader/
+    - [ ] https://gist.github.com/CMCDragonkai/6bfade6431e9ffb7fe88
+    - [ ] https://github.com/funkensturm/ember-cli-file-picker
+    - [ ] http://elementalselenium.com/tips/39-drag-and-drop
+    - [ ] https://medium.com/@alexandereardon/rethinking-drag-and-drop-d9f5770b4e6b
+    - [ ] https://medium.com/@dan_abramov/the-future-of-drag-and-drop-apis-249dfea7a15f
+
+  - look into
+    - [ ] making bells with electromagnets
+    - elixir and arduino
+    - elixir and ras pi
+    - http://nerves-project.org/
+      - https://www.frankkumro.com/tags/nerves/
+
+# Fri 16th
+  - [ ] take another look at sped up data import https://blog.codeship.com/speeding-up-bulk-imports-in-rails/
+  - [ ] read https://www.digikey.com/en/maker/blogs/pi-top-ceed-raspberry-pi-desktop-computer/d9692cf695b74caf9f5fb84ee02c534a
+  - [ ] how does the pi-top ceed compare https://raspberry.piaustralia.com.au/pi-top/
+    - [ ] pi-top pulse https://pi-top.com/products/pulse/
+    - [ ] alos speaker and proto https://pi-top.com/products/accessories
+  - [ ] pi-top review https://www.techrepublic.com/article/pi-top-review-a-raspberry-pi-laptop-for-tinkering-on-the-go/
+  - [ ] what about the pi-top coder
+  - [ ] or hacking own keyboard into the pi-top
+
+  - [ ] zero downtime migration approaches
+    - https://githubengineering.com/gh-ost-github-s-online-migration-tool-for-mysql/
+    - https://github.com/github/gh-ost
+
+  - [ ] Ruby Au vidoes https://www.youtube.com/channel/UCr38SHAvOKMDyX3-8lhvJHA/videos
+  - [ ] git patch commands https://www.devroom.io/2009/10/26/how-to-create-and-apply-a-patch-with-git/
+
+  - [ ] HiFive as a single board computer
+    - [ ] https://www.sifive.com/products/hifive-unleashed/
+    - [ ] https://www.sifive.com/products/hifive1/
+
+  - [ ] ruby string formatting https://idiosyncratic-ruby.com/49-what-the-format.html
+
+  - [ ] how to troll trolls https://www.facebook.com/georgehtakei/videos/vb.205344452828349/1886790391633783/?type=2&theater
+
+  - [ ] ember file upload testing https://medium.com/@chrisdmasters/acceptance-testing-file-uploads-in-ember-2-5-1c9c8dbe5368
+
+  - [ ] eager load a polymorphic assoiciation in rails https://makandracards.com/makandra/28347-eager-loading-polymorphic-associations
+
+  - [ ] brazing
+    - get a good oxy setup for best results - and get new equipment
+      http://www.hobbytalk.com/bbs1/203-metal-working/125606-whats-needed-brazing.html#post1833345
+    - [ ] http://www.steves-workshop.co.uk/tips/brazing/brazingindex.htm
+    - [ ] https://www.lucasmilhaupt.com/en-US/brazingfundamentals/properbrazingprocedure/
+    - [ ] http://www.phred.org/~josh/build/brazing.html
+    - [ ] http://bbs.homeshopmachinist.net/threads/53922-Inexpensive-Start-for-Welding-or-Brazing
+
 # Tue 6th
   * dojo around opening doors, yes every square number door is left open
 
