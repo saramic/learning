@@ -8,6 +8,35 @@
   * **Rails Camp** - what to do? finish last project? pi-top and
   * **Scouts** - OCR and translation of wendro badges book
 
+# Wed 14th
+  * [ ] read this book on computer from first principles NAND to tetris
+    http://nand2tetris.org/course.php
+  * came across webp format today
+    eg https://static.ffx.io/images/$width_320/t_resize_width/t_sharpen%2Cq_auto%2Cf_auto/88081e44ea342dec8cf39c38749825a80ca546b4
+    eg https://static.ffx.io/images/$width_7000/t_resize_width/t_sharpen%2Cq_auto%2Cf_auto/88081e44ea342dec8cf39c38749825a80ca546b4
+    using `brew install webp` to install
+    `cwebp` to convert to webp
+    `dwebp` to convert from webp
+    example of 6400 x 4266 image
+    webp size 922k and in JPEG 17M
+
+# Thu 8th
+  * **Ember**
+    - https://thejsguy.com/2016/01/09/handling-errors-with-ember-data.html
+      * JSON-API errors response { "errors": [...] }
+      * ... "source": { "pointer": JSON pointer } ...
+      * JSON pointer slash based syntax `data/attributes/name`
+        for a get
+        ```
+        { "data": { "attributes": { "name": "..." } } }
+        ```
+    - Old DS.RESTSerializer or DS.JSONSerialzer
+      ```
+      { "errors": { "key": ["value"] } }
+      ```
+    - [ ] read https://leanpub.com/emberdatainthewild
+      https://github.com/skaterdav85/ember-data-in-the-wild
+
 # Mon 5th
 
   * **Ember**
@@ -53,6 +82,13 @@
       https://github.com/ruby-git/ruby-git
     - [ ] how to compare various commits in git as 1 united patch?
       https://www.linuxquestions.org/questions/linux-software-2/concatenate-multiple-patches-into-one-file-912349/
+
+
+  * **Citizen Metadata Tracker**
+    - https://www.theglobeandmail.com/news/world/china-using-big-data-to-detain-people-in-re-education-before-crime-committed-report/article38126551/
+      * China tracking: fertilizer purchases, large food shopping, faical
+        recoginition, number plate tracking, etc to predict terrorism
+      * Alibaba also has demonstrated similar things
 
 # Fri 2nd
 
