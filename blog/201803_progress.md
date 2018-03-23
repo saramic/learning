@@ -8,6 +8,119 @@
   * **Rails Camp** - what to do? finish last project? pi-top and
   * **Scouts** - OCR and translation of wendro badges book
 
+# Sat 24th
+  - Plan
+    - [ ] Ember data chapter 1
+    - [ ] more on API-workshop - to extracted challenge as YAML file
+    - [ ] Track my thing as ember on heroku
+    - [ ] plan/start on:
+      - [ ] knitting pattern app
+      - [ ] CSS challenges
+      - [ ] Domain design drills - story to code
+      - [ ] Ember components: dashboard, flip over panels, bulldog clip of
+        receipts, skewmorphism challenges
+
+# Tue 20th
+  - [x] https://sdtimes.com/os/lg-launches-open-source-version-webos/
+    webOS is now opensource
+    - [ ] checkout http://webosose.org/ for anything cool
+  - [x] started on my API to teach API's https://github.com/saramic/api-workshop
+
+# Sat 17th
+  * **Pi-top**
+    original pi-top SD card seemed to have been fried. When plugged into mac it
+    reporte 'The disk you inserted was not readable by this computer.' also
+    when trying to burn an image using `dd` it would say `dd: /dev/rdisk2:
+    Permission denied`. In the end I got a fresh SD card and it worked. I
+    downloaded the pi-top image via the pi-top site:
+    https://pi-top.com/products/os/ then followed following instructions
+
+    ```
+    diskutil list
+    /dev/disk2 (external, physical):
+       #:                       TYPE NAME                    SIZE       IDENTIFIER
+       0:     FDisk_partition_scheme                        *15.9 GB    disk2
+       1:             Windows_FAT_32 NO NAME                 15.9 GB    disk2s1
+
+
+    $ sudo diskutil unmountDisk /dev/disk2
+    Unmount of all volumes on disk2 was successful
+
+    $ sudo dd if=2017-10-13-pi-topOS.img of=/dev/rdisk2 bs=1m
+
+    # pressing CTRL-T during process shows progress
+
+    load: 1.82  cmd: dd 13540 uninterruptible 0.01u 2.61s
+    3052+0 records in
+    3051+0 records out
+    3199205376 bytes transferred in 229.873647 secs (13917234 bytes/sec)
+    ```
+    based on https://askubuntu.com/questions/215262/dd-dev-disk4-permission-denied-error-when-making-liveusb-on-mac-os-x
+
+  * **Pinball machine**
+    Given how expensive they are it may be interesting to build one?
+    - video Ben Hack Show - https://www.youtube.com/watch?v=2KBVu5YLzZI
+      - element 14 sponsored - so presumably you can get pieces there?
+      - https://www.element14.com/community/community/experts/benheck/mini-pinball-kit
+      - parts of a pinball machine things like tilt sensors allowing some level of cheating
+        https://www.pinballsales.com.au/the-important-parts-of-a-pinball-machine/
+      - is there a better source of parts? like new parts? http://www.pinballspareparts.com.au/
+    - instructable
+      - http://www.instructables.com/id/Making-a-Pinball-Machine/
+      - http://www.instructables.com/id/DIY-Star-Wars-Pinball-Machine/
+      - http://www.instructables.com/id/How-to-Build-an-Arduino-Pinball-Machine/
+    - blogs
+      - https://howtobuildapinballmachine.wordpress.com/
+    - pro pinball factory - https://www.popularmechanics.com/technology/design/a25824/stern-pinball-machine-factory/
+    - book but seems to make a crappy cardboard one [Pinball Science](https://www.booktopia.com.au/pinball-science-ian-graham/prod9781760294243.html)
+    - heap of demos using cardboard
+      - https://www.youtube.com/watch?v=kLyXSEzyotY
+      - https://www.youtube.com/watch?v=7mlLDgRAFh0
+      - https://www.youtube.com/watch?v=NB8DabxOQiY
+  * **LAN game options**
+    - http://www.keeptalkinggame.com/
+    - free linux https://beebom.com/best-linux-games/
+    - Rusted Warefare (steam)
+    - age of empires?
+    - dawn of war?
+  * **Treasure Hunt Resources**
+
+    - real life treasure hunts - https://io9.gizmodo.com/the-most-astonishing-real-life-treasure-hunts-1181644705?IR=T
+    - ideas https://www.pinterest.com.au/explore/treasure-hunt-clues/?lp=true
+      - balloons with clues inside
+      - a message and a specific cut out to read the clue from the message
+      - telephone keypad
+      - morse code
+      - puzzle pieces
+      - a map (need a clue to find out what the map is mapping)
+      - http://www.queen-of-theme-party-games.com/ciphers-puzzles-codes-treasure-hunt.html
+        - ciphered clues
+          encoded, vertical strips with numbers on top, message down below, get
+          all strips, align with numbers, read the message
+        - cipher in a maze - solve the maze to get letters in order to get the
+          message
+        - message in decode wheel
+        - [ ] write app to build these
+      - carboard crypt safe http://www.instructables.com/id/Cardboard-Cryptex-Safe/
+      - clues given by compass bearings - get clues in the right order to get the right message
+    - list of things to get like
+        darg green leaf, light green leaf, pine needle, tree trunk lying on the
+        ground, seed of any kind, smooth rock, rock with rough edges, pebble
+        smaller then a pea, rock bigger then your fist something with bright
+        colors, something wet, something alive, something prickly, something
+        that makes a noise when you touch it, smoething that feels nice,
+        something with 4 legs
+    - photo scavenger hunt - https://boyslife.org/hobbies-projects/funstuff/134556/put-together-a-photo-scavenger-hunt/
+      15 photo clues for 1 hour hunt
+      teams find the photo clue, answer a question at the location and get next clue
+    - all the ideas for clues http://www.treasure-hunt-ideas.co.uk/all-ideas
+    - more clues http://www.treasure-hunt-ideas.co.uk/free-treasure-hunts/free-harder-indoor-treasure-hunt
+    - pigpen code https://sites.google.com/site/codesforscouts/pigpen
+    - some more ideas like unnatural fruit
+      - http://www.inquiry.net/outdoor/games/mackenzie/outdoor/treasure_hunts.htm
+      - http://www.inquiry.net/outdoor/games/wide/treasure_type_uk.htm
+      - http://www.inquiry.net/outdoor/games/wide/treasure_type.htm
+
 # Wed 14th
   * [ ] read this book on computer from first principles NAND to tetris
     http://nand2tetris.org/course.php
