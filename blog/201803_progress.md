@@ -8,9 +8,76 @@
   * **Rails Camp** - what to do? finish last project? pi-top and
   * **Scouts** - OCR and translation of wendro badges book
 
+# TODO
+  - start udemy course
+  - ember data ch1 finish
+  - next part of API-workshop
+  - read up on DDAU below
+  - Domain Drills initial commit
+  - Linked in certify this
+  - Rust book
+  - rails camp prep with tamadillo
+    - ras pi coding
+    - arduino
+    - art installation ideas
+    - knitting ideas
+    - t-shirt design
+    - work through scratch book
+  - wrap up pyImageSearch book and read recent blog posts
+
+# Thu 29th
+  - **Ember**
+    - [x] https://medium.com/@eluciano11/from-ember-to-react-5c2faa0e8d10
+      * 2016 so not sure how relvant
+      * same old React is a lib not a framework
+      * appreciate the convention of Ember
+      * go buildl something in another framework and you will become a better developer
+      * from the comments a mention of ember-redux which may be worth a look
+        - [x] http://www.ember-redux.com/ddau/
+          * Data down, actions up
+          * very react like and JSX like style with embeded `layout: hbs...` handlebars tempaltes
+          * should check out the lib
+          * idea of keeping to strict presnetational and container componenets
+          - [ ] https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0 
+          - [ ] and demo implementation https://gist.github.com/chantastic/fc9e3853464dffdb1e3c
+        - [ ] https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0 more on presnetational and container components
+        - [ ] https://github.com/ember-redux/ember-redux
+        - [ ] http://www.ember-redux.com/
+
+      * makes me feel the API process is
+        1. Rest
+        1. JSON API
+        1. GraphQL (ember-graphql)
+        1. Redux
+
+  - **DI in ember**
+    - [ ] https://www.codeschool.com/blog/2016/06/14/understanding-dependency-injection-in-ember/
+    - [ ] https://balinterdi.com/blog/dependency-injection-in-ember-dot-js/
+    - [ ] https://guides.emberjs.com/v2.11.0/applications/dependency-injection/
+    - and on transitionging in ember
+      - [ ] https://balinterdi.com/blog/replacing-items-in-browser-history-in-ember-dot-js/
+      - [ ] https://discuss.emberjs.com/t/storing-and-returning-to-a-previous-state/7023/2
+      - [ ] https://stackoverflow.com/questions/28816134/emberjs-go-back-on-cancel with jsbin example http://emberjs.jsbin.com/ciwime/1/edit?html,js,output
+    - maintina scorll position in history https://gist.github.com/jayphelps/0bfc9c5b080deefa51c2
+    - history feature https://discuss.emberjs.com/t/location-history-feature-and-unbookmarkable-route-urls/1248
+
+# Wed 28th
+  - look through comments on HN around [Choosing Ember over React in 2016](https://blog.instant2fa.com/choosing-ember-over-react-in-2016-41a2e7fd341)
+    - https://news.ycombinator.com/item?id=12970071
+    - key points that it is a framework
+    - some open source examples
+      - https://github.com/TryGhost/Ghost-Admin
+      - https://github.com/HospitalRun/hospitalrun-frontend
+      - https://github.com/hummingbird-me/hummingbird-client
+      - https://github.com/travis-ci/travis-web
+    - generally 2016 and out of date for the comments to be much use
+
 # Sat 24th
   - Plan
     - [ ] Ember data chapter 1
+      - wip on ember/ember-data-in-the-wild/ trying to find a logical way to
+        incrementally build an App to display some data on a page. Then with
+        relationships, then probably components?
     - [ ] more on API-workshop - to extracted challenge as YAML file
     - [ ] Track my thing as ember on heroku
     - [ ] plan/start on:
