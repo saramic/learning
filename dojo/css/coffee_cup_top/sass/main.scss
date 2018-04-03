@@ -1,0 +1,20 @@
+@mixin full_size { // TODO or should this be inherited in a base class?
+  width: 800px;
+  height: 800px;
+}
+
+.coffee-cup-top {
+  @include full_size;
+  &_original {
+    @include full_size;
+    float: left; // TODO or flex box? grid?
+    &:hover {
+      background-image: url("../images/coffee_cup_top.jpg");
+    }
+  }
+  &_in-css {
+    @include full_size;
+    background: #000;
+    border-radius: 50%;
+  }
+}
