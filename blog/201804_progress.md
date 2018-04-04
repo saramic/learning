@@ -20,6 +20,12 @@
 
 # Wed 4th
   - **CSS**
+    - continuing on an initial solution of [coffee cup top](dojo/css/coffee_cup_top)
+    - getting my head around various path drawing options: Berzier curves with
+      1 and 2 control points and Arcs
+    
+# Wed 4th
+  - **CSS**
     - start on CSS dojo from photos of common designs around the place
       - [coffee cup top](dojo/css/coffee_cup_top)
     - take a look at some books

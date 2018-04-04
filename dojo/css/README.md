@@ -36,6 +36,28 @@ different states. Then style a page from scratch to match the image.
 
 ## TODO
 
+  - [ ] solve the coffee cup top
+    - [ ] change a lot of the `berzier curves` to `arcs` after all most of this
+      is round
+    - [ ] define what each of the path drawing attributes `d` do
+      - what they should be used for
+      - [ ] build a tool to allow a mouse to draw them over an image in bowser,
+        or find such a tool
+        - with drawings overview https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths
+        - an overview of all the commands https://www.w3schools.com/graphics/svg_path.asp
+        - more detailed description of variables to pass to the commands
+          https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d
+        - some attempt to describe arcs
+          http://doc.4d.com/4Dv15/4D/15/SVG-PATH-ARC.301-2048872.en.html
+    - a lot of other SVG specifics like preserving white space
+      https://vanseodesign.com/web-design/svg-text-spacing-properties/
+    - [ ] clean up the css style sheet
+  - [ ] make sure solution can scale (relative to container)
+  - [ ] make ability to re-write text, ReactJS binding to text box?
+  - [ ] add a control to allow for scaling? in this case probably yes
+  - [ ] allow for actions, steam out of steam hole, coffee out of spout, shadow change
+  - [ ] pixel comparison of sample through image comparison script
+  - [ ] ability to provide many solutions as separate layers
   - [ ] multi image, transition example
   - [ ] is haml gem the best?
   - [ ] sort out why `sass --watch` is currently breaking with

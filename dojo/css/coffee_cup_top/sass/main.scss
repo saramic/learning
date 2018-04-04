@@ -5,10 +5,13 @@
 
 .coffee-cup-top {
   @include full_size;
+  color: white;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   &_original {
     @include full_size;
     float: left; // TODO or flex box? grid?
-    &:hover {
+    // background-image: url("../images/coffee_cup_top.jpg");
+    &:hover { // TODO does not work as behind SVG and never gets a hove?
       background-image: url("../images/coffee_cup_top.jpg");
     }
   }
@@ -16,5 +19,86 @@
     @include full_size;
     background: #000;
     border-radius: 50%;
+  }
+  &_barista-message {
+    &_start {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      path {
+        fill: transparent;
+      }
+      text {
+        fill: #FFF;
+        letter-spacing: 3px;
+        font-size: 47px;
+        font-weight: bold;
+        .customer-message {
+          font-size: 74px;
+        }
+      }
+    }
+    &_pointer {
+      position: absolute;
+      top: 71px;
+      left: 372px;
+      font-stretch: ultra-expanded;
+      font-size: 113px;
+      font-weight: 900;
+    }
+    &_breather {
+      position: absolute;
+      top: 102px;
+      left: 413px;
+      font-stretch: ultra-expanded;
+      font-size: 66px;
+      font-weight: 900;
+    }
+    &_end {}
+  }
+  &_brand {
+    position: absolute;
+    top: 520px;
+    left: 307px;
+    font-weight: 700;
+    &_capital {
+      font-size: 78px;
+    }
+    &_remainder {
+      text-decoration: underline;
+      font-size: 63px;
+      line-height: 73px;
+      padding-bottom: 2px;
+      display: block;
+      float: right;
+      left: 1px;
+      position: relative;
+      letter-spacing: 4px;
+    }
+  }
+  &_code_1 {
+    position: absolute;
+    top: 600px;
+    left: 364px;
+    font-size: 46px;
+    font-weight: 900;
+  }
+  &_code_2 {
+    position: absolute;
+    top: 378px;
+    left: 66px;
+    font-size: 38px;
+    font-weight: 900;
+  }
+  &_customer-message {
+    position: absolute;
+    top: 500px;
+    left: 400px;
+  }
+  &_recycle {
+    position: absolute;
+    top: 449px;
+    left: 719px;
+    font-size: 62px;
   }
 }
