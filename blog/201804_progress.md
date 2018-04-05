@@ -21,9 +21,9 @@
 # Fri 7th
   - **CSS**
     - started on book [CSS Framework Alternatives](https://www.apress.com/gp/book/9781484233986)
-    - [skeleton grid](/learning/css/skeleton-landing-page/grid-system.html)
-    - [milligram grid](/learning/css/milligram-product-page/grid-system.html) 
-    - [milligram page build](/learning/css/milligram-product-page/index.html)
+    - [skeleton grid](/css/skeleton-landing-page/grid-system.html)
+    - [milligram grid](/css/milligram-product-page/grid-system.html) 
+    - [milligram page build](/css/milligram-product-page/index.html)
 
   - **Skilz**
     take more of a look at https://docs.emmet.io/cheat-sheet/ but started to
