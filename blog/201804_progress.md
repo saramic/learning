@@ -36,7 +36,7 @@
 # Thu 5th
   - **Hackday**
     - started on research for http://thecrossborder.stoneandchalk.com.au/
-      https://github.com/saramic/the-cross-border-hackathon-demo
+    - https://github.com/saramic/the-cross-border-hackathon-demo
 
 # Wed 4th
   - **CSS**
