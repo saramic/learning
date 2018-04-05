@@ -18,6 +18,26 @@
     - room intrusion detector
   - wrap up pyImageSearch book and read recent blog posts
 
+# Fri 7th
+  - **CSS**
+    - started on book [CSS Framework Alternatives](https://www.apress.com/gp/book/9781484233986)
+    - [skeleton grid](/learning/css/skeleton-landing-page/grid-system.html)
+    - [milligram grid](/learning/css/milligram-product-page/grid-system.html) 
+    - [milligram page build](/learning/css/milligram-product-page/index.html)
+
+  - **Skilz**
+    take more of a look at https://docs.emmet.io/cheat-sheet/ but started to
+    use it in Vi with `ctrl-y ,`
+    ```
+    html:5
+    .className*3
+    ```
+
+# Thu 5th
+  - **Hackday**
+    - started on research for http://thecrossborder.stoneandchalk.com.au/
+      https://github.com/saramic/the-cross-border-hackathon-demo
+
 # Wed 4th
   - **CSS**
     - continuing on an initial solution of [coffee cup top](dojo/css/coffee_cup_top)
