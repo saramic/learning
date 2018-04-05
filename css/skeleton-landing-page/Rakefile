@@ -1,0 +1,39 @@
+require 'rake'
+
+directory 'tmp'
+
+desc 'downolad skeleton framework'
+task :default => :tmp do
+
+  `curl -L -o tmp/skeleton.zip http://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip`
+  `unzip tmp/skeleton.zip -d tmp`
+  `cp tmp/Skeleton-2.0.4/css/*.css css/`
+
+  # require 'net/http'
+  # require 'zipruby'
+  # uri = URI('https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip')
+  # zipped_folder = Net::HTTP.get(uri)
+
+  # File.open('skeleton.zip', 'wb') do |file|
+  #   file.write(zipped_folder)
+  # end
+
+  # Zip::Archive.open('skeleton.zip') do |ar|
+  #   ar.each do |zf|
+  #     if zf.directory?
+  #       FileUtils.mkdir_p(zf.name)
+  #     else
+  #       dirname = File.dirname(zf.name)
+  #       FileUtils.mkdir_p(dirname) unless File.exist?(dirname)
+  #
+  #       open(zf.name, 'wb') do |f|
+  #         f << zf.read
+  #       end
+  #     end
+  #   end
+  # end
+end
+
+task :clean do
+  rm_rf 'tmp'
+end
