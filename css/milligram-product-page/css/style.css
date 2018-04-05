@@ -1,0 +1,11 @@
+.contactArea {
+  background: #666;
+  color: #fff;
+  text-align: right;
+}
+
+.contactColumn {
+  font-size: 12px;
+  display: inline-block;
+  margin-right: 10px;
+}
