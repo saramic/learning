@@ -18,7 +18,21 @@
     - room intrusion detector
   - wrap up pyImageSearch book and read recent blog posts
 
-# Fri 7th
+# Tue 10th
+  - **VIM**
+    - [ ] setup preferences https://github.com/carlhuda/janus
+      in particular around choices that I can take to my own setup like:
+      NERDCommenter, NERDTree and more
+  - **Charts**
+    - beautiful maps for Rolls Royce autonomous ships
+      https://www.flickr.com/photos/rolls-royceplc/25250157884/in/album-72157647334399764/
+    - rough JS http://roughjs.com/ for sketchy like effect reminiscent of
+      [Napking LAF](http://napkinlaf.sourceforge.net/)
+  - **Testing**
+    - adjusting browser time for tests that use timecop on server side?
+      http://metaskills.net/2012/08/07/synchronized-times-in-ruby-and-javascript-acceptance-tests-using-capybara-timecop-and-sinon-js/
+
+# Fri 6th
   - **CSS**
     - started on book [CSS Framework Alternatives](https://www.apress.com/gp/book/9781484233986)
     - [skeleton grid](/css/skeleton-landing-page/grid-system.html)
