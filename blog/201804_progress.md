@@ -18,6 +18,25 @@
     - room intrusion detector
   - wrap up pyImageSearch book and read recent blog posts
 
+# Wed 11th
+  - **Graphql**
+    - project layout
+  - **Frontend Deploy**
+    - [Static web publishing for Front-End Developers - surge.sh](https://surge.sh/)
+    - [How to Deploy an Ember CLI app to Amazon S3 or a Linux box](https://emberigniter.com/deploy-ember-cli-app-amazon-s3-linux-ssh-rsync/)
+      http://ember-cli-deploy.com/
+    - [Deploy an Ember.js Listings App in 3 Steps - cosmic.js](https://hackernoon.com/deploy-an-ember-js-listings-app-in-3-steps-8a29e787804d)
+    - [Build and Deploy Ember.js App with Distelli](https://pipelines.puppet.com/docs/tutorials/build-and-deploy-emberjs-app/)
+    - [How to deploy an Ember CLI app to Azure Websites](https://stackoverflow.com/questions/28493629/how-to-deploy-an-ember-cli-app-to-azure-websites)
+    - [Deploying a react application - netlify](https://coderjourney.com/tutorials/how-to-deploy-a-react-application/)
+      https://www.netlify.com/
+    - https://www.npmjs.com/package/publish-react-app
+  - https://pawelurbanek.com/profitable-slack-bot-rails
+    - Abot - anonymous bot for slack
+    - profitable side business
+    - details on setup
+    - promotions etc
+
 # Tue 10th
   - **VIM**
     - [ ] setup preferences https://github.com/carlhuda/janus
