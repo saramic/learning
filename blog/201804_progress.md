@@ -18,6 +18,34 @@
     - room intrusion detector
   - wrap up pyImageSearch book and read recent blog posts
 
+# Thu 12th
+  - **Rails**
+    in looking for a good [Rails application
+    template](http://guides.rubyonrails.org/rails_application_templates.html)
+    for creating border hack basic-rails setup came across
+    [Suspenders](https://github.com/thoughtbot/suspenders) from thoughtbot
+    following their recommendation to [install QT](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#homebrew)
+    for headless capybara testing
+
+        ```
+        brew install qt@5.5
+        echo 'export PATH="$(brew --prefix qt@5.5)/bin:$PATH"' >> ~/.bashrc
+
+        gem install suspenders
+        suspenders basic-rails
+        ```
+
+    augmented by adding gems
+
+        ```
+        gem "rspec-example_steps"
+        gem "rspec-wait"
+        ```
+
+    and a lifecycle flow
+    `spec/features/lifecycle_flows/postcard_holidays_spec.rb` initially
+    implemented with HighVoltage static pages
+
 # Wed 11th
   - **Graphql**
     - project layout
