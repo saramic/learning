@@ -1,6 +1,6 @@
 import { GraphQLString, GraphQLNonNull } from "graphql"
 import { Author } from "../types/Author"
-import { fakeDatabase } from "../../fakeDatabase"
+import { fakeDatabase } from "../../FakeDatabase"
 
 export default {
   author: {

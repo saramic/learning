@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLInputObjectType, GraphQLNonNull } from "graphql"
 import { Author } from "./Author"
 import { Comment } from "./Comment"
-import { fakeDatabases } from "../../fakeDatabase"
+import { fakeDatabase } from "../../FakeDatabase"
 
 export const Post = new GraphQLObjectType({
   name: "Post",

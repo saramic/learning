@@ -1,6 +1,6 @@
 import { GraphQLList } from "graphql"
 import { Comment, CommentInputType } from "../types/Comment"
-import { fakeDatabase } from "../../fakeDatabase"
+import { fakeDatabase } from "../../FakeDatabase"
 
 export default {
   addComment: {

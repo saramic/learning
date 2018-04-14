@@ -1,5 +1,5 @@
 import { Post, PostInputType } from "../types/Post"
-import { fakeDatabase } from "../../fakeDatabase"
+import { fakeDatabase } from "../../FakeDatabase"
 
 export default {
   addPost: {
