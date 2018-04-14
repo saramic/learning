@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } from "graphql"
+import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLInputObjectType, GraphQLNonNull } from "graphql"
 import { Author } from "./Author"
 import { fakeDatabases } from "../../fakeDatabse"
 
@@ -24,3 +24,12 @@ export const Post = new GraphQLObjectType({
     }
   }]
 })
+
+export const PostImputType = new GraphQLInputObjectType({
+   name: "PostInput",
+   fields: {
+     title: { type: new GraphQLNonNull(GraphQLString) },
+     content: { type: new GraphQLNonNull(GraphQLString) },
+     author: { type: new GraphQLNonNull(GraphQLInt) }
+   }
+ })
