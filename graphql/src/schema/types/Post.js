@@ -1,11 +1,12 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLInputObjectType, GraphQLNonNull } from "graphql"
 import { Author } from "./Author"
-import { fakeDatabases } from "../../fakeDatabse"
+import { Comment } from "./Comment"
+import { fakeDatabases } from "../../fakeDatabase"
 
 export const Post = new GraphQLObjectType({
   name: "Post",
   description: "All details of a blog post",
-  fields: () => [{
+  fields: {
     id: { type: GraphQLInt },
     title: { type: GraphQLString },
     content: { type: GraphQLString },
@@ -22,10 +23,10 @@ export const Post = new GraphQLObjectType({
         return fakeDatabase.getCommentsForPost(post.id)
       }
     }
-  }]
+  }
 })
 
-export const PostImputType = new GraphQLInputObjectType({
+export const PostInputType = new GraphQLInputObjectType({
    name: "PostInput",
    fields: {
      title: { type: new GraphQLNonNull(GraphQLString) },

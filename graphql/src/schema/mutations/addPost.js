@@ -1,4 +1,3 @@
-import { GraphQLList } from "graphql"
 import { Post, PostInputType } from "../types/Post"
 import { fakeDatabase } from "../../fakeDatabase"
 
@@ -9,7 +8,7 @@ export default {
     args: {
       post: { type: PostInputType }
     },
-    resolve: function(parent, { post }) {
+    resolve: function(root, { post }) {
       return fakeDatabase.addNewBlogPost(post);
     }
   }

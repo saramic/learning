@@ -1,4 +1,3 @@
-
 import { GraphQLInt, GraphQLNonNull } from "graphql"
 import { Post } from "../types/Post"
 import { fakeDatabase } from "../../fakeDatabase"
