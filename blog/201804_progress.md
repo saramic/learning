@@ -18,6 +18,15 @@
     - room intrusion detector
   - wrap up pyImageSearch book and read recent blog posts
 
+# Fri 20th
+  - **lolcommits**
+
+  ```
+  # https://github.com/mroth/lolcommits
+  gem install lolcommits
+  lolcommits --enable --delay 5 --animate 4 --fork
+  ```
+
 # Thu 12th
   - **Rails**
     in looking for a good [Rails application
