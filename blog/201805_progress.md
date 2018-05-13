@@ -11,6 +11,26 @@
   - finish Python image book
   - look at Python for datathon again
 
+# 14th
+  * **Rails Camp** prep
+    * look at what is needed to complete PPAO book
+    * rails split testing frameworks?
+      - http://blog.dreamcss.com/tools/5-useful-ruby-and-rails-based-ab-testing-tools-and-framework/
+      - https://github.com/splitrb/split
+      - https://github.com/assaf/vanity
+      - http://facebook.github.io/planout/
+      - https://gorails.com/episodes/ab-split-testing
+      - https://www.youtube.com/watch?v=j9NrpkrJU7c
+      - https://www.ruby-toolbox.com/categories/A_B_Testing
+      - https://github.com/paulmars/seven_minute_abs
+      - http://railscasts.com/episodes/331-a-b-testing-with-split?view=asciicast
+      - Also how to build a simple asteroids game or similar
+    * udemy download ReactJS & GraphQL courses
+    * ember ES6
+    * ember and GraphQL
+    * decide on Hardware or not?
+    * Rust extensions?
+
 # 12th
   * **Rails Camp**
 
