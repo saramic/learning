@@ -15,14 +15,21 @@ class Pairing
   private
 
   def generate_stats
-    [
-      @committers.keys,
-      pairing_by_day
-    ]
+    stats = []
+    stats << (["Date      "] | @committers.keys)
+    pairing_by_day.each do |day_stat|
+      stats << [
+        day_stat[:date],
+        @committers.keys.map do |committer|
+          sprintf("%6s", day_stat[committer] || "-")
+        end
+      ]
+    end
+    stats
   end
 
   def pairing_by_day
-    []
+    {}
   end
 
   def format_stats(stats)
