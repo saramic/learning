@@ -9,6 +9,23 @@ class Pairing
 
   def stats(output)
     output.puts 'pairing stats'
-    output.puts @committers.keys.join(" | ")
+    output.puts format_stats(generate_stats)
+  end
+
+  private
+
+  def generate_stats
+    [
+      @committers.keys,
+      pairing_by_day
+    ]
+  end
+
+  def pairing_by_day
+    []
+  end
+
+  def format_stats(stats)
+    stats.map{|line| line.join(" | ") }.join("\n")
   end
 end

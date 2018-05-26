@@ -25,9 +25,13 @@ RSpec.describe Pairing do
     it 'outputs the pairing stats' do
       expect(Git).to receive(:open).with('working_directory')
       pairing = Pairing.new('working_directory', git_committers_file.path)
+      allow(pairing).to receive(:pairing_by_day).and_return(['generated stats'])
       output = StringIO.new # TODO any benefit or could this be a double
       expect(output).to receive(:puts).with 'pairing stats'
-      expect(output).to receive(:puts).with 'User_1 | User_2'
+      expect(output).to receive(:puts).with <<-EOF.strip_leading_spaces
+      User_1 | User_2
+      generated stats
+      EOF
       pairing.stats(output)
     end
   end
