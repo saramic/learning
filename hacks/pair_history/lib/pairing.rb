@@ -1,5 +1,6 @@
 require 'git'
 require 'yaml'
+require 'time'
 
 class Pairing
   def initialize(git_working_directory, git_committers_names_yml)
@@ -10,6 +11,16 @@ class Pairing
   def stats(output)
     output.puts 'pairing stats'
     output.puts format_stats(generate_stats)
+  end
+
+  def pairing_by_day
+    logs = @git.log(10)
+    day_start = logs.last.date.to_date
+    day_end = logs.first.date.to_date
+    (day_start..day_end)
+      .to_a
+      .reverse
+      .map{|day| { date: day } }
   end
 
   private
@@ -26,10 +37,6 @@ class Pairing
       ]
     end
     stats
-  end
-
-  def pairing_by_day
-    {}
   end
 
   def format_stats(stats)
