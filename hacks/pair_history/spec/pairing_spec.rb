@@ -62,8 +62,8 @@ RSpec.describe Pairing do
 
     it 'full date range for logs in reverse choronological order with no gaps' do
       logs = [
-        double(Date, date: Date.new(2018, 1, 3)),
-        double(Date, date: Date.new(2018, 1, 1))
+        double(Date, date: Date.new(2018, 1, 3), author: double('Author', name: nil)),
+        double(Date, date: Date.new(2018, 1, 1), author: double('Author', name: nil))
       ]
       expect(git_double).to receive(:log).and_return(logs)
       expect(pairing.pairing_by_day).to eq([
@@ -81,6 +81,27 @@ RSpec.describe Pairing do
         { date: Date.new(2018, 1, 1), a_user: [], b_user: [:c_user] },
       ])
     end
+  end
+
+  describe '#pairs_by_day' do
+    let(:pairing) { Pairing.new('working_directory', git_committers_file.path) }
+    let(:git_double) { double(Git, log: nil) }
+    before do
+      expect(Git).to receive(:open).with('working_directory').and_return(git_double)
+    end
+
+    it 'returns the author handle' do
+      author_1 = double('Author', name: 'Author One')
+      logs = [
+        double('GitLog', date: Date.new(2018, 1, 1), author: author_1)
+      ]
+      expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: []})
+    end
+  end
+
+  describe '#committer_name' do
+
   end
 end
 

@@ -23,10 +23,18 @@ class Pairing
       .map{|day| { date: day }.merge(pairs_by_day(logs, day)) }
   end
 
+  def pairs_by_day(logs, day)
+    logs
+      .inject({}) do |pairs, log|
+      author = committer_name(log.author.name)
+      pairs[author] ||= [] if author
+      pairs
+    end
+  end
+
   private
 
-  def pairs_by_day(logs, day)
-    {}
+  def committer_name(handle)
   end
 
   def generate_stats
