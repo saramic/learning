@@ -27,16 +27,22 @@ class Pairing
     logs
       .find_all{ |log| log.date.to_date == day }
       .inject({}) do |pairs, log|
-      author = committer_name(log.author.name)
-      pairs[author] ||= [] if author
-      handles = log.message.scan(/@\w+/)
-      handles.each do |handle|
-        pair = committer_name(handle)
-        pairs[author] << pair if pair
-        pairs[author]  = pairs[author].uniq
+      authors = (log.author.name || '').split(' + ').map do |author_name|
+        committer_name(author_name)
+      end
+      authors.each do |author|
+        pairs[author] ||= []
+      end
+      handles = log.message.scan(/@\w+/).map{|handle| committer_name(handle) }
+      (authors + handles).each do |pair|
+        authors.each do |author|
+          pairs[author] << pair if pair
+          pairs[author] << authors
+          pairs[author]  = pairs[author].flatten.reject{|a| a == author}.uniq
+        end
         pairs[pair] ||= []
-        pairs[pair] << author
-        pairs[pair] = pairs[pair].uniq
+        pairs[pair] << authors
+        pairs[pair] = pairs[pair].flatten.reject{|p| p == pair}.uniq
       end
       pairs
     end

@@ -176,6 +176,24 @@ RSpec.describe Pairing do
         Author_3: [:Author_1]
       })
     end
+
+    it 'returns authors for modified author string `author one + author two' do
+      author_1 = double('Author', name: 'Author One + Author Two')
+      logs = [
+        double('GitLog',
+               date: Date.new(2018, 1, 1),
+               author: author_1,
+               message: '')
+      ]
+      allow(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      allow(pairing).to receive(:committer_name).with('Author Two').and_return(:Author_2)
+      expect(
+        pairing.pairs_by_day(logs, Date.new(2018, 1, 1))
+      ).to include(Author_1: [:Author_2])
+      expect(
+        pairing.pairs_by_day(logs, Date.new(2018, 1, 1))
+      ).to include(Author_2: [:Author_1])
+    end
   end
 
   describe '#committer_name' do
