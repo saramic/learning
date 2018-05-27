@@ -25,6 +25,7 @@ class Pairing
 
   def pairs_by_day(logs, day)
     logs
+      .find_all{ |log| log.date.to_date == day }
       .inject({}) do |pairs, log|
       author = committer_name(log.author.name)
       pairs[author] ||= [] if author

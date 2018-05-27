@@ -98,6 +98,18 @@ RSpec.describe Pairing do
       expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
       expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: []})
     end
+
+    it 'returns only the date filtered' do
+      author_1 = double('Author_1', name: 'Author One')
+      author_2 = double('Author_2', name: 'Author Two')
+      logs = [
+        double('GitLog', date: Date.new(2018, 1, 1), author: author_1),
+        double('GitLog', date: Date.new(2018, 1, 2), author: author_2)
+      ]
+      allow(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      allow(pairing).to receive(:committer_name).with('Author Two').and_return(:Author_2)
+      expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: []})
+    end
   end
 
   describe '#committer_name' do
