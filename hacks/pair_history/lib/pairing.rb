@@ -33,6 +33,7 @@ class Pairing
       handles.each do |handle|
         pair = committer_name(handle)
         pairs[author] << pair if pair
+        pairs[author]  = pairs[author].uniq
       end
       pairs
     end

@@ -123,6 +123,37 @@ RSpec.describe Pairing do
       expect(pairing).to receive(:committer_name).with('@author_2').and_return(:Author_2)
       expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: [:Author_2]})
     end
+
+    it 'returns any number of pairs found in the message as an @handle' do
+      author_1 = double('Author', name: 'Author One')
+      logs = [
+        double('GitLog',
+               date: Date.new(2018, 1, 1),
+               author: author_1,
+               message: ':pair: @author_2 @author_3')
+      ]
+      expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      expect(pairing).to receive(:committer_name).with('@author_2').and_return(:Author_2)
+      expect(pairing).to receive(:committer_name).with('@author_3').and_return(:Author_3)
+      expect(
+        pairing.pairs_by_day(logs, Date.new(2018, 1, 1))
+      ).to eq({ Author_1: [:Author_2, :Author_3]})
+    end
+
+    it 'returns only uniq authors' do
+      author_1 = double('Author', name: 'Author One')
+      logs = [
+        double('GitLog',
+               date: Date.new(2018, 1, 1),
+               author: author_1,
+               message: ':pair: @author_2 @author_2')
+      ]
+      expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      allow(pairing).to receive(:committer_name).with('@author_2').and_return(:Author_2)
+      expect(
+        pairing.pairs_by_day(logs, Date.new(2018, 1, 1))
+      ).to eq({ Author_1: [:Author_2]})
+    end
   end
 
   describe '#committer_name' do
