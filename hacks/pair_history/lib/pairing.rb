@@ -10,11 +10,14 @@ class Pairing
 
   def stats(output)
     output.puts 'pairing stats'
-    output.puts text_format_stats(generate_stats)
+    stats = generate_stats
+    output.puts text_format_stats(stats)
+    output.puts 'pair days'
+    output.puts text_format_stats(pair_day_stats(stats))
   end
 
   def pairing_by_day
-    logs = @git.log(10)
+    logs = @git.log(100)
     day_start = logs.last.date.to_date
     day_end = logs.first.date.to_date
     (day_start..day_end)
@@ -61,7 +64,29 @@ class Pairing
     stats.map{|line| line.each_with_index.map{|field, index| sprintf("%#{col_widths[index]}s", field)}.join(" | ") }.join("\n")
   end
 
+  def pair_day_stats(stats)
+    users = stats.first.slice(1, stats.first.length)
+    pair_day_stats = []
+    pair_day_stats << (['User'] | users)
+    users.each do |user|
+      user_stat = []
+      user_stat << user
+      user_stat << users.map{|u| u == user ? '-' : user_count(stats, user, u) }
+      pair_day_stats << user_stat.flatten
+    end
+    pair_day_stats
+  end
+
   private
+
+  def user_count(stats, user, pair)
+    user_count = 0
+    user_index = stats.first.index(user)
+    stats.slice(1, stats.length).map do |day|
+      next unless day[user_index].is_a?(Array)
+      day[user_index].include?(pair.to_sym) ? 1 : 0
+    end.compact.sum
+  end
 
   def generate_stats
     stats = []
