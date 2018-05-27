@@ -29,6 +29,11 @@ class Pairing
       .inject({}) do |pairs, log|
       author = committer_name(log.author.name)
       pairs[author] ||= [] if author
+      handles = log.message.scan(/@\w+/)
+      handles.each do |handle|
+        pair = committer_name(handle)
+        pairs[author] << pair if pair
+      end
       pairs
     end
   end

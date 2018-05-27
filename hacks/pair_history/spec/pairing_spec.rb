@@ -62,8 +62,8 @@ RSpec.describe Pairing do
 
     it 'full date range for logs in reverse choronological order with no gaps' do
       logs = [
-        double(Date, date: Date.new(2018, 1, 3), author: double('Author', name: nil)),
-        double(Date, date: Date.new(2018, 1, 1), author: double('Author', name: nil))
+        double(Date, date: Date.new(2018, 1, 3), author: double('Author', name: nil), message: ''),
+        double(Date, date: Date.new(2018, 1, 1), author: double('Author', name: nil), message: '')
       ]
       expect(git_double).to receive(:log).and_return(logs)
       expect(pairing.pairing_by_day).to eq([
@@ -93,7 +93,7 @@ RSpec.describe Pairing do
     it 'returns the author handle' do
       author_1 = double('Author', name: 'Author One')
       logs = [
-        double('GitLog', date: Date.new(2018, 1, 1), author: author_1)
+        double('GitLog', date: Date.new(2018, 1, 1), author: author_1, message: '')
       ]
       expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
       expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: []})
@@ -103,12 +103,25 @@ RSpec.describe Pairing do
       author_1 = double('Author_1', name: 'Author One')
       author_2 = double('Author_2', name: 'Author Two')
       logs = [
-        double('GitLog', date: Date.new(2018, 1, 1), author: author_1),
-        double('GitLog', date: Date.new(2018, 1, 2), author: author_2)
+        double('GitLog', date: Date.new(2018, 1, 1), author: author_1, message: ''),
+        double('GitLog', date: Date.new(2018, 1, 2), author: author_2, message: '')
       ]
       allow(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
       allow(pairing).to receive(:committer_name).with('Author Two').and_return(:Author_2)
       expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: []})
+    end
+
+    it 'returns the pair found in the message as an @handle' do
+      author_1 = double('Author', name: 'Author One')
+      logs = [
+        double('GitLog',
+               date: Date.new(2018, 1, 1),
+               author: author_1,
+               message: ':pair: @author_2')
+      ]
+      expect(pairing).to receive(:committer_name).with('Author One').and_return(:Author_1)
+      expect(pairing).to receive(:committer_name).with('@author_2').and_return(:Author_2)
+      expect(pairing.pairs_by_day(logs, Date.new(2018, 1, 1))).to eq({ Author_1: [:Author_2]})
     end
   end
 
