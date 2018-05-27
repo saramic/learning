@@ -10,7 +10,7 @@ class Pairing
 
   def stats(output)
     output.puts 'pairing stats'
-    output.puts format_stats(generate_stats)
+    output.puts text_format_stats(generate_stats)
   end
 
   def pairing_by_day
@@ -52,23 +52,28 @@ class Pairing
     @committers.select{|name, handles| handles.include?(handle) }.keys.first
   end
 
+  def text_format_stats(stats)
+    col_widths = stats.each_with_object({}) do |line, counts|
+      line.each_with_index do |field, index|
+        counts[index] = [(counts[index] || 0), field.to_s.chars.length].max
+      end
+    end
+    stats.map{|line| line.each_with_index.map{|field, index| sprintf("%#{col_widths[index]}s", field)}.join(" | ") }.join("\n")
+  end
+
   private
 
   def generate_stats
     stats = []
-    stats << (["Date      "] | @committers.keys)
+    stats << (["Date"] | @committers.keys)
     pairing_by_day.each do |day_stat|
-      stats << [
-        day_stat[:date],
-        @committers.keys.map do |committer|
-          sprintf("%6s", day_stat[committer] || "-")
-        end
-      ]
+      stat_line = []
+      stat_line << day_stat[:date]
+      @committers.keys.each do |committer|
+        stat_line << (day_stat[committer] || "-")
+      end
+      stats << stat_line
     end
     stats
-  end
-
-  def format_stats(stats)
-    stats.map{|line| line.join(" | ") }.join("\n")
   end
 end

@@ -41,16 +41,36 @@ RSpec.describe Pairing do
     )
     output = StringIO.new # TODO any benefit or could this be a double
     expect(output).to receive(:puts).with 'pairing stats'
-    expect(output).to receive(:puts).with <<-EOF.strip_leading_spaces
-    Date       | User_1 | User_2
-    2018-01-01 | User_2 | User_1
-    2018-01-02 |      - |      -
+    expect(output).to receive(:puts).with <<-EOF.strip_leading_spaces.gsub(/^\./, '')
+    .      Date | User_1 | User_2
+    .2018-01-01 | User_2 | User_1
+    .2018-01-02 |      - |      -
     EOF
     pairing.stats(output)
   end
 
   describe '#generate_stats' do
+  end
 
+  describe '#text_format_stats' do
+    let(:pairing) { Pairing.new('working_directory', git_committers_file.path) }
+    let(:git_double) { double(Git, log: nil) }
+
+    before do
+      expect(Git).to receive(:open).with('working_directory').and_return(git_double)
+    end
+
+    it 'formats the stats for text output' do
+      stats = [
+        ['Date', 'user 1', 'user 2'],
+        ['2018-01-01' ,'[:user_2, :user_3]', '-']
+
+      ]
+      expect(pairing.text_format_stats(stats)).to eq <<-EOF.strip_leading_spaces.gsub(/^\./, '')
+      .      Date |             user 1 | user 2
+      .2018-01-01 | [:user_2, :user_3] |      -
+      EOF
+    end
   end
 
   describe '#pairing_by_day' do
