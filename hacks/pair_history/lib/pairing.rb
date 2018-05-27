@@ -34,6 +34,9 @@ class Pairing
         pair = committer_name(handle)
         pairs[author] << pair if pair
         pairs[author]  = pairs[author].uniq
+        pairs[pair] ||= []
+        pairs[pair] << author
+        pairs[pair] = pairs[pair].uniq
       end
       pairs
     end
