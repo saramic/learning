@@ -72,6 +72,15 @@ RSpec.describe Pairing do
         { date: Date.new(2018, 1, 1) },
       ])
     end
+
+    it 'merges in pairs for each day' do
+      logs = [ double(Date, date: Date.new(2018, 1, 1)) ]
+      expect(git_double).to receive(:log).and_return(logs)
+      expect(pairing).to receive(:pairs_by_day).with(logs, Date.new(2018, 1, 1)).and_return({a_user: [], b_user: [:c_user]})
+      expect(pairing.pairing_by_day).to eq([
+        { date: Date.new(2018, 1, 1), a_user: [], b_user: [:c_user] },
+      ])
+    end
   end
 end
 

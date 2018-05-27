@@ -20,10 +20,14 @@ class Pairing
     (day_start..day_end)
       .to_a
       .reverse
-      .map{|day| { date: day } }
+      .map{|day| { date: day }.merge(pairs_by_day(logs, day)) }
   end
 
   private
+
+  def pairs_by_day(logs, day)
+    {}
+  end
 
   def generate_stats
     stats = []
