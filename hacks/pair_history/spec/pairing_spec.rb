@@ -101,7 +101,36 @@ RSpec.describe Pairing do
   end
 
   describe '#committer_name' do
+    let(:pairing) { Pairing.new('working_directory', git_committers_file.path) }
+    let(:git_double) { double(Git, log: nil) }
+    let(:git_committers_file) do
+      filename = 'committers.yml'
+      git_committers_file = Tempfile.new(filename).tap do |file|
+        committers_yaml = <<-EOF.strip_leading_spaces
+        ---
+        :User_1:
+          - "@user_1"
+          - User Number One
+        :User_2:
+          - "@user_2"
+        EOF
+        file.write(committers_yaml)
+        file.close
+      end
+    end
 
+    before do
+      expect(Git).to receive(:open).with('working_directory').and_return(git_double)
+    end
+
+    it 'returns the generic name for a handle' do
+      expect(pairing.committer_name('@user_1')).to eq(:User_1)
+      expect(pairing.committer_name('User Number One')).to eq(:User_1)
+    end
+
+    it 'returns nil if it cannot find the handle' do
+      expect(pairing.committer_name('Not A User')).to be_nil
+    end
   end
 end
 

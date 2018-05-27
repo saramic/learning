@@ -32,10 +32,11 @@ class Pairing
     end
   end
 
-  private
-
   def committer_name(handle)
+    @committers.select{|name, handles| handles.include?(handle) }.keys.first
   end
+
+  private
 
   def generate_stats
     stats = []
