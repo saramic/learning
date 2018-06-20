@@ -6,6 +6,27 @@
   - read more books
   - start on layered testing talk
 
+# Wednesday 20th
+  - initial parts of talk coming along
+  - [keycastr](https://github.com/keycastr/keycastr) to cast charcters typed
+    Turn it on with ^⌥ ⌘ k
+
+# Saturday 16th
+  - start new repo for daily dojo
+    - do a ruby and js dojo
+
+# Tuesday 12th
+  - watched [The Art of Learning and Mentoring](https://vimeo.com/78854352)
+    conference video by Jutta Eckstein. Key takeaways:
+    - cycles in learning are similar to agile, standup and tdd
+      - plan -> do -> inspect -> adapt
+    - various learning situations from format to informal meetings in corridors
+    - Learning approaches by Argyris & Schon
+      - single loop learning - problem occurs you fix it
+      - double loop learning - understand the context of the situation
+      - deutero learning - reflect on your interatctions and learn how to learn
+    - patterns in learning like "three bears" and "round robin"
+
 # Tuesday 5th
   - [ ] start on vi talk
     - find cleudo code with ReadLine
