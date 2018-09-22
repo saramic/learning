@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import ShallowMerge from './shallow-merge'
 import Counter from './counter'
 import Greeting from './greeting'
+import UserCard from './user-card'
 
 class Secret extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class Secret extends React.Component {
 
 render(
   <div>
+    <UserCard username="eronud" />
     <Greeting for="Mark" />
     <Counter increnetBy={1} />
     <Secret />
