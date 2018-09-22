@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import ShallowMerge from './shallow-merge'
 import Counter from './counter'
+import Greeting from './greeting'
 
 class Secret extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Secret extends React.Component {
 
 render(
   <div>
+    <Greeting for="Mark" />
     <Counter increnetBy={1} />
     <Secret />
     <ShallowMerge />
