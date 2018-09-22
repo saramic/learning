@@ -18,26 +18,16 @@ class Secret extends React.Component {
 
   render () {
     return (
-      React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "h1",
-          null,
-          "My name is " + this.state.name
-        ),
-        React.createElement(
-          "button",
-          { onClick: this.onButtonClick },
-          "reveal the secret!"
-        )
-      )
+      <div>
+        <h1>My name is {this.state.name}</h1>
+        <button onClick={this.onButtonClick}>reveal the secret!</button>
+      </div>
     )
   }
 }
 
 render(
-  React.createElement(Secret),
+  <Secret />,
   document.getElementById('root')
 )
 

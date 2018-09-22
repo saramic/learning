@@ -25,6 +25,34 @@
       yarn start
       ```
 
+    - add JSX
+      ```
+      yarn add --dev babel-loader
+      yarn add --dev @babel/preset-react
+
+      cat >> .babelrc
+      {
+        "presets": ["@babel/preset-react"]
+      }
+
+      cat >> wepack.config.js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              loaders: [
+                'babel-loader',
+              ],
+              exclude: /node_modules/,
+            },
+          ],
+        },
+      }
+
+      ```
+
+    - Ch3
+
   - Read - [Can blockchain technology bolster global trade?](https://www.linkedin.com/pulse/can-blockchain-technology-bolster-global-trade-vaishali-naroola/)
     - some interesting ideas around blockchain use but as one of the comments
       says nothing really of substance to be an immediate win, need people to
