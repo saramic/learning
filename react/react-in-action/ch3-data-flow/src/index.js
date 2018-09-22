@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import ShallowMerge from './shallow-merge'
 
 class Secret extends React.Component {
   constructor(props) {
@@ -27,7 +28,10 @@ class Secret extends React.Component {
 }
 
 render(
-  <Secret />,
+  <div>
+    <Secret />
+    <ShallowMerge />
+  </div>,
   document.getElementById('root')
 )
 

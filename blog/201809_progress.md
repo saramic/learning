@@ -51,7 +51,8 @@
 
       ```
 
-    - Ch3
+    - Ch3 shallow merge
+      - demo that shallow merge not good for state
 
   - Read - [Can blockchain technology bolster global trade?](https://www.linkedin.com/pulse/can-blockchain-technology-bolster-global-trade-vaishali-naroola/)
     - some interesting ideas around blockchain use but as one of the comments
