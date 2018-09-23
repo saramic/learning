@@ -3,6 +3,9 @@
 * Sun 23rd
   - React In Action
     - ch4 mounting a component
+    - unmounting
+    - errors
+    - summary for mounting and updating across initial, will and did
 
 * Sat 22nd
   - React In Action
