@@ -2,6 +2,10 @@
 
 * Sun 23rd
   - React In Action
+    - ch4 mounting a component
+
+* Sat 22nd
+  - React In Action
     - minimal react via webpack project `react/react-in-action/ch3-data-flow`
       ```
       md ch3-data-flow
@@ -71,8 +75,6 @@
       - [ ] Shipment management software provider CargoSmart has developed a
         blockchain solution in partnership with Oracle for shipping related
         documentation.
-
-* Sat 22nd
 
   * Jul update
     - ¯\_(ツ)_/¯

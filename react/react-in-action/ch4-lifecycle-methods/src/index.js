@@ -14,28 +14,51 @@ class ChildComponent extends Component {
   constructor(props) {
     super(props)
     console.log("ChildComponent: state")
+    this.state = {
+      name: "Mark"
+    }
+  }
+  componentWillMount() {
+    console.log("ChildComponent : componentWillMount")
+  }
+  componentDidMount() {
+    console.log("ChildComponent : componentDidMount")
   }
 
   render () {
+    if (this.state.oops) {
+      throw new Error("Something went wrong")
+    }
     console.log("ChildComponent: render")
-    return (
-      <div>
-        Name: {this.props.name}
-      </div>
-    )
+    return [
+      <div key="name">Name: {this.props.name}</div>
+    ]
   }
 }
 
 class ParentComponent extends Component {
+  static defaultProps = (function() {
+    console.log("ParentComponent: defaultProps")
+    return {
+      true: false
+    }
+  })()
+
   constructor(props) {
     super(props)
-    this.state = {
-      name: ''
-    }
+    console.log("ParenetComponent: state")
+    this.state = { text: "" }
     this.onInputChange = this.onInputChange.bind(this)
   }
+  componentWillMount() {
+    console.log("ParentComponent: componentWillMount")
+  }
+  componentDidMount() {
+    console.log("ParentComponent: componentDidMount")
+  }
   onInputChange(e) {
-    this.setState({ text: e.target.value })
+    const text = e.target.value
+    this.setState(() => ({ text: text }))
   }
   render () {
     console.log("ParentComponent: render")
