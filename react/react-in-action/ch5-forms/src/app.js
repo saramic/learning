@@ -7,16 +7,24 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      error: null,
       posts: []
     }
     this.createNewPost = this.createNewPost.bind(this)
   }
   createNewPost(post) {
-    this.setState(prevState => {
-      return {
-        posts: orderBy(prevState.posts.concat(newPost), "date", "desc")
-      }
-    })
+    return API.createPost(post)
+      .then(res => res.json())
+      .then(newPost => {
+        this.setState(prevState => {
+          return {
+            posts: orderBy(prevState.posts.concat(newPost), "date", "desc")
+          }
+        })
+      })
+      .catch(err => {
+        this.setState(() => ({ error: err }))
+      })
   }
   render() {
     return (
