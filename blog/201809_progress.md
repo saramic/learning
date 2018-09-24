@@ -1,5 +1,11 @@
 # Progress Sep 2018
 
+* Mon 24th
+  - React In Action
+    - ch5 forms
+      - built from scratch and found a typo in webpack config which meant it
+        was not used.
+
 * Sun 23rd
   - React In Action
     - ch4 mounting a component
@@ -42,7 +48,7 @@
         "presets": ["@babel/preset-react"]
       }
 
-      cat >> wepack.config.js
+      cat >> webpack.config.js
       module.exports = {
         module: {
           rules: [
