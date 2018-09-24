@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
+import Filter from "bad-words"
+
+const filter = new Filter()
+
 class CreatePost extends Component {
   static propTypes = {
   }
@@ -16,7 +20,7 @@ class CreatePost extends Component {
   handlePostChange(event) {
     // console.log(event) // TODO uncomment to see events fire
     console.log("handling an update to the post body!")
-    const content = event.target.value
+    const content = filter.clean(event.target.value)
     this.setState(() => {
       return {
         content,
