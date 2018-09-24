@@ -6,7 +6,8 @@ import Filter from "bad-words"
 const filter = new Filter()
 
 class CreatePost extends Component {
-  static propTypes = {
+  static PropTypes = {
+    onSubmit: PropTypes.func.isRequired
   }
   constructor(props) {
     super(props)
@@ -35,7 +36,11 @@ class CreatePost extends Component {
     const newPost = {
       content: this.state.content,
     }
-    console.log(this.state)
+    this.props.onSubmit(newPost)
+    this.setState(() => ({
+      content: "",
+      valid: false
+    }))
   }
 
   render () {

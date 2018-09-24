@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { render } from "react-dom"
-import CreatePost from "./components/post/Create"
+import App from "./app"
 
 render(
-  <CreatePost />,
+  <App />,
   document.getElementById('root')
 )
 
