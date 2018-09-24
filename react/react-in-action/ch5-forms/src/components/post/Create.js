@@ -6,7 +6,10 @@ class CreatePost extends Component {
   }
   constructor(props) {
     super(props)
-    this.state = { content: "" }
+    this.state = {
+      content: "",
+      valid: false
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePostChange = this.handlePostChange.bind(this)
   }
@@ -16,12 +19,19 @@ class CreatePost extends Component {
     const content = event.target.value
     this.setState(() => {
       return {
-        content
+        content,
+        valid: content.length <= 280
       }
     })
   }
   handleSubmit() {
-    console.log("Handling submission")
+    if (!this.state.valid) {
+      return
+    }
+    const newPost = {
+      content: this.state.content,
+    }
+    console.log(this.state)
   }
 
   render () {
