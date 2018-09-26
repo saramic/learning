@@ -6,8 +6,11 @@ import Content from "./Content"
 
 describe("<Content />", () => {
   test("should render correctly", () => {
+    const mockPost = {
+      content: "hello content"
+    }
     const renderer = new ShallowRenderer()
-    renderer.render(<Content />)
+    renderer.render(<Content post={mockPost}/>)
     const result = renderer.getRenderOutput()
     expect(result.type).toBe('div')
     expect(result.props.children).toEqual('hello content')
@@ -16,8 +19,11 @@ describe("<Content />", () => {
 
 describe("<Content />", () => {
   test("should render correctly", () => {
-    const wrapper = shallow(<Content />)
+    const mockPost = {
+      content: "I am learning to test react components"
+    }
+    const wrapper = shallow(<Content post={mockPost} />)
     expect(wrapper.find('div').length).toBe(1)
-    expect(wrapper.find('div').text()).toBe("hello content")
+    expect(wrapper.find('div').text()).toBe(mockPost.content)
   })
 })
