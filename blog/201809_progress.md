@@ -16,6 +16,9 @@
       yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-transform-class-properties
       yarn add --dev webpack webpack-dev-server webpack-cli
       yarn add --dev jest
+
+      # using yarn with babel7 https://jestjs.io/docs/en/getting-started.html#using-babel
+      yarn add --dev babel-jest 'babel-core@^7.0.0-0' @babel/core regenerator-runtime
       ```
     - **create necessary files**
       ```
@@ -75,6 +78,8 @@
       yarn start
       yarn test:w
       ```
+
+    - **Basic test working**
 
 * Mon 24th
   - React In Action
