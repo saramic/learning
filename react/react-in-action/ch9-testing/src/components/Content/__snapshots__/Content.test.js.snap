@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Content /> snapshot 1`] = `
+<div
+  className="content"
+>
+  I am learning to test react components
+</div>
+`;

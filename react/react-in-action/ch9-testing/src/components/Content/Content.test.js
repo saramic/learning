@@ -26,4 +26,13 @@ describe("<Content />", () => {
     expect(wrapper.find('div').length).toBe(1)
     expect(wrapper.find('div').text()).toBe(mockPost.content)
   })
+
+  test("snapshot", () => {
+    const mockPost = {
+      content: "I am learning to test react components"
+    }
+    const component = renderer.create(<Content post={mockPost} />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
