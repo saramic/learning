@@ -80,6 +80,10 @@
       ```
 
     - **Basic test working**
+    - **Start using enzyme shallow rendering**
+      ```
+      yarn add --dev enzyme enzyme-adapter-react-16
+      ```
 
 * Mon 24th
   - React In Action

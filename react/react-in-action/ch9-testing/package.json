@@ -16,6 +16,8 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.20.2",
@@ -26,5 +28,11 @@
     "start": "webpack-dev-server --mode production --watch",
     "test": "jest",
     "test:w": "jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFiles": [
+      "./test/setup.js"
+    ]
   }
 }
