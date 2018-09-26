@@ -1,5 +1,81 @@
 # Progress Sep 2018
 
+* Wed 26th
+  - React In Action
+    - Ch9 testing
+      create a new project for testing from scratch
+
+    - **set things up**
+      ```
+      mkdir ch9-testing
+      cd ch9-testing
+
+      yarn init
+
+      yarn add react react-dom
+      yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader babel-plugin-transform-class-properties
+      yarn add --dev webpack webpack-dev-server webpack-cli
+      yarn add --dev jest
+      ```
+    - **create necessary files**
+      ```
+      cat >> webpack.config.js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              loaders: [       
+                'babel-loader',
+              ],
+              exclude: /node_modules/,
+            },
+          ],
+        },
+      }
+
+      cat >> .babelrc
+      {
+        "presets": ["@babel/preset-react"]
+      }
+
+      cat >> index.html
+      <div id="root" />
+      <script type="text/javascript" src="main.js"></script>
+
+      cat >> src/index.js
+      import React, { Component } from "react"
+      import { render } from "react-dom"
+
+      class App extends Component {
+        render() {
+          return (
+            <div className="app">
+              hello
+            </div>
+          )
+        }
+      }
+
+      render(
+        <App />,
+        document.getElementById("root")
+      )
+    - **setup start and test**
+      ```
+      vi package.json
+        "scripts": {
+          "start": "webpack-dev-server --mode production --watch",
+          "test": "jest --coverage",
+          "test:w": "jest --watch --coverage",
+        },
+      ```
+    - **start and test**
+
+      ```
+      yarn start
+      yarn test:w
+      ```
+
 * Mon 24th
   - React In Action
     - ch5 forms
