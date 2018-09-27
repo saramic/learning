@@ -27,6 +27,17 @@ class CreatePost extends Component {
     })
   }
 
+  handleSubmit(event) {
+    event.preventDefault()
+    const newPost = {
+      content: this.state.content
+    }
+    this.props.onSubmit(newPost)
+    this.setState(() => ({
+      content: ""
+    }))
+  }
+
   render() {
     return (
       <div />
