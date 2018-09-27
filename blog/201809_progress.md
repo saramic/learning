@@ -1,5 +1,9 @@
 # Progress Sep 2018
 
+* Fri 28th
+  - React In Action
+    - Ch9 testing a post Create component
+
 * Wed 26th
   - React In Action
     - Ch9 testing
