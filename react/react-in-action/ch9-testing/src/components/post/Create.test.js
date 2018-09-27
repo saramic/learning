@@ -46,6 +46,10 @@ describe("CreatePost", () => {
     expect(props.onSubmit).toHaveBeenCalledWith({
       content: "content"
     })
+    // state should now be reset
+    expect(component.state).toEqual({
+      content: "",
+    })
   })
 
 })
