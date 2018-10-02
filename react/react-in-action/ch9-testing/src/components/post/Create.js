@@ -11,7 +11,8 @@ class CreatePost extends Component {
   constructor(props) {
     super(props)
     this.initialState = {
-      content: ""
+      content: "",
+      locationSelected: false
     }
     this.state = this.initialState
     this.filter = new Filter()
@@ -25,6 +26,10 @@ class CreatePost extends Component {
         content,
       }
     })
+  }
+
+  handleRemoveLocation() {
+
   }
 
   handleSubmit(event) {

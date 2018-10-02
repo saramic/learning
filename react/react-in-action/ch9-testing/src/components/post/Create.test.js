@@ -23,6 +23,7 @@ describe("CreatePost", () => {
     expect(component.setState.mock.calls.length).toEqual(1)
     expect(component.state).toEqual({
       content: "value",
+      locationSelected: false,
     })
   })
   test("handleSubmit", () => {
@@ -49,7 +50,16 @@ describe("CreatePost", () => {
     // state should now be reset
     expect(component.state).toEqual({
       content: "",
+      locationSelected: false,
     })
   })
-
+  test('handleRemoveLocation', () => {
+    const props = { onSubmit: jest.fn() }
+    CreatePost.prototype.setState = jest.fn(function(updater) {
+      this.state = Object.assign(this.state, updater(this.state))
+    })
+    const component = new CreatePost(props)
+    component.handleRemoveLocation()
+    expect(component.state.locationSelected).toEqual(false)
+  })
 })
