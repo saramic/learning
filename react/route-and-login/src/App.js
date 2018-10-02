@@ -2,18 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './pages/Home'
 import Secret from './pages/Secret'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Login } from './pages/Login'
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 
 class App extends Component {
+  loggedIn = () => {
+    return false
+  }
+
   render() {
     return (
       <div className="App">
-        <Router>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/secret" component={Secret} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/secret" render={() => (
+              this.loggedIn ? (
+                <Redirect to="/login" />
+              ) : (
+                <Secret />
+              )
+            )} />
           </Switch>
-        </Router>
+        </BrowserRouter>
       </div>
     );
   }
