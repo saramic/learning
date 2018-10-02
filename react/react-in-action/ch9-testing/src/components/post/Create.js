@@ -32,6 +32,12 @@ class CreatePost extends Component {
 
   }
 
+  onLocationSelect(location) {
+    this.setState(() => ({
+      location,
+    }))
+  }
+
   handleSubmit(event) {
     event.preventDefault()
     const newPost = {

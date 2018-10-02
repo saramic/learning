@@ -62,4 +62,22 @@ describe("CreatePost", () => {
     component.handleRemoveLocation()
     expect(component.state.locationSelected).toEqual(false)
   })
+  test('onLocationSelect', () => {
+    const props = { onSubmit: jest.fn() }
+    CreatePost.prototype.setState = jest.fn(function(updater) {
+      this.state = Object.assign(this.state, updater(this.state))
+    })
+    const component = new CreatePost(props)
+    component.onLocationSelect({
+      lat: 1,
+      lng: 2,
+      name: 'name',
+    })
+    expect(component.setState).toHaveBeenCalled()
+    expect(component.state.location).toEqual({
+      lat: 1,
+      lng: 2,
+      name: 'name',
+    })
+  })
 })
