@@ -80,4 +80,10 @@ describe("CreatePost", () => {
       name: 'name',
     })
   })
+  test('renderLocationControls', () => {
+    const props = { onSubmit: jest.fn() }
+    const component = renderer.create(<CreatePost {...props} />)
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

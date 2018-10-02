@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CreatePost renderLocationControls 1`] = `<div />`;
+
 exports[`CreatePost snapshot 1`] = `<div />`;
