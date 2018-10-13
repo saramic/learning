@@ -4,14 +4,13 @@
   "description": "A modern react app test driven from scratch",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --mode development --watch"
   }
 }
