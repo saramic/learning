@@ -4,13 +4,19 @@
   "description": "A modern react app test driven from scratch",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --watch"
+    "start": "webpack-dev-server --mode development --watch",
+    "lint": "eslint src/**/*js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.7.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   }
 }
