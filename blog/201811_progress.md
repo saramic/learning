@@ -1,5 +1,16 @@
 # Progress Nov 2018
 
+* Mon 13th
+  - READ [The Reddit Forum That Guesses Who You Are Based on What’s in Your Fridge](https://www.newyorker.com/culture/rabbit-holes/the-reddit-forum-that-guesses-who-you-are-based-on-whats-in-your-fridge)
+    * maybe 6 pack finder could just be a reddit forum
+    * https://www.reddit.com/r/FridgeDetective/
+  - READ [How to Visualize Your Rails ERD Diagram Automatically](https://www.holistics.io/blog/visualize-rails-database-to-erd-diagram/)
+    * free tool that now supports Rails ERD
+    * https://dbdiagram.io/
+  - READ [A fun optimization trick from rsync](https://blog.plover.com/prog/switch-case-optimization.html)
+    * fall through a switch statement with a switch_step++ hence remembering
+      which step worked and use that next time
+  
 * Fri 2nd
   - READ [FOCUS ON YOUR OWN SHIT](https://justinjackson.ca/focus-on-your-own-shit/)
     * focus on your own work and don't stress about other similar blogs, products, etc
