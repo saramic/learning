@@ -1,8 +1,23 @@
 require 'spec_helper'
 
 class Day02
+  attr_reader :count
+
+  def initialize(lines: '')
+    @count = { '2' => 0, '3' => 0 }
+    @lines = lines
+  end
+
   def count_per_line(line)
-    0
+    h = Hash.new(0)
+    line.chars.each{|c| h[c] += 1}
+    @count['2'] += 1 if h.find_all{|k,v| v == 2}.count > 0
+    @count['3'] += 1 if h.find_all{|k,v| v == 3}.count > 0
+  end
+
+  def answer
+    @lines.split(/\n/).each{|line| count_per_line(line) }
+    @count['2'] * @count['3']
   end
 end
 
@@ -13,15 +28,16 @@ describe Day02 do
   it "counts nothing for 'abcdef' as there are no letters that occur 2 or 3 times" do
     day02 = Day02.new
     line = 'abcdef'
-    expect(day02.count_per_line(line)).to eq 0
+    day02.count_per_line(line)
+    expect(day02.count).to eq({ '2' => 0, '3' => 0})
   end
  
   # bababc contains two a and three b, so it counts for both.
   it "counts 2 for 'bababc' has two a and three b" do
-    pending 'not yet implemented'
     day02 = Day02.new
     line = 'bababc'
-    expect(day02.count_per_line(line)).to eq 2
+    day02.count_per_line(line)
+    expect(day02.count).to eq({ '2' => 1, '3' => 1})
   end
 
   # abbcde contains two b, but no letter appears exactly three times.
@@ -44,8 +60,8 @@ describe Day02 do
     end
 
     # not implemented
-    xit "returns 4 * 3 = 12 as there are 4" do
-      day02 = Day02.new(lines)
+    it "returns 4 * 3 = 12 as there are 4" do
+      day02 = Day02.new(lines: lines)
       expect(day02.answer).to eq 12
     end
   end
