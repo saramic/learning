@@ -28,6 +28,26 @@ app.get('/api/v1/cats', function(req, res) {
             ]
           }
         }
+      },
+      {
+        type: 'cat',
+        id: 2,
+        attributes: {
+          name: 'Frisky2',
+          age: 10,
+          adopted: true,
+          birthday: '2005-11-05T13:15:30Z'
+        },
+        relationships: {
+          home: {
+            data: { id: 1, type: 'home' }
+          },
+          toys: {
+            data: [
+              { id: 1, type: 'toy' }
+            ]
+          }
+        }
       }
     ]
   });

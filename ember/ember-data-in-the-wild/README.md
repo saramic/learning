@@ -24,8 +24,16 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* run mini API server
+```
+cd api && node api.js
+```
+* Visit API directly [http://localhost:8000/api/v1/cats](http://localhost:8000/api/v1/cats).
+* run ember server
+```
+ember serve
+```
+* Visit your app at [http://localhost:4200/cats](http://localhost:4200/cats).
 
 ### Code Generators
 
