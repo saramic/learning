@@ -42,7 +42,11 @@
     }
 
   ⌘ K ⌘ S # display shortcuts
-  ⌘ K ⌘ F # to auto format
+  ⌘ K ⌘ F # to auto format a selection
+
+  ⌘ SHIFT X # show extentions side bar
+
+  ⌥ SHIFT F # to auto format
   ```
 
 * Sat 19th
