@@ -1,0 +1,30 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.masthead {
+  background: url("../images/masthead.png") no-repeat center;
+  height: 462px;
+  background-size: cover;
+}
+
+.rewardingContent, .hredContent,
+.workEfficiency, .getPaid {
+  margin-top: 10px;
+}
+
+.rewardingImg, .hiringImg,
+.messagingImg, .paidImg {
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.footer{
+  margin-top: 15px;
+  background: #f8f8f8
+}
