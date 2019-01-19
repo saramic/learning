@@ -1,5 +1,33 @@
 # Progress Jan 2019
 
+* Sun 20th
+- BOOK test driven react
+  - setup
+  ```
+  mkdir test-driven-fizzbuzz
+  cd test-driven-fizzbuzz
+
+  # say yes to all questions
+  npm init -y
+  npm install --save-dev jest@23.6.0
+
+  # the -- is to pass arguments not to npm but what npm is running in this case jest
+  npm run test -- --watch
+  ```
+  - VS code
+  ```
+  ⌘ p # to open command palette
+  > Preverences: Keymaps # although it picked up I have VIM installed so turns on those bindings by default
+
+  > Shell Command: install code command in PATH # a good thing
+
+  ^` # CTRL-` to toggle terminal
+
+  code -r . # to reuse existing window
+  # in terminal
+  npm run test -- --watchAll
+  ```
+
 * Sat 19th
   - clean up of this repo
   - theremin touchbar https://gist.github.com/danburzo/f54e912b7fbefb0df00d9d0306e40a8b
