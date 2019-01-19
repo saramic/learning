@@ -2721,7 +2721,7 @@ F---|----E|--+
 
   solution
   ```
-  $ cat day4/data.txt | ruby -e 'puts ARGF.read.split("\n").map{|l| words = l.split; words.count == words.uniq.count ? 1 : 0}.reduce(&:+)'
+
   383
   ```
 
