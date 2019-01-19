@@ -1,0 +1,12 @@
+---
+:Name:
+  - "@github_handle"
+  - github_handle
+  - First Name Surname
+  - "name@email.domain.com"
+:AnotherName:
+  - "@github_handle"
+:Other:
+  - "@ignored_github_handle"
+    #:Old Name:
+  - "@old_ignored_github_handle"

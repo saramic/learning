@@ -17,7 +17,7 @@ class Pairing
   end
 
   def pairing_by_day
-    logs = @git.log(100)
+    logs = @git.log(10000)
     day_start = logs.last.date.to_date
     day_end = logs.first.date.to_date
     (day_start..day_end)
@@ -37,7 +37,10 @@ class Pairing
         pairs[author] ||= []
       end
       handles = log.message.scan(/@\w+/).map{|handle| committer_name(handle) }
-      (authors + handles).each do |pair|
+      co_committers = log.message.scan(/\nCo-authored-by.*<([^@]+@[^>]+)>/).flatten.map{|handle| committer_name(handle) }
+      #require 'pry'
+      #binding.pry
+      (authors + handles + co_committers).each do |pair|
         authors.each do |author|
           pairs[author] << pair if pair
           pairs[author] << authors
