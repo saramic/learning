@@ -3,6 +3,9 @@ require 'sinatra/cross_origin'
 require 'json'
 require 'jwt'
 
+# continue with https://auth0.com/blog/ruby-authentication-secure-rack-apps-with-jwt/
+# simplify the cors to specific site as per https://medium.com/addval-labs/adding-cors-configuration-to-a-sinatra-app-1ed426e2c028
+# follow along for bootstrap react setup https://medium.com/addval-labs/adding-cors-configuration-to-a-sinatra-app-1ed426e2c028
 class App < Sinatra::Base
   set :bind, '0.0.0.0'
 
