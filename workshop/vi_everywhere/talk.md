@@ -9,8 +9,13 @@
 ## Script
 
 Wow, what a wonderful community we have in RORO Melbourne and Ruby Australia.
-Thank you to the organisers! What an amazing event! and some great talk from
-Selina and Mel! well done ladies. You guys rock. I am honoured to present here.
+Thank you to the organisers! What an amazing event! and a great talk from
+Selena, well done. A real story of strength and percevierence, and getting into
+tech late gives you that feeling of always having to catch up. A real pleasure
+to work with people of this strong character at Fresho!.
+
+And what a diverese grou we are!
+I am honoured to present here.
 What a diverse group we are. Yeah I am sure we have a long way to go but 66%
 females talking today! wow! You know the other the day went to a meetup and it
 was so mono culture! everyone was the same sex, white, priveleged female
@@ -102,9 +107,9 @@ Next you want to see what is in the file. You now have a few options,
    mouse and if you are using the mouse you are probably doing it wrong)
 1. you can up arrow and then left arrow till you get to the beginning of the
    line then delete the `ls` and write `less`. But moving left character by
-   character is so slow, I have seen people setup new projects and one of the
+   character is so slow, I have seen people setup new computers and one of the
    first things they change is increase the speed of their cursor!
-   
+
    Don't do that, remember DRY - Don't Repeat Yourself, if you have to do it
    more then 3 times, there must be a better way, we are programmers, if there
    is no better way then create one!
@@ -184,6 +189,8 @@ so what have we learnt so far?
   cw            # change a word
   a             # append after the cursor
   A             # append at the end of the line]
+  ^             # go to begninning of line (just like regex)
+  $             # go to end of line (just like regex)
 
   set -o emacs  # get me out of here
   ]
@@ -208,7 +215,6 @@ toy example saw us do this on a micro scale where we went back to a file and
 learnt more about it each time. Now we are going to apply this to learning this
 vi technique let's look at another example.
 
-
 ## Another command line example
 
 so let's say we are investigating processesses on a machine we may start with
@@ -216,7 +222,7 @@ so let's say we are investigating processesses on a machine we may start with
 and let's say like Mel talked about docker we got all carried away with too many docker containers so we try to find thme
 `ps -ef | grep docker` keys `ESC-k SHIFT-A`
 and I want only the first result
- 
+
 ##### TODO ######
  - infintie pipe like
  - something with docker
@@ -256,7 +262,7 @@ A web app connecting fresho food suppliers and restaurnats
 
   1. VI basics
   1. VI everywhere
-  1. What is your super power? 
+  1. What is your super power?
   1. Daily dojo - the simple path to learning a new super power
 
 
@@ -391,12 +397,30 @@ all the other languages
 lein repl # YES for coljure
 python    # YES for python
 iex # NOPE don't use elixir
+rust ??
+
+**Good**
+- irb puts "hi"
+  ^D
+- python3 print("hi")
+  ^D
+- lein repl
+  (print "hi")
+  ^D
+
+**No good**
+- node console.log('hello from node')
+  ^D
+- iex  IO.puts "hello elixir"
+  ^C a
+
+rlwrap
 
 ## What is your super power?
 
   1. VI basics
   1. VI everywhere
-  1. What is your super power? 
+  1. What is your super power?
   1. Daily dojo - the simple path to learning a new super power
 
 
