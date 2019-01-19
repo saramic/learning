@@ -27,6 +27,23 @@
   # in terminal
   npm run test -- --watchAll
   ```
+    - git settings seem limited
+      - no log?
+      - no way to add new dir to existing git repo?
+      - no way to add node modules to .gitignore?
+      - ended doing that from the terminal as it is easier!
+  ```
+  ⌘ b # to hide/unhide navigation side bar
+
+  # in settings ignore certain files from sidebar
+    "files.exclude": {
+      "node_modules": true,
+      "package-lock.json": true
+    }
+
+  ⌘ K ⌘ S # display shortcuts
+  ⌘ K ⌘ F # to auto format
+  ```
 
 * Sat 19th
   - clean up of this repo
