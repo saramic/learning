@@ -1,7 +1,9 @@
 # Progress Jan 2019
 
 * Sun 20th
-- BOOK test driven react
+- BOOK data wrangling with javascript ch 1 - 2.6
+
+- BOOK test driven react ch 1 - 3 
   - setup
   ```
   mkdir test-driven-fizzbuzz
