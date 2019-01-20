@@ -18,14 +18,7 @@ const data = [
   }
 ];
 
-function generateReport(data) {
-  const columns = Object.keys(data[0]);
-  return {
-    numRows: data.length,
-    numColumns: columns.length,
-    columnNames: columns
-  };
-}
+const generateReport = require(`./generate-report.js`);
 
 const report = generateReport(data);
 
