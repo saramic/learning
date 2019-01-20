@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Simplres web page</title>
+    <title>Simple report</title>
   </head>
 
   <body>
-    this is a static web page
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+      $.getJSON("/rest/data", function(report) {
+        document.write(
+          "Num rows: " +
+            report.numRows +
+            "<br/>" +
+            "Num columns: " +
+            report.numColumns +
+            "<br/>" +
+            "Columns: " +
+            report.columnNames.join(", ")
+        );
+      });
+    </script>
   </body>
 </html>

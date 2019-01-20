@@ -10,6 +10,10 @@ const staticFilesPath = path.join(__dirname, "public");
 const staticFilesMiddleWare = express.static(staticFilesPath);
 app.use("/", staticFilesMiddleWare);
 
+const staticNodeModulesPath = path.join(__dirname, "node_modules");
+const staticNodeModulesMiddleWare = express.static(staticNodeModulesPath);
+app.use("/node_modules/", staticNodeModulesMiddleWare);
+
 const data = [
   {
     dive_divers: "",
