@@ -24,4 +24,24 @@ describe("CarouseSlide", () => {
     const img = wrapper.find("img");
     expect(img.prop("src")).toBe(imgUrl);
   });
+
+  it("uses `desccription` and `attribution` as the <figcaption>", () => {
+    const description = "A jaw-droppingly spectacular image";
+    const attribution = "Trevor Burnham";
+    wrapper.setProps({ description, attribution });
+    expect(wrapper.find("figcaption").text()).toBe(
+      `${description} ${attribution}`
+    );
+    expect(wrapper.find("figcaption strong").text()).toBe(description);
+  });
+
+  it("passes other props through to the <figcaption>", () => {
+    const style = {};
+    const onClick = () => {};
+    const className = "my-carousel-slide";
+    wrapper.setProps({ style, onClick, className });
+    expect(wrapper.prop("style")).toBe(style);
+    expect(wrapper.prop("onClick")).toBe(onClick);
+    expect(wrapper.prop("className")).toBe(className);
+  });
 });
