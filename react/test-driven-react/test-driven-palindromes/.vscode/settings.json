@@ -1,9 +1,9 @@
 {
-    "git.ignoreLimitWarning": true,
-    "files.exclude": {
-        "node_modules": true,
-        "package-lock.json": true
-    },
-    "files.autoSave": "afterDelay",
-    "editor.tabSize": 2
+  "git.ignoreLimitWarning": true,
+  "files.exclude": {
+    "node_modules": true,
+    "package-lock.json": true
+  },
+  // "files.autoSave": "afterDelay",
+  "editor.tabSize": 2
 }
