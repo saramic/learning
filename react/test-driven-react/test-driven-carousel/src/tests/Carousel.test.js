@@ -35,4 +35,16 @@ describe("Carousel", () => {
         .prop("children")
     ).toBe("Next");
   });
+
+  it("decrements `slideIndex` when the Prev button is clicked", () => {
+    wrapper.setState({ slideIndex: 1 });
+    wrapper.find('[data-action="prev"]').simulate("click");
+    expect(wrapper.state("slideIndex")).toBe(0);
+  });
+
+  it("increments `slideIndex` when the Next button is clicked", () => {
+    wrapper.setState({ slideIndex: 1 });
+    wrapper.find('[data-action="next"]').simulate("click");
+    expect(wrapper.state("slideIndex")).toBe(2);
+  });
 });
