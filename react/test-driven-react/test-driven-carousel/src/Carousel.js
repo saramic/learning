@@ -1,4 +1,5 @@
 import React from "react";
+import CarouselButton from "./CarouselButton";
 
 class Carousel extends React.PureComponent {
   state = {
@@ -6,7 +7,12 @@ class Carousel extends React.PureComponent {
   };
 
   render() {
-    return <div />;
+    return (
+      <div>
+        <CarouselButton>Prev</CarouselButton>
+        <CarouselButton>Next</CarouselButton>
+      </div>
+    );
   }
 }
 
