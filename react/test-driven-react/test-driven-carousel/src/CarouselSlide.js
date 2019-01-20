@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 
 const CarouselSlide = ({ imgUrl, description, attribution, ...rest }) => (
   <figure {...rest}>
@@ -8,5 +9,11 @@ const CarouselSlide = ({ imgUrl, description, attribution, ...rest }) => (
     </figcaption>
   </figure>
 );
+
+CarouselSlide.propTypes = {
+  imgUrl: propTypes.string.isRequired,
+  description: propTypes.string.isRequired,
+  attribution: propTypes.string.isRequired
+};
 
 export default CarouselSlide;
