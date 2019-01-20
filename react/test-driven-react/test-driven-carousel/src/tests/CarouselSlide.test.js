@@ -17,4 +17,11 @@ describe("CarouseSlide", () => {
     expect(wrapper.childAt(0).type()).toBe("img");
     expect(wrapper.childAt(1).type()).toBe("figcaption");
   });
+
+  it("passes `imgUrl` through to the <img>", () => {
+    const imgUrl = "https://example.com/image.png";
+    wrapper.setProps({ imgUrl });
+    const img = wrapper.find("img");
+    expect(img.prop("src")).toBe(imgUrl);
+  });
 });

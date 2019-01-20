@@ -1,8 +1,8 @@
 import React from "react";
 
-const CarouselSlide = () => (
+const CarouselSlide = ({ imgUrl }) => (
   <figure>
-    <img />
+    <img src={imgUrl} />
     <figcaption />
   </figure>
 );
