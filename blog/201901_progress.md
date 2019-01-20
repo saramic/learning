@@ -48,6 +48,8 @@
 
   ⌥ SHIFT F # to auto format
   ```
+  - followed along to end ch 3 and added tests that test state. Next will be
+    styled components and snapshot tests.
 
 * Sat 19th
   - clean up of this repo
