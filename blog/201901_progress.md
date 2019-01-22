@@ -1,5 +1,10 @@
 # Progress Jan 2019
 
+* Tue 22nd
+- BOOK Camille Fournier, The Manager's Path
+  - book club - https://blog.blackmill.co/blackmill-book-club-d7176d0f2507
+  - chapter 1 - general discussion - [notes](https://github.com/Blackmill/book-club/blob/master/the-managers-path.md)
+
 * Sun 20th
 - BOOK data wrangling with javascript ch 1 - 2.6
 
