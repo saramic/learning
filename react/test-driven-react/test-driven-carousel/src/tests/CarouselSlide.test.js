@@ -6,7 +6,12 @@ describe("CarouseSlide", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CarouselSlide />);
+    wrapper = shallow(
+      <CarouselSlide
+        imgUrl="https://example.com/default.jpg"
+        description="Default test image"
+      />
+    );
   });
 
   it("renders a <figure>", () => {
