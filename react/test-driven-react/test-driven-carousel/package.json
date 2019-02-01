@@ -7,7 +7,8 @@
     "test": "jest",
     "lint": "eslint",
     "format": "prettier-eslint",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
@@ -31,7 +32,8 @@
     "prettier-eslint-cli": "^4.7.1",
     "react-dom": "^16.7.0",
     "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
