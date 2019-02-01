@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint",
-    "format": "prettier-eslint"
+    "format": "prettier-eslint",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.12.1",
@@ -26,7 +28,9 @@
     "eslint-plugin-react": "^7.12.4",
     "jest": "^23.6.0",
     "prettier-eslint-cli": "^4.7.1",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
