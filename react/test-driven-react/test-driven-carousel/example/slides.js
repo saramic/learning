@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const referralParams = "utm_source=test-driven-carousel&utm_medium=referral";
 
@@ -11,6 +12,10 @@ const getAttribution = ({ name, username }) => (
     <a href={`https://unsplash.com/?${referralParams}`}>Unsplash</a>
   </>
 );
+getAttribution.propTypes = {
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
+};
 
 export default [
   {
