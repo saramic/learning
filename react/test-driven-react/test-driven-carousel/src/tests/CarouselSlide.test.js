@@ -1,9 +1,9 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
-import CarouselSlide from "../CarouselSlide";
-import styled from "styled-components";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import CarouselSlide from '../CarouselSlide';
+import styled from 'styled-components';
 
-describe("CarouseSlide", () => {
+describe('CarouseSlide', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -15,28 +15,28 @@ describe("CarouseSlide", () => {
     );
   });
 
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     wrapper.setProps({
-      describe: "Description",
-      attribution: "Attribution"
+      describe: 'Description',
+      attribution: 'Attribution',
     });
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("passes other props through to the <figcaption>", () => {
+  it('passes other props through to the <figcaption>', () => {
     const style = {};
     const onClick = () => {};
-    const className = "my-carousel-slide";
+    const className = 'my-carousel-slide';
     wrapper.setProps({ style, onClick, className });
-    expect(wrapper.prop("style")).toBe(style);
-    expect(wrapper.prop("onClick")).toBe(onClick);
-    expect(wrapper.prop("className")).toBe(className);
+    expect(wrapper.prop('style')).toBe(style);
+    expect(wrapper.prop('onClick')).toBe(onClick);
+    expect(wrapper.prop('className')).toBe(className);
   });
 });
 
-describe("Img", () => {
+describe('Img', () => {
   let mounted;
-  const imgUrl = "https://example.com/default.jpg";
+  const imgUrl = 'https://example.com/default.jpg';
 
   beforeEach(() => {
     mounted = mount(
@@ -44,13 +44,13 @@ describe("Img", () => {
     );
   });
 
-  it("renders correctly", () => {
-    expect(mounted.find("img")).toMatchSnapshot();
+  it('renders correctly', () => {
+    expect(mounted.find('img')).toMatchSnapshot();
   });
 
-  it("users imgHeight as the height style property", () => {
-    expect(mounted).toHaveStyleRule("height", "500px");
-    mounted.setProps({ imgHeight: "calc(100vh - 100px)" });
-    expect(mounted).toHaveStyleRule("height", "calc(100vh - 100px)");
+  it('users imgHeight as the height style property', () => {
+    expect(mounted).toHaveStyleRule('height', '500px');
+    mounted.setProps({ imgHeight: 'calc(100vh - 100px)' });
+    expect(mounted).toHaveStyleRule('height', 'calc(100vh - 100px)');
   });
 });

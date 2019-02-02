@@ -5,7 +5,7 @@
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tbreact for more book information.
-***/
+ ***/
 module.exports = function(wallaby) {
   return {
     testFramework: 'jest',
