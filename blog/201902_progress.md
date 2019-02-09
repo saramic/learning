@@ -1,5 +1,19 @@
 # Progress Feb 2019
 
+* Sun 10th
+- alternatives to geckoboard
+  - [Freeboard.io](https://github.com/Freeboard/freeboard)
+    - as mentioned [RasPi forum - platform for sensor data visualization](https://www.raspberrypi.org/forums/viewtopic.php?t=188963)
+  - preffered from above [Corlysis](https://corlysis.com/)
+  - [dygraphs](http://dygraphs.com/)
+  - [Perfecting data visualization with plotly](https://engineersportal.com/blog/2017/9/24/perfecting-data-visualization-with-plotly)
+    - [Plot.ly](https://plot.ly/)
+  - [Cloud4RPi](https://cloud4rpi.io/)
+  - time series [influxdata](https://www.influxdata.com/time-series-platform/)
+    - [running tick stack on RPi](https://www.influxdata.com/blog/running-the-tick-stack-on-a-raspberry-pi/)
+    - [RPi install instructions](https://community.influxdata.com/t/raspberry-pi-installation-instructions/5515)
+  - [Graphana](https://grafana.com/get)
+
 * Sat 9th
 - **Video** - [A Branch in Time (a story about revision histories)](https://www.youtube.com/watch?v=1NoNTqank_U)
   - by [@tekin](https://twitter.com/tekin)
