@@ -1,0 +1,16 @@
+{
+  "name": "project_fugu_dev_fest",
+  "version": "1.0.0",
+  "description": "Recreating some of the cool things from Phil Nash's talk on project fugu at DevFest 2019 Melbourne",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "simpleserver": "http-server -c-1 ./ -p 8888"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "monaco-editor": "^0.18.1"
+  }
+}
