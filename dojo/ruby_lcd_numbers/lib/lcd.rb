@@ -1,11 +1,21 @@
 class Lcd
   def self.d(number)
-    <<-EO_DIGIT
- --
-|  |
- --
-|  |
- --
- EO_DIGIT
+    if number == 3
+      <<-EO_DIGIT.gsub(/^( ){7}/, "")
+        --
+          |
+        --
+          |
+        --
+    EO_DIGIT
+    else
+      <<-EO_DIGIT.gsub(/^(  )+/, "")
+       --
+      |  |
+       --
+      |  |
+       --
+    EO_DIGIT
+    end
   end
 end
