@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__)), "..", "lib")
+
+require "lcd"
+
+puts Lcd.d(ARGV.join.to_i)
