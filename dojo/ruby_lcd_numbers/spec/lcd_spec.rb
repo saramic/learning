@@ -31,4 +31,15 @@ RSpec.describe Lcd do
     EO_DIGIT
     expect(Lcd.d(38)).to eq(result)
   end
+
+  it "displays 3.8" do
+    result = <<-EO_DIGIT.gsub(/^( ){6}/, "")
+       --       -- 
+         |     |  |
+       --       -- 
+         |     |  |
+       --   .   -- 
+    EO_DIGIT
+    expect(Lcd.d(3.8)).to eq(result)
+  end
 end
