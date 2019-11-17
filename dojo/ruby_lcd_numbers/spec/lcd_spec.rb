@@ -7,6 +7,6 @@ RSpec.describe Lcd do
 |  |
  --
  EO_DIGIT
-   end
+    expect(Lcd.d(8)).to eq(result)
+  end
 end
-
