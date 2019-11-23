@@ -55,4 +55,21 @@ RSpec.describe "two_sum" do
     nums, target = read_input input
     expect(two_sum(nums, target)).to eq [0, 2]
   end
+
+  it "works for large input" do
+    # require "pry"; binding.pry
+    needle = false
+    input = File.open(__FILE__)
+      .read
+      .split("\n")
+      .select { |line| needle ||= line == "__END__" }
+      .slice(1, 2)
+      .join("\n")
+    nums, target = read_input input
+    expect(two_sum(nums, target)).to eq [0, 2]
+  end
 end
+
+__END__
+[-3,7,3,15]
+0
