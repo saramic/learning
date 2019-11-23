@@ -28,4 +28,31 @@ RSpec.describe "two_sum" do
     nums, target = read_input input
     expect(two_sum(nums, target)).to eq [0, 1]
   end
+
+  it "works for basic input" do
+    input = <<-INPUT
+      [2,7,11,15]
+      9
+    INPUT
+    nums, target = read_input input
+    expect(two_sum(nums, target)).to eq [0, 1]
+  end
+
+  it "works for 0 input" do
+    input = <<-INPUT
+      [0,7,0,15]
+      0
+    INPUT
+    nums, target = read_input input
+    expect(two_sum(nums, target)).to eq [0, 2]
+  end
+
+  it "works for negative input" do
+    input = <<-INPUT
+      [-3,7,3,15]
+      0
+    INPUT
+    nums, target = read_input input
+    expect(two_sum(nums, target)).to eq [0, 2]
+  end
 end
