@@ -4,7 +4,7 @@
   (global $BLACK i32 (i32.const 1))
   (global $CROWN i32 (i32.const 4))
 
-(func $indexForPosition (param $x i32) (param $y i32) (ressult i32)
+(func $indexForPosition (param $x i32) (param $y i32) (result i32)
   (i32.add
     (i32.mul
       (i32.const 8)
@@ -33,13 +33,13 @@
 ;; Determine if a piece is white
 (func $isWhite (param $piece i32) (result i32)
   (i32.eq
-    (i32.and (get_local $peiece) (get_global $WHITE))
+    (i32.and (get_local $piece) (get_global $WHITE))
     (get_global $WHITE)
   )
 )
 
 ;; Determine if a piece is black
-(func $isBlack (param $peice i32) result i32)
+(func $isBlack (param $piece i32) (result i32)
   (i32.eq
     (i32.and (get_local $piece) (get_global $BLACK))
     (get_global $BLACK)
@@ -56,7 +56,7 @@
   (i32.and (get_local $piece) (i32.const 3))
 )
 
-  (export "offsetForPosition" (func $offset))
+  (export "offsetForPosition" (func $offsetForPosition))
   (export "isCrowned" (func $isCrowned))
   (export "isWhite" (func $isWhite))
   (export "isBlack" (func $isBlack))
