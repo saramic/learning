@@ -1,7 +1,9 @@
 class GameOfLife
   def self.tick(world)
     world.chars.each_with_index.map do |cell, index|
-      neighbours = "...\n.#{cell}#{world.chars[index+1] || "."}\n..."
+      west = index - 1 >= 0 ? world.chars[index-1] : "."
+      east = world.chars[index+1] || "."
+      neighbours = "...\n#{west}#{cell}#{east}\n..."
       process(neighbours)
     end.join()
   end
@@ -41,9 +43,11 @@ describe GameOfLife do
     expect( GameOfLife.tick("world_start") ).to eq world_end
   end
 
-  it "processes each cell" do
+  it "processes cells to east and west" do
     expect(GameOfLife).to receive(:process).with("...\n..*\n...")
-    expect(GameOfLife).to receive(:process).with("...\n.*.\n...")
-    GameOfLife.tick(".*")
+    expect(GameOfLife).to receive(:process).with("...\n.**\n...")
+    expect(GameOfLife).to receive(:process).with("...\n**.\n...")
+    expect(GameOfLife).to receive(:process).with("...\n*..\n...")
+    GameOfLife.tick(".**.")
   end
 end
