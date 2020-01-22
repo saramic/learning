@@ -3,13 +3,19 @@ class GameOfLife
     return "" if world == ""
     world.split("\n").each_with_index.map do |world_row, row_index|
       world_row.chars.each_with_index.map do |cell, index|
-        north_west = "."
-        north = "."
-        north_east = "."
+        prev_row = row_index - 1 >= 0 ?
+          world.split("\n")[row_index - 1] :
+          Array.new(world_row.chars.length, ".").join
+        north_west = index - 1 >= 0 ?prev_row[index - 1] : "."
+        north = prev_row[index]
+        north_east = prev_row[index + 1] || "."
         west = index - 1 >= 0 ? world.chars[index-1] : "."
         east = world_row.chars[index+1] || "."
         south_west = world.split("\n").join.chars[index - 1 + world_row.chars.length]
-        south = world.split("\n").join.chars[index + world_row.chars.length]
+        world_depth = world.split("\n").length
+        next_row = world.split("\n")[row_index + 1] ||
+          Array.new(world_row.chars.length, ".").join
+        south = next_row.chars[index]
         south_east = world.split("\n").join.chars[index + 1 + world_row.chars.length] || "."
         neighbours = [
           [north_west, north, north_east].join,
@@ -56,7 +62,7 @@ describe GameOfLife do
     expect( GameOfLife.tick("world_start") ).to eq world_end
   end
 
-  it "processes cells to east, west, south, south-west for 1 line" do
+  it "processes cells below, above, on line for multiple lines" do
     world_start = <<-EOF.gsub(/\w/, '').chomp
     .**.
     *..*
@@ -76,6 +82,7 @@ describe GameOfLife do
     expect(GameOfLife).to receive(:process)
       .with(world_with_neighbours.slice(0,3).map{|row| row.slice(3,3) }.join("\n"))
     expect(GameOfLife).to receive(:process)
+      .with(world_with_neighbours.slice(1,3).map{|row| row.slice(0,3) }.join("\n"))
     expect(GameOfLife).to receive(:process)
     expect(GameOfLife).to receive(:process)
     expect(GameOfLife).to receive(:process)
