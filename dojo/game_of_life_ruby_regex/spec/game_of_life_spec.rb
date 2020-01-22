@@ -4,9 +4,10 @@ class GameOfLife
     world.split("\n")[0].chars.each_with_index.map do |cell, index|
       west = index - 1 >= 0 ? world.chars[index-1] : "."
       east = world.split("\n")[0].chars[index+1] || "."
-      south = world.split("\n").join.chars[index + world.split("\n")[0].chars.length]
       south_west = world.split("\n").join.chars[index - 1 + world.split("\n")[0].chars.length]
-      neighbours = "...\n#{west}#{cell}#{east}\n#{south_west}#{south}."
+      south = world.split("\n").join.chars[index + world.split("\n")[0].chars.length]
+      south_east = world.split("\n").join.chars[index + 1 + world.split("\n")[0].chars.length] || "."
+      neighbours = "...\n#{west}#{cell}#{east}\n#{[south_west, south, south_east].join}"
       process(neighbours)
     end.join()
   end
@@ -61,7 +62,8 @@ describe GameOfLife do
       .with(world_with_neighbours.slice(0,3).map{|row| row.slice(0,3) }.join("\n"))
     expect(GameOfLife).to receive(:process)
       .with(world_with_neighbours.slice(0,3).map{|row| row.slice(1,3) }.join("\n"))
-    expect(GameOfLife).to receive(:process).with("...\n**.\n...")
+    expect(GameOfLife).to receive(:process)
+      .with(world_with_neighbours.slice(0,3).map{|row| row.slice(2,3) }.join("\n"))
     expect(GameOfLife).to receive(:process).with("...\n*..\n.*.")
     GameOfLife.tick(".**.\n*..*")
   end
