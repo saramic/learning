@@ -1,7 +1,7 @@
 class GameOfLife
   def self.tick(world)
     return "" if world == ""
-    [world.split("\n")[0]].each_with_index.map do |world_row, row_index|
+    world.split("\n").each_with_index.map do |world_row, row_index|
       world_row.chars.each_with_index.map do |cell, index|
         north_west = "."
         north = "."
@@ -18,7 +18,7 @@ class GameOfLife
         ].join("\n")
         process(neighbours)
       end.join
-    end.join("\n")
+    end.reject{|row| row == ""}.join("\n")
   end
 
   def self.process(a)
@@ -75,6 +75,10 @@ describe GameOfLife do
       .with(world_with_neighbours.slice(0,3).map{|row| row.slice(2,3) }.join("\n"))
     expect(GameOfLife).to receive(:process)
       .with(world_with_neighbours.slice(0,3).map{|row| row.slice(3,3) }.join("\n"))
+    expect(GameOfLife).to receive(:process)
+    expect(GameOfLife).to receive(:process)
+    expect(GameOfLife).to receive(:process)
+    expect(GameOfLife).to receive(:process)
     GameOfLife.tick(".**.\n*..*")
   end
 end
