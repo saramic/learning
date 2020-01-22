@@ -1,7 +1,7 @@
 class GameOfLife
   def self.tick(world)
     return "" if world == ""
-    world.split("\n").each_with_index.map do |world_row, row_index|
+    new_world = world.split("\n").each_with_index.map do |world_row, row_index|
       world_row.chars.each_with_index.map do |cell, index|
         prev_row = row_index - 1 >= 0 ?
           world.split("\n")[row_index - 1] :
@@ -25,10 +25,14 @@ class GameOfLife
         process(neighbours)
       end.join
     end.reject{|row| row == ""}.join("\n")
+    ""
   end
 
-  def self.process(a)
-    ""
+  def self.process(neighbours)
+    n_array = neighbours.split("\n").map{|row| row.split("")}
+    live_count = n_array.flatten.count{|cell| cell == "*" }
+    return "*" if (n_array[1][1] == "." && (live_count == 3))
+    (n_array[1][1] == "*" && (live_count == 3 || live_count == 4)) ? "*" : "."
   end
 end
 
@@ -90,5 +94,22 @@ describe GameOfLife do
     expect(GameOfLife).to receive(:process)
       .with(world_with_neighbours.slice(1,3).map{|row| row.slice(3,3) }.join("\n"))
     GameOfLife.tick(".**.\n*..*")
+  end
+
+  it "process cells for rule 1 any live cells with 2 or 3 survives" do
+    expect(GameOfLife.process("...\n.*.\n...")).to eq "." # dies
+    expect(GameOfLife.process("*..\n.*.\n...")).to eq "." # dies
+    expect(GameOfLife.process("**.\n.*.\n...")).to eq "*" # lives
+    expect(GameOfLife.process("***\n.*.\n...")).to eq "*" # lives
+    expect(GameOfLife.process("**.\n.*.\n*..")).to eq "*" # lives
+    expect(GameOfLife.process("**.\n.*.\n**.")).to eq "." # dies
+  end
+
+  it "process cells for rule 2 any dead cells with 3 becomes live" do
+    expect(GameOfLife.process("...\n...\n...")).to eq "." # dead
+    expect(GameOfLife.process("*..\n...\n...")).to eq "." # dead
+    expect(GameOfLife.process("**.\n...\n...")).to eq "." # dead
+    expect(GameOfLife.process("***\n...\n...")).to eq "*" # lives
+    expect(GameOfLife.process("**.\n*.*\n...")).to eq "." # dead
   end
 end
