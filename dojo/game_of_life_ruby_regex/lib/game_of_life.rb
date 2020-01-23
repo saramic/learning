@@ -1,4 +1,7 @@
 class GameOfLife
+  LIVE = "*"
+  DEAD = "."
+
   def self.tick(world)
     return "" if world == ""
     new_world = world.split("\n").each_with_index.map do |world_row, row_index|
@@ -22,16 +25,34 @@ class GameOfLife
           [west, cell, east].join,
           [south_west, south, south_east].join,
         ].join("\n")
-        process(neighbours)
+        process(as_3_by_3(neighbours))
       end.join
     end.reject{|row| row == ""}.join("\n")
     new_world.split("\n").join.chars.count{|cell| cell == "*"} == 0 ? "" : new_world
   end
 
   def self.process(neighbours)
-    n_array = neighbours.split("\n").map{|row| row.split("")}
-    live_count = n_array.flatten.count{|cell| cell == "*" }
-    return "*" if (n_array[1][1] == "." && (live_count == 3))
-    (n_array[1][1] == "*" && (live_count == 3 || live_count == 4)) ? "*" : "."
+    return LIVE if (neighbour_live_count(neighbours) == 3)
+    cell_is_live?(neighbours) && neighbour_live_count(neighbours) == 2 ? LIVE : DEAD
+  end
+
+  private
+
+  def self.as_3_by_3(neighbours)
+    neighbours.split("\n").map{|row| row.split("")}
+  end
+
+  def self.cell_is_dead?(neighbours)
+    neighbours[1][1] == DEAD
+  end
+
+  def self.cell_is_live?(neighbours)
+    !cell_is_dead?(neighbours)
+  end
+
+  def self.neighbour_live_count(neighbours)
+    n_array = neighbours.flatten
+    n_array.delete_at(4)
+    n_array.count{|cell| cell == LIVE }
   end
 end
