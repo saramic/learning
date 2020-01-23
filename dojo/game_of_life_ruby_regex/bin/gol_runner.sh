@@ -9,8 +9,6 @@ world = ARGV.join("\n")
 system("cls") || system("clear")
 puts world
 
-sleep 10 
-
 while true
   system("cls") || system("clear")
   world = GameOfLife.tick(world)
