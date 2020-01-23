@@ -5,13 +5,15 @@ $LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__)), "..", "lib")
 require "game_of_life"
 
 world = ARGV.join("\n")
-puts world.inspect
 
-puts "type 'q' to quit"
-puts ""
+system("cls") || system("clear")
 puts world
-while line = $stdin.gets
+
+sleep 10 
+
+while true
+  system("cls") || system("clear")
   world = GameOfLife.tick(world)
   puts world
-  break if line.chomp == "q"
+  sleep 0.2 
 end
