@@ -4,8 +4,17 @@
 
 ```
 # compile
-wat2wasm checkers.wasm
+wat2wasm  checkers.wat -o checkers.wasm
+# or
+wat2wasm  checkers.wat -o checkers.wasm
 
+python3 -m http.server
+
+# view in browser, and inspect the console
+open http://localhost:8000/
+```
+
+```
 # inspect
 wasm-objdump checkers.wasm -x
 ```
