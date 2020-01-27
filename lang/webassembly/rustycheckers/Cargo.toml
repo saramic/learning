@@ -1,0 +1,13 @@
+[package]
+name = "rustycheckers"
+version = "0.1.0"
+authors = ["Michael Milewski <saramic@gmail.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mut_static = "5.0.0"
+lazy_static = "1.0.2"
