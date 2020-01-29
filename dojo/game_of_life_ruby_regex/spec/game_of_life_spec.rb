@@ -1,66 +1,66 @@
-require 'game_of_life'
+require "game_of_life"
 
 describe GameOfLife do
   it "returns a dead world if a dead world is passed in" do
-    expect( GameOfLife.tick("") ).to eq ""
+    expect(GameOfLife.tick("")).to eq ""
   end
 
   it "returns a dead world if a a world with lonely cell is passed in" do
-    expect( GameOfLife.tick("*") ).to eq ""
+    expect(GameOfLife.tick("*")).to eq ""
   end
 
   it "returns a dead world if a a world with lonely cells is passed in" do
-    expect( GameOfLife.tick("*..*") ).to eq ""
-    world_start = <<~EOF.gsub(/\w/, '')
-    *
-    .
-    .
-    *
-    EOF
-    expect( GameOfLife.tick(world_start) ).to eq ""
+    expect(GameOfLife.tick("*..*")).to eq ""
+    world_start = <<~EOF_WORLD.gsub(/\w/, "")
+      *
+      .
+      .
+      *
+    EOF_WORLD
+    expect(GameOfLife.tick(world_start)).to eq ""
   end
 
   it "3 cells in a row turn to 3 cells vertical (if padded)" do
-    world_start = <<~EOF.gsub(/\w/, '').chomp
-    ...
-    ***
-    ...
-    EOF
-    world_end = <<~EOF.gsub(/\w/, '').chomp
-    .*.
-    .*.
-    .*.
-    EOF
-    expect( GameOfLife.tick(world_start) ).to eq world_end
+    world_start = <<~EOF_WORLD.gsub(/\w/, "").chomp
+      ...
+      ***
+      ...
+    EOF_WORLD
+    world_end = <<~EOF_WORLD.gsub(/\w/, "").chomp
+      .*.
+      .*.
+      .*.
+    EOF_WORLD
+    expect(GameOfLife.tick(world_start)).to eq world_end
   end
 
   it "processes cells below, above, on line for multiple lines" do
-    world_start = <<-EOF.gsub(/\w/, '').chomp
+    _world_start = <<-EOF_WORLD.gsub(/\w/, "").chomp
     .**.
     *..*
-    EOF
-    world_with_neighbours = <<~EOF.gsub(/\w/, '').chomp.split("\n")
-    ......
-    ..**..
-    .*..*.
-    ......
-    EOF
+    EOF_WORLD
+    world_with_neighbours = <<~EOF_WORLD.gsub(/\w/, "").chomp.split("\n")
+      ......
+      ..**..
+      .*..*.
+      ......
+    EOF_WORLD
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(0,3).map{|row| row.slice(0,3).chars })
+      .with(world_with_neighbours.slice(0, 3).map { |row| row.slice(0, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(0,3).map{|row| row.slice(1,3).chars })
+      .with(world_with_neighbours.slice(0, 3).map { |row| row.slice(1, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(0,3).map{|row| row.slice(2,3).chars })
+      .with(world_with_neighbours.slice(0, 3).map { |row| row.slice(2, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(0,3).map{|row| row.slice(3,3).chars })
+      .with(world_with_neighbours.slice(0, 3).map { |row| row.slice(3, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(1,3).map{|row| row.slice(0,3).chars })
+      .with(world_with_neighbours.slice(1, 3).map { |row| row.slice(0, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(1,3).map{|row| row.slice(1,3).chars })
+      .with(world_with_neighbours.slice(1, 3).map { |row| row.slice(1, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(1,3).map{|row| row.slice(2,3).chars })
+      .with(world_with_neighbours.slice(1, 3).map { |row| row.slice(2, 3).chars })
     expect(GameOfLife).to receive(:process)
-      .with(world_with_neighbours.slice(1,3).map{|row| row.slice(3,3).chars })
+      .with(world_with_neighbours.slice(1, 3).map { |row| row.slice(3, 3).chars })
     GameOfLife.tick(".**.\n*..*")
   end
 
