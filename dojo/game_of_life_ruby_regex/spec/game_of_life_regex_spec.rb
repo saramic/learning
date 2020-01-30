@@ -3,7 +3,7 @@ class GameOfLifeRegex
   DEAD = ".".freeze
 
   def self.live?(cell_with_neigbours_string)
-    cell_with_neigbours_string.match(/#{"\\" + LIVE}{3}/)
+    cell_with_neigbours_string.match(/^(#{"\\" + DEAD}*#{"\\" + LIVE}){3}$/m)
   end
 end
 
@@ -28,17 +28,73 @@ describe GameOfLifeRegex do
     end
   end
 
-  # dead stays dead
-  it_behaves_like "a dead cell", """
-    ...
-    ...
-    ...
-  """
+  context """
+    dead stays dead
+    --
+      ...
+      ...
+      ...
+    """ do
+    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+  end
 
-  # dead with 3 neigbours becomes live
-  it_behaves_like "a live cell", """
-    ***
-    ...
-    ...
-  """
+  context """
+    dead with 3 neigbours becomes live
+    --
+      ***
+      ...
+      ...
+    """ do
+    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+  end
+
+  xcontext """
+    dead with 3 neigbours in any position becomes live
+    --
+      *..
+      ..*
+      .*.
+    """ do
+    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+  end
+
+  context """
+    live with 0 neigbours dies
+    --
+      ...
+      .*.
+      ...
+    """ do
+    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+  end
+
+  context """
+    live with 1 neigbours dies
+    --
+      ..*
+      .*.
+      ...
+    """ do
+    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+  end
+
+  xcontext """
+    live with 2 neighbours lives
+    --
+      ..*
+      .*.
+      *..
+    """ do
+    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+  end
+
+  context """
+    live with 3 neigbours dies
+    --
+      ..*
+      .*.
+      *.*
+    """ do
+    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+  end
 end
