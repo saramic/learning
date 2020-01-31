@@ -1,3 +1,5 @@
+require "game_of_life_regex"
+
 class GameOfLife
   LIVE = "*".freeze
   DEAD = ".".freeze
@@ -27,9 +29,14 @@ class GameOfLife
             [south_west, south, south_east].join,
           ].join("\n")
           process(as_3_by_3(neighbours))
+          # process_regex(neighbours) # comment out to use the count
         end.join
       end.reject { |row| row == "" }.join("\n")
       new_world.split("\n").join.chars.count { |cell| cell == "*" } == 0 ? "" : new_world
+    end
+
+    def process_regex(neighbours)
+      GameOfLifeRegex.live?(neighbours) ? LIVE : DEAD
     end
 
     def process(neighbours)

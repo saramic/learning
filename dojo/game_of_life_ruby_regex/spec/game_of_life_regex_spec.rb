@@ -1,13 +1,4 @@
-class GameOfLifeRegex
-  LIVE = "*".freeze
-  DEAD = ".".freeze
-
-  def self.live?(cell_with_neigbours_string)
-    cell_with_neigbours_string
-      .gsub("\n", "")
-      .match(/^(#{"\\" + DEAD}*#{"\\" + LIVE}){3}#{"\\" + DEAD}*$/)
-  end
-end
+require "game_of_life_regex"
 
 describe GameOfLifeRegex do
   shared_examples "a dead cell" do |neighbourhood|
@@ -37,7 +28,7 @@ describe GameOfLifeRegex do
       ...
       ...
     """ do
-    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a dead cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -47,7 +38,7 @@ describe GameOfLifeRegex do
       ...
       ...
     """ do
-    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a live cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -57,7 +48,7 @@ describe GameOfLifeRegex do
       ..*
       .*.
     """ do
-    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a live cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -67,7 +58,7 @@ describe GameOfLifeRegex do
       .*.
       ...
     """ do
-    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a dead cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -77,7 +68,7 @@ describe GameOfLifeRegex do
       .*.
       ...
     """ do
-    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a dead cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -87,7 +78,7 @@ describe GameOfLifeRegex do
       .*.
       *..
     """ do
-    it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a live cell", description.sub(/^.*--/m, "")
   end
 
   context """
@@ -97,6 +88,6 @@ describe GameOfLifeRegex do
       .*.
       *.*
     """ do
-    it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
+    it_behaves_like "a dead cell", description.sub(/^.*--/m, "")
   end
 end
