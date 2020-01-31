@@ -52,6 +52,16 @@ describe GameOfLifeRegex do
   end
 
   context """
+    dead with 4 neigbours becomes dead
+    --
+      *..
+      ..*
+      **.
+    """ do
+    it_behaves_like "a dead cell", description.sub(/^.*--/m, "")
+  end
+
+  context """
     live with 0 neigbours dies
     --
       ...
@@ -82,9 +92,19 @@ describe GameOfLifeRegex do
   end
 
   context """
-    live with 3 neigbours dies
+    live with 3 neigbours lives
     --
       ..*
+      .*.
+      *.*
+    """ do
+    it_behaves_like "a live cell", description.sub(/^.*--/m, "")
+  end
+
+  context """
+    live with 4 neigbours dies
+    --
+      *.*
       .*.
       *.*
     """ do
