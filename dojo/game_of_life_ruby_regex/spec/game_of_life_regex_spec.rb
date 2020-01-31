@@ -3,7 +3,9 @@ class GameOfLifeRegex
   DEAD = ".".freeze
 
   def self.live?(cell_with_neigbours_string)
-    cell_with_neigbours_string.match(/^(#{"\\" + DEAD}*#{"\\" + LIVE}){3}$/m)
+    cell_with_neigbours_string
+      .gsub("\n", "")
+      .match(/^(#{"\\" + DEAD}*#{"\\" + LIVE}){3}#{"\\" + DEAD}*$/)
   end
 end
 
@@ -48,7 +50,7 @@ describe GameOfLifeRegex do
     it_behaves_like "a live cell", self.description.sub(/^.*--/m, '')
   end
 
-  xcontext """
+  context """
     dead with 3 neigbours in any position becomes live
     --
       *..
@@ -78,7 +80,7 @@ describe GameOfLifeRegex do
     it_behaves_like "a dead cell", self.description.sub(/^.*--/m, '')
   end
 
-  xcontext """
+  context """
     live with 2 neighbours lives
     --
       ..*
