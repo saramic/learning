@@ -14,4 +14,5 @@ while true
   world = GameOfLife.tick(world)
   puts world
   sleep 0.2 
+  # $stdin.gets
 end
