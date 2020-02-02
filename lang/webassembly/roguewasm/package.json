@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build": "cargo build --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/debug/roguewasm.wasm --out-dir . && webpack",
+    "serve": "webpack-dev-server"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}

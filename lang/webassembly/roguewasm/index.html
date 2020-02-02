@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-type" />
+    <title>Rogue WebAssembly</title>
+    <script src="https://cdn.jsdelivr.net/npm/rot-js@2/dist/rot.js"></script>
+    <style>
+      .row {
+        display: flex;
+      }
+      .row_cell {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+
+      <div class="row_cell" style="text-align: center;">
+        <h1>Rogue WebAssembly</h1>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="row_cell" id="rogueCanvas">
+
+      </div>
+      <div class="row_cell" id="statsContainer" style="padding: 15px;">
+        <div class="row_cell" style="text-align: center;">
+          <h2>Stats</div>
+        </div>
+        <p>
+
+          <span>
+            <b>HitPoints:</b>
+          </span>&nbsp;
+          <span id="hitpoints">0</span>&nbsp;/&nbsp;
+          <span id="max_hitpoints">0</span>
+        </p>
+        <p>
+          <span>
+            <b>Moves</b>
+          </span>&nbsp;
+          <span id="moves">0</span>
+        </p>
+      </div>
+    </div>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
