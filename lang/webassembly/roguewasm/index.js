@@ -1,10 +1,28 @@
-// this.display = new ROT.Display();
-this.display = new ROT.Display({ width: 125, height: 40 });
-document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
-
-this.engine = new Engine(this.display);
+import { Engine, PlayerCore } from './roguewasm';
 
 var Game = {
+  display: null,
+  engine: null,
+  player: null,
+  enemy: null,
+
+  init: function() {
+    // this.display = new ROT.Display();
+    this.display = new ROT.Display({ width: 125, height: 40 });
+    document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
+
+    this.engine = new Engine(this.display);
+    this.generateMap();
+
+    var scheduler = new ROT.Scheduler.Simple();
+
+    scheduler.add(this.player, true);
+    scheduler.add(this.enemy, true);
+
+    this.rotengine = new ROT.Engine(scheduler);
+    this.rotengine.start();
+  },
+
   generateMap: function() {
     var digger = new ROT.Map.Digger();
     var freeCells = [];
@@ -23,7 +41,72 @@ var Game = {
 
     this.player = this._createBeing(Player, freeCells);
     this.enemy = this._createBeing(Checko, freeCells);
-  }
+  },
+
+  generateBoxes: function (freeCells) {
+    for (var i = 0; i < 10; i++) {
+      var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+      var key = freeCells.splice(index, 1)[0];
+      var parts = key.split(",");
+      var x = parseInt(parts[0]);
+      var y = parseInt(parts[1]);
+      this.engine.place_box(x, y);
+      if (i == 9) {
+        this.engine.mark_wasmprize(x, y);
+      }
+    }
+  },
+
+  generatePlayer: function (freeCells) {
+    var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+    var key = freeCells.splice(index, 1)[0];
+    var parts = key.split(",");
+    var x = parseInt(parts[0]);
+    var y = parseInt(parts[1]);
+
+    console.log("Generating player...");
+    this.player = new Player(x, y);
+  },
+};
+
+Game._createBeing = function (what, freeCells) {
+    var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+    var key = freeCells.splice(index, 1)[0];
+    var parts = key.split(",");
+    var x = parseInt(parts[0]);
+    var y = parseInt(parts[1]);
+    return new what(x, y);
+}
+
+var Checko = function(x, y) {
+  this._core = new PlayerCore(x, y, "B", "red", Game.display);
+  this._core.draw();
+
+  Checko.prototype.act = function() {
+    var x = Game.player.getX();
+    var y = Game.player.getY();
+
+    var passableCallback = function(x, y) {
+      return Game.engine.free_cell(x, y);
+    };
+    var astar = new ROT.Path.AStar(x, y, passableCallback, { topology: 4 });
+
+    var path = [];
+    var pathCallback = function(x, y) {
+      path.push([x, y]);
+    };
+    astar.compute(this._core.x(), this._core.y(), pathCallback);
+
+    path.shift();
+    if (path.length <= 1) {
+      Game.rotengine.lock();
+      alert("Game over - you were captured by the Borrow Checker!!");
+    } else {
+      x = path[0][0];
+      y = path[0][1];
+      Game.engine.move_player(this._core, x, y);
+    }
+  };
 };
 
 var Player = function(x, y) {
@@ -76,33 +159,15 @@ Player.prototype.handleEvent = function(e) {
 Player.prototype.getX = function() {
   return this._core.x();
 };
+
 Player.prototype.getY = function() {
   return this._core.y();
 };
 
-var Checko = function(x, y) {
-  this._core = new PlayerCore(x, y, "B", "red", Game.display);
-  this._core.draw();
-  Checko.prototype.act = function() {
-    var x = Game.player.getX();
-    var y = Game.player.getY();
-    var passableCallback = function(x, y) {
-      return Game.engine.free_cell(x, y);
-    };
-    var astar = new ROT.Path.AStar(x, y, passableCallback, { topology: 4 });
-    var path = [];
-    var pathCallback = function(x, y) {
-      path.push([x, y]);
-    };
-    astar.compute(this._core.x(), this._core.y(), pathCallback);
-    path.shift();
-    if (path.length <= 1) {
-      Game.rotengine.lock();
-      alert("Game over - you were captured by the Borrow Checker!!");
-    } else {
-      x = path[0][0];
-      y = path[0][1];
-      Game.engine.move_player(this._core, x, y);
-    }
-  };
-};
+Game.init();
+
+export function stats_updated(stats) {
+    document.getElementById("hitpoints").textContent = stats.hitpoints;
+    document.getElementById("max_hitpoints").textContent = stats.max_hitpoints;
+    document.getElementById("moves").textContent = stats.moves;
+}
