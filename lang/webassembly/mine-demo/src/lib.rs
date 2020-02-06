@@ -39,11 +39,11 @@ pub fn rust_mine_first(text: &str) -> String {
 }
 
 pub fn rust_mine_hex(text: &str) -> String {
-    let mut hasher = Sha256::new();
     (1..std::usize::MAX)
         .find_map(|nonce| {
+            let mut hasher = Sha256::new();
             hasher.input(&format!("{}{}", text, nonce));
-            let result = hasher.clone().result();
+            let result = hasher.result();
             // Ensure the first two hex digets match, then we only want to check the part of the
             // 3rd hex digit.
             //
@@ -66,7 +66,7 @@ mod tests {
     fn it_works() {
         assert_eq!(
             rust_mine_hex("hello"),
-            "00000ae1e9539146cffff9f6e177926993877055191da80dba6171711f33b363".to_string()
+            "0000037660ee0e22df67a053537e000325bbfad2cce9b8b7c795f6aa961d5cb7".to_string()
         );
     }
 }
