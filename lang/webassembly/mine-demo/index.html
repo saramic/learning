@@ -16,6 +16,22 @@
 
       // and time take in ms
     </pre>
+    <script type="text/javascript">
+      function wrapLogAndOutput(callFunction, args, divId) {
+        window.requestAnimationFrame(() => {
+          const outputElement = document.getElementById(divId);
+          outputElement.innerHTML = "...";
+          window.requestAnimationFrame(() => {
+            const answer = callFunction(args);
+            outputElement.innerHTML = answer;
+          });
+        });
+      }
+    </script>
+    <button onClick="wrapLogAndOutput(jsMineClick, 'hello', 'js-mine-output')">
+      Run
+    </button>
+    <div id="js-mine-output"></div>
     <h2>wastMine</h2>
     <pre>
       // run
@@ -25,6 +41,10 @@
     <pre>
       // run
       console.time("wasmMine"); console.log(wasmMine("hello")); console.timeEnd("wasmMine")
+      // error and does not take a string but an empty string only ""
+      console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("")); console.timeEnd("rustMine"); });
+      // same as above due to error
+      console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("hello")); console.timeEnd("rustMine"); });
     </pre>
     <script src="./bootstrap.js"></script>
   </body>

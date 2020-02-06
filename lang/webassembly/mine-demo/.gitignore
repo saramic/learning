@@ -5,3 +5,5 @@ mine_demo_bg.wasm
 target
 node_modules
 dist
+
+.ipynb_checkpoints

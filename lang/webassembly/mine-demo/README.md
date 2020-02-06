@@ -29,7 +29,13 @@ time cargo run
 
 Rust as WASM
 
-_... todo_
+**Note:** rust_mine is broken and does not read the input argument so it is
+basically always running rust_mine("")
+
+```
+# in console
+console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("hello"));  console.timeEnd("rustMine"); });
+```
 
 Pure WAST
 
