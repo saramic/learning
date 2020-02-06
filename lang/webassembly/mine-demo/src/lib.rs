@@ -18,7 +18,7 @@ extern "C" {
 // #[wasm_bindgen(method, js_name = rustMine)]
 #[wasm_bindgen]
 pub fn rust_mine(text: &str) {
-    log(&rust_mine_first(text));
+    log(&rust_mine_hex(text));
 }
 
 pub fn rust_mine_first(text: &str) -> String {
