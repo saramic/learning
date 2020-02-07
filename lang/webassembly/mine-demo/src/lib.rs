@@ -1,8 +1,8 @@
 extern crate wasm_bindgen;
 
 use sha2::{Digest, Sha256};
-use wasm_bindgen::prelude::*;
 use std::str;
+use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
@@ -10,15 +10,28 @@ extern "C" {
 
     #[wasm_bindgen(js_namespace = console)]
     fn log(s: &str);
+}
 
-    // #[wasm_bindgen(method, structural, js_name = rustMine)]
-    // fn rust_mine(text: &str, a: i32);
+#[wasm_bindgen]
+pub struct WasmMine {
+    text: String,
+    result: Option<String>,
 }
 
 // #[wasm_bindgen(method, js_name = rustMine)]
 #[wasm_bindgen]
-pub fn wasm_mine(text: &str) {
-    log(&rust_mine(text));
+impl WasmMine {
+    #[wasm_bindgen(constructor)]
+    pub fn new(text: String) -> WasmMine {
+        WasmMine {
+            text: text,
+            result: None,
+        }
+    }
+
+    pub fn wasm_mine(text: &str) -> String {
+        return rust_mine(text);
+    }
 }
 
 pub fn rust_mine(text: &str) -> String {

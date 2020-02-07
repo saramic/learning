@@ -1,6 +1,6 @@
 import * as crypto from "crypto";
 
-const wasmMine = import("./mine_demo_bg");
+import { WasmMine } from "./mine_demo";
 
 const wrapLogAndOutput = (callFunction, args, divId) => {
   window.requestAnimationFrame(() => {
@@ -39,5 +39,5 @@ const hashThis = text => {
 export default { wrapLogAndOutput };
 window.jsMine = jsMine;
 window.hashThis = hashThis;
-window.wasmMine = wasmMine;
+window.WasmMine = WasmMine;
 window.wrapLogAndOutput = wrapLogAndOutput;

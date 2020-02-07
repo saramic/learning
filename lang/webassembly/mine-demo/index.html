@@ -12,40 +12,26 @@
     >
       Run
     </button>
-    <div id="js-mine-output">...</div>
+    <div id="js-mine-output">-</div>
     <br />
     <i>in the console</i>
     <pre>
       // run
       console.time("jsMine"); console.log(jsMine("hello")); console.timeEnd("jsMine")
-
-      // to get answer
-     (2) [156056, "0000037660ee0e22df67a053537e000325bbfad2cce9b8b7c795f6aa961d5cb7"]
-
-      // and time take in ms
     </pre>
     <hr />
-    <h2>wastMine</h2>
-    <pre>
-      // run
-      console.time("wastMine"); console.log(wastMine("hello")); console.timeEnd("wastMine")
-    </pre>
     <h2>wasmMine (in rust)</h2>
     <button
-      onClick="wasmMine.then(rm => {wrapLogAndOutput(rm.wasm_mine, document.getElementById('text-value').value, 'wasm-mine-output')})"
+      onClick="wrapLogAndOutput(WasmMine.wasm_mine, document.getElementById('text-value').value, 'wasm-mine-output')"
     >
       Run
     </button>
-    <div id="wasm-mine-output">...</div>
+    <div id="wasm-mine-output">-</div>
     <br />
     <i>in the console</i>
     <pre>
       // run
-      console.time("wasmMine"); console.log(wasmMine("hello")); console.timeEnd("wasmMine")
-      // error and does not take a string but an empty string only ""
-      console.time("wasmMine"); wasmMine.then(rm => {console.log(rm.wasm_mine("")); console.timeEnd("wasmMine"); });
-      // same as above due to error
-      console.time("wasmMine"); wasmMine.then(rm => {console.log(rm.wasm_mine("hello")); console.timeEnd("wasmMine"); });
+      console.time("wasmMine"); console.log(WasmMine.wasm_mine("hello")); console.timeEnd("wasmMine")
     </pre>
     <hr />
     <h2>wastMine</h2>
