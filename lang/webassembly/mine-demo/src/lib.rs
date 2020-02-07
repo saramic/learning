@@ -17,11 +17,11 @@ extern "C" {
 
 // #[wasm_bindgen(method, js_name = rustMine)]
 #[wasm_bindgen]
-pub fn rust_mine(text: &str) {
-    log(&rust_mine_hex(text));
+pub fn wasm_mine(text: &str) {
+    log(&rust_mine(text));
 }
 
-pub fn rust_mine_hex(text: &str) -> String {
+pub fn rust_mine(text: &str) -> String {
     let mut hasher = Sha256::new();
     (0..std::usize::MAX)
         .find_map(|nonce| {
@@ -48,7 +48,7 @@ mod tests {
     #[test]
     fn it_works() {
         assert_eq!(
-            rust_mine_hex("hello"),
+            rust_mine("hello"),
             "0000037660ee0e22df67a053537e000325bbfad2cce9b8b7c795f6aa961d5cb7".to_string()
         );
     }

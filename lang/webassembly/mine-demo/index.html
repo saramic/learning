@@ -46,12 +46,12 @@
       // run
       console.time("wasmMine"); console.log(wasmMine("hello")); console.timeEnd("wasmMine")
       // error and does not take a string but an empty string only ""
-      console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("")); console.timeEnd("rustMine"); });
+      console.time("wasmMine"); wasmMine.then(rm => {console.log(rm.wasm_mine("")); console.timeEnd("wasmMine"); });
       // same as above due to error
-      console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("hello")); console.timeEnd("rustMine"); });
+      console.time("wasmMine"); wasmMine.then(rm => {console.log(rm.wasm_mine("hello")); console.timeEnd("wasmMine"); });
     </pre>
     <button
-      onClick="rustMine.then(rm => {wrapLogAndOutput(rm.rust_mine, 'hello', 'wasm-mine-output')})"
+      onClick="wasmMine.then(rm => {wrapLogAndOutput(rm.wasm_mine, 'hello', 'wasm-mine-output')})"
       disabled
     >
       Run

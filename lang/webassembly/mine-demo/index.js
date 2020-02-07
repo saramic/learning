@@ -1,6 +1,6 @@
 import * as crypto from "crypto";
 
-const rustMine = import("./mine_demo_bg");
+const wasmMine = import("./mine_demo_bg");
 
 const jsMine = text => {
   let hash = "";
@@ -23,4 +23,4 @@ const hashThis = text => {
 
 window.jsMine = jsMine;
 window.hashThis = hashThis;
-window.rustMine = rustMine;
+window.wasmMine = wasmMine;
