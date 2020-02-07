@@ -39,4 +39,30 @@ console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("hello")
 
 Pure WAST
 
-_... todo_
+```
+npm run build-wast
+```
+
+TODO actually run it ...
+
+## Running in production
+
+like netlify
+
+```
+npm run build
+# save the generated mine_demo* files to git
+# they will be needed to build on the netlify server
+
+# starting from the root of the git repo
+cd ../../..
+cd lang/webassembly/mine-demo && \
+  npm install                 && \
+  npm run webpack             && \
+  cp index.html dist/
+
+# run a server in the dist directory
+cd dist
+python3 -m http.server
+```
+
