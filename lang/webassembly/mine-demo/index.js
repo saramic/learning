@@ -2,6 +2,21 @@ import * as crypto from "crypto";
 
 const wasmMine = import("./mine_demo_bg");
 
+const wrapLogAndOutput = (callFunction, args, divId) => {
+  window.requestAnimationFrame(() => {
+    const outputElement = document.getElementById(divId);
+    outputElement.innerHTML = "...";
+    window.requestAnimationFrame(() => {
+      const start = new Date().getTime();
+      const answer = callFunction(args);
+      const end = new Date().getTime();
+      const answer_timed = Object.assign(answer, { time: end - start });
+      console.log(answer_timed);
+      outputElement.innerHTML = JSON.stringify(answer_timed);
+    });
+  });
+};
+
 const jsMine = text => {
   let hash = "";
   let nonce = 0;
@@ -21,6 +36,8 @@ const hashThis = text => {
     .digest("hex");
 };
 
+export default { wrapLogAndOutput };
 window.jsMine = jsMine;
 window.hashThis = hashThis;
 window.wasmMine = wasmMine;
+window.wrapLogAndOutput = wrapLogAndOutput;

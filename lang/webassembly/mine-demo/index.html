@@ -16,22 +16,6 @@
 
       // and time take in ms
     </pre>
-    <script type="text/javascript">
-      function wrapLogAndOutput(callFunction, args, divId) {
-        window.requestAnimationFrame(() => {
-          const outputElement = document.getElementById(divId);
-          outputElement.innerHTML = "...";
-          window.requestAnimationFrame(() => {
-            const start = new Date().getTime();
-            const answer = callFunction(args);
-            const end = new Date().getTime();
-            const answer_timed = Object.assign(answer, { time: end - start });
-            console.log(answer_timed);
-            outputElement.innerHTML = JSON.stringify(answer_timed);
-          });
-        });
-      }
-    </script>
     <button onClick="wrapLogAndOutput(jsMine, 'hello', 'js-mine-output')">
       Run
     </button>
