@@ -2,15 +2,6 @@ import * as crypto from "crypto";
 
 const rustMine = import("./mine_demo_bg");
 
-const jsMineClick = text => {
-  return new Promise(resolve => {
-    const start = new Date().getTime();
-    var answer = jsMine(text);
-    const end = new Date().getTime();
-    resolve(Object.assign(answer, { time: end - start }));
-  });
-};
-
 const jsMine = text => {
   let hash = "";
   let nonce = 0;
@@ -31,7 +22,5 @@ const hashThis = text => {
 };
 
 window.jsMine = jsMine;
-window.jsMineClick = jsMineClick;
 window.hashThis = hashThis;
 window.rustMine = rustMine;
-// console.log(jsMine("hello"));

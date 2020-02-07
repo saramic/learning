@@ -22,13 +22,17 @@
           const outputElement = document.getElementById(divId);
           outputElement.innerHTML = "...";
           window.requestAnimationFrame(() => {
+            const start = new Date().getTime();
             const answer = callFunction(args);
-            outputElement.innerHTML = answer;
+            const end = new Date().getTime();
+            const answer_timed = Object.assign(answer, { time: end - start });
+            console.log(answer_timed);
+            outputElement.innerHTML = JSON.stringify(answer_timed);
           });
         });
       }
     </script>
-    <button onClick="wrapLogAndOutput(jsMineClick, 'hello', 'js-mine-output')">
+    <button onClick="wrapLogAndOutput(jsMine, 'hello', 'js-mine-output')">
       Run
     </button>
     <div id="js-mine-output"></div>
@@ -46,6 +50,14 @@
       // same as above due to error
       console.time("rustMine"); rustMine.then(rm => {console.log(rm.rust_mine("hello")); console.timeEnd("rustMine"); });
     </pre>
+    <button
+      onClick="rustMine.then(rm => {wrapLogAndOutput(rm.rust_mine, 'hello', 'wasm-mine-output')})"
+      disabled
+    >
+      Run
+    </button>
+    <div id="wasm-mine-output"></div>
+    <h2>wastMine</h2>
     <script src="./bootstrap.js"></script>
   </body>
 </html>
