@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate serde_derive;
+
 extern crate wasm_bindgen;
 
 use sha2::{Digest, Sha256};
@@ -18,6 +21,19 @@ pub struct WasmMine {
     result: Option<String>,
 }
 
+#[derive(Debug)]
+#[derive(Serialize)]
+pub struct MineResult {
+    pub nonce: String,
+    pub hash: String,
+}
+
+impl PartialEq for MineResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.nonce == other.nonce && self.hash == other.hash
+    }
+}
+
 // #[wasm_bindgen(method, js_name = rustMine)]
 #[wasm_bindgen]
 impl WasmMine {
@@ -29,12 +45,13 @@ impl WasmMine {
         }
     }
 
-    pub fn wasm_mine(text: &str) -> String {
-        return rust_mine(text);
+    pub fn wasm_mine(text: &str) -> JsValue {
+        let result = rust_mine(text);
+        return JsValue::from_serde(&result).unwrap();
     }
 }
 
-pub fn rust_mine(text: &str) -> String {
+pub fn rust_mine(text: &str) -> MineResult {
     let mut hasher = Sha256::new();
     (0..std::usize::MAX)
         .find_map(|nonce| {
@@ -47,7 +64,10 @@ pub fn rust_mine(text: &str) -> String {
             // 12 >> 4 # => 0
             // 22 >> 4 # => 1
             if &result[0..2] == &[0, 0] && result[2] >> 4 == 0 {
-                Some(format!("{:x}", result))
+                Some(MineResult {
+                    nonce: nonce.to_string(),
+                    hash: format!("{:x}", result),
+                })
             } else {
                 None
             }
@@ -60,9 +80,14 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
+        let result = rust_mine("hello");
         assert_eq!(
-            rust_mine("hello"),
-            "0000037660ee0e22df67a053537e000325bbfad2cce9b8b7c795f6aa961d5cb7".to_string()
+            result,
+            MineResult {
+                nonce: "156056".to_string(),
+                hash: "0000037660ee0e22df67a053537e000325bbfad2cce9b8b7c795f6aa961d5cb7"
+                    .to_string()
+            }
         );
     }
 }
