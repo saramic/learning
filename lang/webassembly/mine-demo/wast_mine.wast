@@ -30,7 +30,7 @@
        (local $copyend i32)
        (set_local $filled (i32.load offset=96 align=4 (i32.const 0)))
        (if (i32.lt_s (get_local $filled) (i32.const 0)) (return))
-       (i64.store offset=104 align=8 (i32.const 0) (i64.add (i64.load offset=104 align=8 (i32.const 0)) (i64.extend_u (get_local $bytes))))
+       (i64.store offset=104 align=8 (i32.const 0) (i64.add (i64.load offset=104 align=8 (i32.const 0)) (i64.extend_u/i32 (get_local $bytes))))
        
        (loop $loop
              (if (i32.lt_u (get_local $bytes) (i32.sub (i32.const 64) (get_local $filled)))
@@ -52,7 +52,7 @@
        (local $filled i32)
        (set_local $filled (i32.load offset=96 align=4 (i32.const 0)))
        (if (i32.lt_s (get_local $filled) (i32.const 0)) (return))
-       (i32.store8_u offset=32 (get_local $filled) (i32.const 0x80))
+       (i32.store8 offset=32 (get_local $filled) (i32.const 0x80))
        (set_local $filled (i32.add (get_local $filled) (i32.const 1)))
        (if (i32.gt_u (get_local $filled) (i32.const 56))
            (block
@@ -110,7 +110,7 @@
                         (br $loop8))
                   ))
        (loop $loop (if (i32.eq (get_local $start) (get_local $end)) (return))
-              (i32.store8_u offset=32 (get_local $start) (i32.load_u (get_local $src)))
+              (i32.store8 offset=32 (get_local $start) (i32.load8_u (get_local $src)))
               (set_local $start (i32.add (get_local $start) (i32.const 1)))
               (set_local $src (i32.add (get_local $src) (i32.const 1)))
               (br $loop)))
@@ -130,7 +130,7 @@
                         (br $loop8))
                   ))
        (loop $loop (if (i32.eq (get_local $start) (get_local $end)) (return))
-              (i32.store8_u offset=32 (get_local $start) (get_local $v8))
+              (i32.store8 offset=32 (get_local $start) (get_local $v8))
               (set_local $start (i32.add (get_local $start) (i32.const 1)))
               (br $loop)))
  ;; local func
@@ -166,7 +166,7 @@
  
  ;; remain for debug
  (func $final (param $filled i32) (param $bytesl i32) (param $bytesh i32)
-       (i32.store8_u offset=32 (get_local $filled) (i32.const 0x80))
+       (i32.store8 offset=32 (get_local $filled) (i32.const 0x80))
        (set_local $filled (i32.add (get_local $filled) (i32.const 1)))
        (if (i32.gt_u (get_local $filled) (i32.const 56))
            (block
