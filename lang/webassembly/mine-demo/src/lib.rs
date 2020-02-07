@@ -1,8 +1,8 @@
-extern crate sha2;
 extern crate wasm_bindgen;
 
 use sha2::{Digest, Sha256};
 use wasm_bindgen::prelude::*;
+use std::str;
 
 #[wasm_bindgen]
 extern "C" {
@@ -21,29 +21,12 @@ pub fn rust_mine(text: &str) {
     log(&rust_mine_hex(text));
 }
 
-pub fn rust_mine_first(text: &str) -> String {
-    let mut nonce = 0;
-    loop {
-        nonce += 1;
-        let mut hasher = Sha256::new(); // TODO cannot move out of loop? unless borrow
-        hasher.input(format!("{}{}", text, nonce)); // TODO join strings
-        let result = hasher.result();
-        let result_string = format!("{:x}", result);
-        if format!("{}", &result_string[0..5]) == "00000" {
-            // println!("{}", nonce); // TODO return array?
-            // log(&format!("{}", nonce));
-            // log(&format!("{}", result_string));
-            return format!("string '{}' nonce {} hash {}", text, nonce, result_string);
-        }
-    }
-}
-
 pub fn rust_mine_hex(text: &str) -> String {
-    (1..std::usize::MAX)
+    let mut hasher = Sha256::new();
+    (0..std::usize::MAX)
         .find_map(|nonce| {
-            let mut hasher = Sha256::new();
             hasher.input(&format!("{}{}", text, nonce));
-            let result = hasher.result();
+            let result = hasher.result_reset();
             // Ensure the first two hex digets match, then we only want to check the part of the
             // 3rd hex digit.
             //
