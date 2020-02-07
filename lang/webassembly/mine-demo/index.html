@@ -5,8 +5,16 @@
   </head>
   <body>
     <h1>Mine Demo</h1>
-    <i>in the console</i>
+    <input value="hello" id="text-value" />
     <h2>JsMine</h2>
+    <button
+      onClick="wrapLogAndOutput(jsMine, document.getElementById('text-value').value, 'js-mine-output')"
+    >
+      Run
+    </button>
+    <div id="js-mine-output">...</div>
+    <br />
+    <i>in the console</i>
     <pre>
       // run
       console.time("jsMine"); console.log(jsMine("hello")); console.timeEnd("jsMine")
@@ -16,16 +24,21 @@
 
       // and time take in ms
     </pre>
-    <button onClick="wrapLogAndOutput(jsMine, 'hello', 'js-mine-output')">
-      Run
-    </button>
-    <div id="js-mine-output"></div>
+    <hr />
     <h2>wastMine</h2>
     <pre>
       // run
       console.time("wastMine"); console.log(wastMine("hello")); console.timeEnd("wastMine")
     </pre>
     <h2>wasmMine (in rust)</h2>
+    <button
+      onClick="wasmMine.then(rm => {wrapLogAndOutput(rm.wasm_mine, document.getElementById('text-value').value, 'wasm-mine-output')})"
+    >
+      Run
+    </button>
+    <div id="wasm-mine-output">...</div>
+    <br />
+    <i>in the console</i>
     <pre>
       // run
       console.time("wasmMine"); console.log(wasmMine("hello")); console.timeEnd("wasmMine")
@@ -34,13 +47,7 @@
       // same as above due to error
       console.time("wasmMine"); wasmMine.then(rm => {console.log(rm.wasm_mine("hello")); console.timeEnd("wasmMine"); });
     </pre>
-    <button
-      onClick="wasmMine.then(rm => {wrapLogAndOutput(rm.wasm_mine, 'hello', 'wasm-mine-output')})"
-      disabled
-    >
-      Run
-    </button>
-    <div id="wasm-mine-output"></div>
+    <hr />
     <h2>wastMine</h2>
     <script src="./bootstrap.js"></script>
   </body>
