@@ -1,13 +1,16 @@
 extern crate stdweb;
-#[macro_use]
 extern crate yew;
 
 use stdweb::web::Date;
-use yew::prelude::*;
-use yew::services::console::ConsoleService;
+use yew::services::ConsoleService;
+use yew::{html, Callback, ClickEvent, Component, ComponentLink, Html, ShouldRender};
 
 pub struct Model {
     value: i64,
+    increment: Callback<ClickEvent>,
+    decrement: Callback<ClickEvent>,
+    inc2: Callback<ClickEvent>,
+    console: ConsoleService,
 }
 
 pub enum Msg {
@@ -16,49 +19,47 @@ pub enum Msg {
     Bulk(Vec<Msg>),
 }
 
-impl<C> Component<C> for Model
-where
-    C: AsMut<ConsoleService>,
-{
+impl Component for Model {
     type Message = Msg;
     type Properties = ();
 
-    fn create(_: Self::Properties, _: &mut Env<C, Self>) -> Self {
-        Model { value: 0 }
+    fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
+        Model {
+            value: 0,
+            increment: link.callback(|_| Msg::Increment),
+            decrement: link.callback(|_| Msg::Decrement),
+            inc2: link.callback(|_| Msg::Bulk(vec![Msg::Increment, Msg::Increment])),
+            console: ConsoleService::new(),
+        }
     }
 
-    fn update(&mut self, msg: Self::Message,
-             env: &mut Env<C, Self>) -> ShouldRender {
+    fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::Increment => {
                 self.value = self.value + 1;
-                env.as_mut().log("plus one");
+                self.console.log("plus one");
             }
             Msg::Decrement => {
                 self.value = self.value - 1;
-                env.as_mut().log("minus one");
+                self.console.log("minus one");
             }
-            Msg::Bulk(list) => for msg in list {
-                self.update(msg, env);
-                env.as_mut().log("Bulk action");
-            },
+            Msg::Bulk(list) => {
+                for msg in list {
+                    self.update(msg);
+                    self.console.log("Bulk action");
+                }
+            }
         }
         true
     }
-}
 
-impl<C> Renderable<C, Model> for Model
-where
-    C: AsMut<ConsoleService> + 'static,
-{
-    fn view(&self) -> Html<C, Self> {
+    fn view(&self) -> Html {
         html! {
           <div>
             <nav class="menu",>
-              <button onclick=|_| Msg::Increment,>{ "Increment" }</button>
-              <button onclick=|_| Msg::Decrement,>{ "Decrement" }</button>
-              <button onclick=|_| Msg::Bulk(vec![Msg::Increment,
-                                                 Msg::Increment]),>
+              <button onclick=&self.increment>{ "Increment" }</button>
+              <button onclick=&self.decrement>{ "Decrement" }</button>
+              <button onclick=&self.inc2>
                 { "Increment Twice" }
               </button>
             </nav>
