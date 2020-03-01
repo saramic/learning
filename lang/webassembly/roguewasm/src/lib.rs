@@ -13,7 +13,7 @@ extern "C" {
     fn log(s: &str);
 
     #[wasm_bindgen(module = "./index")]
-    fn stats_update(stats: JsValue);
+    fn stats_updated(stats: JsValue);
 
     pub type Display;
 
@@ -80,6 +80,7 @@ impl PlayerCore {
     pub fn move_to(&mut self, x: i32, y: i32) {
         self.loc = GridPoint { x, y };
         self.draw();
+
         self.moves += 1;
         self.emit_stats();
     }
@@ -90,7 +91,7 @@ impl PlayerCore {
             max_hitpoints: self.max_hp,
             moves: self.moves,
         };
-        stats_update(JsValue::from_serde(&stats).unwrap());
+        // stats_updated(JsValue::from_serde(&stats).unwrap());
     }
 
     pub fn take_damage(&mut self, hits: i32) -> i32 {

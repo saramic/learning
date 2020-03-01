@@ -147,7 +147,7 @@ Player.prototype.handleEvent = function(e) {
   var newX = this._core.x() + dir[0];
   var newY = this._core.y() + dir[1];
 
-  if (!Game.engine.free_call(newX, newY)) {
+  if (!Game.engine.free_cell(newX, newY)) {
     return;
   }
 
