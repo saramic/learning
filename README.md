@@ -6,7 +6,7 @@ track that I am actively spending time learning and hopefully improving.
 
 ## Current focus
   - [ ] [Failure driven](https://failure-driven.com/)
-    - [ ] [blog](https://github.com/failure-driven/blog)
+    - [x] [blog](https://github.com/failure-driven/blog)
     - [ ] presentations/conference talking
     - [ ] startup
   - Reading
