@@ -5,10 +5,10 @@ This is a work in progress of my learning. Some goals achievements and a way to
 track that I am actively spending time learning and hopefully improving.
 
 ## Current focus
-  - [Failure driven](https://failure-driven.com/)
-    - [blog](https://github.com/failure-driven/blog)
-    - presentations/conference talking
-    - startup
+  - [ ] [Failure driven](https://failure-driven.com/)
+    - [ ] [blog](https://github.com/failure-driven/blog)
+    - [ ] presentations/conference talking
+    - [ ] startup
   - Reading
     - Managers Path
     - Think and grow Rich
