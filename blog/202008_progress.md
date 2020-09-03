@@ -1,5 +1,20 @@
 # Progress Aug 2020
 
+* Mon 17th Aug
+
+  **controld surface**
+  for live recording
+
+  - PreSonus DAW Controller, 1 Fader Surface
+  - or build one?
+    - https://blog.codyhazelwood.me/midi-control-with-an-arduino-and-a-motorized-fader/
+    - https://blog.codyhazelwood.me/motorized-faders-and-the-arduino/
+    - https://core-electronics.com.au/slide-pot-motorized-10k-linear-taper.html?utm_source=google_shopping&gclid=CjwKCAjw1ej5BRBhEiwAfHyh1AQ_LPKwrZS5upvDrDGsKz1o4sSWpITzaCdj0PPsLbbkb_45iJ_mkxoC76YQAvD_BwE
+
+  **LED display**
+
+  - using 74HC595 register - https://learn.adafruit.com/adafruit-arduino-lesson-4-eight-leds/overview
+
 * Tue 11th Aug
 
   **Arduino on rails series**
