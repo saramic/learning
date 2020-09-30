@@ -1,5 +1,74 @@
 # Progress Sep 2020
 
+* Wed 16th Sep
+
+  **Arduino**
+
+  - 10 x LM35 temp sensor https://www.ebay.com.au/itm/10pcs-LM35DZ-LM35-TO-92-NSC-Temperature-Sensor/303288672684
+
+  - looked a little at buzzers active and passive and speakers, still not sure
+    about the drop down resisitor
+  - https://www.google.com/search?q=arduino+buzzer+circuit
+
+  **Laser tag make your own**
+
+  - https://www.google.com/search?q=laser+tag+make+your+own&tbm=isch&ved=2ahUKEwib2M6NmeDrAhWwDLcAHXIlB_8Q2-cCegQIABAA&oq=laser+tag+make+your+own&gs_lcp=CgNpbWcQAzoECAAQQzoCCAA6BggAEAoQGFDdFFinJGD-JWgAcAB4AIABrgGIAYoSkgEEMC4xNJgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=vfNaX9uFNLCZ3LUP8sqc-A8&bih=948&biw=1680#imgrc=TF9msf83nUlJkM
+  - some cool sounding links but nothing? including laser tag clothing
+    - https://www.thisiswhyimbroke.com/uk/open-source-laser-tag-system/
+    - https://www.thisiswhyimbroke.com/laser-tag-battle-jacket/
+  - standard laser tag on amazon
+    - https://www.amazon.com/s?k=Laser+Tag+Battle+Jacket
+  - instructables
+    - https://www.instructables.com/id/A-Cheap-Laser-Tag/
+    with video
+    - https://www.youtube.com/watch?v=_tJQYNVMVPA
+  - not actually laser but IR
+    - https://learn.adafruit.com/circuit-playground-express-laser-tag
+    - https://www.freetronics.com.au/blogs/news/15636281-make-your-own-arduino-powered-laser-tag-game#.X2FJX5MzYwu
+  - full on and expensive equipment
+    - https://laserwar.com/equipments/kits/electronics-kit/universal-point-kit
+  - another commercial product
+    - https://www.steradiantech.com/equipment
+  - with lasers? made in NZ
+    - https://makezine.com/2008/09/18/build-your-own-laser-tag/
+    - http://q.geek.nz/lasertag.html
+
+  **Greenscreen video**
+
+  - https://www.rightpoint.com/thought/2017/12/19/improving-your-video-meetings-on-skype-with-green-screens
+  - using OBS
+  - using CamTwist
+
+  - or as mentioned in gaming
+    - https://www.xsplit.com/partners/obs
+
+  **Sound**
+
+  - another motorised slider tool
+    - https://www.tc-helicon.com/product.html?modelCode=P0DI7
+* Tue 15th Sep
+
+Listened to [Tim Ferris (4 hour week) interviewing Patrick Collison
+(Stripe)](https://tim.blog/2018/12/24/the-tim-ferriss-show-patrick-collison/)
+and particularily took note of
+  - having books around the house to read more
+  - let books hang around and read them when you are ready (need physical books
+    for that)
+  - don't read the latest books but let others filter them out
+  - seek out to be challenged by other peoples views
+  - be willing to understand the position of someone who holds a different view
+  - on raising kids, how he was raised and the approach of parents
+    - camping holidays
+    - lots of freedom
+    - allow kids to be part of conversations with interesting house guests
+  - a strong sense of trythings out that others may not even be supportive of
+  - books to read
+    - The dream machine
+    - Alan Kay
+    - Paul Graham - management vs makers time schedule
+in general more reading and more free time
+  - [Paul Graham's Maker's Schedule, Manager's Schedule](http://www.paulgraham.com/makersschedule.html)
+
 * Thu 3rd Sep
 
   **BDD**
