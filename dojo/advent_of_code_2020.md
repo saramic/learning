@@ -1,5 +1,85 @@
 # Advent of Code 2020
 
+## day 4
+
+```ruby
+data = File.open("/Users/michael/Downloads/aoc_input_day_04.txt").read
+required = [
+  'byr', # (Birth Year)
+  'iyr', # (Issue Year)
+  'eyr', # (Expiration Year)
+  'hgt', # (Height)
+  'hcl', # (Hair Color)
+  'ecl', # (Eye Color)
+  'pid', # (Passport ID)
+  # 'cid', # (Country ID)
+]
+passports = data.split("\n\n")
+
+passports.count - passports.count{|p| required.find{|r| p !~ /#{r}/im }}
+```
+
+**WRONG** :(
+
+```ruby
+passports.count{|p|
+  fields = Hash[p.split(/\s/).map{|field| field.split(":")}]
+  output = []
+  valid = (
+    (fields.keys.sort - ["cid"]) == required.sort ||
+      (output << "missing fields #{required.sort - (fields.keys.sort - ["cid"])} ")
+    ) &&
+    !fields.find{|k,v|
+      case(k)
+      when "byr"
+        (v.to_i < 1920 || v.to_i > 2002) && (output << "byr")
+      when "iyr"
+        (v.to_i < 2010 || v.to_i > 2020) && (output << "iyr")
+      when "eyr"
+        (v.to_i < 2020 || v.to_i > 2030) && (output << "eyr")
+      when "hgt"
+        m = /(\d+)(?:in|cm)/.match(v)
+        (m == nil && (output << "hgt in/cm")) || (
+          m[2] == "cm" && (m[1] < 150 || m[1] > 193) ||
+          m[2] == "in" && (m[1] < 59 || m[1] > 76)
+        ) && (output << "hgt")
+      when "hcl"
+        !/#[0-9a-f]{6}/.match(v) && (output << "hcl")
+      when "ecl"
+        !/(?:amb|blu|brn|gry|grn|hzl|oth)/.match(v) && (output << "ecl")
+      when "pid"
+        !/^[0-9]{9}$/.match(v) && (output << "pid")
+      end
+    }
+  if !valid
+    output << valid
+    output << p
+    puts output.inspect
+  end
+  valid
+}
+```
+
+## day 3
+
+```ruby
+data = File.open("/Users/michael/Downloads/aoc_input_day_03.txt").read
+
+rows = data.split("\n")
+
+(1..(rows.length - 1)).to_a.count{|row|
+  rows[row].chars[(row * 3) % rows[row].length] == "#"
+}
+```
+
+```ruby
+[[1,1],[3,1],[5,1],[7,1],[1,2]].map {|across, down|
+  (down..(rows.length - 1)).step(down).to_a.count{|row|
+    rows[row].chars[((row/down) * across) % rows[row].length] == "#"
+  }
+}.reduce(:*)
+```
+
 ## day 2
 
 ```ruby
