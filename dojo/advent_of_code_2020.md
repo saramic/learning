@@ -1,6 +1,6 @@
 # Advent of Code 2020
 
-## day 4
+## day 5
 
 ```ruby
 data = File.open("/Users/michael/Downloads/aoc_input_day_05.txt").read
