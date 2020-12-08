@@ -1,5 +1,69 @@
 # Advent of Code 2020
 
+## day 8
+
+```ruby
+data = File.
+  open("/Users/michael/Downloads/aoc_input_day_08.txt").
+  read.
+  split("\n")
+
+pointer = 0
+instructions = []
+acc = 0
+while !instructions.include?(pointer)
+  instructions << pointer
+  (cmd, sign, num) = data[pointer].split(/\b/)
+  case(cmd)
+    when "acc"
+      acc = acc.send(sign.strip, num.to_i)
+      pointer += 1
+    when "jmp"
+      pointer = pointer.send(sign.strip, num.to_i)
+    else
+      pointer += 1
+  end
+end
+acc
+```
+
+```ruby
+pointer = 0
+instructions = []
+acc = 0
+data.
+  each_with_index.
+  find_all{|inst, index| inst =~ /jmp|nop/ }.
+  map{|inst, index|
+    pointer = 0
+    instructions = []
+    acc = 0
+    new_data = data.map(&:clone)
+    inst =~ /jmp/ ?
+      new_data[index].gsub!("jmp", "nop") :
+      new_data[index].gsub!("nop", "jmp")
+    while instructions.count{|i| i == pointer} < 3
+      instructions << pointer
+      break if pointer >= new_data.length
+      (cmd, sign, num) = new_data[pointer].split(/\b/)
+      case(cmd)
+        when "acc"
+          acc = acc.send(sign.strip, num.to_i)
+          pointer += 1
+        when "jmp"
+          pointer = pointer.send(sign.strip, num.to_i)
+        else
+          pointer += 1
+      end
+    end
+    [acc, pointer]
+  }.find_all{|acc, pointer| pointer == data.length }.uniq
+```
+
+## day 7
+
+## day 6
+
 ## day 5
 
 ```ruby
