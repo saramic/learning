@@ -1,5 +1,44 @@
 # Advent of Code 2020
 
+## day 10 
+
+```ruby
+data = File.
+  open("/Users/michael/Downloads/aoc_input_day_10.txt").
+  read.
+  split("\n").
+  map(&:to_i)
+
+device_joltage = data.max + 3
+last_num = 0;
+(data+ [data.max + 3]).
+  sort.
+  reduce({}) {|acc, num|
+    acc[num - last_num] ||= 0
+    acc[num - last_num] += 1
+    last_num = num
+    acc
+  }.
+  values.
+  reduce(:*)
+```
+
+```ruby
+data = dd
+
+options = ([0] + dd+ [dd.max + 3]).
+  sort.
+  each_with_object({}){|a, acc| acc[a] = ([0] + dd + [dd.max + 3]).
+  find_all{|e| e > a && e <= (a + 3)}}
+found = options.
+  map{|k,vals|
+    vals.map{|val|
+      options.map{|ok_k, ok_vals| ok_k == val ? ok_vals.length : nil
+    }.compact}
+  }.flatten
+# now work out how many actual paths there are?
+```
+
 ## day 8
 
 ```ruby
