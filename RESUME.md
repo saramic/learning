@@ -1,5 +1,7 @@
 # RESUME
 
+this resume lives at [Github saramic/learning/RESUME.md](https://github.com/saramic/learning/blob/master/RESUME.md)
+
 |            | Michael Milewski                                           |
 | ---------- | ---------------------------------------------------------- |
 | **email**  | [saramic@gmail.com](mailto:saramic@gmail.com)              |
