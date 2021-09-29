@@ -1,0 +1,81 @@
+# Progress September 2021
+
+* Wed 26th Sep
+  - GovHack - meta analyser
+    - using the challenges https://hackerspace.govhack.org/challenges
+    - analyse who won
+    - where there is the most opportunity
+    - which challenge you should enter
+    - where there is the most data
+    - build out https://github.com/failure-driven/gov-hack-meta
+  - club house app - influence on Swif
+    - https://www.bbc.com/news/technology-56180581
+  - E-paper
+    - example code https://github.com/Xinyuan-LilyGO/LilyGo-T5-Epaper-Series/blob/master/examples/GxEPD_Example/GxEPD_Example.ino
+    - bluetooth terminal
+      - https://github.com/kpatel122/ESP32-Web-Bluetooth-Terminal
+    - I2C comms on ESP32
+      - https://randomnerdtutorials.com/esp32-i2c-communication-arduino-ide/
+      - OLED display https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/
+    - ESP8266 IOT https requests
+      - https://maakbaas.com/esp8266-iot-framework/logs/https-requests/
+      - first web server https://tttapa.github.io/ESP8266/Chap10%20-%20Simple%20Web%20Server.html
+      - https://www.esp8266.com/viewtopic.php?p=22185
+      - serving SPIFFS files https://www.mischianti.org/2020/10/26/web-server-with-esp8266-and-esp32-byte-array-gzipped-pages-and-spiffs-2/
+    - state machine
+      - https://github.com/twrackers/StateMachine-library
+    - react.js
+      - https://www.dfrobot.com/blog-1242.html
+    - filesystem
+      - https://arduino-esp8266.readthedocs.io/en/latest/filesystem.html#flash-layout
+      - embedding files https://forum.arduino.cc/t/embedding-files-in-code/445941
+  - arduino sound
+    - https://www.arduino.cc/en/Tutorial/DueSimpleWaveformGenerator#.Uxi4qvldVWw
+    - https://forum.arduino.cc/t/can-arduino-uno-generate-sine-wave/428985/34
+  - testing
+    - https://mswjs.io/
+  - coding - graph algos
+    - https://www.uxu.io/graph-algorithms/breadth-first-search/
+  - bazel take a look
+    - https://docs.bazel.build/versions/4.2.1/bazel-overview.html
+  - makefile tutorials
+    - https://makefiletutorial.com/
+  - Open AI tutorial
+    - https://www.twilio.com/blog/building-a-punk-lyrics-bot-in-python-with-openai-s-gpt-3-and-twilio-sms
+  - how to sinatra with react
+    - some help? https://github.com/alanbsmith/react-sinatra-example#production-build
+  - carousel in Svelte
+    - https://dev.to/bmw2621/build-an-image-carousel-with-svelte-4kf8
+    - https://dev.to/bmw2621/build-an-image-carousel-with-svelte-part-2-adding-features-55i9
+    - https://www.youtube.com/watch?v=Ikgw-ybpTtY
+    - https://madewithsvelte.com/svelte-slidy
+    - https://svelte.dev/repl/9116699f10ac42668e7b58d120c4bc8c?version=3.18.1
+    - https://pawelgrzybek.github.io/siema/#example
+    - https://github.com/beyonk-adventures/svelte-carousel
+    - https://vadimkorr.github.io/svelte-carousel/
+  - record web
+    - https://stackoverflow.com/questions/17216375/how-can-i-record-a-users-web-session-simply-using-the-web-browser
+    - https://dev.to/divyenduz/how-does-a-software-like-full-story-or-session-stack-work-3gjd
+    - https://github.com/rrweb-io/rrweb
+    - https://github.com/shutterstock/lil-brother/blob/master/client/src/LilBro.js
+    - https://www.wired.com/story/the-dark-side-of-replay-sessions-that-record-your-every-move-online/
+  - wall display
+    - https://www.youtube.com/watch?v=58pxJ8z1Vow
+  - color strip server
+    - https://randomnerdtutorials.com/esp32-esp8266-rgb-led-strip-web-server/
+  - timers https://randomnerdtutorials.com/interrupts-timers-esp8266-arduino-ide-nodemcu/
+  - ESP32 vs ESP8266 code
+    - https://github.com/ayushsharma82/ESPConnect/blob/main/src/ESPConnect.h
+  - list public events of Ruby github community
+    - https://docs.github.com/en/rest/reference/activity
+  - guns and arduino
+    - https://create.arduino.cc/projecthub/Teenenggr/sound-was-not-enough-to-feel-the-gun-firing-so-i-made-this-dcc9ee
+    - sound effects https://create.arduino.cc/projecthub/bitsandbots/making-sound-effects-with-arduino-385e74
+    - LED machine gun https://www.rcgroups.com/forums/showthread.php?2311159-Simple-4-LED-Machine-Gun-With-Sound
+    - PCM audio https://playground.arduino.cc/Code/PCMAudio/
+    - raw sound guns https://soundbible.com/tags-gun.html
+    - look alike gun https://create.arduino.cc/projecthub/314reactor/asmd-shock-rifle-fe1d43
+    - glove gun idea https://www.youtube.com/watch?v=44DEmyIr2qQ
+    - esp32 wav playback https://www.youtube.com/watch?v=SCAKQsGt9wI
+
+  - hex bins mapping https://planwisely.io/blog/2018/11/23/3D-Hexbins-a-powerful-visualisation-technique.html
