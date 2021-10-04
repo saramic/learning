@@ -52,19 +52,13 @@ function all(promises) {
 }
 
 function allReduce(promises) {
-  return new Promise((resolve, reject) => {
-    promises.reduce(
-      (acc, promise, index) => {
-        Promise.resolve(promise).then((response) => {
-          acc.count += 1;
-          acc.results[index] = response;
-          if (acc.count === promises.length) resolve(acc.results);
-        });
-        return acc;
-      },
-      { results: [], count: 0 }
-    );
-  });
+  return promises.reduce((acc, promise) => {
+    return acc.then((results) => {
+      return Promise.resolve(promise).then((result) => {
+        return [...results, result];
+      });
+    });
+  }, Promise.resolve([]));
 }
 
 export { isEven, sumAll, stringify, all, allReduce }; // eslint-disable-line import/prefer-default-export
