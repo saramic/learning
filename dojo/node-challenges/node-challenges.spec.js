@@ -1,4 +1,4 @@
-import { isEven, sumAll, stringify } from "./node-challenges";
+import { isEven, sumAll, stringify, all, allReduce } from "./node-challenges";
 
 describe("isEven", () => {
   test("checks a number if it is even", () => {
@@ -43,5 +43,27 @@ describe("stringify", () => {
     expect(stringify([false, "hello", 1]).replace(/\s+/g, "")).toEqual(
       '[false,"hello",1]'
     );
+  });
+});
+
+describe("promise all", () => {
+  test("resolves a promise using all", async () => {
+    expect.assertions(1);
+
+    const p1 = new Promise((res) => res("a"));
+    const p2 = new Promise((res) => res("b"));
+    const p3 = new Promise((res) => res("c"));
+
+    await expect(all([p1, p2, p3])).resolves.toEqual(["a", "b", "c"]);
+  });
+
+  test("resolves a promise using allReduce", async () => {
+    expect.assertions(1);
+
+    const p1 = new Promise((res) => res("a"));
+    const p2 = new Promise((res) => res("b"));
+    const p3 = new Promise((res) => res("c"));
+
+    await expect(allReduce([p1, p2, p3])).resolves.toEqual(["a", "b", "c"]);
   });
 });
