@@ -10,9 +10,18 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/plugin-syntax-bigint": "^7.8.3",
+    "@babel/preset-env": "^7.15.6",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
     "babel-jest": "^27.2.4",
@@ -23,6 +32,11 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jest": "^24.5.0",
     "jest": "^27.2.4"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "package.json"
+    ]
   },
   "eslintConfig": {
     "env": {
@@ -38,6 +52,15 @@
     "parserOptions": {
       "ecmaVersion": 12
     },
-    "rules": {}
-  }
+    "rules": {},
+    "overrides": [
+      {
+        "files": "*.spec.js",
+        "rules": {
+          "no-unused-expressions": "off"
+        }
+      }
+    ]
+  },
+  "dependencies": {}
 }
