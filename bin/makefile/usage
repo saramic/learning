@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+
+_usage() {
+  CURRENT_PROJECT=${PWD##*/}
+
+  echo
+  echo -e "Hi ${RED}$(whoami)!${NC} Welcome to ${GREEN}${CURRENT_PROJECT}${NC}"
+  echo
+  echo -e "Getting started"
+  echo
+  echo -e "${YELLOW}make check-tools${NC}     check required tools"
+  echo -e "${YELLOW}make dev-env${NC}         setup the default developer environment"
+  echo -e "${YELLOW}make update-dev-env${NC}  update brew and setup the default developer environment"
+  echo
+}
+
+_usage

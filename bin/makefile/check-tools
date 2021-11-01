@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+check_expected_version() {
+  expected_version=$(grep "$1" .tool-versions | cut -d " " -f 2)
+  if [[ "$2" != *"$expected_version"* ]]
+  then
+    echo -e "${RED}" expected your environment to have "$1" "$expected_version" but found "$2" "${NC}"
+    echo -e "${RED}" ... try running 'make dev_env'? "${NC}"
+    exit 1
+  else
+    echo found expected version of "$1" "$expected_version"
+  fi
+}
+
+check_expected_version nodejs "$(node -v)"
+check_expected_version ruby "$(ruby -v)"
+check_expected_version python "$(python -V)"
+check_expected_version postgres "$(psql --version)"
+
+echo -e "${GREEN}"all your tools look fine 🎉 "${NC}\n"
+
