@@ -123,6 +123,10 @@ Laptop setup for ruby/node/rust development
     createdb $USER
     psql
     ```
+    1. on M1 may need to install with
+    ```
+    MAKELEVEL=0 asdf install postgres 12.4
+    ```
 1. **Mac OSX** some sane non standard settings
     1. right click the dock **Turn Hiding On**
     1. Finder
