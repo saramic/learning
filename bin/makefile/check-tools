@@ -11,7 +11,7 @@ check_expected_version() {
   if [[ "$2" != *"$expected_version"* ]]
   then
     echo -e "${RED}" expected your environment to have "$1" "$expected_version" but found "$2" "${NC}"
-    echo -e "${RED}" ... try running 'make dev_env'? "${NC}"
+    echo -e "${RED}" ... try running 'make dev-env'? "${NC}"
     exit 1
   else
     echo found expected version of "$1" "$expected_version"
