@@ -42,6 +42,7 @@ Laptop setup for ruby/node/rust development
     git config --global user.email saramic@gmail.com
     git config --global core.editor "code --wait"
     git config --global --replace-all core.pager "less -F -X"
+    git config --global init.defaultBranch main
     ```
     1. review your `~/.gitconfig` file using
     ```
