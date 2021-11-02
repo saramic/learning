@@ -147,8 +147,8 @@ Laptop setup for ruby/node/rust development
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
-    1. get a copy of a minimal `~/.vimrc` file and in vim run (TODO where is
-       such a file)
+    1. get a copy of a minimal `~/.vimrc` file and in vim
+       `cp config/.vimrc ~/`
     ```
     :PlugInstall
     ```
@@ -191,8 +191,8 @@ Laptop setup for ruby/node/rust development
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     ```
-    - get a sane nvim config in `~/.config/nvim/init.vim` and in nvim run (TODO
-      where is such a file)
+    - get a sane nvim config in `~/.config/nvim/init.vim` and in nvim run 
+      `cp -r config/.config ~/.config`
     ```
     :PlugInstall
     ```
