@@ -1,0 +1,2 @@
+build:
+	parcel index.html
