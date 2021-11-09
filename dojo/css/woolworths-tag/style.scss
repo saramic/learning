@@ -1,0 +1,75 @@
+@mixin full_size {
+  width: 800px;
+  height: 800px;
+}
+
+.woolworths-bag-price-tag {
+  @include full_size;
+  &-original {
+    @include full_size;
+    float: left;
+    &:hover {
+      background-image: url("./images/woolworths-bag-price-tag.jpg");
+    }
+  }
+  &-in-css {
+    color: #5b923b;
+    font-family: arial;
+    text-align: center;
+    position: relative;
+    .tag {
+      position: absolute;
+      border: 1px solid black;
+      margin: 25px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 800px - 80px;
+      height: 800px - 50px;
+    }
+    .hole {
+      border: 1px solid black;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-top: 40px;
+    }
+    .price {
+      color: #040500;
+      margin-top: 13px;
+      font-size: 311px;
+      position: relative;
+    }
+    .cents {
+      font-size: 45px;
+      display: block;
+      position: absolute;
+      top: 24px;
+      font-weight: 900;
+      font-size: 140px;
+      right: -58px;
+    }
+    .title {
+      font-size: 100px;
+      font-weight: 900;
+      letter-spacing: -4px;
+      position: relative;
+      padding-right: 25px;
+      margin-top: -25px;
+    }
+    .tm {
+      font-size: 45px;
+      display: block;
+      position: absolute;
+      top: 12px;
+      right: -18px;
+      font-weight: 100;
+    }
+    .tagline {
+      margin-top: 25px;
+      font-size: 45px;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+  }
+}
