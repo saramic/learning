@@ -12,7 +12,6 @@ different states. Then style a page from scratch to match the image.
   - setup a base project
     ```
     project_name/
-    |-- Gemfile # using haml gem to sass compile
     |-- index.html
     |
     |-- images/
@@ -24,9 +23,9 @@ different states. Then style a page from scratch to match the image.
     |-- stylesheets/
         |-- .gitkeep
     ```
-  - run sass compiler in background
+  - run parcel to compile
     ```
-    sass --watch sass/main.scss:stylesheets/main.css
+    parce index.html
     ```
 
 ## Examples
