@@ -90,3 +90,5 @@ function searchHandler2(results: Result[]): number {
   return results.length;
 }
 search("Vue", searchHandler2);
+
+export { SearchFn, search };
