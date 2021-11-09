@@ -19,16 +19,17 @@
     position: relative;
     .tag {
       position: absolute;
-      border: 1px solid black;
+      border: 1px solid #b7b7b7;
       margin: 25px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 800px - 80px;
       height: 800px - 50px;
+      background-color: white;
     }
     .hole {
-      border: 1px solid black;
+      border: 1px solid #b7b7b7;
       height: 40px;
       width: 40px;
       border-radius: 50%;
@@ -71,5 +72,29 @@
       font-weight: 900;
       letter-spacing: -3px;
     }
+  }
+}
+.metal {
+  height: 800px;
+  width: 800px;
+  
+  background-color: hsl(0,0%,90%);
+  &.linear {
+    background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
+      -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
+      -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
+      
+      linear-gradient(180deg, hsl(0,0%,78%)  0%, 
+      hsl(0,0%,90%) 47%, 
+      hsl(0,0%,78%) 53%,
+      hsl(0,0%,70%)100%);
+  }
+  &.hole {
+    background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 75%),
+      -webkit-repeating-linear-gradient(left, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 45%),
+      -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 22%),
+      
+      linear-gradient(180deg, hsl(0,0%,78%)  0%, 
+      hsl(0,0%,90%) 100%); 
   }
 }
