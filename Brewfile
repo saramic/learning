@@ -19,6 +19,7 @@ brew "exercism"           # code learning platform
 brew "ffmpeg"             # video processing like making animated gifs
 brew "neovim"             # a better vim
 brew "netlify-cli"        # deploy and manage netlify platform
+brew "awscli"             # AWS cli
 
 cask "google-chrome"      # browser and will be used for automated testing
 cask "google-cloud-sdk"   # access GCP
@@ -28,8 +29,12 @@ cask "slack"              # ad hoc messaging platform
 cask "visual-studio-code" # preferred code editor
 # cask "zoom"             # video communications platform - needs sudo access
                           # might as well just just manually install
+cask "whatsapp"           # comms
 
 tap "homebrew/cask"
 cask "gimp"               # image manipulation program
 brew "imagemagick"        # programatic image manipulation
 
+cask "flycut"             # clipboard history
+cask "spectacle"          # screen realestate management
+cask "menumeters"         # processes in menu bar
