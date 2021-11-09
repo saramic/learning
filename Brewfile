@@ -31,4 +31,5 @@ cask "visual-studio-code" # preferred code editor
 
 tap "homebrew/cask"
 cask "gimp"               # image manipulation program
+brew "imagemagick"        # programatic image manipulation
 
