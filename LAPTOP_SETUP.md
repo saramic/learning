@@ -33,7 +33,8 @@ Laptop setup for ruby/node/rust development
        Keys](https://gitlab.com/-/profile/keys) as per instructions in
        https://docs.gitlab.com/ee/ssh/#rsa-ssh-keys
      ```
-     ssh-keygen -t rsa -b 2048 -C "my UNIQUE NAME key"
+     mkdir -p ~/.ssh && ssh-keygen -t ed25519 -o -a 100 -f ~/.ssh/id_ed25519 -C "name of key OR TYPE_YOUR_EMAIL@HERE.com"
+
      ```
     1. setup sane git defaults
     ```
