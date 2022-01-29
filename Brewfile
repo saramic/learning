@@ -12,6 +12,7 @@ brew "kubectl"            # access GCP remote kubernetes pods
 brew "wget"               # UNIX tool for fetching things from the nets
 brew "tmux"               # terminal multiplexer for automating running many
                           # processes across many windows
+brew "libpq"              # needed for pg gem install pg -v '1.2.3' postgres
 tap "heroku/brew"
 brew "heroku"             # deploy and manage heroku platform
 
@@ -42,3 +43,14 @@ cask "spectacle"          # screen realestate management
 cask "menumeters"         # processes in menu bar
 
 cask "miniforge"          # conda for python and data science
+brew "hugo"               # blogging software
+cask "spotify"            # music
+cask "keycastr"           # show characters being typed
+
+brew "cask aws-vault"     # Securely store and access AWS credentials in development environments
+brew "figlet"             # Banner-like program prints strings as ASCII art
+brew "jp2a"               # Convert JPG images to ASCII
+brew "mailhog"            # Web and API based SMTP testing tool
+brew "hivemind"           # Process manager for Procfile-based applications
+brew "ykman"              # CLI YubiKey integration
+cask "audacity"           # audio processing
