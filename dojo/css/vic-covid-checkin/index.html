@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vic Covid Checkin</title>
+  <link href="style.scss" type="text/css" rel="stylesheet" >
+  <script>
+    function setOpacity(percentage) {
+      document.getElementById("image").style = `opacity: ${percentage}%`;
+    }
+  </script>
+</head>
+<body>
+  <h1>Vic COVID checkin</h1>
+  <div>
+    <button onclick="setOpacity(0)"">0%</button>
+    <button onclick="setOpacity(50)"">50%</button>
+    <button onclick="setOpacity(100)"">100%</button>
+  </div>
+  <main>
+  <div id="image" class="vic-covid-checkin-original"></div>
+  <div class="vic-covid-checkin-in-css">
+    <div class="content">
+      <div class="check">tick</div> 
+      <div class="location">
+        SkyBux: Bus 105 - BS01WX
+      </div>
+      <div class="name">
+        Michael M
+      </div>
+      <div class="row">
+        <div class="checked-in">
+          <div class="status">
+            Checked In
+          </div>
+          <div class="date">Tue 09 Nov</div>
+          <div class="time">7:58am</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="vaccination-status">
+          <label>Show vaccination status</label>
+          <div class="slider"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="vaccination-certificate">
+          <div class="approved"></div>
+          <div class="name">Michael Milewski</div>
+          <div class="status">Valid certificate</div>
+          <div class="action"></div>
+        </div>
+      </div>
+      <footer>
+        <button class="btn-favourite">Favourite</button>
+        <button class="btn-done">Done</button>
+      </footer>
+    </div>
+  </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,95 @@
+@mixin full_size {
+  width: 375px;
+  height: 818px;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+main {
+  @include full_size;
+  border: 1px solid black;
+  padding: 10px;
+}
+.vic-covid-checkin {
+  @include full_size;
+  &-original {
+    @include full_size;
+    position: absolute;
+    opacity: 50%;
+    background-image: url("./images/vic_covid_checkin.png");
+    background-size: 375px;
+  }
+  &-in-css {
+    font-family: Arial, Helvetica, sans-serif;
+    @include full_size;
+    position: absolute;
+    .content {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .check {
+        margin-top: 90px;
+      }
+      .location {
+        margin-top: 45px;
+      }
+      .name {
+      }
+      .row {
+        width: 100%;
+      }
+      .checked-in {
+        background-color: #f9f9f9;
+        margin: 0 24px;
+        margin-top: 45px;
+        border-radius: 10px;
+        .status {}
+        .date {}
+        .time {}
+      }
+      .vaccination-status {
+        margin: 0 24px;
+        margin-top: 45px;
+        label {}
+        .slider {}
+      }
+      .vaccination-certificate {
+        background-color: #157a45;
+        color: white;
+        border-radius: 10px;
+        margin: 0 24px;
+        margin-top: 45px;
+        .approved {}
+        .name {}
+        .status {}
+        .action {}
+      }
+      footer {
+        background-color: white;
+        width: 100%;
+        padding: 20px;
+        border-radius: 10px;
+        position:absolute;
+        bottom: 10px;
+        display: flex;
+        align-content: space-between;
+          margin: 10px;
+        .btn-favourite {
+          flex-grow: 1;
+          padding: 10px;
+          margin: 10px;
+        }
+        .btn-done {
+          flex-grow: 1;
+          padding: 10px;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
