@@ -29,6 +29,14 @@ build: rubocop
 demo:
 	bundle exec sidekiq --require ./sidekiq_001.2/worker.rb
 
+.session.key:
+	bundle exec ruby -e 'require "securerandom"; File.open(".session.key", "w"){|f|\
+		f.write(SecureRandom.hex(32))}'
+
+.PHONY: sidekiq-web
+sidekiq-web: .session.key
+	bundle exec rackup
+
 .PHONY: usage
 usage:
 	@echo
@@ -42,4 +50,5 @@ usage:
 	@echo "Demo"
 	@echo
 	@echo "${YELLOW}make demo${NC}          run some demos"
+	@echo "${YELLOW}make sidekiq-web${NC}   run sidekiq/web via sinatra http://127.0.0.1:9292/"
 	@echo

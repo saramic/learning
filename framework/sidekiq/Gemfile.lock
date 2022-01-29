@@ -3,10 +3,17 @@ GEM
   specs:
     ast (2.4.2)
     connection_pool (2.2.5)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
     parallel (1.21.0)
     parser (3.1.0.0)
       ast (~> 2.4.1)
+    puma (5.6.1)
+      nio4r (~> 2.0)
     rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
     rainbow (3.1.1)
     redis (4.5.1)
     regexp_parser (2.2.0)
@@ -28,20 +35,30 @@ GEM
     rubocop-rspec (2.8.0)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
+    ruby2_keywords (0.0.5)
     sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    tilt (2.0.10)
     unicode-display_width (2.1.0)
 
 PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  puma (~> 5.6)
+  rack (~> 2.2)
   rubocop (~> 1.25)
   rubocop-performance (~> 1.13)
   rubocop-rspec (~> 2.8)
   sidekiq (~> 6.4)
+  sinatra (~> 2.1)
 
 BUNDLED WITH
    2.2.31
