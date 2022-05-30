@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-node-server
+  labels:
+    app: simple-node-server
+spec:
+  containers:
+    - name: main
+      image: simple-node-server:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits:
+          memory: 250Mi
+          cpu: 0.25m
+      env:
+        - name: PORT
+          value: "80"
+        - name: HOST
+          value: "0.0.0.0"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-node-server
+spec:
+  selector:
+    app: simple-node-server
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
