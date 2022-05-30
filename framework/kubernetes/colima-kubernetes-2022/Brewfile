@@ -1,0 +1,5 @@
+# mange dependencies with brew https://brew.sh/
+
+brew "colima"  # Container runtimes on MacOS (and Linux) with minimal setup
+brew "kubectl" # Kubernetes command-line interface
+brew "k9s"     # Kubernetes CLI To Manage Your Clusters In Style!

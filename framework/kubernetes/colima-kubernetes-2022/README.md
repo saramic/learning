@@ -6,6 +6,12 @@ based on:
   https://mrsauravsahu.medium.com/docker-and-kubernetes-on-macos-a-setup-for-2022-aa01819920b6
 
 ```
+make setup
+make demo
+make clean
+```
+
+```
 # can start colima with kubernetes with
 colima start --with-kubernetes -r docker
 # or simply
