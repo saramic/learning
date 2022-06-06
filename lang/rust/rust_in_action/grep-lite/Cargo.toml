@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["Michael Milewski <saramic@gmail.com>"]
 
 [dependencies]
-regex = "0.2.2"
+regex = "1.5.5"
 clap = "2.24.2"
