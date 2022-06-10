@@ -1,7 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    connection_pool (2.2.5)
     diff-lcs (1.5.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
+    puma (5.6.4)
+      nio4r (~> 2.0)
+    rack (2.2.3.1)
+    rack-protection (2.2.0)
+      rack
+    redis (4.6.0)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -15,12 +25,27 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
+    ruby2_keywords (0.0.5)
+    sidekiq (6.5.0)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+    sinatra (2.2.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.0)
+      tilt (~> 2.0)
+    tilt (2.0.10)
 
 PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  puma (~> 5.6)
+  rack (~> 2.2)
   rspec (~> 3.11)
+  sidekiq (~> 6.5)
+  sinatra (~> 2.2)
 
 BUNDLED WITH
    2.2.31
