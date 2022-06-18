@@ -54,3 +54,6 @@ brew "mailhog"            # Web and API based SMTP testing tool
 brew "hivemind"           # Process manager for Procfile-based applications
 brew "ykman"              # CLI YubiKey integration
 cask "audacity"           # audio processing
+
+cask "xquartz"            # XQuartz open source X Window System
+cask "tor-browser"        # tor browser
