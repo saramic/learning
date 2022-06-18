@@ -2,12 +2,6 @@
 
 RSpec.describe 'runner' do
   describe 'unit' do
-    it 'prints out hello from runner' do
-      allow(Kernel).to receive(:puts)
-      load File.join(File.dirname(__FILE__), '../bin/runner.rb')
-      expect(Kernel).to have_received(:puts).with('hello from runner')
-    end
-
     it 'calls WordCount.new with ARGV' do
       allow(WordCount).to receive(:new)
 
@@ -22,17 +16,28 @@ RSpec.describe 'runner' do
     context 'when the passed in args are bin/runner.rb' do
       let(:args) { 'bin/runner.rb' }
 
-      it 'prints word count of 17' do
+      it 'prints word count of 13' do
         runner_file_path = File.join(File.dirname(__FILE__), '../bin/runner.rb')
         expect(`#{runner_file_path} #{args}`).to eq <<~EO_OUTPUT
-          hello from runner
-          [{\"filename\":\"bin/runner.rb\",\"word_count\":17}]
+          [{\"filename\":\"bin/runner.rb\",\"word_count\":13}]
         EO_OUTPUT
       end
 
-      it 'same as the wc -w word count utility, number of words is 17' do
+      it 'prints JSON output' do
+        runner_file_path = File.join(File.dirname(__FILE__), '../bin/runner.rb')
+        expect(JSON.parse(`#{runner_file_path} #{args}`)).to eq(
+          [
+            {
+              "filename" => "bin/runner.rb",
+              "word_count" => 13,
+            },
+          ]
+        )
+      end
+
+      it 'same as the wc -w word count utility, number of words is 13' do
         expect(`wc -w #{args}`.lstrip).to eq <<~EO_OUTPUT
-          17 bin/runner.rb
+          13 bin/runner.rb
         EO_OUTPUT
       end
     end
