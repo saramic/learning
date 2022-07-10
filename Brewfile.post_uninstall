@@ -64,6 +64,7 @@ cask "pop"                # screen sharing
 cask "arduino"            # arduino IDE
 brew "gh"                 # GitHub CLI
 
+cask "vnc-viewer"         # Real VNC Viewer
 cask "webtorrent"         # Torrent streaming application
                           # open /Applications/WebTorrent.app
 # brew "utorrent"
