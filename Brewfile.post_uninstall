@@ -27,6 +27,8 @@ brew "awscli"             # AWS cli
 #
 #       cask "google-chrome"      # browser and will be used for automated testing
 cask "google-cloud-sdk"   # access GCP
+tap "hashicorp/tap"
+brew "hashicorp/tap/terraform"
 #       cask "iterm2"             # better terminal supporting tmux native tabs and
 #                                 # command click files/links
 #       cask "slack"              # ad hoc messaging platform
