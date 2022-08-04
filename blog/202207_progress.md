@@ -1,4 +1,120 @@
-# Progress Jun 2018
+# Progress Jul 2022
+
+## Thu 28th
+
+### RasPi sort out ...
+
+sudo raspi-config
+Could not communicate with wpa_supplicant
+There was an error running option S1 Wireless LAN
+
+from https://raspberrypi.stackexchange.com/a/114564 try
+
+```
+sudo killall wpa_supplicant
+sudo wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -d -iwlan0
+```
+
+## Mon 25th
+
+### memory allocation in ruby example
+
+```
+   require "memory_profiler"
+
+   report = MemoryProfiler.report do
+     a = (0..1000).to_a.reverse.map{ _1 + 1 }
+   end
+
+   report.pretty_print
+
+   report = MemoryProfiler.report do
+     a = (0..1000).to_a.reverse
+     a.map!{ _1 + 1 }
+   end
+
+   report.pretty_print
+```
+
+## Sun 17th
+
+### setup another RasPi
+
+```
+    sudo raspi-config
+      interfacing options -> VNC enable 
+      interfacing options -> SSH enable 
+      Display Options –> choose D4 Screen Blanking and disable it.
+      Display Options -> NO OVERSCAN
+      + RESTARET
+
+    sudo apt update && sudo apt upgrade -y
+
+    sudo apt install feh -y
+
+    feh -qrYzFD1 /home/pi/Pictures/felix_party
+```
+
+create a service to auto start
+
+```
+    mkdir ~/.config/systemd/user/ -p
+    # and fill with
+    cat >> ~/.config/systemd/user/picframe.service
+    [Unit]
+    Description=PictureFrame on Pi3
+   
+    [Service]
+    ExecStart=/usr/bin/feh -qrYzFD1 /home/pi/Pictures/felix_party
+    #Restart=always
+   
+    [Install]
+    WantedBy=default.target
+    ^D
+   
+    # chomd it
+    sudo chmod 644 ~/.config/systemd/user/picframe.service
+   
+    # tell it to start at boot
+    systemctl --user daemon-reload
+    systemctl --user enable picframe.service
+   
+    # to stop/start/restart
+    systemctl --user stop picframe.service
+    systemctl --user start picframe.service
+    systemctl --user restart picframe.service
+```
+
+but does not run on startup :(
+
+## Thu 14th
+
+### VCR demo in rails
+
+```
+bin/rails runner 'require "vcr"; \
+  VCR.configure{|config| config.cassette_library_dir = "."; config.hook_into(:webmock) };\
+  VCR.use_cassette("demo"){pp Net::HTTP.get_response(URI("https://google.com")).body}'
+```
+
+* will output the HTML
+* will create a `demo.yml` file with said HTML
+* will replay without need for internet
+
+## Wed 13th
+
+### Melbourne Serverless Meetup
+
+- about AWS Lambda Powertools
+  https://awslabs.github.io/aws-lambda-powertools-python/latest/ - in python
+- and the about to be released typescript version -
+  https://awslabs.github.io/aws-lambda-powertools-typescript/latest/
+- the powertools have idempotency built in
+- and this is supposedly a great article on idempotent APIs -
+  https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/
+- also a bit about MonogoDB Atlas - and you can get a $200 credit at
+  https://www.mongodb.com/socks -> https://www.mongodb.com/meetatlas -> apply
+  code SOCKS200
 
 ## Sun 10th
 
@@ -140,13 +256,13 @@ maybe https://github.com/pikvm/ustreamer/issues/123#issuecomment-964217839
       # scrap building from source
 
       sudo dpkg --configure -a
-      sudo apt install feh -a
+      sudo apt install feh -y
 
       # failed on chromium ffmpeg dependency
       sudo apt --fix-broken install
 
       # try again
-      sudo apt install feh -a
+      sudo apt install feh -y
 
       # and run against some JPGs
       feh -qrYzFD120 --zoom fill /home/pi/Pictures/your-images
