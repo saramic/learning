@@ -31,7 +31,7 @@ describe("index.html integration", () => {
   })
 
   it("renders a form", () => {
-    const form = container.querySelector("body form")
+    const form = container.querySelector("body form[data-testid=the-form]")
     expect(form ).toMatchInlineSnapshot(`
       <form
         data-testid="the-form"
@@ -69,5 +69,47 @@ describe("index.html integration", () => {
     const submitButton = container.querySelector("form[data-testid=the-form] input[type=\"submit\"]")
     eventFire(submitButton, "click")
     expect(container.querySelector("[data-testid=message]").textContent).toBe("All is good")
+  })
+
+  describe("the-other-form", () => {
+    it("clicking the other submit by default returns an invalid message", () => {
+      const submitButton = container.querySelector("form[data-testid=the-other-form] [data-testid=submit]")
+      eventFire(submitButton, "click")
+      expect(container.querySelector("[data-testid=the-other-message]").textContent).toBe("Other input is invalid")
+    })
+
+    it("clicking the other submit with valid input returns a valid message", () => {
+      const textInput = container.querySelector("form[data-testid=the-other-form] input[data-testid=input]")
+      textInput.value = "123"
+      const submitButton = container.querySelector("form[data-testid=the-other-form] [data-testid=submit]")
+      eventFire(submitButton, "click")
+      expect(container.querySelector("[data-testid=the-other-message]").textContent).toBe("Other all is good")
+    })
+  })
+})
+
+describe("the validator", () => {
+  let validatorScripts;
+  beforeEach(() => {
+    // equivalent of importing the validator function
+    const scriptText = dom.window.document.querySelector("[data-testid=other-javascript]").innerHTML
+    // either using eval
+    validatorScripts = eval(`((document) => {
+      ${scriptText}
+      return { validator: validator}
+    })`)(dom.window.document)
+    // OR function
+    validatorScripts = Function("document", `{
+      ${scriptText}
+      return { validator: validator}
+    }`)(dom.window.document)
+  })
+
+  it("returns success for 123", () => {
+    expect(validatorScripts.validator("123")).toEqual({state: "success", message: "Other all is good"})
+  })
+
+  it("returns failure for empty string", () => {
+    expect(validatorScripts.validator("")).toEqual({state: "failure", message: "Other input is invalid"})
   })
 })

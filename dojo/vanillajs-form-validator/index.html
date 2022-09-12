@@ -19,4 +19,31 @@
       .querySelector("input[type=\"submit\"]")
       .addEventListener("click", validate)
   </script>
+
+  <form data-testid="the-other-form">
+    <div data-testid="the-other-message"></div>
+    <input data-testid="input" type="text" />
+    <input data-testid="submit" type="submit" />
+  </form>
+
+  <script data-testid="other-javascript">
+    function validator(inputValue) {
+      if (inputValue === "123") {
+        return {state: "success", message: "Other all is good"}
+      } else {
+        return {state: "failure", message: "Other input is invalid"}
+      }
+    }
+
+    function applyValidator(event) {
+      event.preventDefault()
+      document
+        .querySelector("[data-testid=the-other-message]")
+        .innerHTML = validator(document.querySelector("input[data-testid=input]").value).message
+    };
+
+    document
+      .querySelector("[data-testid=the-other-form] input[type=submit]")
+      .addEventListener("click", applyValidator)
+  </script>
 </body>
