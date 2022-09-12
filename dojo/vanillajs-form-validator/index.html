@@ -1,0 +1,22 @@
+<body>
+  <form data-testid="the-form">
+    <div data-testid="message"></div>
+    <input type="text" />
+    <input type="submit" />
+  </form>
+
+  <script>
+    function validate(event) {
+      event.preventDefault()
+      const value = document.querySelector("[data-testid=the-form] input[type=text]").value
+      if (value === "123") {
+        document.querySelector("[data-testid=message]").innerHTML = "All is good"
+      } else {
+        document.querySelector("[data-testid=message]").innerHTML = "Input is invalid"
+      }
+    };
+    document
+      .querySelector("input[type=\"submit\"]")
+      .addEventListener("click", validate)
+  </script>
+</body>
