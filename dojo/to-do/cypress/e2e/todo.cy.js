@@ -5,5 +5,7 @@ describe('empty spec', () => {
       .get(".App-link")
       .invoke("text")
       .should("equal", "Learn React")
+    cy
+      .get(".App-link").click()
   })
 })
