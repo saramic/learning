@@ -1,0 +1,30 @@
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always_true
+  SafeAutoCorrect: true
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/integration/**/*_spec.rb
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
