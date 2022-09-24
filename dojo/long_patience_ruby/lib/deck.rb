@@ -52,4 +52,8 @@ class Deck
   def last
     @cards.last
   end
+
+  def slice(*args)
+    @cards.slice(*args)
+  end
 end
