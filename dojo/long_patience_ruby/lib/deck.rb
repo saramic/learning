@@ -33,12 +33,13 @@ class Deck
   ]
   VALUES = %w[A 2 3 4 5 6 7 8 9 10 J Q K]
 
-  def initialize
+  def initialize(seed: nil)
     @cards = SUITS.map do |suit|
       VALUES.map do |value|
         Card.new(suit, value)
       end
     end.flatten
+    @seed = seed
   end
 
   def each(&block)
@@ -55,5 +56,11 @@ class Deck
 
   def slice(*args)
     @cards.slice(*args)
+  end
+
+  def shuffle
+    args = {}
+    args[:random] = Random.new(@seed) if @seed
+    @cards.shuffle!(**args)
   end
 end

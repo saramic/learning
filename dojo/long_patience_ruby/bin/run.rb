@@ -3,4 +3,6 @@
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), "../lib")
 require "runner"
-Runner.new(output: Kernel).play
+args = {output: Kernel}
+args[:seed] = ARGV[0].to_i if ARGV[0] && ARGV[0] =~ /\d+/
+Runner.new(**args).play

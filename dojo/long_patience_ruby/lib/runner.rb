@@ -7,9 +7,9 @@ require "layout"
 class Runner
   attr_reader :layout
 
-  def initialize(output:)
+  def initialize(output:, seed: nil)
     @output = output
-    @deck = Deck.new
+    @deck = Deck.new(seed: seed).shuffle
     @layout = Layout.new
     @deck.each do |card|
       @layout.place_next(card)
