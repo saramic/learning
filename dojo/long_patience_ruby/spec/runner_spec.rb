@@ -8,10 +8,10 @@ RSpec.describe Runner do
     output = StringIO.new
     Runner.new(output: output).play
     expect(output.string).to eq <<~EO_OUTPUT
-      __  ♥ A ♥ 2 ♥ 3 ♥ 4 ♥ 5 ♥ 6 ♥ 7 ♥ 8 ♥ 9 ♥10 ♥ J ♥ Q ♥ K
-      __  ♦ A ♦ 2 ♦ 3 ♦ 4 ♦ 5 ♦ 6 ♦ 7 ♦ 8 ♦ 9 ♦10 ♦ J ♦ Q ♦ K
-      __  ♣ A ♣ 2 ♣ 3 ♣ 4 ♣ 5 ♣ 6 ♣ 7 ♣ 8 ♣ 9 ♣10 ♣ J ♣ Q ♣ K
-      __  ♠ A ♠ 2 ♠ 3 ♠ 4 ♠ 5 ♠ 6 ♠ 7 ♠ 8 ♠ 9 ♠10 ♠ J ♠ Q ♠ K
+      __  ♥ A ♥ 2 ♥ 3 ♥ 4 ♥ 5 ♥ 6 ♥ 7 ♥ 8 ♥ 9 ♥10 ♥ J ♥ Q ♥ K |
+      __  ♦ A ♦ 2 ♦ 3 ♦ 4 ♦ 5 ♦ 6 ♦ 7 ♦ 8 ♦ 9 ♦10 ♦ J ♦ Q ♦ K |
+      __  ♣ A ♣ 2 ♣ 3 ♣ 4 ♣ 5 ♣ 6 ♣ 7 ♣ 8 ♣ 9 ♣10 ♣ J ♣ Q ♣ K |
+      __  ♠ A ♠ 2 ♠ 3 ♠ 4 ♠ 5 ♠ 6 ♠ 7 ♠ 8 ♠ 9 ♠10 ♠ J ♠ Q ♠ K |
     EO_OUTPUT
   end
 
