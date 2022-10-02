@@ -9,6 +9,7 @@ Projects::Application.register_provider(:database) do
 
   start do
     config = container[:database]
+    config.auto_registration(Projects::Application.config.root + "lib/projects")
     register("container", ROM.container(config))
   end
 end
