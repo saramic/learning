@@ -28,6 +28,8 @@ demo:
 		require_relative "lib/projects/repos/user_repo";\
 		user_repo = Projects::Repos::UserRepo.new(Projects::Application[:container]);\
 		pp user_repo.all;\
+		user_repo.create(first_name: "Michael", last_name: "Milewski", age: 46);\
+		pp user_repo.all;\
 		pp user_repo.all.first.full_name'
 
 .PHONY: clean
