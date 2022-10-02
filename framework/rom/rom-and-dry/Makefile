@@ -25,7 +25,6 @@ demo:
 	bundle exec ruby -e '\
 		require_relative "system/application/container";\
 		Projects::Application.finalize!;\
-		require_relative "lib/projects/repos/user_repo";\
 		user_repo = Projects::Repos::UserRepo.new;\
 		pp user_repo.all;\
 		user_repo.create(first_name: "Michael", last_name: "Milewski", age: 46);\

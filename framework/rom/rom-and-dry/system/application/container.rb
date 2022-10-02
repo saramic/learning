@@ -16,3 +16,8 @@ module Projects
 
   Import = Dry::AutoInject(Application)
 end
+
+require "zeitwerk"
+loader = Zeitwerk::Loader.new
+loader.push_dir Projects::Application.config.root.join("lib").realpath
+loader.setup

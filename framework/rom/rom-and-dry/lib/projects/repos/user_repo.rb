@@ -1,5 +1,3 @@
-require_relative "../entities/user";
-
 module Projects
   module Repos
     class UserRepo < ROM::Repository[:users]
