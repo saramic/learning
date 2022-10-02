@@ -23,3 +23,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "dry-monads", "~> 1.4"
+gem "dry-rails", "~> 0.5.0", :github => "dry-rb/dry-rails"
+gem "rom-rails", "~> 2.3"
+gem "rom-sql", "~> 3.5"
+
+gem "pg", "~> 1.4"
+
+gem "dotenv-rails", "~> 2.8"
+gem "pry-rails", "~> 0.3.9"
+gem "rspec-rails", "~> 5.1"
+
