@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+
+gem "dry-system", "~> 0.25.0"
+gem "rom", "~> 5.2"
+gem "rom-sql", "~> 3.5"
+gem "pg", "~> 1.4"
+gem "rake", "~> 13.0"
+gem "dotenv", "~> 2.8"

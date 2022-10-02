@@ -1,0 +1,14 @@
+require_relative "config/boot"
+
+require_relative "system/application/container"
+require_relative "system/providers/persistence"
+require "rom-sql"
+require "rom/sql/rake_task"
+
+namespace :db do
+  task :setup do
+    Projects::Application.start(:database)
+    config = Projects::Application[:database]
+    config.gateways[:default].use_logger(Logger.new($stdout))
+  end
+end
