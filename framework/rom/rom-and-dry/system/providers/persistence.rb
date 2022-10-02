@@ -9,6 +9,7 @@ Projects::Application.register_provider(:database) do
 
   start do
     config = container[:database]
+    # cannot rake db:migrate with following line
     config.auto_registration(Projects::Application.config.root + "lib/projects")
     register("container", ROM.container(config))
   end
