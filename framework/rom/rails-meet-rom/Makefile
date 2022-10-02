@@ -21,7 +21,8 @@ setup: install
 
 .PHONY: demo
 demo:
-	bundle exec rails r ''
+	bundle exec rails r '\
+		pp ROM.env.relations[:projects].by_pk(1).one'
 
 .PHONY: build
 build:

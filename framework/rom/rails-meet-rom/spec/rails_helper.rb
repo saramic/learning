@@ -26,6 +26,29 @@ RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
   config.use_active_record = false
 
+  def db
+    Sequel::DATABASES.first
+  end
+
+  def migrations_must_be_run!
+    raise "Migrations need to be run. Run this command:"\
+      "DATABASE_URL='postgres://localhost/rails-meet-rom_test' rake db:migrate"
+  end
+
+  config.before(:all) do
+    migrations = db[:schema_migrations].order(Sequel.desc(:filename))
+    migrations_must_be_run! if migrations.empty?
+
+    last_migration_in_db = migrations.first[:filename]
+    last_migration_in_fs = File.basename(Dir[Rails.root + "db/migrate/*"].sort.last)
+    if last_migration_in_fs != last_migration_in_db
+      migrations_must_be_run!
+    end
+  end
+
+  config.before do
+    db[*(db.tables - [:schema_migrations])].truncate
+  end
   # If you enable ActiveRecord support you should unncomment these lines,
   # note if you'd prefer not to run each example within a transaction, you
   # should set use_transactional_fixtures to false.
