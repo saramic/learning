@@ -2,6 +2,7 @@ require_relative "../../config/boot"
 
 require "dry/system/container"
 require "dry/system/loader/autoloading"
+require "dry/auto_inject"
 
 module Projects
   class Application < Dry::System::Container
@@ -12,4 +13,6 @@ module Projects
       end
     end
   end
+
+  Import = Dry::AutoInject(Application)
 end
