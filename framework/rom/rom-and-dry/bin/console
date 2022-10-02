@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative "../system/application/container"
+
+Projects::Application.finalize!
+
+require "irb"
+IRB.start

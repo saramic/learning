@@ -23,6 +23,10 @@ setup: install
 .PHONY: demo
 demo:
 	bundle exec ruby -e '\
+		require_relative "system/application/container";\
+		Projects::Application.finalize!;\
+		require_relative "lib/projects/repos/user_repo";\
+		user_repo = Projects::Repos::UserRepo.new(Projects::Application[:container]);\
 		pp user_repo.all;\
 		pp user_repo.all.first.full_name'
 
