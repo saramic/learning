@@ -3,7 +3,7 @@ class ProjectRepository < ROM::Repository::Root
 
   commands :create, update: :by_pk, delete: :by_pk
 
-  struct_namespace RailsMeetRom
+  struct_namespace Projects
 
   def by_id(id)
     root.by_pk(id).one

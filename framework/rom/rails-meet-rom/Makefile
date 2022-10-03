@@ -18,11 +18,38 @@ install:
 .PHONY: setup
 setup: install
 	createdb rails-meet-rom_dev || echo "rails-meet-rom_dev db probably already exist"
+	rails db:migrate
 
 .PHONY: demo
 demo:
 	bundle exec rails r '\
-		pp ROM.env.relations[:projects].by_pk(1).one'
+		puts "${YELLOW}fetch projects id: 1${NC}";\
+		puts "${GREEN}" + ROM.env.relations[:projects].by_pk(1).one.inspect + "${NC}";\
+		time = Time.now.to_i;\
+		puts "${YELLOW}create a project using the repository${NC}";\
+		repo = ProjectRepository.new(ROM.env);\
+		project = repo.create(name: "Test Project");\
+		begin;\
+		  puts "${YELLOW}attempt to make a new project with wrong type for :name${NC}";\
+			project2 = Projects::Project.new(name: 1);\
+		rescue => e;\
+		  puts "${RED}" + e.message + "${NC}";\
+		end;\
+		puts "${YELLOW}fetch projects id: 1 to show it was created${NC}";\
+		puts "${GREEN}" + ROM.env.relations[:projects].by_pk(1).one.inspect + "${NC}";\
+		project = Projects::Project.new(created_at: time);\
+		begin;\
+			puts "${YELLOW}Project.all not yet implemented${NC}";\
+			puts "${GREEN}" + Projects::Project.all.inspect + "${NC}";\
+		rescue => e;\
+		  puts "${RED}" + e.message + "${NC}";\
+		end;\
+		begin;\
+			puts "${YELLOW}project.name= is undefined as we cannot change it${NC}";\
+			project.name = "Test Project #2";\
+		rescue => e;\
+		  puts "${RED}" + e.message + "${NC}";\
+		end;'
 
 .PHONY: build
 build:
