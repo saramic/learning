@@ -13,14 +13,13 @@ module Projects
     end
 
     def create
-      validation = ProjectContract.new.call(project_params)
-      if validation.success?
-        repo.create(project_params)
+      success, result = Projects::CreateProject.call(project_params)
+      if success
         flash[:notice] = "Project has been created."
-        redirect_to action: :index
+        redirect_to result[:project]
       else
         @project = Projects::Project.new(project_params)
-        @errors = validation.errors
+        @errors = result[:errors]
         flash.now[:alert] = "Project could not be created."
         render :new
       end
