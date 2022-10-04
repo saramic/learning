@@ -309,6 +309,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.8)
   dry-monads (~> 1.4)
   dry-rails (~> 0.5.0)!
+  dry-validation (~> 1.8)
   listen (~> 3.3)
   pg (~> 1.4)
   pry-rails (~> 0.3.9)

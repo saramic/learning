@@ -37,6 +37,8 @@ demo:
 		rescue => e;\
 		  puts "${RED}" + e.message + "${NC}";\
 		end;\
+		puts "${YELLOW}attempt to validate a new project contract with wrong type for :name${NC}";\
+		pp Projects::ProjectContract.new.call(name: 1);\
 		puts "${YELLOW}fetch projects id: 1 to show it was created${NC}";\
 		puts "${GREEN}" + ROM.env.relations[:projects].by_pk(1).one.inspect + "${NC}";\
 		project = Projects::Project.new(created_at: time);\

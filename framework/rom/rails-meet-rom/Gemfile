@@ -41,3 +41,5 @@ gem "dotenv-rails", "~> 2.8"
 gem "pry-rails", "~> 0.3.9"
 gem "rspec-rails", "~> 5.1"
 
+
+gem "dry-validation", "~> 1.8"
