@@ -17,6 +17,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+  gem "capybara", "~> 3.37"
+  gem "selenium-webdriver", "~> 4.5"
+  gem "webdrivers", "~> 5.2"
+end
+
 group :development do
   gem 'listen', '~> 3.3'
 end

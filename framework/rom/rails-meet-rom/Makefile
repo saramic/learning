@@ -18,7 +18,9 @@ install:
 .PHONY: setup
 setup: install
 	createdb rails-meet-rom_dev || echo "rails-meet-rom_dev db probably already exist"
+	createdb rails-meet-rom_test || echo "rails-meet-rom_test db probably already exist"
 	rails db:migrate
+	rails db:migrate RAILS_ENV=test
 
 .PHONY: demo
 demo:
@@ -58,6 +60,7 @@ build:
 .PHONY: clean
 clean:
 	dropdb rails-meet-rom_dev
+	dropdb rails-meet-rom_test
 
 .PHONY: usage
 usage:
