@@ -1,0 +1,5 @@
+# any rubocop overrides live in here
+
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
