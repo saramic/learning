@@ -29,6 +29,9 @@ test:
 .PHONY: build
 build: rubocop test
 
+.PHONY: demo
+demo:
+	bundle exec ruby bin/run.rb
 
 .PHONY: usage
 usage:
@@ -39,6 +42,8 @@ usage:
 	@echo
 	@echo "${YELLOW}make install${NC}      install"
 	@echo "${YELLOW}make build${NC}        build the project"
+	@echo
+	@echo "${YELLOW}make demo${NC}         demo the project"
 	@echo
 	@echo "Development"
 	@echo
