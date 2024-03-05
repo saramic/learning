@@ -6,13 +6,81 @@ this resume lives at [Github saramic/learning/RESUME.md](https://github.com/sara
 | ---------- | ---------------------------------------------------------- |
 | **email**  | [saramic@gmail.com](mailto:saramic@gmail.com)              |
 | **phone**  | +61 425 880 128                                            |
-| personal   | [LinkedIn](https://www.linkedin.com/in/michael-milewski/)  |
-|            | [Github saramic](https://github.com/saramic)               |
-| speaking   | [Github failure-driven](https://github.com/failure-driven) |
+| personal   | [LinkedIn https://www.linkedin.com/in/michael-milewski/](https://www.linkedin.com/in/michael-milewski/) |
+|            | [https://github.com/saramic](https://github.com/saramic)   |
+| speaking   | [https://github.com/failure-driven](https://github.com/failure-driven) |
 | & teaching | [Blog failure-driven.com](https://failure-driven.com/)     |
+|            | [https://sessionize.com/michael-milewski](https://sessionize.com/michael-milewski) |
 
+### 2023 Jun - Present Senior Engineer Mable
 
-### 2021 Jun - Present Software Engineer Black Box Co
+  - **individual contributor**
+    - spiked, architected and implemented cross services communications.
+      Initially using point to point but as per the spike and architecture,
+      soon to move across to using Kinesis. Dealt with various failure modes
+      using transactional inbox/outbox patter, detailed inter process
+      monitoring using DataDog monitors and alerts. Also proposed more secure
+      cross service authorization.
+  - **cross team contributions**
+    - active in promoting a more conserted team effort in getting codebase up
+      to speed with lint tools like ESlint and Rubocop
+    - fixed a legacy gap in the monolith's codebase not having a
+      `structure.sql`
+  - **mentoring**
+    - grew a weekly coding dojo from 2 developers to around 10
+    - instilled continual learning and sharing practices through a joint code
+      and ideas repository with contributions from 10 developers
+    - shared knowledge with a number of developers one-on-one
+  - **innovation**
+    - created a cross team "bat signal" project that brought developers
+      together behind a hardware and software project sending MQTT messages
+      between ESP32 connected devices. Continued a hobby project group meeting
+      2 times a month since the original hackathon where this was created.
+    - introduced team to outside in BDD and flow style testing
+    - introduced the Front/End team to unit testing using vitest
+
+### 2018 Oct - Present Conference Speaker and Mentor
+
+  - **speaking engagements:**
+    - presented developer practices around testing, pairing, hardware and
+      architecture at international conferences including RubyKaigi 2023,
+      RailsConf 2023, OpenConf Greece 2023, React Miami 2023, RailsConf 2019
+      Minneapolis, RubyConf AU 2020, ReactConf AU 2020
+    - presented at over 25 other speaking engagements on topics like features of
+      Rails, using VI, coding Arduino including Melbourne Ruby Meetup, Sydney
+      Ruby Meetup Melbourne Python Meetup, Melbourne React Meetup, DDD
+      Melbourne, Google DevFest 2019
+  - **mentoring:**
+    - paired with over 60 developers since 2018 (outside of work colleagues)
+    - ran one on one mentoring sessions with ~15 developers since 2019
+  - **hackathons:**
+    - Gov Hack winning project 2018
+    - 3rd place Unearthed hackathon 2017
+    - numerous other hackathons including Square Unboxed hackathon 2021,
+      PayPal/Braintree hackathon as well as numerous Melbourne Datathons
+
+### 2021 Nov - 2023 Jun Senior Developer Zepto
+
+  - **Ledger product**
+    - worked on a ledger product that was brought in using Packwerk to help
+      split the Domain model of the monolith.
+    - used ideas from Hexagonal Architecture to make it more testable
+    - prototyped moving to Kafka for message passing.
+  - **Logging with DataDog**
+    - DataDog Dashboards and Monitors as code (DevOps style) repo using
+      Terraform, GitHub Actions and conversion scripts to allow for fast
+      updates and deploys of DataDog settings.
+  - **PayTo**
+    - took part in the companies premier deliverable for 2022/2023, PayTo, and
+      was instrumental in surfacing issues around dependencies that had a
+      crucial impact on delivery timelines
+  - **Support of FinTech App**
+    - took active role in supporting and debugging various error cases that
+      caused duplicate payments to be processed. Expanded test suite to
+      highlight various error cases that were discovered through various app
+      disruptions.
+
+### 2021 Jun - 2021 Nov Senior Software Developer Black Box Co
 
   - **architecture:**
     - design and start building a data processing pipeline
@@ -33,24 +101,6 @@ this resume lives at [Github saramic/learning/RESUME.md](https://github.com/sara
   - **innovation:**
     - investigate and prototype faster data processing using Apache Spark,
       PySpark, Apache Arrow and Rust Datafusion
-
-### 2018 Oct - Present Conference Speaker and Mentor
-
-  - **speaking engagements:**
-    - presented developer practices around testing and pairing at international
-      conferences including RailsConf 2019 Minneapolis, RubyConf AU 2020,
-      ReactConf AU 2020
-    - presented at over 15 other speaking engagements on topics like features of
-      Rails, using VI coding Arduino including Melbourne Ruby Meetup, Melbourne
-      Python Meetup, Melbourne React Meetup, DDD Melbourne, Google DevFest 2019
-  - **mentoring:**
-    - paired with over 50 developers since 2018 (outside of work colleagues)
-    - ran one on one mentoring sessions with ~10 developers since 2019
-  - **hackathons:**
-    - Gov Hack winning project 2018
-    - 3rd place Unearthed hackathon 2017
-    - numerous other hackathons including Square Unboxed hackathon 2021,
-      PayPal/Braintree hackathon as well as numerous Melbourne Datathons
 
 ### 2017 Sep - 2021 May Software Engineer Fresho
 
@@ -118,11 +168,15 @@ this resume lives at [Github saramic/learning/RESUME.md](https://github.com/sara
 
 ## Hobbies and other interests
 
-  - **outdoors:** camping, hiking, bike riding, fly fishing, inline skating
+  - **outdoors:** camping, hiking, bike riding, fly fishing, inline skating,
+    paddleboarding
   - **art:** with my kids I like to have a crack at: ukulele, recorder, piano,
     whittling and drawing
   - **reading:** mostly technical and leadership books, often as part of book
     club
-  - **community:** part of the Polish Scouting and Polish Folkloric group often
-    taking part in various cultural and community events
+  - **community:** part of the Polish Scouting running camps for kids and a
+    troop leader in Melbourne Metro area
+  - **electronics/radio:** interest in electronics and looking to getting a HAM
+    amateur radio licence in 2024 -
+    [https://saramic.github.io/ham-radio/](https://saramic.github.io/ham-radio/)
 
