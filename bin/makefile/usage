@@ -19,6 +19,8 @@ _usage() {
   echo -e "${YELLOW}make dev-env${NC}         setup the default developer environment"
   echo -e "${YELLOW}make update-dev-env${NC}  update brew and setup the default developer environment"
   echo
+  echo -e "${YELLOW}make resume-to-pdf${NC}   generate PDF from RESUME.md"
+  echo
 }
 
 _usage
