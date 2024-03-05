@@ -12,6 +12,6 @@ update-dev-env:
 
 resume-to-pdf:
 	pip install md2pdf && \
-		md2pdf RESUME.md RESUME.Michael_Milewski.$(date +%Y%m%d).pdf && \
-		open RESUME.Michael_Milewski.$(date +%Y%m%d).pdf
+		md2pdf RESUME.md RESUME.Michael_Milewski.`date +%Y%m%d`.pdf && \
+		open RESUME.Michael_Milewski.`date +%Y%m%d`.pdf
 
