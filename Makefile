@@ -15,3 +15,9 @@ resume-to-pdf:
 		md2pdf RESUME.md RESUME.Michael_Milewski.`date +%Y%m%d`.pdf && \
 		open RESUME.Michael_Milewski.`date +%Y%m%d`.pdf
 
+.PHONY: dev-blog
+dev-blog:
+	pushd docs && \
+		bundle && \
+		bundle exec jekyll serve && \
+		popd
