@@ -95,3 +95,49 @@ finally open the images and scan them
 open qr_iamages
 ```
 
+and looking at the app and greyed out images
+
+```
+YWNoOkFtYW4gS3VtYXI=
+YWNoOkFuZHJldyBIYXJyaXM=
+YWNoOkFzaCBBbmls
+YWNoOkJhYmEgS2F5bGphbm92
+YWNoOkJlbiBOZW9o
+YWNoOkJldHR5IEJvbmRvYw==
+YWNoOkJyeWRlbiBPbGl2ZXI=
+YWNoOkNhbWlsbGEgUm9zYSBTaWx2YQ==
+YWNoOkNoYXJsZXMgVmlvbm5ldA==
+YWNoOklzYWJlbCBTYW5kc3Ryb2Vt
+YWNoOkplcm5laiBLYXZrYQ==
+YWNoOkplcnJ5IEx1bw==
+YWNoOkpvaG4gWHU=
+YWNoOkpvcmRpIEd1aQ==
+YWNoOkpvc2VwaCBGZXJuYW5kZXo=
+YWNoOkpvc2ggQmVybWFu
+YWNoOkthaGEgTWFzb24=
+YWNoOktlbiBTaGk=
+YWNoOktpa2kgQmlhbmNhdHRp
+YWNoOkx1a2UgTWFv
+YWNoOk5hZGVlIEtvZGl0dXdha2t1
+YWNoOlBlbm55IFdhbGtlcg==
+YWNoOlNhbSBTbWl0aA==
+YWNoOlNhbSBXYWduZXI=
+YWNoOlNvZmllIEhvbmc=
+YWNoOlNvcGhpZUJvdA==
+YWNoOlN0ZXBoYW4gRmFrbw==
+YWNoOlRvbSBJd2FpbnNraQ==
+YWNoOlZsYWQgS2lyZXlldg==
+YWNoOllhbGFsIENha2ly
+YWNoOlphY2sgS2VlcGluZw==
+```
+
+can also follow up with the link
+
+Baba Kayljanov - https://ssw.com.au/people/baba-kamyljanov/
+
+what about
+
+```
+ach:Visited SSW booth@ DDD Melbourne 2024
+ach:Visited SSW booth@ DDD Brisbane 2024
+```
