@@ -7,7 +7,12 @@
    assuming ng installed with
 
    ```bash
-   asdf local nodejs lts
+   # assuming asdf
+   asdf plugin add nodejs
+   asdf list-all nodejs | ag 20
+   asdf local nodejs 20.12.1
+   asdf install
+
    npm install -g @angular/cli
    ```
 
