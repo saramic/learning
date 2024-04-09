@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "7.2.0",
     "cypress": "latest",
     "eslint": "^8.57.0",
+    "eslint-plugin-sonarjs": "^0.25.1",
     "jsdom": "^22.0.0",
     "typescript": "~5.4.2",
     "vite-tsconfig-paths": "^4.2.0",

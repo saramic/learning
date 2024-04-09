@@ -191,3 +191,13 @@
 
    _note: did not work with existing tests due to errors, probably need more
    config_
+
+1. **Code quality**
+
+   using SonarJS
+
+   ```bash
+   npm install --save-dev eslint-plugin-sonarjs
+   ```
+
+   _note: no real way to test this unless we break something?_
