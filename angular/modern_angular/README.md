@@ -158,6 +158,28 @@
 
    seems to work with existing Karma tests - but faster!!!
 
+   **Also** as per blog post above can run in browser with
+
+   ```bash
+   npm install @vitest/browser playwright --save-dev
+   ```
+
+   and updates to vite.config.mts
+
+   ```diff
+        setupFiles: ['src/test-setup.ts'],
+   -      include: ['**/*.spec.ts'],
+   +      include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+          reporters: ['default'],
+   +      browser: {
+   +        enabled: true,
+   +        name: 'chromium',
+   +        headless: false, // set to true in CI
+   +        provider: 'playwright',
+   +      },
+        },
+   ```
+
    **Alternative**
 
    ```bash
