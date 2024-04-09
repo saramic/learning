@@ -40,5 +40,18 @@
 
 1. **E2E test**
 
+   install Cypress with
+
+   ```bash
+   ng add @cypress/schematic
+
+   npm run
+
+   # can now
+   npm run e2e            # open cypress
+   npm run cypress:open   # also open cypress
+   npm run cypress:run    # run the default tests (fail)
+   ```
+
 1. **Unit test**
 
