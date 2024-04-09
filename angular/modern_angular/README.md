@@ -13,7 +13,7 @@
    asdf local nodejs 20.12.1
    asdf install
 
-   npm install -g @angular/cli
+   npm install --global @angular/cli
    ```
 
    ```bash
@@ -70,3 +70,55 @@
 
 1. **Unit test**
 
+   if wanting to use the default **Karma** setup, you may not want to create a
+   `--minimal` app as there is quite a bit of setup required
+
+   ```bash
+   # configure angular to run tests in angular.json
+   "test": {
+     "builder": "@angular-devkit/build-angular:karma",
+     "options": {
+       "polyfills": [
+         "zone.js",
+         "zone.js/testing"
+       ],
+       "tsConfig": "tsconfig.spec.json",
+       "assets": [
+         "src/favicon.ico",
+         "src/assets"
+       ],
+       "styles": [
+         "src/styles.css"
+       ],
+       "scripts": []
+     }
+   },
+
+   # not sure if there is a helper script to do this like ng init?
+   npm install --save-dev \
+     @types/jasmine \
+     jasmine-core \
+     karma \
+     karma-chrome-launcher \
+     karma-coverage \
+     karma-jasmine \
+     karma-jasmine-html-reporter
+
+   # add a bunch of package.json config
+   "scripts": {
+     ...
+     "test": "ng test",
+
+   # write a first spec like
+   ./src/app/app.component.spec.ts
+
+   # add spec ts config
+   ./tsconfig.spec.json
+
+   # run the tests, they run in the browser 🤮
+   npm run
+   npm test
+
+   npm test -- --watch=false # for CI run
+   # succeeds but prints out ERROR ? 🤪
+   ```
