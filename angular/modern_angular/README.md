@@ -55,5 +55,18 @@
 
    * alter `.gitignore` to ignore `cypress/screenshots/`
 
+   * and fix the test, can also run with
+
+   ```bash
+   npm run e2e
+
+   # or pre choose the runner, chrome in this case
+   npm run e2e -- --browser chrome --e2e
+
+   # or run the app and test
+   npm start
+   npm run cypress:run
+   ```
+
 1. **Unit test**
 
