@@ -53,5 +53,7 @@
    npm run cypress:run    # run the default tests (fail)
    ```
 
+   * alter `.gitignore` to ignore `cypress/screenshots/`
+
 1. **Unit test**
 
