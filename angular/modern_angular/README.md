@@ -122,3 +122,50 @@
    npm test -- --watch=false # for CI run
    # succeeds but prints out ERROR ? 🤪
    ```
+
+1. **Unit test - vitest**
+
+   following https://dev.to/brandontroberts/faster-testing-with-angular-and-vitest-274n
+
+   ```bash
+   npm install @analogjs/platform --save-dev
+   ng generate @analogjs/platform:setup-vitest
+   ```
+
+   and due to Karma tests installed above
+
+   ```bash
+   npm uninstall \
+     @types/jasmine \
+     jasmine-core \
+     karma \
+     karma-chrome-launcher \
+     karma-coverage \
+     karma-jasmine \
+     karma-jasmine-html-reporter
+   ```
+
+   ```bash
+   npm test
+   # but does not seem to read in changes??? 😭
+
+   # running vitest does work
+   npx vitest
+
+   # to run once like for CI also does not work under ng test
+   npx vitest --watch false
+   ```
+
+   seems to work with existing Karma tests - but faster!!!
+
+   **Alternative**
+
+   ```bash
+   npm add --save-dev vitest
+
+   # add a basic vitest config from somewhere?
+   vitest.config.ts
+   ```
+
+   _note: did not work with existing tests due to errors, probably need more
+   config_
