@@ -15,7 +15,7 @@ import { HousingLocation } from '../housinglocation';
       </form>
     </section>
     <section class="results">
-      <app-housing-location></app-housing-location>
+      <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
     </section>
   `,
   styleUrl: './home.component.css'
@@ -23,7 +23,7 @@ import { HousingLocation } from '../housinglocation';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/tutorials/common';
 
-  housingLocations: HousingLocation = {
+  housingLocation: HousingLocation = {
     id: 9999,
     name: 'Test Home',
     city: 'Test City',
