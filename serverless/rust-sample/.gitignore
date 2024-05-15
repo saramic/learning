@@ -221,3 +221,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/rust,osx,linux,windows,pycharm,visualstudiocode
 
+# sam intermediate build artefacts
+.aws-sam/
