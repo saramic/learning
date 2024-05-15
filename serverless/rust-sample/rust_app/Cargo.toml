@@ -22,3 +22,11 @@ tokio = { version = "1.21.1", features = ["full"] }
 aws-smithy-http = "0.52.0"
 aws-types = { version = "0.52.0", features = ["hardcoded-credentials"] }
 http = "0.2.8"
+
+[[bin]]
+name = "create"
+path = "src/bin/create_handler.rs"
+
+[[bin]]
+name = "get"
+path = "src/bin/get_handler.rs"

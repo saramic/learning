@@ -1,5 +1,6 @@
 use aws_sdk_dynamodb::{model::AttributeValue, Client};
 use lambda_http::{service_fn, Body, Error, Request, RequestExt, Response};
+use rust_sample::SharedItem;
 use std::env;
 
 /// Main function
@@ -34,7 +35,11 @@ async fn put_item(
     let path_parameters = request.path_parameters();
     let id = match path_parameters.first("id") {
         Some(id) => id,
-        None => return Ok(Response::builder().status(400).body("id is required".into())?),
+        None => {
+            return Ok(Response::builder()
+                .status(400)
+                .body("id is required".into())?)
+        }
     };
 
     // Extract body from request
@@ -56,7 +61,9 @@ async fn put_item(
     // Return a response to the end-user
     match res {
         Ok(_) => Ok(Response::builder().status(200).body("item saved".into())?),
-        Err(_) => Ok(Response::builder().status(500).body("internal error".into())?),
+        Err(_) => Ok(Response::builder()
+            .status(500)
+            .body("internal error".into())?),
     }
 }
 
@@ -136,9 +143,7 @@ mod tests {
             .with_path_parameters(path_parameters);
 
         // Send mock request to Lambda handler function
-        let response = put_item(&client, table_name, request)
-            .await
-            .unwrap();
+        let response = put_item(&client, table_name, request).await.unwrap();
 
         // Assert that the response is correct
         assert_eq!(response.status(), 200);
