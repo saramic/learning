@@ -1,0 +1,35 @@
+# mange dependencies with brew https://brew.sh/
+
+#
+# Runtimes
+#
+brew "asdf"                     # Extendable version manager with support for
+                                # Ruby, Node.js, Erlang & more
+                                # https://asdf-vm.com/
+
+#
+# Deployment tools
+#
+brew "awscli"                   # Official Amazon AWS command-line interface
+                                # https://aws.amazon.com/cli/
+brew "aws-cdk"                  # AWS Cloud Development Kit - framework for
+                                # defining AWS infra as code
+                                # https://github.com/aws/aws-cdk
+brew "aws-sam-cli"              # CLI tool to build, test, debug, and deploy
+                                # Serverless applications using AWS SAM
+                                # https://aws.amazon.com/serverless/sam/
+
+#
+# Developer tools
+#
+# RUST related
+tap "filosottile/musl-cross"
+brew "filoSottile/musl-cross/musl-cross"
+                                # Linux cross compilers based on musl libc
+                                # https://github.com/richfelker/musl-cross-make
+tap "cargo-lambda/cargo-lambda"
+brew "cargo-lambda"
+
+#
+# Utilities
+#
