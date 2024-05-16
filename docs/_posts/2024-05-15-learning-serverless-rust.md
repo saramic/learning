@@ -216,6 +216,14 @@ something is wrong 🤦, in fact at this point I even wander if the save/PUT eve
 worked as I never dumped the data base. I cannot see the code difference
 tonight but with time no doubt I'll get someplace.
 
+**Update:** it was a typo
+
+```diff
+- Ok(Response::builder().status(200).body(payload["pyaload"].as_s()...
++ Ok(Response::builder().status(200).body(payload["payload"].as_s()...
+                                                    ^^
+```
+
 **Next time:**
 
 - get the get/put working
@@ -250,4 +258,5 @@ tonight but with time no doubt I'll get someplace.
 - all the other videos
 - go back and build a lambda processor, may be with an integration spec and
   maybe with `pact` contract testing?
+
 

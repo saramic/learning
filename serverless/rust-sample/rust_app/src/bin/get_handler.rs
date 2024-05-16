@@ -50,7 +50,7 @@ async fn get_item(
     match res {
         Ok(query_result) => {
             let payload = query_result.item().expect("Payload attribute should exist");
-            Ok(Response::builder().status(200).body(payload["pyaload"].as_s().unwrap().to_string().into())?)
+            Ok(Response::builder().status(200).body(payload["payload"].as_s().unwrap().to_string().into())?)
         },
         Err(_) => Ok(Response::builder().status(500).body("internal error".into())?),
     }
