@@ -28,7 +28,9 @@ brew "filoSottile/musl-cross/musl-cross"
                                 # Linux cross compilers based on musl libc
                                 # https://github.com/richfelker/musl-cross-make
 tap "cargo-lambda/cargo-lambda"
-brew "cargo-lambda"
+brew "cargo-lambda"             # Cargo Lambda is a Cargo subcommand to help you
+                                # work with AWS Lambda.
+                                # https://www.cargo-lambda.info
 
 #
 # Utilities
