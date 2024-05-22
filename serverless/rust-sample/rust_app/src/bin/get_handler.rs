@@ -1,6 +1,5 @@
 use aws_sdk_dynamodb::{model::AttributeValue, Client};
 use lambda_http::{service_fn, Body, Error, Request, RequestExt, Response};
-use rust_sample::SharedItem;
 use std::env;
 
 /// Main function
