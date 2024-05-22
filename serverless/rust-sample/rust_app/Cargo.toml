@@ -6,10 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-trait = "0.1.80"
 aws-config = "0.52.0"
 aws-sdk-dynamodb = "0.22.0"
 aws-smithy-client = { version = "0.52.0", features = ["test-util"] }
 lambda_http = "0.7.2"
+mockall = "0.12.1"
 tokio = { version = "1.21.1", features = ["full"] }
 
 # lambda_runtime = "0.6.0"
