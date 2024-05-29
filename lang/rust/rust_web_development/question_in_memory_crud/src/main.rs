@@ -1,14 +1,14 @@
-use warp::{Filter, reject::Reject, Rejection, Reply, http::StatusCode};
 use serde::Serialize;
 use std::io::{Error, ErrorKind};
 use std::str::FromStr;
+use warp::{http::StatusCode, reject::Reject, Filter, Rejection, Reply};
 
 #[derive(Debug, Serialize)]
 struct Question {
     id: QuestionId,
     title: String,
     content: String,
-    tags: Option<Vec<String>>
+    tags: Option<Vec<String>>,
 }
 
 #[derive(Debug, Serialize)]
@@ -20,20 +20,13 @@ impl FromStr for QuestionId {
     fn from_str(id: &str) -> Result<Self, Self::Err> {
         match id.is_empty() {
             false => Ok(QuestionId(id.to_string())),
-            true => Err(
-                Error::new(ErrorKind::InvalidInput, "No id provided")
-            ),
+            true => Err(Error::new(ErrorKind::InvalidInput, "No id provided")),
         }
     }
 }
 
 impl Question {
-    fn new (
-        id: QuestionId,
-        title: String,
-        content: String,
-        tags: Option<Vec<String>>
-    ) -> Self {
+    fn new(id: QuestionId, title: String, content: String, tags: Option<Vec<String>>) -> Self {
         Question {
             id,
             title,
@@ -52,31 +45,25 @@ async fn get_questions() -> Result<impl warp::Reply, warp::Rejection> {
         QuestionId::from_str("1").expect("No id provided"),
         "Frist Question".to_string(),
         "Content of question".to_string(),
-        Some(vec!("faq".to_string())),
+        Some(vec!["faq".to_string()]),
     );
 
     match question.id.0.parse::<i32>() {
-        Err(_) => {
-            Err(warp::reject::custom(InvalidId))
-        },
-        Ok(_) => {
-            Ok(warp::reply::json(
-                &question
-            ))
-        }
+        Err(_) => Err(warp::reject::custom(InvalidId)),
+        Ok(_) => Ok(warp::reply::json(&question)),
     }
 }
 
 async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
     if let Some(InvalidId) = r.find() {
         Ok(warp::reply::with_status(
-                "No valid ID presented",
-                StatusCode::UNPROCESSABLE_ENTITY,
+            "No valid ID presented",
+            StatusCode::UNPROCESSABLE_ENTITY,
         ))
     } else {
         Ok(warp::reply::with_status(
-                "Route not found",
-                StatusCode::NOT_FOUND,
+            "Route not found",
+            StatusCode::NOT_FOUND,
         ))
     }
 }
@@ -91,7 +78,5 @@ async fn main() {
 
     let routes = get_items;
 
-    warp::serve(routes)
-        .run(([127, 0, 0, 1], 1337))
-        .await;
+    warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
 }
