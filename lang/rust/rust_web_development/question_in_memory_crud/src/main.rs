@@ -1,6 +1,8 @@
-use serde::{Deserialize, Serialize};
 use indexmap::IndexMap;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::sync::Arc;
+use tokio::sync::RwLock;
 use warp::{
     filters::cors::CorsForbidden, http::Method, http::StatusCode, reject::Reject, Filter,
     Rejection, Reply,
@@ -35,21 +37,19 @@ struct Pagination {
 
 fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Error> {
     if params.contains_key("start") && params.contains_key("end") {
-       let start = params
-                .get("start")
-                .unwrap()
-                .parse::<usize>()
-                .map_err(Error::ParseError)?;
-       let end = params
-                .get("end")
-                .unwrap()
-                .parse::<usize>()
-                .map_err(Error::ParseError)?;
+        let start = params
+            .get("start")
+            .unwrap()
+            .parse::<usize>()
+            .map_err(Error::ParseError)?;
+        let end = params
+            .get("end")
+            .unwrap()
+            .parse::<usize>()
+            .map_err(Error::ParseError)?;
 
         match start.cmp(&end) {
-            std::cmp::Ordering::Greater => {
-                return Err(Error::WrongIndex)
-            }
+            std::cmp::Ordering::Greater => return Err(Error::WrongIndex),
             _ => {
                 return Ok(Pagination {
                     start: start,
@@ -57,21 +57,20 @@ fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Err
                 })
             }
         }
-
     }
 
     Err(Error::MissingParameters)
 }
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone)]
 struct Store {
-    questions: IndexMap<QuestionId, Question>,
+    questions: Arc<RwLock<IndexMap<QuestionId, Question>>>,
 }
 
 impl Store {
     fn new() -> Self {
         Store {
-            questions: Self::init(),
+            questions: Arc::new(RwLock::new(Self::init())),
         }
     }
 
@@ -98,11 +97,11 @@ async fn get_questions(
 ) -> Result<impl warp::Reply, warp::Rejection> {
     if !params.is_empty() {
         let pagination = extract_pagination(params)?;
-        let res: Vec<Question> = store.questions.values().cloned().collect();
+        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
         let res = &res[pagination.start..pagination.end];
         Ok(warp::reply::json(&res))
     } else {
-        let res: Vec<Question> = store.questions.values().cloned().collect();
+        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
         Ok(warp::reply::json(&res))
     }
 }
