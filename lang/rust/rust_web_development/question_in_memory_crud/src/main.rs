@@ -127,17 +127,21 @@ async fn add_question(
 async fn update_question(
     id: String,
     store: Store,
-    question: Question
+    question: Question,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     match store.questions.write().await.get_mut(&QuestionId(id)) {
         Some(q) => *q = question,
         None => return Err(warp::reject::custom(Error::QuestionNotFound)),
     }
 
-    Ok(warp::reply::with_status(
-        "Question updated",
-        StatusCode::OK,
-    ))
+    Ok(warp::reply::with_status("Question updated", StatusCode::OK))
+}
+
+async fn delete_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
+    match store.questions.write().await.remove(&QuestionId(id)) {
+        Some(_) => return Ok(warp::reply::with_status("Question deleted", StatusCode::OK)),
+        None => return Err(warp::reject::custom(Error::QuestionNotFound)),
+    }
 }
 
 async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
@@ -197,9 +201,17 @@ async fn main() {
         .and(warp::body::json())
         .and_then(update_question);
 
+    let delete_question = warp::delete()
+        .and(warp::path("questions"))
+        .and(warp::path::param::<String>())
+        .and(warp::path::end())
+        .and(store_filter.clone())
+        .and_then(delete_question);
+
     let routes = get_questions
         .or(add_question)
         .or(update_question)
+        .or(delete_question)
         .with(cors)
         .recover(return_error);
 
