@@ -138,7 +138,13 @@ async fn update_question(
 }
 
 async fn delete_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
-    match store.questions.write().await.remove(&QuestionId(id)) {
+    // warning: use of deprecated method `indexmap::IndexMap::<K, V, S>::remove`: `remove` disrupts
+    //          the map order -- use `swap_remove` or `shift_remove` for explicit behavior.
+    //          ...write().await.remove(&QuestionId(id))...
+    // swap, faster as O(1) swapping last for the removed
+    //          ...write().await.swap_remove(&QuestionId(id))...
+    // shift across, probably what you want but O(n)
+    match store.questions.write().await.shift_remove(&QuestionId(id)) {
         Some(_) => return Ok(warp::reply::with_status("Question deleted", StatusCode::OK)),
         None => return Err(warp::reject::custom(Error::QuestionNotFound)),
     }
