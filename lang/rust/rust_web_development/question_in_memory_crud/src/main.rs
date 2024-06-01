@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use indexmap::IndexMap;
 use std::collections::HashMap;
 use warp::{
     filters::cors::CorsForbidden, http::Method, http::StatusCode, reject::Reject, Filter,
@@ -64,7 +65,7 @@ fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Err
 
 #[derive(Clone, Deserialize)]
 struct Store {
-    questions: HashMap<QuestionId, Question>,
+    questions: IndexMap<QuestionId, Question>,
 }
 
 impl Store {
@@ -74,7 +75,7 @@ impl Store {
         }
     }
 
-    fn init() -> HashMap<QuestionId, Question> {
+    fn init() -> IndexMap<QuestionId, Question> {
         let file = include_str!("../questions.json");
         serde_json::from_str(file).expect("can't read questions.json")
     }
