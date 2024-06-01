@@ -5,6 +5,50 @@ use warp::{
     Rejection, Reply,
 };
 
+#[derive(Debug)]
+enum Error {
+    ParseError(std::num::ParseIntError),
+    MissingParameters,
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match *self {
+            Error::ParseError(ref err) => {
+                write!(f, "Cannot parse parameter: {}", err)
+            }
+            Error::MissingParameters => write!(f, "Missing parameter"),
+        }
+    }
+}
+
+impl Reject for Error {}
+
+#[derive(Debug)]
+struct Pagination {
+    start: usize,
+    end: usize,
+}
+
+fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Error> {
+    if params.contains_key("start") && params.contains_key("end") {
+        return Ok(Pagination {
+            start: params
+                .get("start")
+                .unwrap()
+                .parse::<usize>()
+                .map_err(Error::ParseError)?,
+            end: params
+                .get("end")
+                .unwrap()
+                .parse::<usize>()
+                .map_err(Error::ParseError)?,
+        });
+    }
+
+    Err(Error::MissingParameters)
+}
+
 #[derive(Clone, Deserialize)]
 struct Store {
     questions: HashMap<QuestionId, Question>,
@@ -13,11 +57,11 @@ struct Store {
 impl Store {
     fn new() -> Self {
         Store {
-            questions: HashMap::new(),
+            questions: Self::init(),
         }
     }
 
-    fn init(self) -> Self {
+    fn init() -> HashMap<QuestionId, Question> {
         let file = include_str!("../questions.json");
         serde_json::from_str(file).expect("can't read questions.json")
     }
@@ -38,31 +82,25 @@ async fn get_questions(
     params: HashMap<String, String>,
     store: Store,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    let mut start = 0;
-    // can print out params
-    println!("{:?}", params);
-    // OR get them or NONE
-    match params.get("start") {
-        Some(start) => println!("{}", start),
-        NONE => println!("No Start value"),
+    if !params.is_empty() {
+        let pagination = extract_pagination(params)?;
+        let res: Vec<Question> = store.questions.values().cloned().collect();
+        let res = &res[pagination.start..pagination.end];
+        Ok(warp::reply::json(&res))
+    } else {
+        let res: Vec<Question> = store.questions.values().cloned().collect();
+        Ok(warp::reply::json(&res))
     }
-    // OR only care about when params are added
-    if let Some(n) = params.get("start") {
-        println!("{}", n);
-        println!("{:?}", n.parse::<usize>()); // parse returns Result so need Debug "{:?}"
-        start = n.parse::<usize>().expect("Could not parse start");
-    }
-
-    println!("{}", start);
-
-    let res: Vec<Question> = store.questions.values().cloned().collect();
-
-    Ok(warp::reply::json(&res))
 }
 
 async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
     // println!("{:?}", r);
-    if let Some(error) = r.find::<CorsForbidden>() {
+    if let Some(error) = r.find::<Error>() {
+        Ok(warp::reply::with_status(
+            error.to_string(),
+            StatusCode::RANGE_NOT_SATISFIABLE,
+        ))
+    } else if let Some(error) = r.find::<CorsForbidden>() {
         Ok(warp::reply::with_status(
             error.to_string(),
             StatusCode::FORBIDDEN,
@@ -83,7 +121,6 @@ async fn main() {
     let cors = warp::cors()
         .allow_any_origin()
         .allow_header("content-type")
-        // .allow_header("not-in-the-request")
         .allow_methods(&[Method::PUT, Method::DELETE, Method::GET, Method::POST]);
 
     let get_items = warp::get()
