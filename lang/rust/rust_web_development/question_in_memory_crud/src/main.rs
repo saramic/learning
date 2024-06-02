@@ -3,38 +3,66 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
-use warp::{
-    filters::{body::BodyDeserializeError, cors::CorsForbidden},
-    http::Method,
-    http::StatusCode,
-    reject::Reject,
-    Filter, Rejection, Reply,
-};
+use warp::{http::Method, http::StatusCode, Filter};
 
-#[derive(Debug)]
-enum Error {
-    ParseError(std::num::ParseIntError),
-    MissingParameters,
-    WrongIndex,
-    QuestionNotFound,
-    AnswerNotFound,
-}
+mod error {
+    use warp::{
+        filters::{body::BodyDeserializeError, cors::CorsForbidden},
+        http::StatusCode,
+        reject::Reject,
+        Rejection, Reply,
+    };
 
-impl std::fmt::Display for Error {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match *self {
-            Error::ParseError(ref err) => {
-                write!(f, "Cannot parse parameter: {}", err)
+    #[derive(Debug)]
+    pub enum Error {
+        ParseError(std::num::ParseIntError),
+        MissingParameters,
+        WrongIndex,
+        QuestionNotFound,
+        AnswerNotFound,
+    }
+
+    impl std::fmt::Display for Error {
+        fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+            match *self {
+                Error::ParseError(ref err) => {
+                    write!(f, "Cannot parse parameter: {}", err)
+                }
+                Error::MissingParameters => write!(f, "Missing parameter"),
+                Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
+                Error::QuestionNotFound => write!(f, "Question not found"),
+                Error::AnswerNotFound => write!(f, "Answer not found"),
             }
-            Error::MissingParameters => write!(f, "Missing parameter"),
-            Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
-            Error::QuestionNotFound => write!(f, "Question not found"),
-            Error::AnswerNotFound => write!(f, "Answer not found"),
+        }
+    }
+
+    impl Reject for Error {}
+
+    pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
+        // println!("{:?}", r);
+        if let Some(error) = r.find::<Error>() {
+            Ok(warp::reply::with_status(
+                error.to_string(),
+                StatusCode::RANGE_NOT_SATISFIABLE,
+            ))
+        } else if let Some(error) = r.find::<CorsForbidden>() {
+            Ok(warp::reply::with_status(
+                error.to_string(),
+                StatusCode::FORBIDDEN,
+            ))
+        } else if let Some(error) = r.find::<BodyDeserializeError>() {
+            Ok(warp::reply::with_status(
+                error.to_string(),
+                StatusCode::UNPROCESSABLE_ENTITY,
+            ))
+        } else {
+            Ok(warp::reply::with_status(
+                "Route not found".to_string(),
+                StatusCode::NOT_FOUND,
+            ))
         }
     }
 }
-
-impl Reject for Error {}
 
 #[derive(Debug)]
 struct Pagination {
@@ -42,21 +70,21 @@ struct Pagination {
     end: usize,
 }
 
-fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Error> {
+fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, error::Error> {
     if params.contains_key("start") && params.contains_key("end") {
         let start = params
             .get("start")
             .unwrap()
             .parse::<usize>()
-            .map_err(Error::ParseError)?;
+            .map_err(error::Error::ParseError)?;
         let end = params
             .get("end")
             .unwrap()
             .parse::<usize>()
-            .map_err(Error::ParseError)?;
+            .map_err(error::Error::ParseError)?;
 
         match start.cmp(&end) {
-            std::cmp::Ordering::Greater => return Err(Error::WrongIndex),
+            std::cmp::Ordering::Greater => return Err(error::Error::WrongIndex),
             _ => {
                 return Ok(Pagination {
                     start: start,
@@ -66,7 +94,7 @@ fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, Err
         }
     }
 
-    Err(Error::MissingParameters)
+    Err(error::Error::MissingParameters)
 }
 
 #[derive(Clone)]
@@ -128,7 +156,7 @@ async fn get_questions(
 async fn get_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
     match store.questions.read().await.get(&QuestionId(id)) {
         Some(q) => return Ok(warp::reply::json(q)),
-        None => return Err(warp::reject::custom(Error::QuestionNotFound)),
+        None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
 }
 
@@ -152,7 +180,7 @@ async fn update_question(
 ) -> Result<impl warp::Reply, warp::Rejection> {
     match store.questions.write().await.get_mut(&QuestionId(id)) {
         Some(q) => *q = question,
-        None => return Err(warp::reject::custom(Error::QuestionNotFound)),
+        None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
 
     Ok(warp::reply::with_status("Question updated", StatusCode::OK))
@@ -167,7 +195,7 @@ async fn delete_question(id: String, store: Store) -> Result<impl warp::Reply, w
     // shift across, probably what you want but O(n)
     match store.questions.write().await.shift_remove(&QuestionId(id)) {
         Some(_) => return Ok(warp::reply::with_status("Question deleted", StatusCode::OK)),
-        None => return Err(warp::reject::custom(Error::QuestionNotFound)),
+        None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
 }
 
@@ -208,33 +236,8 @@ async fn get_answers(
         .cloned()
         .collect();
     match res.is_empty() {
-        true => return Err(warp::reject::custom(Error::AnswerNotFound)),
+        true => return Err(warp::reject::custom(error::Error::AnswerNotFound)),
         false => return Ok(warp::reply::json(&res)),
-    }
-}
-
-async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
-    // println!("{:?}", r);
-    if let Some(error) = r.find::<Error>() {
-        Ok(warp::reply::with_status(
-            error.to_string(),
-            StatusCode::RANGE_NOT_SATISFIABLE,
-        ))
-    } else if let Some(error) = r.find::<CorsForbidden>() {
-        Ok(warp::reply::with_status(
-            error.to_string(),
-            StatusCode::FORBIDDEN,
-        ))
-    } else if let Some(error) = r.find::<BodyDeserializeError>() {
-        Ok(warp::reply::with_status(
-            error.to_string(),
-            StatusCode::UNPROCESSABLE_ENTITY,
-        ))
-    } else {
-        Ok(warp::reply::with_status(
-            "Route not found".to_string(),
-            StatusCode::NOT_FOUND,
-        ))
     }
 }
 
@@ -307,7 +310,7 @@ async fn main() {
         .or(add_answer)
         .or(get_answers)
         .with(cors)
-        .recover(return_error);
+        .recover(error::return_error);
 
     warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
 }
