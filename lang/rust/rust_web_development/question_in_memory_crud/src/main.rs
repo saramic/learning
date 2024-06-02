@@ -1,76 +1,15 @@
 use indexmap::IndexMap;
-use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use warp::{http::Method, http::StatusCode, Filter};
 
-mod error {
-    use warp::{
-        filters::{body::BodyDeserializeError, cors::CorsForbidden},
-        http::StatusCode,
-        reject::Reject,
-        Rejection, Reply,
-    };
+mod error;
+mod types;
 
-    #[derive(Debug)]
-    pub enum Error {
-        ParseError(std::num::ParseIntError),
-        MissingParameters,
-        WrongIndex,
-        QuestionNotFound,
-        AnswerNotFound,
-    }
-
-    impl std::fmt::Display for Error {
-        fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-            match *self {
-                Error::ParseError(ref err) => {
-                    write!(f, "Cannot parse parameter: {}", err)
-                }
-                Error::MissingParameters => write!(f, "Missing parameter"),
-                Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
-                Error::QuestionNotFound => write!(f, "Question not found"),
-                Error::AnswerNotFound => write!(f, "Answer not found"),
-            }
-        }
-    }
-
-    impl Reject for Error {}
-
-    pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
-        // println!("{:?}", r);
-        if let Some(error) = r.find::<Error>() {
-            Ok(warp::reply::with_status(
-                error.to_string(),
-                StatusCode::RANGE_NOT_SATISFIABLE,
-            ))
-        } else if let Some(error) = r.find::<CorsForbidden>() {
-            Ok(warp::reply::with_status(
-                error.to_string(),
-                StatusCode::FORBIDDEN,
-            ))
-        } else if let Some(error) = r.find::<BodyDeserializeError>() {
-            Ok(warp::reply::with_status(
-                error.to_string(),
-                StatusCode::UNPROCESSABLE_ENTITY,
-            ))
-        } else {
-            Ok(warp::reply::with_status(
-                "Route not found".to_string(),
-                StatusCode::NOT_FOUND,
-            ))
-        }
-    }
-}
-
-#[derive(Debug)]
-struct Pagination {
-    start: usize,
-    end: usize,
-}
-
-fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, error::Error> {
+fn extract_pagination(
+    params: HashMap<String, String>,
+) -> Result<types::pagination::Pagination, error::Error> {
     if params.contains_key("start") && params.contains_key("end") {
         let start = params
             .get("start")
@@ -86,7 +25,7 @@ fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, err
         match start.cmp(&end) {
             std::cmp::Ordering::Greater => return Err(error::Error::WrongIndex),
             _ => {
-                return Ok(Pagination {
+                return Ok(types::pagination::Pagination {
                     start: start,
                     end: end,
                 })
@@ -99,8 +38,8 @@ fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination, err
 
 #[derive(Clone)]
 struct Store {
-    questions: Arc<RwLock<IndexMap<QuestionId, Question>>>,
-    answers: Arc<RwLock<HashMap<AnswerId, Answer>>>,
+    questions: Arc<RwLock<IndexMap<types::question::QuestionId, types::question::Question>>>,
+    answers: Arc<RwLock<HashMap<types::answer::AnswerId, types::answer::Answer>>>,
 }
 
 impl Store {
@@ -111,31 +50,10 @@ impl Store {
         }
     }
 
-    fn init() -> IndexMap<QuestionId, Question> {
+    fn init() -> IndexMap<types::question::QuestionId, types::question::Question> {
         let file = include_str!("../questions.json");
         serde_json::from_str(file).expect("can't read questions.json")
     }
-}
-
-#[derive(Clone, Deserialize, Debug, Serialize)]
-struct Question {
-    id: QuestionId,
-    title: String,
-    content: String,
-    tags: Option<Vec<String>>,
-}
-
-#[derive(Deserialize, Debug, Serialize, Clone, PartialEq, Eq, Hash)]
-struct QuestionId(String);
-
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
-struct AnswerId(String);
-
-#[derive(Serialize, Deserialize, Debug, Clone)]
-struct Answer {
-    id: AnswerId,
-    content: String,
-    question_id: QuestionId,
 }
 
 async fn get_questions(
@@ -144,17 +62,24 @@ async fn get_questions(
 ) -> Result<impl warp::Reply, warp::Rejection> {
     if !params.is_empty() {
         let pagination = extract_pagination(params)?;
-        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
+        let res: Vec<types::question::Question> =
+            store.questions.read().await.values().cloned().collect();
         let res = &res[pagination.start..pagination.end];
         Ok(warp::reply::json(&res))
     } else {
-        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
+        let res: Vec<types::question::Question> =
+            store.questions.read().await.values().cloned().collect();
         Ok(warp::reply::json(&res))
     }
 }
 
 async fn get_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
-    match store.questions.read().await.get(&QuestionId(id)) {
+    match store
+        .questions
+        .read()
+        .await
+        .get(&types::question::QuestionId(id))
+    {
         Some(q) => return Ok(warp::reply::json(q)),
         None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
@@ -162,7 +87,7 @@ async fn get_question(id: String, store: Store) -> Result<impl warp::Reply, warp
 
 async fn add_question(
     store: Store,
-    question: Question,
+    question: types::question::Question,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     store
         .questions
@@ -176,9 +101,14 @@ async fn add_question(
 async fn update_question(
     id: String,
     store: Store,
-    question: Question,
+    question: types::question::Question,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    match store.questions.write().await.get_mut(&QuestionId(id)) {
+    match store
+        .questions
+        .write()
+        .await
+        .get_mut(&types::question::QuestionId(id))
+    {
         Some(q) => *q = question,
         None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
@@ -187,13 +117,12 @@ async fn update_question(
 }
 
 async fn delete_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
-    // warning: use of deprecated method `indexmap::IndexMap::<K, V, S>::remove`: `remove` disrupts
-    //          the map order -- use `swap_remove` or `shift_remove` for explicit behavior.
-    //          ...write().await.remove(&QuestionId(id))...
-    // swap, faster as O(1) swapping last for the removed
-    //          ...write().await.swap_remove(&QuestionId(id))...
-    // shift across, probably what you want but O(n)
-    match store.questions.write().await.shift_remove(&QuestionId(id)) {
+    match store
+        .questions
+        .write()
+        .await
+        .shift_remove(&types::question::QuestionId(id))
+    {
         Some(_) => return Ok(warp::reply::with_status("Question deleted", StatusCode::OK)),
         None => return Err(warp::reject::custom(error::Error::QuestionNotFound)),
     }
@@ -203,12 +132,12 @@ async fn add_answer(
     store: Store,
     params: HashMap<String, String>,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    let answer = Answer {
+    let answer = types::answer::Answer {
         // NOTE: get any passed in ID over suggested hardcoded number
-        id: AnswerId(params.get("id").unwrap().to_string()),
+        id: types::answer::AnswerId(params.get("id").unwrap().to_string()),
         content: params.get("content").unwrap().to_string(),
         // NOTE: unsafe as not dealing with mssing QuestionId's
-        question_id: QuestionId(params.get("questionId").unwrap().to_string()),
+        question_id: types::question::QuestionId(params.get("questionId").unwrap().to_string()),
     };
 
     store
@@ -217,9 +146,6 @@ async fn add_answer(
         .await
         .insert(answer.id.clone(), answer);
 
-    // NOTE: tempoarary display answers in log
-    println!("{:?}", store.answers);
-
     Ok(warp::reply::with_status("Answer added", StatusCode::OK))
 }
 
@@ -227,12 +153,12 @@ async fn get_answers(
     question_id: String,
     store: Store,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    let res: Vec<Answer> = store
+    let res: Vec<types::answer::Answer> = store
         .answers
         .read()
         .await
         .values()
-        .filter(|answer| answer.question_id == QuestionId(question_id.clone()))
+        .filter(|answer| answer.question_id == types::question::QuestionId(question_id.clone()))
         .cloned()
         .collect();
     match res.is_empty() {
