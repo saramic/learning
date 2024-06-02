@@ -17,6 +17,7 @@ enum Error {
     MissingParameters,
     WrongIndex,
     QuestionNotFound,
+    AnswerNotFound,
 }
 
 impl std::fmt::Display for Error {
@@ -28,6 +29,7 @@ impl std::fmt::Display for Error {
             Error::MissingParameters => write!(f, "Missing parameter"),
             Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
             Error::QuestionNotFound => write!(f, "Question not found"),
+            Error::AnswerNotFound => write!(f, "Answer not found"),
         }
     }
 }
@@ -193,6 +195,24 @@ async fn add_answer(
     Ok(warp::reply::with_status("Answer added", StatusCode::OK))
 }
 
+async fn get_answers(
+    question_id: String,
+    store: Store,
+) -> Result<impl warp::Reply, warp::Rejection> {
+    let res: Vec<Answer> = store
+        .answers
+        .read()
+        .await
+        .values()
+        .filter(|answer| answer.question_id == QuestionId(question_id.clone()))
+        .cloned()
+        .collect();
+    match res.is_empty() {
+        true => return Err(warp::reject::custom(Error::AnswerNotFound)),
+        false => return Ok(warp::reply::json(&res)),
+    }
+}
+
 async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
     // println!("{:?}", r);
     if let Some(error) = r.find::<Error>() {
@@ -271,12 +291,21 @@ async fn main() {
         .and(warp::body::form())
         .and_then(add_answer);
 
+    let get_answers = warp::get()
+        .and(warp::path("questions"))
+        .and(warp::path::param::<String>())
+        .and(warp::path("answers"))
+        .and(warp::path::end())
+        .and(store_filter.clone())
+        .and_then(get_answers);
+
     let routes = get_questions
         .or(get_question)
         .or(add_question)
         .or(update_question)
         .or(delete_question)
         .or(add_answer)
+        .or(get_answers)
         .with(cors)
         .recover(return_error);
 
