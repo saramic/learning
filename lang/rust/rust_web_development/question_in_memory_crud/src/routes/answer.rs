@@ -40,7 +40,7 @@ pub async fn get_answers(
         .cloned()
         .collect();
     match res.is_empty() {
-        true => return Err(warp::reject::custom(Error::AnswerNotFound)),
-        false => return Ok(warp::reply::json(&res)),
+        true => Err(warp::reject::custom(Error::AnswerNotFound)),
+        false => Ok(warp::reply::json(&res)),
     }
 }

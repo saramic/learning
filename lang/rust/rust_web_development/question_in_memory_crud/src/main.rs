@@ -28,6 +28,12 @@ impl Store {
     }
 }
 
+impl Default for Store {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[tokio::main]
 async fn main() {
     let store = Store::new();

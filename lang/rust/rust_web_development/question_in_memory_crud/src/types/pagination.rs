@@ -42,12 +42,7 @@ pub fn extract_pagination(params: HashMap<String, String>) -> Result<Pagination,
 
         match start.cmp(&end) {
             std::cmp::Ordering::Greater => return Err(Error::WrongIndex),
-            _ => {
-                return Ok(Pagination {
-                    start: start,
-                    end: end,
-                })
-            }
+            _ => return Ok(Pagination { start, end }),
         }
     }
 
