@@ -12,16 +12,21 @@ pub async fn get_questions(
 ) -> Result<impl warp::Reply, warp::Rejection> {
     if !params.is_empty() {
         let pagination = extract_pagination(params)?;
-        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
+        let res: Vec<Question> =
+            store.questions.read().await.values().cloned().collect();
         let res = &res[pagination.start..pagination.end];
         Ok(warp::reply::json(&res))
     } else {
-        let res: Vec<Question> = store.questions.read().await.values().cloned().collect();
+        let res: Vec<Question> =
+            store.questions.read().await.values().cloned().collect();
         Ok(warp::reply::json(&res))
     }
 }
 
-pub async fn get_question(id: String, store: Store) -> Result<impl warp::Reply, warp::Rejection> {
+pub async fn get_question(
+    id: String,
+    store: Store,
+) -> Result<impl warp::Reply, warp::Rejection> {
     match store.questions.read().await.get(&QuestionId(id)) {
         Some(q) => Ok(warp::reply::json(q)),
         None => Err(warp::reject::custom(Error::QuestionNotFound)),
@@ -59,7 +64,9 @@ pub async fn delete_question(
     store: Store,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     match store.questions.write().await.shift_remove(&QuestionId(id)) {
-        Some(_) => Ok(warp::reply::with_status("Question deleted", StatusCode::OK)),
+        Some(_) => {
+            Ok(warp::reply::with_status("Question deleted", StatusCode::OK))
+        }
         None => Err(warp::reject::custom(Error::QuestionNotFound)),
     }
 }

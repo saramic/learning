@@ -10,8 +10,13 @@ mod types;
 
 #[derive(Clone)]
 pub struct Store {
-    questions: Arc<RwLock<IndexMap<types::question::QuestionId, types::question::Question>>>,
-    answers: Arc<RwLock<HashMap<types::answer::AnswerId, types::answer::Answer>>>,
+    questions: Arc<
+        RwLock<
+            IndexMap<types::question::QuestionId, types::question::Question>,
+        >,
+    >,
+    answers:
+        Arc<RwLock<HashMap<types::answer::AnswerId, types::answer::Answer>>>,
 }
 
 impl Store {
@@ -22,7 +27,8 @@ impl Store {
         }
     }
 
-    fn init() -> IndexMap<types::question::QuestionId, types::question::Question> {
+    fn init() -> IndexMap<types::question::QuestionId, types::question::Question>
+    {
         let file = include_str!("../questions.json");
         serde_json::from_str(file).expect("can't read questions.json")
     }
@@ -42,7 +48,12 @@ async fn main() {
     let cors = warp::cors()
         .allow_any_origin()
         .allow_header("content-type")
-        .allow_methods(&[Method::PUT, Method::DELETE, Method::GET, Method::POST]);
+        .allow_methods(&[
+            Method::PUT,
+            Method::DELETE,
+            Method::GET,
+            Method::POST,
+        ]);
 
     let get_questions = warp::get()
         .and(warp::path("questions"))
