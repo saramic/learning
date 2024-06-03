@@ -1,7 +1,7 @@
+use handle_errors::Error;
 use std::collections::HashMap;
 use warp::http::StatusCode;
 
-use crate::error;
 use crate::types::answer::{Answer, AnswerId};
 use crate::types::question::QuestionId;
 use crate::Store;
@@ -40,7 +40,7 @@ pub async fn get_answers(
         .cloned()
         .collect();
     match res.is_empty() {
-        true => return Err(warp::reject::custom(error::Error::AnswerNotFound)),
+        true => return Err(warp::reject::custom(Error::AnswerNotFound)),
         false => return Ok(warp::reply::json(&res)),
     }
 }

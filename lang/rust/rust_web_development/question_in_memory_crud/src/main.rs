@@ -1,10 +1,10 @@
+use handle_errors::return_error;
 use indexmap::IndexMap;
 use std::collections::HashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use warp::{http::Method, Filter};
 
-mod error;
 mod routes;
 mod types;
 
@@ -97,7 +97,7 @@ async fn main() {
         .or(add_answer)
         .or(get_answers)
         .with(cors)
-        .recover(error::return_error);
+        .recover(return_error);
 
     warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
 }
