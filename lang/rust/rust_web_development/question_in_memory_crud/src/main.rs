@@ -42,6 +42,12 @@ impl Default for Store {
 
 #[tokio::main]
 async fn main() {
+    env_logger::init();
+
+    log::error!("this is an error!");
+    log::info!("this is an info!");
+    log::warn!("this is a warning!");
+
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
 
