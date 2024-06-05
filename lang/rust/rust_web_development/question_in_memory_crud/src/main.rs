@@ -49,7 +49,15 @@ async fn main() {
     log::warn!("this is a warning!");
 
     let log = warp::log::custom(|info| {
-        eprintln!("{} {} {}", info.method(), info.path(), info.status(),);
+        eprintln!(
+            "{} {} {} {:?} from {} with {:?}",
+            info.method(),
+            info.path(),
+            info.status(),
+            info.elapsed(),
+            info.remote_addr().unwrap(),
+            info.request_headers(),
+        );
     });
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
