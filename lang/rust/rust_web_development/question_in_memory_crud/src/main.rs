@@ -48,6 +48,9 @@ async fn main() {
     log::info!("this is an info!");
     log::warn!("this is a warning!");
 
+    let log = warp::log::custom(|info| {
+        eprintln!("{} {} {}", info.method(), info.path(), info.status(),);
+    });
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
 
@@ -120,6 +123,7 @@ async fn main() {
         .or(add_answer)
         .or(get_answers)
         .with(cors)
+        .with(log)
         .recover(return_error);
 
     warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
