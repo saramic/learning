@@ -48,9 +48,11 @@ async fn main() {
     log::info!("this is an info!");
     log::warn!("this is a warning!");
 
-    let log = warp::log::custom(|info| {
-        eprintln!(
-            "{} {} {} {:?} from {} with {:?}",
+    let id = uuid::Uuid::new_v4();
+    let log = warp::log::custom(move |info| {
+        log::info!(
+            "RequestId: {} {} {} {} {:?} from {} with {:?}",
+            id,
             info.method(),
             info.path(),
             info.status(),
@@ -61,6 +63,8 @@ async fn main() {
     });
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
+
+    let id_filter = warp::any().map(move || id.to_string());
 
     let cors = warp::cors()
         .allow_any_origin()
@@ -77,6 +81,7 @@ async fn main() {
         .and(warp::path::end())
         .and(warp::query())
         .and(store_filter.clone())
+        .and(id_filter)
         .and_then(routes::question::get_questions);
 
     let get_question = warp::get()
