@@ -3,12 +3,13 @@ use indexmap::IndexMap;
 use std::collections::HashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
+use tracing_subscriber::fmt::format::FmtSpan;
 use warp::{http::Method, Filter};
 
 mod routes;
 mod types;
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Store {
     questions: Arc<
         RwLock<
@@ -42,29 +43,18 @@ impl Default for Store {
 
 #[tokio::main]
 async fn main() {
-    log4rs::init_file("log4rs.yaml", Default::default()).unwrap();
+    let log_filter = std::env::var("RUST_LOG")
+        .unwrap_or_else(|_| "practical_rust-book=info,warp=error".to_owned());
 
-    log::error!("this is an error!");
-    log::info!("this is an info!");
-    log::warn!("this is a warning!");
-
-    let id = uuid::Uuid::new_v4();
-    let log = warp::log::custom(move |info| {
-        log::info!(
-            "RequestId: {} {} {} {} {:?} from {} with {:?}",
-            id,
-            info.method(),
-            info.path(),
-            info.status(),
-            info.elapsed(),
-            info.remote_addr().unwrap(),
-            info.request_headers(),
-        );
-    });
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
 
-    let id_filter = warp::any().map(move || id.to_string());
+    tracing_subscriber::fmt()
+        // use above filter to deterime which traces to record
+        .with_env_filter(log_filter)
+        // record even on each span close to get timing
+        .with_span_events(FmtSpan::CLOSE)
+        .init();
 
     let cors = warp::cors()
         .allow_any_origin()
@@ -81,8 +71,15 @@ async fn main() {
         .and(warp::path::end())
         .and(warp::query())
         .and(store_filter.clone())
-        .and(id_filter)
-        .and_then(routes::question::get_questions);
+        .and_then(routes::question::get_questions)
+        .with(warp::trace(|info| {
+            tracing::info_span!(
+                "get_questions request",
+                method = %info.method(),
+                path = %info.path(),
+                id = %uuid::Uuid::new_v4(),
+            )
+        }));
 
     let get_question = warp::get()
         .and(warp::path("question"))
@@ -136,7 +133,7 @@ async fn main() {
         .or(add_answer)
         .or(get_answers)
         .with(cors)
-        .with(log)
+        .with(warp::trace::request())
         .recover(return_error);
 
     warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
