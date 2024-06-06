@@ -44,7 +44,7 @@ impl Default for Store {
 #[tokio::main]
 async fn main() {
     let log_filter = std::env::var("RUST_LOG")
-        .unwrap_or_else(|_| "practical_rust-book=info,warp=error".to_owned());
+        .unwrap_or_else(|_| "question_in_memory_crud=info,warp=error".to_owned());
 
     let store = Store::new();
     let store_filter = warp::any().map(move || store.clone());
