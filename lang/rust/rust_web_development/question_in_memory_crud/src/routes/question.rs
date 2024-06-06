@@ -3,9 +3,9 @@ use std::collections::HashMap;
 use tracing::{info, instrument};
 use warp::http::StatusCode;
 
+use crate::store::Store;
 use crate::types::pagination::extract_pagination;
 use crate::types::question::{Question, QuestionId};
-use crate::Store;
 
 #[instrument]
 pub async fn get_questions(

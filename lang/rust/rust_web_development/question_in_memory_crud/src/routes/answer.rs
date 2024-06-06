@@ -2,9 +2,9 @@ use handle_errors::Error;
 use std::collections::HashMap;
 use warp::http::StatusCode;
 
+use crate::store::Store;
 use crate::types::answer::{Answer, AnswerId};
 use crate::types::question::QuestionId;
-use crate::Store;
 
 pub async fn add_answer(
     store: Store,
