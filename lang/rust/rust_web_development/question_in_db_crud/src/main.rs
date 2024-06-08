@@ -8,11 +8,18 @@ mod types;
 
 #[tokio::main]
 async fn main() {
-    let log_filter = std::env::var("RUST_LOG")
-        .unwrap_or_else(|_| "question_in_db_crud=info,warp=error".to_owned());
+    let log_filter = std::env::var("RUST_LOG").unwrap_or_else(|_| {
+        "handle_errors=warn,question_in_db_crud=info,warp=error".to_owned()
+    });
 
     // creds could be added "postgres://username:password@localhost:5432/rustwebdev"
     let store = store::Store::new("postgres://localhost:5432/rustwebdev").await;
+
+    sqlx::migrate!()
+        .run(&store.clone().connection)
+        .await
+        .expect("Cannot run migration");
+
     let store_filter = warp::any().map(move || store.clone());
 
     tracing_subscriber::fmt()

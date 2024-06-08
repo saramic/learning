@@ -178,16 +178,21 @@ impl Store {
         }
     }
 
-    pub async fn get_answers(&self, question_id: i32) -> Result<Vec<Answer>, Error> {
-        match sqlx::query("SELECT * FROM answers WHERE corresponding_question = $1")
-            .bind(question_id)
-            .map(|row: PgRow| Answer {
-                id: AnswerId(row.get("id")),
-                content: row.get("content"),
-                question_id: QuestionId(row.get("corresponding_question")),
-            })
-            .fetch_all(&self.connection)
-            .await
+    pub async fn get_answers(
+        &self,
+        question_id: i32,
+    ) -> Result<Vec<Answer>, Error> {
+        match sqlx::query(
+            "SELECT * FROM answers WHERE corresponding_question = $1",
+        )
+        .bind(question_id)
+        .map(|row: PgRow| Answer {
+            id: AnswerId(row.get("id")),
+            content: row.get("content"),
+            question_id: QuestionId(row.get("corresponding_question")),
+        })
+        .fetch_all(&self.connection)
+        .await
         {
             Ok(answers) => Ok(answers),
             Err(e) => {
