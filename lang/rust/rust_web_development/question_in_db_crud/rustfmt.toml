@@ -1,0 +1,2 @@
+# https://rust-lang.github.io/rustfmt
+max_width = 80  # default is 100
