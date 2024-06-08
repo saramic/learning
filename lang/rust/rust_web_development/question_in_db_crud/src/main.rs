@@ -8,11 +8,11 @@ mod types;
 
 #[tokio::main]
 async fn main() {
-    let log_filter = std::env::var("RUST_LOG").unwrap_or_else(|_| {
-        "question_in_db_crud=info,warp=error".to_owned()
-    });
+    let log_filter = std::env::var("RUST_LOG")
+        .unwrap_or_else(|_| "question_in_db_crud=info,warp=error".to_owned());
 
-    let store = store::Store::new();
+    // creds could be added "postgres://username:password@localhost:5432/rustwebdev"
+    let store = store::Store::new("postgres://localhost:5432/rustwebdev").await;
     let store_filter = warp::any().map(move || store.clone());
 
     tracing_subscriber::fmt()
@@ -49,7 +49,7 @@ async fn main() {
 
     let get_question = warp::get()
         .and(warp::path("question"))
-        .and(warp::path::param::<String>())
+        .and(warp::path::param::<i32>())
         .and(warp::path::end())
         .and(store_filter.clone())
         .and_then(routes::question::get_question);
@@ -63,7 +63,7 @@ async fn main() {
 
     let update_question = warp::put()
         .and(warp::path("questions"))
-        .and(warp::path::param::<String>())
+        .and(warp::path::param::<i32>())
         .and(warp::path::end())
         .and(store_filter.clone())
         .and(warp::body::json())
@@ -71,7 +71,7 @@ async fn main() {
 
     let delete_question = warp::delete()
         .and(warp::path("questions"))
-        .and(warp::path::param::<String>())
+        .and(warp::path::param::<i32>())
         .and(warp::path::end())
         .and(store_filter.clone())
         .and_then(routes::question::delete_question);
@@ -80,12 +80,12 @@ async fn main() {
         .and(warp::path("answers"))
         .and(warp::path::end())
         .and(store_filter.clone())
-        .and(warp::body::form())
+        .and(warp::body::form()) // TODO: form ONLY, allow OR JSON
         .and_then(routes::answer::add_answer);
 
     let get_answers = warp::get()
         .and(warp::path("questions"))
-        .and(warp::path::param::<String>())
+        .and(warp::path::param::<i32>())
         .and(warp::path("answers"))
         .and(warp::path::end())
         .and(store_filter.clone())
