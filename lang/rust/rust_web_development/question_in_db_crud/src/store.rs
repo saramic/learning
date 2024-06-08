@@ -48,7 +48,7 @@ impl Store {
             Ok(questions) => Ok(questions),
             Err(e) => {
                 tracing::event!(tracing::Level::ERROR, "{:?}", e);
-                Err(handle_errors::Error::DatabaseQueryError(e))
+                Err(Error::DatabaseQueryError)
             }
         }
     }
@@ -68,7 +68,7 @@ impl Store {
             Ok(questions) => Ok(questions),
             Err(e) => {
                 tracing::event!(tracing::Level::ERROR, "{:?}", e);
-                Err(handle_errors::Error::DatabaseQueryError(e))
+                Err(Error::DatabaseQueryError)
             }
         }
     }
@@ -95,7 +95,10 @@ impl Store {
         .await
         {
             Ok(question) => Ok(question),
-            Err(e) => Err(handle_errors::Error::DatabaseQueryError(e)),
+            Err(e) => {
+                tracing::event!(tracing::Level::ERROR, "{:?}", e);
+                Err(Error::DatabaseQueryError)
+            }
         }
     }
 
@@ -124,7 +127,10 @@ impl Store {
         .await
         {
             Ok(question) => Ok(question),
-            Err(e) => Err(handle_errors::Error::DatabaseQueryError(e)),
+            Err(e) => {
+                tracing::event!(tracing::Level::ERROR, "{:?}", e);
+                Err(Error::DatabaseQueryError)
+            }
         }
     }
 
@@ -138,7 +144,10 @@ impl Store {
             .await
         {
             Ok(_) => Ok(true),
-            Err(e) => Err(handle_errors::Error::DatabaseQueryError(e)),
+            Err(e) => {
+                tracing::event!(tracing::Level::ERROR, "{:?}", e);
+                Err(Error::DatabaseQueryError)
+            }
         }
     }
 
@@ -164,7 +173,7 @@ impl Store {
             Ok(answer) => Ok(answer),
             Err(e) => {
                 tracing::event!(tracing::Level::ERROR, "{:?}", e);
-                Err(Error::DatabaseQueryError(e))
+                Err(Error::DatabaseQueryError)
             }
         }
     }
@@ -183,7 +192,7 @@ impl Store {
             Ok(answers) => Ok(answers),
             Err(e) => {
                 tracing::event!(tracing::Level::ERROR, "{:?}", e);
-                Err(Error::DatabaseQueryError(e))
+                Err(Error::DatabaseQueryError)
             }
         }
     }

@@ -4,8 +4,7 @@ use warp::{
     reject::Reject,
     Rejection, Reply,
 };
-use tracing::{instrument};
-use sqlx::error::Error as SqlxError;
+use tracing::{event, Level, instrument};
 
 #[derive(Debug)]
 pub enum Error {
@@ -14,7 +13,7 @@ pub enum Error {
     WrongIndex,
     QuestionNotFound,
     AnswerNotFound,
-    DatabaseQueryError(SqlxError),
+    DatabaseQueryError,
 }
 
 impl std::fmt::Display for Error {
@@ -27,7 +26,9 @@ impl std::fmt::Display for Error {
             Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
             Error::QuestionNotFound => write!(f, "Question not found"),
             Error::AnswerNotFound => write!(f, "Answer not found"),
-            Error::DatabaseQueryError(e) => write!(f, "Error querying the database {}", e),
+            Error::DatabaseQueryError => {
+                write!(f, "Error querying the database")
+            }
         }
     }
 }
@@ -36,22 +37,32 @@ impl Reject for Error {}
 
 #[instrument]
 pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
-    if let Some(error) = r.find::<Error>() {
+    if let Some(crate::Error::DatabaseQueryError) = r.find() {
+        event!(Level::ERROR, "Database query error");
+        Ok(warp::reply::with_status(
+            crate::Error::DatabaseQueryError.to_string(),
+            StatusCode::UNPROCESSABLE_ENTITY,
+        ))
+    } else if let Some(error) = r.find::<Error>() {
+        event!(Level::ERROR, "{}", error);
         Ok(warp::reply::with_status(
             error.to_string(),
             StatusCode::RANGE_NOT_SATISFIABLE,
         ))
     } else if let Some(error) = r.find::<CorsForbidden>() {
+        event!(Level::ERROR, "CORS forbidden error: {}", error);
         Ok(warp::reply::with_status(
             error.to_string(),
             StatusCode::FORBIDDEN,
         ))
     } else if let Some(error) = r.find::<BodyDeserializeError>() {
+        event!(Level::ERROR, "Cannot deserialize request body: {}", error);
         Ok(warp::reply::with_status(
             error.to_string(),
             StatusCode::UNPROCESSABLE_ENTITY,
         ))
     } else {
+        event!(Level::WARN, "Requested route was not found");
         Ok(warp::reply::with_status(
             "Route not found".to_string(),
             StatusCode::NOT_FOUND,
