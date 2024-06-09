@@ -1,4 +1,4 @@
-use sqlx::postgres::{PgPool, PgPoolOptions, PgRow};
+use sqlx::sqlite::{SqlitePool, SqlitePoolOptions, SqliteRow};
 use sqlx::Row;
 
 use crate::types::{
@@ -9,12 +9,12 @@ use handle_errors::Error;
 
 #[derive(Debug, Clone)]
 pub struct Store {
-    pub connection: PgPool,
+    pub connection: SqlitePool,
 }
 
 impl Store {
     pub async fn new(db_url: &str) -> Self {
-        let db_pool = match PgPoolOptions::new()
+        let db_pool = match SqlitePoolOptions::new()
             .max_connections(5)
             .connect(db_url)
             .await
@@ -36,11 +36,16 @@ impl Store {
         match sqlx::query("SELECT * FROM questions LIMIT $1 OFFSET $2")
             .bind(limit)
             .bind(offset)
-            .map(|row: PgRow| Question {
-                id: QuestionId(row.get("id")),
-                title: row.get("title"),
-                content: row.get("content"),
-                tags: row.get("tags"),
+            .map(|row: SqliteRow| {
+                let tags: Option<Vec<String>> =
+                    serde_json::from_str(row.get("tags"))
+                        .unwrap_or_else(|_| Some(vec![]));
+                Question {
+                    id: QuestionId(row.get("id")),
+                    title: row.get("title"),
+                    content: row.get("content"),
+                    tags,
+                }
             })
             .fetch_all(&self.connection)
             .await
@@ -56,11 +61,16 @@ impl Store {
     pub async fn get_question(&self, id: i32) -> Result<Vec<Question>, Error> {
         match sqlx::query("SELECT * FROM questions WHERE id = $1")
             .bind(id)
-            .map(|row: PgRow| Question {
-                id: QuestionId(row.get("id")),
-                title: row.get("title"),
-                content: row.get("content"),
-                tags: row.get("tags"),
+            .map(|row: SqliteRow| {
+                let tags: Option<Vec<String>> =
+                    serde_json::from_str(row.get("tags"))
+                        .unwrap_or_else(|_| Some(vec![]));
+                Question {
+                    id: QuestionId(row.get("id")),
+                    title: row.get("title"),
+                    content: row.get("content"),
+                    tags,
+                }
             })
             .fetch_all(&self.connection)
             .await
@@ -84,12 +94,17 @@ impl Store {
         )
         .bind(new_question.title)
         .bind(new_question.content)
-        .bind(new_question.tags)
-        .map(|row: PgRow| Question {
-            id: QuestionId(row.get("id")),
-            title: row.get("title"),
-            content: row.get("content"),
-            tags: row.get("tags"),
+        .bind(serde_json::json!(new_question.tags))
+        .map(|row: SqliteRow| {
+            let tags: Option<Vec<String>> =
+                serde_json::from_str(row.get("tags"))
+                    .unwrap_or_else(|_| Some(vec![]));
+            Question {
+                id: QuestionId(row.get("id")),
+                title: row.get("title"),
+                content: row.get("content"),
+                tags,
+            }
         })
         .fetch_one(&self.connection)
         .await
@@ -115,13 +130,18 @@ impl Store {
         )
         .bind(question.title)
         .bind(question.content)
-        .bind(question.tags)
+        .bind(serde_json::json!(question.tags))
         .bind(question_id)
-        .map(|row: PgRow| Question {
-            id: QuestionId(row.get("id")),
-            title: row.get("title"),
-            content: row.get("content"),
-            tags: row.get("tags"),
+        .map(|row: SqliteRow| {
+            let tags: Option<Vec<String>> =
+                serde_json::from_str(row.get("tags"))
+                    .unwrap_or_else(|_| Some(vec![]));
+            Question {
+                id: QuestionId(row.get("id")),
+                title: row.get("title"),
+                content: row.get("content"),
+                tags,
+            }
         })
         .fetch_one(&self.connection)
         .await
@@ -162,7 +182,7 @@ impl Store {
         )
         .bind(new_answer.content)
         .bind(new_answer.question_id.0)
-        .map(|row: PgRow| Answer {
+        .map(|row: SqliteRow| Answer {
             id: AnswerId(row.get("id")),
             content: row.get("content"),
             question_id: QuestionId(row.get("corresponding_question")),
@@ -186,7 +206,7 @@ impl Store {
             "SELECT * FROM answers WHERE corresponding_question = $1",
         )
         .bind(question_id)
-        .map(|row: PgRow| Answer {
+        .map(|row: SqliteRow| Answer {
             id: AnswerId(row.get("id")),
             content: row.get("content"),
             question_id: QuestionId(row.get("corresponding_question")),

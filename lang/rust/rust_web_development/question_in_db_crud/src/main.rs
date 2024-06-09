@@ -12,8 +12,7 @@ async fn main() {
         "handle_errors=warn,question_in_db_crud=info,warp=error".to_owned()
     });
 
-    // creds could be added "postgres://username:password@localhost:5432/rustwebdev"
-    let store = store::Store::new("postgres://localhost:5432/rustwebdev").await;
+    let store = store::Store::new("sqlite:rustwebdev.db").await;
 
     sqlx::migrate!()
         .run(&store.clone().connection)

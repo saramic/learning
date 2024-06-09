@@ -12,8 +12,16 @@ RESET   := "\\u001b[0m"
 _default:
     @just --list --unsorted
 
-# setup the rustwedev database
-@setup-db:
+# setup the rustwedev database (SQlite)
+@setup-db-sqlite:
+    DATABASE_URL=sqlite:rustwebdev.db \
+        cargo sqlx database create
+    cargo sqlx migrate run \
+        --database-url sqlite:rustwebdev.db
+    sqlite3 rustwebdev.db .schema
+
+# setup the rustwedev database (Postgresql)
+setup-db-pg:
     psql rustwebdev -XtAc "\q" > /dev/null 2>&1 || \
         psql -c "create database rustwebdev;" && \
         echo "rustwebdev created"
@@ -25,13 +33,13 @@ demo-crud:
     @echo "{{YELLOW}}attempting to use id: {{QID}} but should get this from create{{RESET}}"
 
     @echo "{{GREEN}}🄻 ist{{RESET}}"
-    curl localhost:1337/questions
+    curl "localhost:1337/questions?limit=100&offset=1"
     @echo
 
     @echo "{{GREEN}}🄲 reate{{RESET}}"
     curl localhost:1337/questions \
         -H "Content-Type: application/json" \
-        -d '{"id":"{{QID}}","title":"the title","content":"the content"}'
+        -d '{"id":"{{QID}}","title":"the title","content":"the content","tags":["home","work"]}'
     @echo
     @echo "{{RED}}above create should return the :id{{RESET}}"
 
@@ -42,7 +50,8 @@ demo-crud:
     curl -X PUT \
         "localhost:1337/questions/{{QID}}" \
         -H 'content-type: application/json' \
-        -d '{"id":"'QID'","title":"NOT","content":"NOT"}'
+        -d '{"id":{{QID}},"title":"NOT","content":"NOT","tags":["OLD","NEW"]}'
+    @echo
 
     # check again
     curl "localhost:1337/question/{{QID}}"
@@ -68,10 +77,11 @@ demo-crud:
     curl -X DELETE "localhost:1337/questions/{{QID}}"
 
     @echo "{{GREEN}}\n🄻 ist{{RESET}}"
-    curl localhost:1337/questions
+    curl "localhost:1337/questions?limit=100&offset=1"
 
 # cleanup and remove rustwebdev database
 @clean:
     psql rustwebdev -c '\q' > /dev/null 2>&1 && \
         psql -c "drop database rustwebdev;" || \
         echo "rustwebdev alrady dropped"
+    [ -e rustwebdev.db ] && rm rustwebdev.db
