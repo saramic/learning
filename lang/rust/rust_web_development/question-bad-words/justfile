@@ -1,0 +1,78 @@
+set shell := ["zsh", "-uc"]
+
+# Colors
+RED     := "\\u001b[31m"
+GREEN   := "\\u001b[32m"
+YELLOW  := "\\u001b[33m"
+BLUE    := "\\u001b[34m"
+MAGENTA := "\\u001b[35m"
+BOLD    := "\\u001b[1m"
+RESET   := "\\u001b[0m"
+
+_default:
+    @just --list --unsorted
+
+# setup the rustwedev database
+@setup-db:
+    psql rustwebdev -XtAc "\q" > /dev/null 2>&1 || \
+        psql -c "create database rustwebdev;" && \
+        echo "rustwebdev created"
+    psql rustwebdev -c "\dt"
+
+QID := "1"
+# demo CRUD
+demo-crud:
+    @echo "{{YELLOW}}attempting to use id: {{QID}} but should get this from create{{RESET}}"
+
+    @echo "{{GREEN}}🄻 ist{{RESET}}"
+    curl localhost:1337/questions
+    @echo
+
+    @echo "{{GREEN}}🄲 reate{{RESET}}"
+    curl localhost:1337/questions \
+        -H "Content-Type: application/json" \
+        -d '{"id":"{{QID}}","title":"the title","content":"the content","tags":["home","work"]}'
+    @echo
+    @echo "{{RED}}above create should return the :id{{RESET}}"
+
+    @echo "{{GREEN}}\n🅁 ead{{RESET}}"
+    curl "localhost:1337/question/{{QID}}"
+
+    @echo "{{GREEN}}\n🅄 pdate{{RESET}}"
+    curl -X PUT \
+        "localhost:1337/questions/{{QID}}" \
+        -H 'content-type: application/json' \
+        -d '{"id":{{QID}},"title":"NOT","content":"NOT","tags":["OLD","NEW"]}'
+    @echo
+
+    # check again
+    curl "localhost:1337/question/{{QID}}"
+
+    @echo "\n{{GREEN}}🅰 🅳 🅳 {{YELLOW}}𝓐𝓷𝓼𝔀𝓮𝓻{{RESET}}"
+    curl localhost:1337/answers \
+        -H "Content-Type: application/json" \
+        -d '{"id":1,"content":"also via json","question_id":"{{QID}}"}'
+    @echo
+    @echo "{{RED}}above fails as only form encoding is supported{{RESET}}"
+
+    @echo "\n{{GREEN}}🅰 🅳 🅳 {{YELLOW}}𝓐𝓷𝓼𝔀𝓮𝓻{{RESET}}"
+    curl localhost:1337/answers \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        --data-urlencode "id=1" \
+        --data-urlencode "content=also from a form" \
+        --data-urlencode "question_id={{QID}}"
+
+    @echo "\n{{GREEN}}🅶 🅴 🆃 {{YELLOW}}𝓐𝓷𝓼𝔀𝓮𝓻𝓼{{RESET}}"
+    curl "localhost:1337/questions/{{QID}}/answers"
+
+    @echo "{{GREEN}}\n🄳 elete{{RESET}}"
+    curl -X DELETE "localhost:1337/questions/{{QID}}"
+
+    @echo "{{GREEN}}\n🄻 ist{{RESET}}"
+    curl localhost:1337/questions
+
+# cleanup and remove rustwebdev database
+@clean:
+    psql rustwebdev -c '\q' > /dev/null 2>&1 && \
+        psql -c "drop database rustwebdev;" || \
+        echo "rustwebdev alrady dropped"
