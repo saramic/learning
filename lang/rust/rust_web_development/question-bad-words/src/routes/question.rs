@@ -45,17 +45,28 @@ pub async fn add_question(
     store: Store,
     new_question: NewQuestion,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    let api_ninjas_api_key = env::var("API_NINJAS_API_KEY")
-        .unwrap_or_else(|_| "missing ApiLayer API_NINJAS_API_KEY".to_string());
+    // let api_ninjas_api_key = env::var("API_NINJAS_API_KEY")
+    //     .unwrap_or_else(|_| "missing ApiLayer API_NINJAS_API_KEY".to_string());
+    // let client = reqwest::Client::new();
+    // let res = client
+    //     .get(
+    //         &(format!(
+    //             "https://api.api-ninjas.com/v1/profanityfilter?text={}",
+    //             new_question.content
+    //         )),
+    //     )
+    //     .header("X-Api-Key", api_ninjas_api_key)
+    //     .send()
+    //     .await
+    //     .map_err(|e| handle_errors::Error::ExternalAPIError(e))?;
+
+    let api_layer_api_key = env::var("API_LAYER_API_KEY")
+        .unwrap_or_else(|_| "missing ApiLayer API_LAYER_API_KEY".to_string());
     let client = reqwest::Client::new();
     let res = client
-        .get(
-            &(format!(
-                "https://api.api-ninjas.com/v1/profanityfilter?text={}",
-                new_question.content
-            )),
-        )
-        .header("X-Api-Key", api_ninjas_api_key)
+        .post("https://api.apilayer.com/bad_words?censor_character=*")
+        .header("apikey", api_layer_api_key)
+        .body(new_question.content.clone())
         .send()
         .await
         .map_err(|e| handle_errors::Error::ExternalAPIError(e))?;
