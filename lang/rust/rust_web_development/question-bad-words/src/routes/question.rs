@@ -1,3 +1,5 @@
+use std::env;
+
 use std::collections::HashMap;
 use tracing::{event, info, instrument, Level};
 use warp::http::StatusCode;
@@ -43,6 +45,26 @@ pub async fn add_question(
     store: Store,
     new_question: NewQuestion,
 ) -> Result<impl warp::Reply, warp::Rejection> {
+    let api_ninjas_api_key = env::var("API_NINJAS_API_KEY")
+        .unwrap_or_else(|_| "missing ApiLayer API_NINJAS_API_KEY".to_string());
+    let client = reqwest::Client::new();
+    let res = client
+        .get(
+            &(format!(
+                "https://api.api-ninjas.com/v1/profanityfilter?text={}",
+                new_question.content
+            )),
+        )
+        .header("X-Api-Key", api_ninjas_api_key)
+        .send()
+        .await
+        .map_err(|e| handle_errors::Error::ExternalAPIError(e))?
+        .text()
+        .await
+        .map_err(|e| handle_errors::Error::ExternalAPIError(e))?;
+
+    println!("{}", res);
+
     match store.add_question(new_question).await {
         Ok(_) => Ok(warp::reply::with_status("Question added", StatusCode::OK)),
         Err(e) => Err(warp::reject::custom(e)),
