@@ -58,16 +58,28 @@ pub async fn add_question(
         .header("X-Api-Key", api_ninjas_api_key)
         .send()
         .await
-        .map_err(|e| handle_errors::Error::ExternalAPIError(e))?
-        .text()
-        .await
         .map_err(|e| handle_errors::Error::ExternalAPIError(e))?;
 
-    println!("{}", res);
+    match res.error_for_status() {
+        Ok(res) => {
+            let res = res
+                .text()
+                .await
+                .map_err(|e| handle_errors::Error::ExternalAPIError(e))?;
 
-    match store.add_question(new_question).await {
-        Ok(_) => Ok(warp::reply::with_status("Question added", StatusCode::OK)),
-        Err(e) => Err(warp::reject::custom(e)),
+            println!("{}", res);
+
+            match store.add_question(new_question).await {
+                Ok(_) => Ok(warp::reply::with_status(
+                    "Question added",
+                    StatusCode::OK,
+                )),
+                Err(e) => Err(warp::reject::custom(e)),
+            }
+        }
+        Err(err) => Err(warp::reject::custom(
+            handle_errors::Error::ExternalAPIError(err),
+        )),
     }
 }
 
