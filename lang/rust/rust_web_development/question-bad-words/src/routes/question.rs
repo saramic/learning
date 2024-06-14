@@ -44,19 +44,22 @@ pub async fn add_question(
     store: Store,
     new_question: NewQuestion,
 ) -> Result<impl warp::Reply, warp::Rejection> {
-    let title = match check_profanity(new_question.title).await {
-        Ok(res) => res,
-        Err(e) => return Err(warp::reject::custom(e)),
+    let title = check_profanity(new_question.title);
+    let content = check_profanity(new_question.content);
+
+    let (title, content) = tokio::join!(title, content);
+
+    if title.is_err() {
+        return Err(warp::reject::custom(title.unwrap_err()));
     };
 
-    let content = match check_profanity(new_question.content).await {
-        Ok(res) => res,
-        Err(e) => return Err(warp::reject::custom(e)),
+    if content.is_err() {
+        return Err(warp::reject::custom(content.unwrap_err()));
     };
 
     let question = NewQuestion {
-        title,
-        content,
+        title: title.unwrap(),
+        content: content.unwrap(),
         tags: new_question.tags,
     };
 
