@@ -13,7 +13,7 @@ pub async fn get_questions(
     store: Store,
 ) -> Result<impl warp::Reply, warp::Rejection> {
     info!("Sart querying questions");
-    event!(target: "questoin_in_db_crud", Level::INFO, "querying questions");
+    event!(target: "question_bad_words", Level::INFO, "querying questions");
     let mut pagination = Pagination::default();
 
     if !params.is_empty() {
@@ -71,6 +71,26 @@ pub async fn update_question(
     store: Store,
     question: Question,
 ) -> Result<impl warp::Reply, warp::Rejection> {
+    let title = tokio::spawn(check_profanity(question.title));
+    let content = tokio::spawn(check_profanity(question.content));
+
+    let (title, content) = (title.await.unwrap(), content.await.unwrap());
+
+    if title.is_err() {
+        return Err(warp::reject::custom(title.unwrap_err()));
+    }
+
+    if content.is_err() {
+        return Err(warp::reject::custom(content.unwrap_err()));
+    }
+
+    let question = Question {
+        id: question.id,
+        title: title.unwrap(),
+        content: content.unwrap(),
+        tags: question.tags,
+    };
+
     match store.update_question(question, id).await {
         Ok(res) => Ok(warp::reply::json(&res)),
         Err(e) => Err(warp::reject::custom(e)),
