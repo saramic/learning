@@ -1,6 +1,7 @@
 set shell := ["zsh", "-uc"]
 
 # Colors
+START   := "\\u001b["
 RED     := "\\u001b[31m"
 GREEN   := "\\u001b[32m"
 YELLOW  := "\\u001b[33m"
@@ -22,6 +23,16 @@ _default:
 QID := "1"
 # demo CRUD
 demo-crud:
+    @echo "{{START}}32;5;7m𝔸𝕌𝕋ℍ 🪪🔐{{RESET}}"
+    echo '{ \
+    "email":"email'`date +%S`'@example.com", \
+    "password":"clear_text_password" \
+    }' | curl --json @- localhost:1337/registration
+    @echo
+    @echo "{{RED}}above create should return the :id{{RESET}}"
+    @echo "{{RED}}and :email{{RESET}}"
+    @echo
+
     @echo "{{YELLOW}}attempting to use id: {{QID}} but should get this from create{{RESET}}"
 
     @echo "{{GREEN}}🄻 ist{{RESET}}"
