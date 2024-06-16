@@ -603,6 +603,7 @@ version = "0.1.0"
 dependencies = [
  "reqwest",
  "reqwest-middleware",
+ "sqlx",
  "tracing",
  "warp",
 ]

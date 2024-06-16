@@ -1,3 +1,4 @@
+use sqlx;
 use warp::{
     filters::{body::BodyDeserializeError, cors::CorsForbidden},
     http::StatusCode,
@@ -15,7 +16,7 @@ pub enum Error {
     WrongIndex,
     QuestionNotFound,
     AnswerNotFound,
-    DatabaseQueryError,
+    DatabaseQueryError(sqlx::Error),
     ReqwestAPIError(ReqwestError),
     MiddlewareReqwestAPIError(MiddlewareReqwestError),
     ClientError(APILayerError),
@@ -44,7 +45,7 @@ impl std::fmt::Display for Error {
             Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
             Error::QuestionNotFound => write!(f, "Question not found"),
             Error::AnswerNotFound => write!(f, "Answer not found"),
-            Error::DatabaseQueryError => {
+            Error::DatabaseQueryError(_) => {
                 write!(f, "Error querying the database")
             },
             Error::ReqwestAPIError(err) => {
@@ -63,17 +64,39 @@ impl std::fmt::Display for Error {
     }
 }
 
+const DUPLICATE_KEY: u32 = 23505;
+
 impl Reject for Error {}
 impl Reject for APILayerError {}
 
 #[instrument]
 pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
-    if let Some(crate::Error::DatabaseQueryError) = r.find() {
+    if let Some(crate::Error::DatabaseQueryError(e)) = r.find() {
         event!(Level::ERROR, "Database query error");
-        Ok(warp::reply::with_status(
-            crate::Error::DatabaseQueryError.to_string(),
-            StatusCode::UNPROCESSABLE_ENTITY,
-        ))
+
+        match e {
+            sqlx::Error::Database(err) => {
+                if err.code().unwrap().parse::<u32>().unwrap()
+                    == DUPLICATE_KEY
+                {
+                    Ok(warp::reply::with_status(
+                        "Account already exists".to_string(),
+                        StatusCode::UNPROCESSABLE_ENTITY,
+                    ))
+                } else {
+                    Ok(warp::reply::with_status(
+                        "Cannot update data".to_string(),
+                        StatusCode::UNPROCESSABLE_ENTITY,
+                    ))
+                }
+            },
+            _ => {
+                Ok(warp::reply::with_status(
+                    "Cannot update data".to_string(),
+                    StatusCode::UNPROCESSABLE_ENTITY,
+                ))
+            }
+        }
     } else if let Some(crate::Error::ClientError(e)) = r.find() {
         event!(Level::ERROR, "{}", e);
         Ok(warp::reply::with_status(
