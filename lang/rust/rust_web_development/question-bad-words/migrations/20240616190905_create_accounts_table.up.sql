@@ -1,0 +1,5 @@
+CREATE TABLE accounts (
+    id SERIAL NOT NULL,
+    email VARCHAR(255) NOT NULL PRIMARY KEY,
+    password VARCHAR(255) NOT NULL
+);
