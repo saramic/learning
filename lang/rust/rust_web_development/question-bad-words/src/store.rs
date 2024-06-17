@@ -2,7 +2,7 @@ use sqlx::postgres::{PgPool, PgPoolOptions, PgRow};
 use sqlx::Row;
 
 use crate::types::{
-    account::Account,
+    account::{Account, AccountId},
     answer::{Answer, AnswerId, NewAnswer},
     question::{NewQuestion, Question, QuestionId},
 };
@@ -231,6 +231,25 @@ impl Store {
                         .constraint()
                         .unwrap()
                 );
+                Err(Error::DatabaseQueryError(error))
+            }
+        }
+    }
+
+    pub async fn get_account(self, email: String) -> Result<Account, Error> {
+        match sqlx::query("SELECT * FROM accounts WHERE email = $1")
+            .bind(email)
+            .map(|row: PgRow| Account {
+                id: Some(AccountId(row.get("id"))),
+                email: row.get("email"),
+                password: row.get("password"),
+            })
+            .fetch_one(&self.connection)
+            .await
+        {
+            Ok(account) => Ok(account),
+            Err(error) => {
+                tracing::event!(tracing::Level::ERROR, "{:?}", error);
                 Err(Error::DatabaseQueryError(error))
             }
         }

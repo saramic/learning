@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 handle-errors = { path = "handle-errors" }
+paseto = "2.0.2"
 rand = "0.8.5"
 reqwest = { version = "0.12.4", features = ["json"] }
 reqwest-middleware = "0.3.1"

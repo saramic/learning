@@ -1,3 +1,4 @@
+use argon2::Error as ArgonError;
 use sqlx;
 use warp::{
     filters::{body::BodyDeserializeError, cors::CorsForbidden},
@@ -13,6 +14,8 @@ use reqwest_middleware::Error as MiddlewareReqwestError;
 pub enum Error {
     ParseError(std::num::ParseIntError),
     MissingParameters,
+    WrongPassword,
+    ArgonLibraryError(ArgonError),
     WrongIndex,
     QuestionNotFound,
     AnswerNotFound,
@@ -42,6 +45,12 @@ impl std::fmt::Display for Error {
                 write!(f, "Cannot parse parameter: {}", err)
             }
             Error::MissingParameters => write!(f, "Missing parameter"),
+            Error::WrongPassword => {
+                write!(f, "Wrong password")
+            }
+            Error::ArgonLibraryError(_) => {
+                write!(f, "Cannot verify password")
+            }
             Error::WrongIndex => write!(f, "Wrong index, start needs to be less than end"),
             Error::QuestionNotFound => write!(f, "Question not found"),
             Error::AnswerNotFound => write!(f, "Answer not found"),
@@ -114,6 +123,12 @@ pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
         Ok(warp::reply::with_status(
             "Internal Server Error".to_string(),
             StatusCode::INTERNAL_SERVER_ERROR,
+        ))
+    } else if let Some(crate::Error::WrongPassword) = r.find() {
+        event!(Level::ERROR, "Entered wrong password");
+        Ok(warp::reply::with_status(
+            "Wrong E-mail/Password combination".to_string(),
+            StatusCode::UNAUTHORIZED,
         ))
     } else if let Some(crate::Error::MiddlewareReqwestAPIError(e)) = r.find() {
         event!(Level::ERROR, "{}", e);
