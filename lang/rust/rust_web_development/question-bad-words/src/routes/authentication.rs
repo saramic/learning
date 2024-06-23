@@ -1,5 +1,5 @@
 use argon2::{self, Config};
-use paseto::v2::local::local_paseto;
+use chrono::prelude::*;
 use rand::Rng;
 use warp::http::StatusCode;
 
@@ -63,14 +63,17 @@ fn verify_password(hash: &str, password: &[u8]) -> Result<bool, argon2::Error> {
 }
 
 fn issue_token(account_id: AccountId) -> String {
-    let state =
-        serde_json::to_string(&account_id).expect("Failed to serialize");
+    let current_date_time = Utc::now();
+    let dt = current_date_time + chrono::Duration::days(1);
+
     // PASETO (Platform-Agnostic Security Tokens) as opposed to JWT
-    local_paseto(
-        &state,
-        None,
-        // SECRET that is 32 chars long *
-        "THE SECRET FILLED TO CHARS -> 32".as_bytes(),
-    )
-    .expect("Faield to create token")
+    paseto::tokens::PasetoBuilder::new()
+        .set_encryption_key(&Vec::from(
+            "THE SECRET FILLED TO CHARS -> 32".as_bytes(),
+        ))
+        .set_expiration(&dt)
+        .set_not_before(&Utc::now())
+        .set_claim("account_id", serde_json::json!(account_id))
+        .build()
+        .expect("Failed to construct paseto token w/ builder!")
 }
