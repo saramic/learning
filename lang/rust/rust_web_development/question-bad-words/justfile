@@ -21,16 +21,30 @@ _default:
     psql rustwebdev -c "\dt"
 
 QID := "1"
+EMAIL_ID := `date +"%S"`
 # demo CRUD
 demo-crud:
-    @echo "{{START}}32;5;7m𝔸𝕌𝕋ℍ 🪪🔐{{RESET}}"
+    @echo "{{START}}32;5;7m𝔸𝕌𝕋ℍ 🪪🔐 register{{RESET}}"
     echo '{ \
-    "email":"email'`date +%S`'@example.com", \
+    "email":"email{{EMAIL_ID}}@example.com", \
     "password":"clear_text_password" \
     }' | curl --json @- localhost:1337/registration
     @echo
     @echo "{{RED}}above create should return the :id{{RESET}}"
     @echo "{{RED}}and :email{{RESET}}"
+    @echo
+
+    @echo "{{START}}32;5;7m𝔸𝕌𝕋ℍ 🪪🔐 check account{{RESET}}"
+    psql rustwebdev -XtAc "SELECT * FROM accounts"
+
+    @echo "{{START}}32;5;7m𝔸𝕌𝕋ℍ 🪪🔐 login{{RESET}}"
+
+    # https://stackoverflow.com/a/58598185/1564635
+    cap () { tee /tmp/capture.out; } && \
+    echo '{ \
+    "email":"email{{EMAIL_ID}}@example.com", \
+    "password":"clear_text_password" \
+    }' | curl --json @- localhost:1337/login | cap
     @echo
 
     @echo "{{YELLOW}}attempting to use id: {{QID}} but should get this from create{{RESET}}"
@@ -40,7 +54,10 @@ demo-crud:
     @echo
 
     @echo "{{GREEN}}🄲 reate{{RESET}}"
+    ret () { cat /tmp/capture.out; } && \
+    TOKEN=`ret | tr -d '"'` && \
     curl localhost:1337/questions \
+        -H "Authorization: ${TOKEN}" \
         -H "Content-Type: application/json" \
         -d '{"id":"{{QID}}","title":"the title","content":"the content","tags":["home","work"]}'
     @echo
@@ -50,8 +67,11 @@ demo-crud:
     curl "localhost:1337/question/{{QID}}"
 
     @echo "{{GREEN}}\n🅄 pdate{{RESET}}"
+    ret () { cat /tmp/capture.out; } && \
+    TOKEN=`ret | tr -d '"'` && \
     curl -X PUT \
         "localhost:1337/questions/{{QID}}" \
+        -H "Authorization: ${TOKEN}" \
         -H 'content-type: application/json' \
         -d '{"id":{{QID}},"title":"NOT","content":"NOT","tags":["OLD","NEW"]}'
     @echo
@@ -77,7 +97,10 @@ demo-crud:
     curl "localhost:1337/questions/{{QID}}/answers"
 
     @echo "{{GREEN}}\n🄳 elete{{RESET}}"
-    curl -X DELETE "localhost:1337/questions/{{QID}}"
+    ret () { cat /tmp/capture.out; } && \
+    TOKEN=`ret | tr -d '"'` && \
+    curl -X DELETE "localhost:1337/questions/{{QID}}" \
+        -H "Authorization: ${TOKEN}" \
 
     @echo "{{GREEN}}\n🄻 ist{{RESET}}"
     curl localhost:1337/questions

@@ -65,6 +65,7 @@ async fn main() {
     let add_question = warp::post()
         .and(warp::path("questions"))
         .and(warp::path::end())
+        .and(routes::authentication::auth())
         .and(store_filter.clone())
         .and(warp::body::json())
         .and_then(routes::question::add_question);
@@ -73,6 +74,7 @@ async fn main() {
         .and(warp::path("questions"))
         .and(warp::path::param::<i32>())
         .and(warp::path::end())
+        .and(routes::authentication::auth())
         .and(store_filter.clone())
         .and(warp::body::json())
         .and_then(routes::question::update_question);
@@ -81,6 +83,7 @@ async fn main() {
         .and(warp::path("questions"))
         .and(warp::path::param::<i32>())
         .and(warp::path::end())
+        .and(routes::authentication::auth())
         .and(store_filter.clone())
         .and_then(routes::question::delete_question);
 
