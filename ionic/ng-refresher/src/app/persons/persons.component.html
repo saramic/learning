@@ -1,4 +1,4 @@
-<p>persons works!</p>
+<p *ngIf="isFetching">fetching ...</p>
 <ul>
   <li *ngFor="let person of personList"
     (click)="onRemovePerson(person)"
