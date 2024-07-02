@@ -20,10 +20,10 @@ export class PersonsComponent implements OnDestroy{
   // use NG lifecycle hooks
   // https://angular.dev/guide/components/lifecycle
   ngOnInit() {
-    this.personList = this.personsService.persons;
     this.personListSubscription = this.personsService.personsChanged.subscribe(persons => {
       this.personList = persons
     });
+    this.personsService.fetchPersons();
   }
 
   onRemovePerson(name: string) {
