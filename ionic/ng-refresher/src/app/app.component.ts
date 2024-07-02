@@ -12,8 +12,4 @@ import { PersonInputComponent } from './person-input/person-input.component';
 })
 export class AppComponent {
   title = 'ng-refresher';
-  persons = ['Max', 'Manuel', 'Anna'];
-  onPersonCreated(name: string) {
-    this.persons.push(name);
-  }
 }
