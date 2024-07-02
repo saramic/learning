@@ -11,16 +11,17 @@ import { PersonsService } from './persons.service';
 })
 export class PersonsComponent {
   personList: string[] = [];
-  private personService: PersonsService;
 
-  constructor(personsService: PersonsService) {
-    // this.personList = personsService.persons;
-    this.personService = personsService;
+  constructor(private personsService: PersonsService) {
   }
 
   // use NG lifecycle hooks
   // https://angular.dev/guide/components/lifecycle
   ngOnInit() {
-    this.personList = this.personService.persons
+    this.personList = this.personsService.persons
+  }
+
+  onRemovePerson(name: string) {
+    this.personsService.removePerson(name);
   }
 }
