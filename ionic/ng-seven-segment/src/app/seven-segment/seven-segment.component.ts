@@ -19,10 +19,79 @@ export class SevenSegmentComponent {
   colorG = this.offColor;
   current = 0;
 
-  source = timer(0, 300);
+  // source = timer(0, 300);  // good for counting
+  source = timer(0, 100); // good for looping
 
   ngOnInit() {
-    this.source.subscribe(() => this.next());
+    this.source.subscribe(() => this.loop());
+  }
+
+  loop() {
+    this.current = (this.current + 1) % 6;
+    switch (this.current) {
+      case 0:
+        this.colorA = this.onColor;
+        this.colorB = this.offColor;
+        this.colorC = this.offColor;
+        this.colorD = this.offColor;
+        this.colorE = this.offColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+        break;
+      case 1:
+        this.colorA = this.offColor;
+        this.colorB = this.onColor;
+        this.colorC = this.offColor;
+        this.colorD = this.offColor;
+        this.colorE = this.offColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+        break;
+      case 2:
+        this.colorA = this.offColor;
+        this.colorB = this.offColor;
+        this.colorC = this.onColor;
+        this.colorD = this.offColor;
+        this.colorE = this.offColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+        break;
+      case 3:
+        this.colorA = this.offColor;
+        this.colorB = this.offColor;
+        this.colorC = this.offColor;
+        this.colorD = this.onColor;
+        this.colorE = this.offColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+        break;
+      case 4:
+        this.colorA = this.offColor;
+        this.colorB = this.offColor;
+        this.colorC = this.offColor;
+        this.colorD = this.offColor;
+        this.colorE = this.onColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+        break;
+      case 5:
+        this.colorA = this.offColor;
+        this.colorB = this.offColor;
+        this.colorC = this.offColor;
+        this.colorD = this.offColor;
+        this.colorE = this.offColor;
+        this.colorF = this.onColor;
+        this.colorG = this.offColor;
+        break;
+      default:
+        this.colorA = this.offColor;
+        this.colorB = this.offColor;
+        this.colorC = this.offColor;
+        this.colorD = this.offColor;
+        this.colorE = this.offColor;
+        this.colorF = this.offColor;
+        this.colorG = this.offColor;
+    }
   }
 
   next() {
