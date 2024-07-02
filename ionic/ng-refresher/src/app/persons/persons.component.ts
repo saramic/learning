@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { PersonsService } from './persons.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-persons',
@@ -9,8 +10,9 @@ import { PersonsService } from './persons.service';
   templateUrl: './persons.component.html',
   styleUrl: './persons.component.css'
 })
-export class PersonsComponent {
+export class PersonsComponent implements OnDestroy{
   personList: string[] = [];
+  private personListSubscription: Subscription | null = null;
 
   constructor(private personsService: PersonsService) {
   }
@@ -18,10 +20,17 @@ export class PersonsComponent {
   // use NG lifecycle hooks
   // https://angular.dev/guide/components/lifecycle
   ngOnInit() {
-    this.personList = this.personsService.persons
+    this.personList = this.personsService.persons;
+    this.personListSubscription = this.personsService.personsChanged.subscribe(persons => {
+      this.personList = persons
+    });
   }
 
   onRemovePerson(name: string) {
     this.personsService.removePerson(name);
+  }
+
+  ngOnDestroy() {
+    this.personListSubscription?.unsubscribe();
   }
 }
