@@ -1,4 +1,4 @@
 <router-outlet>
-  <app-person-input></app-person-input>
+  <app-person-input (personCreate)="onPersonCreated($event)"></app-person-input>
   <app-persons [personList]="persons"></app-persons>
 </router-outlet>
