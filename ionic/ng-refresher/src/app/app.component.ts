@@ -7,8 +7,9 @@ import { PersonsComponent } from './persons/persons.component';
   standalone: true,
   imports: [RouterOutlet, PersonsComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ng-refresher';
+  persons = ['Max', 'Manuel', 'Anna'];
 }
