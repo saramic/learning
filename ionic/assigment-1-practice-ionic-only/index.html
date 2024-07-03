@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Courses</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+<body>
+  <ion-app>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>My Courses</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Course Name</ion-label>
+            <ion-input data-testid="input-course-name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="floating">Course Rating (value 1 - 5)</ion-label>
+            <ion-input data-testid="input-course-rating"></ion-input>
+          </ion-item>
+          <ion-button data-testid="button-add-course">
+            Add
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list data-testid="courses-list"></ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-app>
+  <script src="app.js"></script>
+</body>
+</html>
