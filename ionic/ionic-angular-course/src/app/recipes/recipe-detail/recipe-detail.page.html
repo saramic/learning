@@ -1,36 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/recipes"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{ loadedRecipe.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recipe-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-grid class="ion-no-padding">
-      <ion-row>
-        <ion-col>
-          <ion-img [src]="loadedRecipe.imageUrl"></ion-img>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="ion-no-padding">
-          <h1 class="ion-text-center">{{ loadedRecipe.title }}</h1>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-list>
-            <ion-item *ngFor="let ingredient of loadedRecipe.ingredients">
-              {{ ingredient }}
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-</ion-content>
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="loadedRecipe.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <h1 class="ion-text-center">{{ loadedRecipe.title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let ingredient of loadedRecipe.ingredients">
+            {{ ingredient }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
