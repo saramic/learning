@@ -7,10 +7,11 @@ const observable$ = new Observable<string>(subscriber => {
   setTimeout(() => subscriber.next("Charlie"), 400);
 })
 
-const subscription = observable$.subscribe(value => console.log(value));
-setTimeout(() => {
-    console.log("Unsubscribe");
-    subscription.unsubscribe();
-}, 300);
+console.log("Subscription 1 starts");
+observable$.subscribe(value => console.log("Subscription 1:", value));
 
-// should kill the observable as well to capture last setTimeout
+setTimeout(() => {
+  console.log("Subscription 2 starts");
+  observable$.subscribe(value => console.log("Subscription 2:", value));
+}, 100);
+
