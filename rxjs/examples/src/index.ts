@@ -16,10 +16,10 @@ const observable$ = new Observable<string>(subscriber => {
     subscriber.next('Charlie');
     // remove complete to deal with error 4s after
     // subscriber.complete();
-  }, 2000);
+  }, 4000);
   setTimeout(() => 
     subscriber.error(new Error("error")),
-    4000
+    2000
   );
 
   return () => {
@@ -36,8 +36,8 @@ observable$.subscribe({
   error: error => output(error),
 });
 output('After subscribe');
-output('2 seconds later an asynchronous output of Charlie');
-// output('... followed by the complete hook');
-output('4 seconds later the error');
+output('2 seconds later the error');
 output('... and then the Teardown hook');
+output("4 seconds later NOTHING more, we don't get Charlie");
+// output('... followed by the complete hook');
 
