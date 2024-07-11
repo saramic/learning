@@ -1,0 +1,12 @@
+set shell := ["zsh", "-uc"]
+
+_default:
+    @just --list --unsorted
+
+# generate QR codes for womens and U21 womens
+build:
+    ./generate_qrs.rb
+
+# cleanup any temporary files
+clean:
+    rm -rf out/*.png
