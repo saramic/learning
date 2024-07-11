@@ -8,13 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <h2 class="my-4">Exercises</h2>
+    <h2 class="my-4">Cold Observable</h2>
   </div>
   <a href="/">demo</a> |
   <a href="/unsubscribe_demo">unsubscribe demo</a> |
   <a href="/cold_observable">cold observable</a>
   <ul id="output">
   </ul>
-  <script type="module" src="src/index.ts"></script>
+  <p>
+    Each observable makes it's own call and returns a different
+    value
+  </p>
+  <script type="module" src="src/cold_observable.ts"></script>
 </body>
 </html>
