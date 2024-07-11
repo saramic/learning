@@ -18,6 +18,17 @@ Udemy: **RxJS 7 and Observables: Introduction**
 
 _reverse chronological view of commits_
 
+### Hot vs Cold observables
+
+- **Cold❄️ **
+    - set of values
+    - HTTP requests
+    - timer/interval
+- **Hot🔥**
+    - DOM Events
+    - state ng/rxjs
+    - subjects
+
 ---
 
 commit 0813a17c4cf3b06931e61f56b265711678cb232c
