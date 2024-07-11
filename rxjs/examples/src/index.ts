@@ -1,12 +1,5 @@
 import { Observable } from "rxjs";
-
-const output = (string) => {
-  const outputList = document.querySelector("#output");
-  const liElem = document.createElement('li');
-  const newContent = document.createTextNode(string);
-  liElem.appendChild(newContent);
-  outputList.appendChild(liElem);
-}
+import output from "./output";
 
 const observable$ = new Observable<string>(subscriber => {
   output('Observable executed');
