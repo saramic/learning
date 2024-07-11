@@ -1,3 +1,4 @@
+use config::Config;
 use handle_errors::return_error;
 use tracing_subscriber::fmt::format::FmtSpan;
 use warp::{http::Method, Filter};
@@ -7,14 +8,39 @@ mod routes;
 mod store;
 mod types;
 
+#[derive(Debug, Default, serde::Deserialize, PartialEq)]
+struct Args {
+    log_level: String,
+    database_host: String,
+    database_port: u16,
+    database_name: String,
+    port: u16,
+}
+
 #[tokio::main]
 async fn main() {
+    let config = Config::builder()
+        .add_source(config::File::with_name("setup"))
+        .build()
+        .unwrap();
+
+    let config = config.try_deserialize::<Args>().unwrap();
+
     let log_filter = std::env::var("RUST_LOG").unwrap_or_else(|_| {
-        "handle_errors=warn,question_bad_words=info,warp=error".to_owned()
+        // "handle_errors=warn,question_bad_words=info,warp=error".to_owned()
+        format!(
+            "handle_errors={},question_bad_words={},warp={}",
+            config.log_level, config.log_level, config.log_level
+        )
     });
 
     // creds could be added "postgres://username:password@localhost:5432/rustwebdev"
-    let store = store::Store::new("postgres://localhost:5432/rustwebdev").await;
+    // let store = store::Store::new("postgres://localhost:5432/rustwebdev").await;
+    let store = store::Store::new(&format!(
+        "postgres://{}:{}/{}",
+        config.database_host, config.database_port, config.database_name
+    ))
+    .await;
 
     sqlx::migrate!()
         .run(&store.clone().connection)
@@ -129,5 +155,5 @@ async fn main() {
         .with(warp::trace::request())
         .recover(return_error);
 
-    warp::serve(routes).run(([127, 0, 0, 1], 1337)).await;
+    warp::serve(routes).run(([127, 0, 0, 1], config.port)).await;
 }

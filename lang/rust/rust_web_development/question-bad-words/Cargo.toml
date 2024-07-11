@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 chrono = "0.4.38"
+config = { version = "0.14.0", features = ["toml"] }
 handle-errors = { path = "handle-errors" }
 paseto = "2.0.2"
 rand = "0.8.5"
