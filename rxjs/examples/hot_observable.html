@@ -8,14 +8,19 @@
 </head>
 <body>
   <div class="container">
-    <h2 class="my-4">Exercises</h2>
+    <h2 class="my-4">Hot Observable</h2>
   </div>
   <a href="/">demo</a> |
   <a href="/unsubscribe_demo">unsubscribe demo</a> |
   <a href="/cold_observable">cold observable</a> |
   <a href="/hot_observable">hot observable</a>
+  <p>
+    click the button and only one subscriber will publish but after 5 seconds 2
+    will start to publish the "same" events, hence Hot🔥 observables.
+  </p>
+  <button class="btn btn-primary" id="hello">hello</button>
   <ul id="output">
   </ul>
-  <script type="module" src="src/index.ts"></script>
+  <script type="module" src="src/hot_observable.ts"></script>
 </body>
 </html>
