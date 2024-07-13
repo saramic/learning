@@ -1,0 +1,7 @@
+{
+  "name": "dots-and-boxes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
