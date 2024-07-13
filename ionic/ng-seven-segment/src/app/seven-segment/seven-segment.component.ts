@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { timer } from 'rxjs';
 
 @Component({
@@ -8,6 +8,9 @@ import { timer } from 'rxjs';
   templateUrl: './seven-segment.component.html',
 })
 export class SevenSegmentComponent {
+  @Input() type: String;
+  last = new Date().getTime();
+
   onColor = '#FF0000';
   offColor = '#F5E1E1';
   colorA = this.offColor;
@@ -19,11 +22,34 @@ export class SevenSegmentComponent {
   colorG = this.offColor;
   current = 0;
 
-  // source = timer(0, 300);  // good for counting
-  source = timer(0, 100); // good for looping
+  source = timer(0, 100);
+
+  constructor() {
+    this.type = 'timer';
+  }
 
   ngOnInit() {
-    this.source.subscribe(() => this.loop());
+    this.source.subscribe(() => this.tick());
+  }
+
+  tick() {
+    switch (this.type) {
+      case 'clock':
+        this.loop();
+        const date = new Date;
+        const seconds = date.getSeconds();
+        const minutes = date.getMinutes();
+        const hour = date.getHours();
+        break;
+      case 'timer':
+        if(new Date().getTime() - this.last > 300){ // 300ms count
+          this.next();
+          this.last = new Date().getTime();
+        }
+        break;
+      default:
+        this.loop();
+      };
   }
 
   loop() {

@@ -1,4 +1,12 @@
-<app-seven-segment></app-seven-segment>
-<app-seven-segment></app-seven-segment>
-<app-seven-segment></app-seven-segment>
-<app-seven-segment></app-seven-segment>
+<div>
+  {{this.title}}
+</div>
+<app-seven-segment [type]="type"></app-seven-segment>
+<app-seven-segment [type]="type"></app-seven-segment>
+<app-seven-segment [type]="type"></app-seven-segment>
+<app-seven-segment [type]="type"></app-seven-segment>
+<div>
+  <button [routerLink]="['/clock']">clock</button>
+  <button [routerLink]="['/timer']">timer</button>
+  <button [routerLink]="['/loop']">loop</button>
+</div>
