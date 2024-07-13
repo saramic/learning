@@ -1,10 +1,12 @@
 <div>
-  {{this.title}}
+  {{ this.title }}
 </div>
-<app-seven-segment [type]="type"></app-seven-segment>
-<app-seven-segment [type]="type"></app-seven-segment>
-<app-seven-segment [type]="type"></app-seven-segment>
-<app-seven-segment [type]="type"></app-seven-segment>
+
+<app-seven-segment
+  *ngFor="let segment of segments; index as index"
+  [bitState]="segments[index]"
+/>
+
 <div>
   <button [routerLink]="['/clock']">clock</button>
   <button [routerLink]="['/timer']">timer</button>
