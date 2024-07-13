@@ -1,0 +1,53 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="content" *ngFor="let row of board; let i = index" class="row">
+          <div
+            class="cell"
+            *ngFor="let cell of row; let j = index"
+            class="cell"
+            style="top: {{ i * 44 }}px; left: {{ j * 44 }}px;"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="60"
+              viewBox="0 0 10 11"
+              stroke="#FFF"
+              stroke-width=".35"
+              id="seven-segment"
+            >
+              <polygon
+                id="t"
+                [attr.fill]="board[i][j]['t']"
+                points="1, 1  2, 0  8, 0  9, 1  8, 2  2, 2"
+                (click)="onCellClick(i, j, 't')"
+              />
+              <polygon
+                *ngIf="i === board.length - 1"
+                id="b"
+                [attr.fill]="board[i][j]['b']"
+                points="1, 9  2, 8  8, 8  9, 9  8,10  2,10"
+                (click)="onCellClick(i, j, 'b')"
+              />
+              <polygon
+                id="l"
+                [attr.fill]="board[i][j]['l']"
+                points="1, 9  0, 8  0, 2  1, 1  2, 2  2, 8"
+                (click)="onCellClick(i, j, 'l')"
+              />
+              <polygon
+                *ngIf="j === row.length - 1"
+                id="r"
+                [attr.fill]="board[i][j]['r']"
+                points="9, 1 10, 2 10, 8  9, 9  8, 8  8, 2"
+                (click)="onCellClick(i, j, 'r')"
+              />
+            </svg>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
