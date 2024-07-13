@@ -44,6 +44,12 @@
                 points="9, 1 10, 2 10, 8  9, 9  8, 8  8, 2"
                 (click)="onCellClick(i, j, 'r')"
               />
+              <polygon
+                *ngIf="!!board[i][j]['fin']"
+                id="fin"
+                [attr.fill]="board[i][j]['fin']"
+                points="2 2, 2 8, 8 8, 8 2"
+              />
             </svg>
           </div>
         </div>
