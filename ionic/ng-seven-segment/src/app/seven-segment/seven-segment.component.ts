@@ -20,6 +20,27 @@ export class SevenSegmentComponent {
   colorE = this.offColor;
   colorF = this.offColor;
   colorG = this.offColor;
+
+  loopBitStates = ['100', '80', '40', '20', '10', '8'];
+  numberBitStates = [
+    'fc', // parseInt('11111100', 2).toString(16),
+    '60', // parseInt('01100000', 2).toString(16),
+    'da', // parseInt('11011010', 2).toString(16),
+    'f2', // parseInt('11110010', 2).toString(16),
+    '66', // parseInt('01100110', 2).toString(16),
+    'b6', // parseInt('10110110', 2).toString(16),
+    'be', // parseInt('10111110', 2).toString(16),
+    'e0', // parseInt('11100000', 2).toString(16),
+    'fe', // parseInt('11111110', 2).toString(16),
+    'f6', // parseInt('11110110', 2).toString(16),
+    'fa', // parseInt('11111010', 2).toString(16), // a
+    '3e', // parseInt('00111110', 2).toString(16), // b
+    '1a', // parseInt('00011010', 2).toString(16), // c
+    '7a', // parseInt('01111010', 2).toString(16), // d
+    '9e', // parseInt('10011110', 2).toString(16), // e
+    '8e', // parseInt('10001110', 2).toString(16), // f
+  ];
+
   current = 0;
 
   source = timer(0, 100);
@@ -36,191 +57,45 @@ export class SevenSegmentComponent {
     switch (this.type) {
       case 'clock':
         this.loop();
-        const date = new Date;
-        const seconds = date.getSeconds();
-        const minutes = date.getMinutes();
-        const hour = date.getHours();
+        // const date = new Date();
+        // const seconds = date.getSeconds();
+        // const minutes = date.getMinutes();
+        // const hour = date.getHours();
         break;
       case 'timer':
-        if(new Date().getTime() - this.last > 300){ // 300ms count
+        const now = new Date().getTime();
+        if(now > this.last + 300) {
           this.next();
-          this.last = new Date().getTime();
+          this.last = now;
         }
         break;
       default:
         this.loop();
-      };
+    }
   }
 
   loop() {
-    this.current = (this.current + 1) % 6;
-    switch (this.current) {
-      case 0:
-        this.colorA = this.onColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 1:
-        this.colorA = this.offColor;
-        this.colorB = this.onColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 2:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.onColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 3:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.onColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 4:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.onColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 5:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.onColor;
-        this.colorG = this.offColor;
-        break;
-      default:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-    }
+    this.current = (this.current + 1) % this.loopBitStates.length;
+    this.setSegments(this.loopBitStates[this.current]);
   }
 
   next() {
     this.current = (this.current + 1) % 10;
-    switch (this.current) {
-      case 0:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.onColor;
-        this.colorF = this.onColor;
-        this.colorG = this.offColor;
-        break;
-      case 1:
-        this.colorA = this.offColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 2:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.offColor;
-        this.colorD = this.onColor;
-        this.colorE = this.onColor;
-        this.colorF = this.offColor;
-        this.colorG = this.onColor;
-        break;
-      case 3:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.onColor;
-        break;
-      case 4:
-        this.colorA = this.offColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.onColor;
-        this.colorG = this.onColor;
-        break;
-      case 5:
-        this.colorA = this.onColor;
-        this.colorB = this.offColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.offColor;
-        this.colorF = this.onColor;
-        this.colorG = this.onColor;
-        break;
-      case 6:
-        this.colorA = this.onColor;
-        this.colorB = this.offColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.onColor;
-        this.colorF = this.onColor;
-        this.colorG = this.onColor;
-        break;
-      case 7:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-        break;
-      case 8:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.onColor;
-        this.colorF = this.onColor;
-        this.colorG = this.onColor;
-        break;
-      case 9:
-        this.colorA = this.onColor;
-        this.colorB = this.onColor;
-        this.colorC = this.onColor;
-        this.colorD = this.onColor;
-        this.colorE = this.offColor;
-        this.colorF = this.onColor;
-        this.colorG = this.onColor;
-        break;
-      default:
-        this.colorA = this.offColor;
-        this.colorB = this.offColor;
-        this.colorC = this.offColor;
-        this.colorD = this.offColor;
-        this.colorE = this.offColor;
-        this.colorF = this.offColor;
-        this.colorG = this.offColor;
-    }
+    this.setSegments(this.numberBitStates[this.current]);
+  }
+
+  setSegments(bitState: string) {
+    const segmentColors = parseInt(bitState, 16)
+      .toString(2)
+      .padStart(8, '0')
+      .split('')
+      .map((bit) => (bit === '1' ? this.onColor : this.offColor));
+    this.colorA = segmentColors[0];
+    this.colorB = segmentColors[1];
+    this.colorC = segmentColors[2];
+    this.colorD = segmentColors[3];
+    this.colorE = segmentColors[4];
+    this.colorF = segmentColors[5];
+    this.colorG = segmentColors[6];
   }
 }
