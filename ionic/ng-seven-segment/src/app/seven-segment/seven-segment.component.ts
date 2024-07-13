@@ -21,7 +21,7 @@ export class SevenSegmentComponent {
   colorF = this.offColor;
   colorG = this.offColor;
 
-  loopBitStates = ['100', '80', '40', '20', '10', '8'];
+  loopBitStates = ['80', '40', '20', '10', '8', '4'];
   numberBitStates = [
     'fc', // parseInt('11111100', 2).toString(16),
     '60', // parseInt('01100000', 2).toString(16),
