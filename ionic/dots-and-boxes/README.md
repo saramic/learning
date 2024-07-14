@@ -10,10 +10,13 @@ turn. The winner has the most boxes at the end.
 
 - [ ] center the game play, div has no hight, can I use clearfix? or CSS grid?
 - [ ] timer per person
-- [ ] get another go
+- [x] get another go
+- [x] don't allow changing existing things
 - [ ] note you can get doubles - seems to work
   - now with user hack does not
 - [ ] make larger area clickable
+- [ ] like battle ships, you don't see where the other player has gone? maybe 1
+  or 2 moves delayed
 - [ ] resize based on the screen
 - [ ] users take turns
 - [ ] take and submit a turn

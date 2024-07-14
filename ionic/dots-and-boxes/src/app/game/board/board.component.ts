@@ -33,6 +33,7 @@ export class BoardComponent implements OnInit {
   playerOneTotal = 0;
   playerTwoTotal = 0;
   turn = true;
+  getAnotherTurn = false;
   // NOTE: cannot use new Array(10).fill(...{}) as that will create a reference
   //       to the same object, hence using a fill(null) and map to make
   //       individual objects.
@@ -58,6 +59,9 @@ export class BoardComponent implements OnInit {
   ngOnInit() {}
 
   onCellClick(i: number, j: number, k: string) {
+    if (this.board[i][j][k] !== this.colorOff) {
+      return;
+    }
     // console.log('Cell clicked');
     // console.log(i, j, k);
     this.board[i][j][k] = this.turn ? this.colorOnOne : this.colorOnTwo;
@@ -68,7 +72,11 @@ export class BoardComponent implements OnInit {
     if (k === 'l' && j > 0) {
       this.checkBoxClosed(i, j - 1, k);
     }
-    this.turn = !this.turn;
+    if (this.getAnotherTurn) {
+      this.getAnotherTurn = false;
+    } else {
+      this.turn = !this.turn;
+    }
   }
 
   checkBoxClosed(i: number, j: number, k: string) {
@@ -82,8 +90,7 @@ export class BoardComponent implements OnInit {
       ) {
         this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
         this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        // hack to undo turn and redo turn
-        this.turn = !this.turn;
+        this.getAnotherTurn = true;
       }
     }
     // right edge case
@@ -96,8 +103,7 @@ export class BoardComponent implements OnInit {
       ) {
         this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
         this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        // hack to undo turn and redo turn
-        this.turn = !this.turn;
+        this.getAnotherTurn = true;
       }
     }
     // bottom edge case
@@ -110,8 +116,7 @@ export class BoardComponent implements OnInit {
       ) {
         this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
         this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        // hack to undo turn and redo turn
-        this.turn = !this.turn;
+        this.getAnotherTurn = true;
       }
     }
     // bottom right
@@ -124,8 +129,7 @@ export class BoardComponent implements OnInit {
       ) {
         this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
         this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        // hack to undo turn and redo turn
-        this.turn = !this.turn;
+        this.getAnotherTurn = true;
       }
     }
   }
