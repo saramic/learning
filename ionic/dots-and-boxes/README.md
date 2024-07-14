@@ -9,6 +9,11 @@ turn. The winner has the most boxes at the end.
 ## TODO
 
 - [ ] center the game play, div has no hight, can I use clearfix? or CSS grid?
+- [ ] timer per person
+- [ ] get another go
+- [ ] note you can get doubles - seems to work
+  - now with user hack does not
+- [ ] make larger area clickable
 - [ ] resize based on the screen
 - [ ] users take turns
 - [ ] take and submit a turn

@@ -1,8 +1,11 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="12">
-        <div class="content" *ngFor="let row of board; let i = index" class="row">
+      <ion-col class="content" size="12">
+        <div
+          *ngFor="let row of board; let i = index"
+          class="row"
+        >
           <div
             class="cell"
             *ngFor="let cell of row; let j = index"
@@ -53,6 +56,22 @@
             </svg>
           </div>
         </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button class="player1" [disabled]="!turn" expand="block" size="large">
+          <ion-icon slot="start" name="star"></ion-icon>
+          player 1
+        </ion-button>
+        {{ playerOneTotal }}
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="player2" [disabled]="!!turn" expand="block" size="large">
+          <ion-icon slot="start" name="star"></ion-icon>
+          player 2
+        </ion-button>
+        {{ playerTwoTotal }}
       </ion-col>
     </ion-row>
   </ion-grid>

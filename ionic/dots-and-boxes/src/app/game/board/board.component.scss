@@ -2,6 +2,20 @@
   display: inline-block;
   position: absolute;
 }
-// .content {
-//   position: relative;
+.content {
+  // overflow: auto;
+  min-height: 480px;
+}
+// .content::after {
+//   content: "";
+//   display: block;
+//   clear: both;
 // }
+ion-button {
+  &.player1 {
+    --background: red;
+  }
+  &.player2 {
+    --background: blue;
+  }
+}
