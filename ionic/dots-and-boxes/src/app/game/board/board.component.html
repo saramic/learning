@@ -2,10 +2,7 @@
   <ion-grid>
     <ion-row>
       <ion-col class="content" size="12">
-        <div
-          *ngFor="let row of board; let i = index"
-          class="row"
-        >
+        <div *ngFor="let row of board; let i = index" class="row">
           <div
             class="cell"
             *ngFor="let cell of row; let j = index"
@@ -59,19 +56,17 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="6">
-        <ion-button class="player1" [disabled]="!turn" expand="block" size="large">
+      <ion-col size="6" *ngFor="let player of players; let i = index">
+        <ion-button
+          [class]="'player' + (i + 1)"
+          [disabled]="currentTurn !== i"
+          expand="block"
+          size="large"
+        >
           <ion-icon slot="start" name="star"></ion-icon>
-          player 1
+          {{ players[i].name }}
         </ion-button>
-        {{ playerOneTotal }}
-      </ion-col>
-      <ion-col size="6">
-        <ion-button class="player2" [disabled]="!!turn" expand="block" size="large">
-          <ion-icon slot="start" name="star"></ion-icon>
-          player 2
-        </ion-button>
-        {{ playerTwoTotal }}
+        {{ players[i].total }}
       </ion-col>
     </ion-row>
   </ion-grid>

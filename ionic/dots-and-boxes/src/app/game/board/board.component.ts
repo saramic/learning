@@ -28,11 +28,13 @@ import { star } from 'ionicons/icons';
 })
 export class BoardComponent implements OnInit {
   colorOff = '#cfcfcf';
-  colorOnOne = 'red';
-  colorOnTwo = 'blue';
-  playerOneTotal = 0;
-  playerTwoTotal = 0;
-  turn = true;
+  players = [
+    { name: 'Player 1', color: 'red', total: 0 },
+    { name: 'Player 2', color: 'blue', total: 0 },
+    { name: 'Player 3', color: 'green', total: 0 },
+    { name: 'Player 4', color: 'orange', total: 0 },
+  ];
+  currentTurn = 0;
   getAnotherTurn = false;
   // NOTE: cannot use new Array(10).fill(...{}) as that will create a reference
   //       to the same object, hence using a fill(null) and map to make
@@ -62,9 +64,8 @@ export class BoardComponent implements OnInit {
     if (this.board[i][j][k] !== this.colorOff) {
       return;
     }
-    // console.log('Cell clicked');
-    // console.log(i, j, k);
-    this.board[i][j][k] = this.turn ? this.colorOnOne : this.colorOnTwo;
+    this.board[i][j][k] = this.players[this.currentTurn].color;
+
     this.checkBoxClosed(i, j, k);
     if (k === 't' && i > 0) {
       this.checkBoxClosed(i - 1, j, k);
@@ -75,7 +76,7 @@ export class BoardComponent implements OnInit {
     if (this.getAnotherTurn) {
       this.getAnotherTurn = false;
     } else {
-      this.turn = !this.turn;
+      this.currentTurn = (this.currentTurn + 1) % this.players.length;
     }
   }
 
@@ -88,9 +89,7 @@ export class BoardComponent implements OnInit {
         this.board[i][j]['l'] !== this.colorOff &&
         this.board[i + 1][j]['t'] !== this.colorOff
       ) {
-        this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
-        this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        this.getAnotherTurn = true;
+        this.score_and_turn(i, j);
       }
     }
     // right edge case
@@ -101,9 +100,7 @@ export class BoardComponent implements OnInit {
         this.board[i][j]['l'] !== this.colorOff &&
         this.board[i + 1][j]['t'] !== this.colorOff
       ) {
-        this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
-        this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        this.getAnotherTurn = true;
+        this.score_and_turn(i, j);
       }
     }
     // bottom edge case
@@ -114,9 +111,7 @@ export class BoardComponent implements OnInit {
         this.board[i][j]['l'] !== this.colorOff &&
         this.board[i][j]['b'] !== this.colorOff
       ) {
-        this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
-        this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        this.getAnotherTurn = true;
+        this.score_and_turn(i, j);
       }
     }
     // bottom right
@@ -127,10 +122,14 @@ export class BoardComponent implements OnInit {
         this.board[i][j]['l'] !== this.colorOff &&
         this.board[i][j]['r'] !== this.colorOff
       ) {
-        this.board[i][j]['fin'] = this.turn ? this.colorOnOne : this.colorOnTwo;
-        this.turn ?  this.playerOneTotal++ : this.playerTwoTotal++;
-        this.getAnotherTurn = true;
+        this.score_and_turn(i, j);
       }
     }
+  }
+
+  score_and_turn(i: number, j: number) {
+    this.board[i][j]['fin'] = this.players[this.currentTurn].color;
+    this.players[this.currentTurn].total++;
+    this.getAnotherTurn = true;
   }
 }
