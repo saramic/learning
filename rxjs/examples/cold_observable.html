@@ -10,18 +10,15 @@
   <div class="container">
     <h2 class="my-4">Cold Observable</h2>
   </div>
-  <a href="/">demo</a> |
-  <a href="/unsubscribe_demo">unsubscribe demo</a> |
-  <a href="/cold_observable">cold observable</a> |
-  <a href="/hot_observable">hot observable</a> |
-  <a href="/creation_functions">creation functions</a> |
-  <a href="/from_event">fromEvent()</a>
-  <ul id="output">
+  <div id="menu">
+  </div>
+  <script type="module" src="src/menu.ts"></script>
   </ul>
   <p>
     Each observable makes it's own call and returns a different
     value
   </p>
-  <script type="module" src="src/cold_observable.ts"></script>
+  <ul id="output">
+  <script type="module" src="src/combine_latest.ts"></script>
 </body>
 </html>

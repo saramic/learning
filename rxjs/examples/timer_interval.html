@@ -8,18 +8,20 @@
 </head>
 <body>
   <div class="container">
-    <h2 class="my-4">Hot Observable</h2>
+    <h2 class="my-4">timer()/interval()</h2>
   </div>
   <div id="menu">
   </div>
   <script type="module" src="src/menu.ts"></script>
   <p>
-    click the button and only one subscriber will publish but after 5 seconds 2
-    will start to publish the "same" events, hence Hot🔥 observables.
+    1 second unsubscribe and 2 second for action to demo how to implement timer
+    fucntion
   </p>
-  <button class="btn btn-primary" id="hello">hello</button>
+  <p>
+    after which an iterval is displayed which stops after 5 seconds
+  </p>
   <ul id="output">
   </ul>
-  <script type="module" src="src/hot_observable.ts"></script>
+  <script type="module" src="src/timer_interval.ts"></script>
 </body>
 </html>
