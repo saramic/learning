@@ -15,13 +15,13 @@ const randomFood$ = ajax<any>(
 
 // retry after a delay to get around 429 errors
 const randomNamePipe = randomName$.pipe(
-  // retry({ delay: () => 1000, attempts: 3 })
+  retry({ delay: () => 1000, attempts: 3 })
 );
 const randomNationPipe = randomNation$.pipe(
-  // retry({ delay: 1000, attempts: 3 })
+  retry({ delay: 1000, attempts: 3 })
 );
 const randomFoodPipe = randomFood$.pipe(
-  // retry({ delay: 1000, attempts: 3 })
+  retry({ delay: 1000, attempts: 3 })
 );
 
 // NOTE: plain old subscription
