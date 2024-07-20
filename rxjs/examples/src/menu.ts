@@ -9,6 +9,12 @@
     { text: "timer()/interval()", href: "/timer_interval" },
     { text: "forkJoin()", href: "/fork_join" },
     { text: "combineLatest()", href: "/combine_latest" },
+    { text: "filter()", href: "/6_pipeable_filter" },
+    { text: "map()", href: "/6_pipeable_map" },
+    { text: "tap()", href: "/6_pipeable_tap" },
+    { text: "debounceTime()", href: "/6_pipeable_debounce" },
+    { text: "catchError()", href: "/6_pipeable_catch_error" },
+    { text: "flattening", href: "/6_pipeable_flattening" },
   ];
   pages.forEach((args, index) => {
     const menu = document.querySelector("#menu");
