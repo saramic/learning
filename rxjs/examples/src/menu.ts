@@ -15,6 +15,7 @@
     { text: "debounceTime()", href: "/6_pipeable_debounce" },
     { text: "catchError()", href: "/6_pipeable_catch_error" },
     { text: "flattening", href: "/6_pipeable_flattening" },
+    { text: "concatMap()", href: "/6_pipeable_concat_map" },
   ];
   pages.forEach((args, index) => {
     const menu = document.querySelector("#menu");
