@@ -4,29 +4,33 @@ import { FormsModule } from '@angular/forms';
 import {
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { BoardComponent } from './board/board.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.page.html',
-  styleUrls: ['./game.page.scss'],
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
-    BoardComponent,
     CommonModule,
     FormsModule,
     IonContent,
     IonHeader,
+    IonItem,
+    IonLabel,
+    IonList,
     IonTitle,
     IonToolbar,
     RouterModule,
   ],
 })
-export class GamePage implements OnInit {
+export class HomePage implements OnInit {
   constructor() {}
 
   ngOnInit() {}

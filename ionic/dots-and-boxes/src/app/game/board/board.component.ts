@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   IonContent,
   IonGrid,
@@ -28,12 +29,7 @@ import { star } from 'ionicons/icons';
 })
 export class BoardComponent implements OnInit {
   colorOff = '#cfcfcf';
-  players = [
-    { name: 'Player 1', color: 'red', total: 0 },
-    { name: 'Player 2', color: 'blue', total: 0 },
-    { name: 'Player 3', color: 'green', total: 0 },
-    { name: 'Player 4', color: 'orange', total: 0 },
-  ];
+  players: { name: string; color: string; total: number }[] = [];
   currentTurn = 0;
   getAnotherTurn = false;
   // NOTE: cannot use new Array(10).fill(...{}) as that will create a reference
@@ -54,11 +50,23 @@ export class BoardComponent implements OnInit {
     })
   );
 
-  constructor() {
+  constructor(private activatedRoute: ActivatedRoute) {
     addIcons({ star });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      const numberPlayers = paramMap.has('numberPlayers')
+        ? parseInt(paramMap.get('numberPlayers')!, 10)
+        : 2;
+      this.players = [
+        { name: 'Player 1', color: 'red', total: 0 },
+        { name: 'Player 2', color: 'blue', total: 0 },
+        { name: 'Player 3', color: 'green', total: 0 },
+        { name: 'Player 4', color: 'orange', total: 0 },
+      ].slice(0, numberPlayers);
+    });
+  }
 
   onCellClick(i: number, j: number, k: string) {
     if (this.board[i][j][k] !== this.colorOff) {
