@@ -16,6 +16,8 @@
     { text: "catchError()", href: "/6_pipeable_catch_error" },
     { text: "flattening", href: "/6_pipeable_flattening" },
     { text: "concatMap()", href: "/6_pipeable_concat_map" },
+    { text: "subject", href: "/7_subject" },
+    { text: "behaviourSubject()", href: "/7_behaviour_subject" },
   ];
   pages.forEach((args, index) => {
     const menu = document.querySelector("#menu");

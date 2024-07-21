@@ -13,6 +13,22 @@ Udemy: **RxJS 7 and Observables: Introduction**
 - https://rxjs.dev/guide/overview
 - RxJS Marbles (https://rxmarbles.com/) for interaction diagrams
   of Rx Observables
+- https://rxjs-dev.firebaseapp.com/guide/overview
+- on GitHub - https://github.com/ReactiveX/rxjs
+
+### blogs to read
+
+- [ ] [
+    To unsubscribe, or not to unsubscribe, that is the question. —
+    Subscriptions in RxJS - Jurek Wozniak
+    ](https://jaywoz.medium.com/rxjs-when-to-unsubscribe-c6f39b8b95b7)
+- [ ] [
+    Ground control to major Tom — HTTP calls in RxJS - Jurel Wozniak
+    ](https://jaywoz.medium.com/ground-control-to-major-tom-http-calls-in-rxjs-1d47ba964b6c)
+- [ ] [
+    Information is King — tap() — how to console.log in RxJS -
+    Jurek Wozniak
+    ](https://jaywoz.medium.com/information-is-king-tap-how-to-console-log-in-rxjs-7fc09db0ad5a)
 
 ## Work log
 
