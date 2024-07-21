@@ -8,6 +8,25 @@ Udemy: **RxJS 7 and Observables: Introduction**
 - _Jurek Wozniak_
 - https://www.udemy.com/course/rxjs-and-observables
 
+## Challenge
+
+Looking back at the course, the general concept of dealing with
+background tasks, retries and error cases as well as down stream
+events seemed like a way to sum up the full level of the course.
+The idea here is, what challenge would address all these ideas,
+either as a demonstration of them or as a challenge for a general
+discussion on tasks, errors, and retries - similar to Sidekiq jobs
+and microservices in Rails world.
+
+Maybe something along the lines of:
+- many events - 2 mice from 2 users or some API calls
+- that could result in too many calls
+- need to be processed on the fly
+- maybe to find intersections and prevent going off screen (via
+  error)
+
+something like that?
+
 ## Resources
 
 - https://rxjs.dev/guide/overview
