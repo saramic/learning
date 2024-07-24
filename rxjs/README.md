@@ -109,6 +109,12 @@ something like that?
    EOF
    ```
 
+1. create a `src` directory
+
+   ```sh
+   mkdir src
+   ```
+
 1. create a basic auto output to page `src/output.ts`
 
    ```sh
