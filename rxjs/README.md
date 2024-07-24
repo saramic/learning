@@ -49,6 +49,113 @@ something like that?
     Jurek Wozniak
     ](https://jaywoz.medium.com/information-is-king-tap-how-to-console-log-in-rxjs-7fc09db0ad5a)
 
+## setup local dev
+
+1. create a new directory and setup `package.json`
+
+   ```sh
+   mkdir rxjs-learning
+   cd rxjs-learning
+   npm init --yes
+   npm add rxjs
+   npm add --save-dev vite typescript
+   ```
+
+1. make sure to manually add a `"scripts"` `"dev": "vite",` section inside
+   `package.json` which should look like:
+
+   ```sh
+   cat package.json
+
+   {
+     "name": "rxjs-learning",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+       "dev": "vite",
+       "test": "echo \"Error: no test specified\" && exit 1"
+     },
+     "keywords": [],
+     "author": "",
+     "license": "ISC"
+   }
+   ```
+
+1. creae a basic index.html
+
+   ```sh
+   cat <<EOF > index.html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Exercises</title>
+     <link
+       rel="stylesheet"
+       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+     >
+   </head>
+   <body>
+     <div class="container">
+       <h2 class="my-4">Hello</h2>
+     </div>
+     <ul id="output">
+     </ul>
+     <script type="module" src="src/index.ts"></script>
+   </body>
+   </html>
+   EOF
+   ```
+
+1. create a basic auto output to page `src/output.ts`
+
+   ```sh
+   cat <<EOF > src/output.ts
+   export default (string) => {
+     const outputList = document.querySelector("#output");
+     const liElem = document.createElement('li');
+     const newContent = document.createTextNode(string);
+     liElem.appendChild(newContent);
+     outputList.appendChild(liElem);
+   }
+   EOF
+   ```
+
+1. finally create a demo app in `src/index.ts`
+
+   ```sh
+   cat <<EOF > src/index.ts
+   import { interval, timer } from "rxjs";
+   import output from "./output";
+
+   output("App started");
+
+   let subscription = interval(100).subscribe(
+     (event) => output(event),
+   );
+
+   timer(1000).subscribe(() => {
+     subscription.unsubscribe();
+     output("Unsubscribe");
+   })
+   EOF
+   ```
+
+1. to run
+
+   ```sh
+   npm run dev
+   ```
+1. and check it out in the browser
+
+   ```sh
+   open http://localhost:5174
+   ```
+1. the app subscribes to an RxJS `timer` for 1 second getting events every
+   100ms and finally unsubscribing after 10 events after 1 second.
+
 ## Work log
 
 _reverse chronological view of commits_
