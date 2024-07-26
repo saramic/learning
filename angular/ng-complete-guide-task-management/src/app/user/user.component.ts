@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,12 +8,15 @@ import { Component, Input } from '@angular/core';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  // NOTE: decorator approach
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
+  // NOTE: signal approach
+  avatar = input.required<string>();
+  name = input.required<string>();
 
-  get imagePath() {
-    return 'assets/users/' + this.avatar;
-  }
+  // NOTE: more preformant as "only" gets called when the avatar changes
+  imagePath = computed(() => 'assets/users/' + this.avatar())
 
   onSelectUser() {
     //   const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
