@@ -8,3 +8,6 @@
 ## Fri 26 July
 
 - general overview
+- project setup
+- components from ground up
+- start the app
