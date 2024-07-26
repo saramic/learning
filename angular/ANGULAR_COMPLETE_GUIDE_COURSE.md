@@ -11,3 +11,5 @@
 - project setup
 - components from ground up
 - start the app
+- state management with value binding
+- signals for state management
