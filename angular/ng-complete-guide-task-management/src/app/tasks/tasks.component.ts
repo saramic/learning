@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,30 +13,22 @@ import { NewTaskComponent } from './new-task/new-task.component';
 export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary: 'Learn all the basics and advanced features',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Learn all the basics and advanced features',
-      dueDate: '2025-12-31',
-    },
-  ];
   isAddingTask = false;
+  // NOTE: not recommended as creates a new instance of the service, use
+  // constructor instead
+  // private tasksService = new TasksService();
+
+  constructor(private tasksService: TasksService) {}
+  // NOTE: alternative to above
+  // constructor(tasksService: TasksService) {
+  //   this.tasksService = tasksService;
+  // }
 
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
   onStartAddTask() {
@@ -45,28 +38,6 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
   onAddTask(taskData: { title: string; summary: string; date: string }) {
-    // NOTE: could use this.tasks.unsift or .push
-    this.tasks = [
-      {
-        ...taskData,
-        ...{
-          id: `t${this.tasks.length.toString()}`, // OR new Date().getTime().toString(),
-          userId: this.userId,
-          dueDate: taskData.date, // TODO: as switching? has to be a date as dueDate?
-        },
-      },
-      ...this.tasks,
-    ];
-    // NOTE: alternative using unnshift below
-    // this.tasks.unshift(
-    //   {
-    //     id: `t${this.tasks.length.toString()}`, // OR new Date().getTime().toString(),
-    //     userId: this.userId,
-    //     title: taskData.title,
-    //     summary: taskData.summary,
-    //     dueDate: taskData.date, // TODO: as switching? has to be a date as dueDate?
-    //   },
-    // )
     this.isAddingTask = false;
   }
 }
