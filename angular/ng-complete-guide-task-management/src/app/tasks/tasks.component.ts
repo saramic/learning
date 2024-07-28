@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { NewTaskComponent } from './new-task/new-task.component';
+import { Task } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
@@ -27,6 +29,7 @@ export class TasksComponent {
       dueDate: '2025-12-31',
     },
   ];
+  newTask = false;
 
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId);
@@ -36,16 +39,21 @@ export class TasksComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  addTask() {
-    this.tasks = [
-      ...this.tasks,
-      {
-        id: `t${this.tasks.length.toString()}`,
-        userId: this.userId,
-        title: 'New Task',
-        summary: 'New Summary',
-        dueDate: Date.now().toString(),
-      },
-    ];
+  setNewTask() {
+    this.newTask = true;
+  }
+  // onSubmitTask(task: Task) {
+  onSubmitTask(task: any) {
+    // this.tasks = [
+    //   ...this.tasks,
+    //   {
+    //     ...task,
+    //     ...{
+    //       id: `t${this.tasks.length.toString()}`,
+    //       userId: this.userId,
+    //     },
+    //   },
+    // ];
+    this.newTask = false;
   }
 }

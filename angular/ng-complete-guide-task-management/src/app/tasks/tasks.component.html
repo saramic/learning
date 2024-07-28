@@ -4,9 +4,12 @@
       {{ name }}
     </h2>
     <menu>
-      <button (click)="addTask()">Add Task</button>
+      <button (click)="setNewTask()">Add Task</button>
     </menu>
   </header>
+  @if (newTask) {
+ <app-new-task (submit)="onSubmitTask($event)" />
+  }
   <ul>
     @for (task of selectedUserTasks; track task.id) {
     <li>
