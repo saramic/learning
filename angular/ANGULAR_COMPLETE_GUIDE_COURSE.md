@@ -12,6 +12,9 @@
   `required: true`
 - @for and @if for Angular 17 up
 - `*ngFor` and `*ngIf` structural directives for older projects
+- more components and passing values up and down
+- using model to store types
+- 🔜 52 Using Directives & two-way-bindings 
 
 ## Fri 26 July
 

@@ -15,7 +15,6 @@ export class NewTaskComponent {
     console.log('form submitted', event);
   }
   onCancel() {
-    console.log('form cancelled');
     this.cancel.emit();
   }
 }
