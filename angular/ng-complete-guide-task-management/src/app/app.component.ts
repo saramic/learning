@@ -14,4 +14,8 @@ import { DUMMY_USERS } from './dummy-users';
 export class AppComponent {
   title = 'ng-complete-guide-task-management';
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log('Selected user:', id);
+  }
 }
