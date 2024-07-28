@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
-import { Task } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -45,18 +44,29 @@ export class TasksComponent {
   onCancelAddTask() {
     this.isAddingTask = false;
   }
-  // onSubmitTask(task: Task) {
-  onSubmitTask(task: any) {
-    // this.tasks = [
-    //   ...this.tasks,
+  onAddTask(taskData: { title: string; summary: string; date: string }) {
+    // NOTE: could use this.tasks.unsift or .push
+    this.tasks = [
+      {
+        ...taskData,
+        ...{
+          id: `t${this.tasks.length.toString()}`, // OR new Date().getTime().toString(),
+          userId: this.userId,
+          dueDate: taskData.date, // TODO: as switching? has to be a date as dueDate?
+        },
+      },
+      ...this.tasks,
+    ];
+    // NOTE: alternative using unnshift below
+    // this.tasks.unshift(
     //   {
-    //     ...task,
-    //     ...{
-    //       id: `t${this.tasks.length.toString()}`,
-    //       userId: this.userId,
-    //     },
+    //     id: `t${this.tasks.length.toString()}`, // OR new Date().getTime().toString(),
+    //     userId: this.userId,
+    //     title: taskData.title,
+    //     summary: taskData.summary,
+    //     dueDate: taskData.date, // TODO: as switching? has to be a date as dueDate?
     //   },
-    // ];
+    // )
     this.isAddingTask = false;
   }
 }
