@@ -42,6 +42,10 @@ export class TasksComponent {
   onStartAddTask() {
     this.isAddingTask = true;
   }
+  cancelAddTask() {
+    console.log('cancelAddTask');
+    this.isAddingTask = false;
+  }
   // onSubmitTask(task: Task) {
   onSubmitTask(task: any) {
     // this.tasks = [

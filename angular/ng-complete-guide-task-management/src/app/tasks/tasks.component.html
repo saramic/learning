@@ -4,11 +4,13 @@
       {{ name }}
     </h2>
     <menu>
-      <button (click)="onStartAddTask()">Add Task</button>
+      <button (click)="onStartAddTask()" (cancel)="cancelAddTask()">
+        Add Task
+      </button>
     </menu>
   </header>
   @if (isAddingTask) {
- <app-new-task (submit)="onSubmitTask($event)" />
+  <app-new-task (submit)="onSubmitTask($event)" />
   }
   <ul>
     @for (task of selectedUserTasks; track task.id) {
