@@ -1,4 +1,4 @@
-<div class="backdrop" (click)="onCancel()"></div>
+<div class="backdrop" (click)="onClose()"></div>
 <dialog open>
   <h2>Add Task</h2>
   <form (ngSubmit)="onSubmit()">
@@ -28,7 +28,7 @@
     </p>
 
     <p class="actions">
-      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="button" (click)="onClose()">Cancel</button>
       <button type="submit">Create</button>
     </p>
   </form>

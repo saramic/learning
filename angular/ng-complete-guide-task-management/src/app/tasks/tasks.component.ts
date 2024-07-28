@@ -29,15 +29,14 @@ export class TasksComponent {
   }
 
   onCompleteTask(id: string) {
+    // TODO: implement
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
-  onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-  onAddTask(taskData: { title: string; summary: string; date: string }) {
+
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 }
