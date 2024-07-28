@@ -33,7 +33,19 @@ export class TasksComponent {
   }
 
   onCompleteTask(id: string) {
-    console.log('Task completed:', id);
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  addTask() {
+    this.tasks = [
+      ...this.tasks,
+      {
+        id: `t${this.tasks.length.toString()}`,
+        userId: this.userId,
+        title: 'New Task',
+        summary: 'New Summary',
+        dueDate: Date.now().toString(),
+      },
+    ];
   }
 }
