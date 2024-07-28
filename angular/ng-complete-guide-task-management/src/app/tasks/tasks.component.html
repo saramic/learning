@@ -4,10 +4,10 @@
       {{ name }}
     </h2>
     <menu>
-      <button (click)="setNewTask()">Add Task</button>
+      <button (click)="onStartAddTask()">Add Task</button>
     </menu>
   </header>
-  @if (newTask) {
+  @if (isAddingTask) {
  <app-new-task (submit)="onSubmitTask($event)" />
   }
   <ul>

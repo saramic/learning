@@ -29,7 +29,7 @@ export class TasksComponent {
       dueDate: '2025-12-31',
     },
   ];
-  newTask = false;
+  isAddingTask = false;
 
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId);
@@ -39,8 +39,8 @@ export class TasksComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  setNewTask() {
-    this.newTask = true;
+  onStartAddTask() {
+    this.isAddingTask = true;
   }
   // onSubmitTask(task: Task) {
   onSubmitTask(task: any) {
@@ -54,6 +54,6 @@ export class TasksComponent {
     //     },
     //   },
     // ];
-    this.newTask = false;
+    this.isAddingTask = false;
   }
 }
