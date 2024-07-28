@@ -14,14 +14,14 @@ import { TasksComponent } from './tasks/tasks.component';
 })
 export class AppComponent {
   title = 'ng-complete-guide-task-management';
-  selectedName = '';
+  selectedUserId = 'u1';
   users = DUMMY_USERS;
 
+  get selectedUser() {
+    return this.users.find((user) => user.id === this.selectedUserId)!;
+  }
+
   onSelectUser(id: string) {
-    console.log('Selected user:', id);
-    const found = this.users.find((user) => user.id === id);
-    if (found) {
-      this.selectedName = found['name'];
-    }
+    this.selectedUserId = id;
   }
 }
