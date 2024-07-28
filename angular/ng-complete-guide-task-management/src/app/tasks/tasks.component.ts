@@ -29,7 +29,7 @@ export class TasksComponent {
   }
 
   onCompleteTask(id: string) {
-    // TODO: implement
+    this.tasksService.completeTask(id);
   }
 
   onStartAddTask() {
