@@ -16,7 +16,12 @@
 - using model to store types
 - all components are directives with templates - but ngModel is a special
   directive to do 2 way binding with inputs for example
-- 🔜 52 Using Directives & two-way-bindings 
+- forms with ngSubmit and FormsModule
+- pipes like `| date`
+- `ng-content` for wrapper components
+- services and injecting from root
+- localstorate for storage
+- 🔜 Section 3: Angular Essentials -  Working with modules
 
 ## Fri 26 July
 

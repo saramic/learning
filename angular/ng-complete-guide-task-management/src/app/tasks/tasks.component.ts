@@ -14,15 +14,8 @@ export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
   isAddingTask = false;
-  // NOTE: not recommended as creates a new instance of the service, use
-  // constructor instead
-  // private tasksService = new TasksService();
 
   constructor(private tasksService: TasksService) {}
-  // NOTE: alternative to above
-  // constructor(tasksService: TasksService) {
-  //   this.tasksService = tasksService;
-  // }
 
   get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId);
