@@ -14,6 +14,8 @@
 - `*ngFor` and `*ngIf` structural directives for older projects
 - more components and passing values up and down
 - using model to store types
+- all components are directives with templates - but ngModel is a special
+  directive to do 2 way binding with inputs for example
 - 🔜 52 Using Directives & two-way-bindings 
 
 ## Fri 26 July
