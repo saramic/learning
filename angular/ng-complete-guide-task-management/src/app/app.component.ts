@@ -14,7 +14,7 @@ import { TasksComponent } from './tasks/tasks.component';
 })
 export class AppComponent {
   title = 'ng-complete-guide-task-management';
-  selectedUserId = 'u1';
+  selectedUserId?: string;
   users = DUMMY_USERS;
 
   get selectedUser() {
