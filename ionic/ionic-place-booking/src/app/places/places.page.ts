@@ -1,20 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonLabel,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
+import { PlacesRoutingModule } from './places-routing.module';
+import { addIcons } from 'ionicons';
+import { card, search } from 'ionicons/icons'
 
 @Component({
   selector: 'app-places',
   templateUrl: './places.page.html',
   styleUrls: ['./places.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonContent,
+    IonHeader,
+    IonIcon,
+    IonIcon,
+    IonLabel,
+    IonTabBar,
+    IonTabButton,
+    IonTabs,
+    IonTitle,
+    IonToolbar,
+    PlacesRoutingModule,
+  ],
 })
 export class PlacesPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    addIcons({ card, search });
   }
 
+  ngOnInit() {}
 }
