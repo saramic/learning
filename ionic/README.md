@@ -432,7 +432,21 @@ resources
 
 ## Section 7 - Navigation & Routing in Ionic Apps
 
-...
+- Lifecycle
+    | Angular     | Ionic                                      |
+    |=============|============================================|
+    | ngOnInit    |                                            |
+    |             | ionViewWillEnter                           |
+    |             | ionViewDiDEnter (top of the stack of pages)|
+    |             | ionViewWillLeave                           |
+    |             | ionViewDidLeave                            |
+    | ngOnDistroy |                                            |
+
+- Angular Router and NavController
+- using tabs
+- using SideDrawer
+- Overlays (modal)
+- Guards
 
 ## Section 8 - Ionic Component Overview
 

@@ -21,6 +21,7 @@ export class RecipeDetailPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       if (!paramMap.has('recipeId')) {
         // redirect if no ID is passed in
@@ -56,5 +57,21 @@ export class RecipeDetailPage implements OnInit {
     .then((alertEl) => {
       alertEl.present();
     });
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+  }
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter');
+  }
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave');
+  }
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave');
+  }
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 }
