@@ -450,6 +450,8 @@ resources
 
 ## Section 8 - Ionic Component Overview
 
+🔜 115 Going back with NavController
+
 ## Section 9 - Styling & Theming Ionic Apps
 
 ## Section 10 - Handling User Input
