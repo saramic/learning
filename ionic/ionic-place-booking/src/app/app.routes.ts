@@ -12,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'places',
-    loadComponent: () => import('./places/places.page').then( m => m.PlacesPage)
+    loadChildren: () => import('./places/places.routes').then( m => m.routes)
   },
   {
     path: 'bookings',

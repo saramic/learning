@@ -12,7 +12,6 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { PlacesRoutingModule } from './places-routing.module';
 import { addIcons } from 'ionicons';
 import { card, search } from 'ionicons/icons'
 
@@ -34,7 +33,6 @@ import { card, search } from 'ionicons/icons'
     IonTabs,
     IonTitle,
     IonToolbar,
-    PlacesRoutingModule,
   ],
 })
 export class PlacesPage implements OnInit {
@@ -42,5 +40,5 @@ export class PlacesPage implements OnInit {
     addIcons({ card, search });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
