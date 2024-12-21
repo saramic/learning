@@ -1,6 +1,6 @@
 # Progress Dec 2024
 
-## Idea for practicing gem and buld
+## Idea for practicing gem and bundle
 
 this is the kind of thing I would do to get an understanding of `gem` and
 `bundle` and `Gemfile` in terms of managing gems.
@@ -61,3 +61,48 @@ cd ..
 ```
 
 practice for 5-10 minutes beginning of the day for a week (edited)
+
+## Performance monitoring ruby
+
+As per Advent of Code on [Ruby AU slack channel under #hackathons Dec 11th
+10:15PM](
+https://rubyau.slack.com/archives/CHHUB1VHD/p1733915773478149?thread_ts=1733908866.680359&cid=CHHUB1VHD)
+
+Rian shared his approach [github/rianmcguire/aoc...](
+https://github.com/rianmcguire/aoc/blob/8e2f73389e552add1c71eb49f35b2546a5a3d14d/perf.rb#L15)
+
+```ruby
+def measure(*cmd)
+  if RUBY_PLATFORM.match /darwin/
+    stdout, stderr, status = Open3
+      .capture3("/usr/bin/time", "-l", *cmd)
+    if status.exitstatus != 0
+      raise "Failed: #{stdout} #{stderr} #{status.inspect}"
+    end
+    t = stderr.match(/([\d.]+) real/)[1].to_f
+    max_rss = stderr.match(/(\d+).*maximum resident set size/)[1].to_f / 1024
+
+    [t, max_rss]
+  else
+    stdout, stderr, status = Open3
+        .capture3("/usr/bin/time", "--format", "%e,%M", *cmd)
+    if status.exitstatus != 0
+        raise "Failed: #{stdout} #{stderr} #{status.inspect}"
+    end
+
+    stderr.lines.last.split(",").map(&:to_f)
+  end
+end
+
+files.each do |file|
+  input = "#{file.split(".").first.gsub("b", "")}.txt"
+  STDOUT.write label(file).ljust(max_length, " ")
+  STDOUT.write " "
+  t, max_rss = 3.times.map do
+    STDOUT.write "-"
+    measure("./#{file}", input)
+  end.min_by { |t, max_rss| t }
+  max_rss_mb = max_rss / 1024
+  STDOUT.puts sprintf(" %6.3fs %5.1fMB", t, max_rss_mb)
+end
+```
