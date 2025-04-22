@@ -1,6 +1,18 @@
-# RESUME
+# RESUME – Michael Milewski
 
-this resume lives at [Github saramic/learning/RESUME.md](https://github.com/saramic/learning/blob/master/RESUME.md)
+## Professional Summary
+
+Senior Software Engineer with 20+ years’ experience across FinTech, HealthTech,
+and startups. Expert in improving developer experience, leading
+cross-functional initiatives, and cultivating strong engineering cultures
+through TDD, mentoring, and internal tooling. Frequent international speaker
+and hackathon winner with a passion for innovation at the edge of hardware and
+software.
+
+---
+
+this resume lives at [Github saramic/learning/RESUME.md](
+https://github.com/saramic/learning/blob/master/RESUME.md)
 
 |            | Michael Milewski                                           |
 | ---------- | ---------------------------------------------------------- |
@@ -14,50 +26,72 @@ this resume lives at [Github saramic/learning/RESUME.md](https://github.com/sara
 
 ### 2023 Jun - Present Senior Engineer Mable
 
-  - **individual contributor**
-    - spiked, architected and implemented cross services communications.
-      Initially using point to point but as per the spike and architecture,
-      soon to move across to using Kinesis. Dealt with various failure modes
-      using transactional inbox/outbox patter, detailed inter process
-      monitoring using DataDog monitors and alerts. Also proposed more secure
-      cross service authorization.
-  - **cross team contributions**
-    - active in promoting a more conserted team effort in getting codebase up
-      to speed with lint tools like ESlint and Rubocop
-    - fixed a legacy gap in the monolith's codebase not having a
-      `structure.sql`
-  - **mentoring**
-    - grew a weekly coding dojo from 2 developers to around 10
-    - instilled continual learning and sharing practices through a joint code
-      and ideas repository with contributions from 10 developers
-    - shared knowledge with a number of developers one-on-one
-  - **innovation**
-    - created a cross team "bat signal" project that brought developers
-      together behind a hardware and software project sending MQTT messages
-      between ESP32 connected devices. Continued a hobby project group meeting
-      2 times a month since the original hackathon where this was created.
-    - introduced team to outside in BDD and flow style testing
-    - introduced the Front/End team to unit testing using vitest
+  - **“Tooling & Developer Experience”**
+    - **Sweeping Improvements in the Support Squad**
+        - Established continuity processes between support squads like weekly
+          logs, structured playbooks and alerting, handover meetings for both
+          support squad and over arching team leaderships which in turn lead to
+          proactive fixes that reduced future problems.
+    - **Improving Reproducibility & Tooling for Development**
+        - Fixed drift in database migrations between production, release and
+          developer environment as well as added tooling in CI (Continuous
+          Integration) and developer-friendly tooling to prevent future
+          discrepancies and avoid timely outages.
+        - Drove adoption of better tooling for repository setup and maintenance
+          like Makefiles, Justfiles, ASDF adoption, Brewfile configuration, and
+          API documentation—many of which have now become organic best
+          practices across teams.
+  - **“Mentorship & Engineering Culture”**
+    - **Teaching & Mentorship Through the Coding Dojo**
+        - Ran a weekly coding dojo for over 1.5 years, focusing on pairing and
+          test- driven development (TDD). Created a space where developers of
+          all levels felt empowered to take the lead and drive sessions.
+          Fostered a culture of cross- team learning, allowing engineers from
+          various teams to participate, teach, and elevate Mable’s overall
+          engineering capability.
+    - **Cross-Team Collaboration & Engineering Culture Building**
+        - Ran meetings across various parts of engineering both Backend and
+          Frontend to improve engineering output, sharing of information and
+          address technical and security issues. Re-architected the ADR
+          (Architecture Decision Record) process to be more of a reference for
+          why decissions were made. Drove a large change in linting across the
+          codebases to reduce unnecessary code churn in reviews which spend up
+          the review process overall.
+    - **Innovation**
+        - Created a cross-team “bat signal” IoT hackathon project using MQTT
+          and ESP32; sustained community via bi-monthly hobby meetups.
+        - introduced team to outside in BDD and flow style testing.
+        - introduced the Front/End team to unit testing using vitest.
+        - prototyped a bunch of other approaches like: AWS CDK deployments,
+          RUST lambdas, Terraform for local development, bitmap DB indexed data
+          and a share repository for all developers to share their spikes and
+          findings.
+  - **“Cross-Service Architecture”**
+    - Architected a scalable cross-service comms layer, evolving from
+      point-to-point to Kinesis-based streaming; used transactional
+      inbox/outbox and robust Datadog monitoring.
 
-### 2018 Oct - Present Conference Speaker and Mentor
-
-  - **speaking engagements:**
+## 2018 Oct - Present Conference Speaker and Mentor
+  - **Speaking Engagements:**
     - presented developer practices around testing, pairing, hardware and
-      architecture at international conferences including RubyKaigi 2023,
-      RailsConf 2023, OpenConf Greece 2023, React Miami 2023, RailsConf 2019
-      Minneapolis, RubyConf AU 2020, ReactConf AU 2020
-    - presented at over 25 other speaking engagements on topics like features of
-      Rails, using VI, coding Arduino including Melbourne Ruby Meetup, Sydney
-      Ruby Meetup Melbourne Python Meetup, Melbourne React Meetup, DDD
+      architecture at international conferences including: NDC Melbourne 2025,
+      NDC Sydney 2024, NDC Copenhagen Developer Festival 2023, RubyKaigi 2023,
+      RailsConf 2023, OpenConf Greece 2023, React Miami 2023, RailsConf 2019,
+      RubyConf AU 2020, ReactConf AU 2020
+    - presented at over 25 other speaking engagements on topics like features
+      of Rails, using VI, coding Arduino including Melbourne Ruby Meetup,
+      Sydney Ruby Meetup Melbourne Python Meetup, Melbourne React Meetup, DDD
       Melbourne, Google DevFest 2019
-  - **mentoring:**
-    - paired with over 60 developers since 2018 (outside of work colleagues)
-    - ran one on one mentoring sessions with ~15 developers since 2019
-  - **hackathons:**
+  - **Mentoring & TDD:**
+    - paired with over 80, 15 in recurring 1:1s (outside of work colleagues)
+    - ran numerous pair programming and TDD sessions both at work and with a
+      number of coding bootcamps like: Le Wagon Melbourne and Holburton School
+      Australia.
+  - **Hackathons:**
     - Gov Hack winning project 2018
     - 3rd place Unearthed hackathon 2017
     - numerous other hackathons including Square Unboxed hackathon 2021,
-      PayPal/Braintree hackathon as well as numerous Melbourne Datathons
+      PayPal/Braintree hackathon as well as numerous Melbourne Datathons.
 
 ### 2021 Nov - 2023 Jun Senior Developer Zepto
 
@@ -177,6 +211,6 @@ this resume lives at [Github saramic/learning/RESUME.md](https://github.com/sara
   - **community:** part of the Polish Scouting running camps for kids and a
     troop leader in Melbourne Metro area
   - **electronics/radio:** interest in electronics and looking to getting a HAM
-    amateur radio licence in 2024 -
+    amateur radio licence in 2024 or 2025 -
     [https://saramic.github.io/ham-radio/](https://saramic.github.io/ham-radio/)
 
