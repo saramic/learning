@@ -32,6 +32,15 @@ https://www.youtube.com/watch?v=4zrQAJ0RlI4)
     - https://github.com/gradual-systems/railsconf-workshop
 - https://asmaloney.com/2014/01/code/creating-an-interactive-map-with-leaflet-and-openstreetmap/
 
+## Review some repos
+
+- https://github.com/meshtastic/web
+- https://github.com/Johnnsonkp/codeBASED
+- https://github.com/Johnnsonkp/codebased_server
+- https://github.com/ServerlessDevelopers/serverless-rust
+- https://github.com/Rust-Web-Development/code
+- https://github.com/danielmiessler/SecLists
+
 ## Escape rooms
 
 - https://www.reddit.com/r/gamingsuggestions/comments/10xmgj0/best_inbrowser_games_that_can_be_hosted_for_a/
