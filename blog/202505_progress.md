@@ -313,3 +313,77 @@ Balancing Coupling in Software Design - Vlad Khononov - NDC Oslo 2023
 [
     Visual and Collaborative Modelling - Kenny Baas-Schwegler - DDD Europe 2020
 ](https://youtu.be/5RrEzJM5bdw)
+
+## On AI
+
+- [AI Engineering Isn't Magic, It's Method: Key Strategies for Building Better
+  Software Faster - Nick Baumann - May 16, 2025](
+  https://cline.bot/blog/ai-engineering-isnt-magic-its-method-key-strategies-for-building-better-software-faster)
+
+## Anime JS from Matt G.
+
+- https://animejs.com/
+
+## From NDC Melbourne
+
+- https://connell.dev/
+
+## Light Phone III
+
+- https://www.thelightphone.com/shop/products/light-phone-iii
+
+## Block chain
+
+Talked to an uber driver who did a bunch of research and said to get into
+"utility coins" that have `ISO20022` certification
+
+- https://101blockchains.com/iso-20022-compliant-crypto-list/
+
+## Accurate navigation
+
+How the islanders navigated accurately using certain stars and when they rise
+and set, does require seeing the horizon
+
+- https://en.wikipedia.org/wiki/We,_the_Navigators
+- https://www.amazon.com.au/We-Navigators-Ancient-Landfinding-Pacific/dp/0824815823
+- https://www.goodreads.com/book/show/758833.We_the_Navigators
+
+## Books
+
+related to code quality and the "coupling" books above
+
+- https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/
+
+## Minature kites
+
+for scouts badge that would work in a small park maybe
+
+- https://miniatures.kitingusa.com/
+- https://www.instructables.com/Mini-Kite/
+- https://www.my-best-kite.com/miniature-kites.html
+- https://www.amazon.com.au/Miniature-Kite-Plans-build-kites/dp/169886728X
+- https://tra.extension.colostate.edu/wp-content/uploads/sites/9/2021/09/Mini-Kite-Designs.pdf
+
+## Distributed consensus problem
+
+- https://news.ycombinator.com/item?id=39676493
+- https://mark-burgess-oslo-mb.medium.com/using-promise-theory-to-solve-the-distributed-consensus-problem-4cc2116f24e1
+
+## Everything event sourcing
+
+- https://eventmodeling.org/
+- https://podcast.eventmodeling.org/
+- https://leanpub.com/eventmodeling-and-eventsourcing
+
+## Outdoors
+
+- big saw
+    - [Silky Saws Big Boy Curve 360mm Outback $175.00](
+    https://www.woodtamer.com.au/products/copy-of-big-boy-folding-saw-360mm)
+
+## Books other
+
+supposedly a good read:
+
+- https://www.amazon.com.au/Anita-Loos-A-Biography/dp/0747502943
+    - https://www.goodreads.com/book/show/2128901.Anita_Loos
