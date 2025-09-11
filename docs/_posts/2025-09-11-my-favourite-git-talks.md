@@ -5,13 +5,13 @@ date:   2025-09-11 15:50:00 +1000
 categories: git youtube
 ---
 
-## Tekin Süleyman - A Branch in Time (a story about revision histories) - Ruby
-Australia
+## Tekin Süleyman - A Branch in Time
+
+(a story about revision histories) - Ruby Australia
 
 [![
   Tekin Süleyman - A Branch in Time (a story about revision histories) - Ruby
   Australia
-
 ](
   http://img.youtube.com/vi/1NoNTqank_U/0.jpg
 )](https://youtu.be/1NoNTqank_U)
