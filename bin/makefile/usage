@@ -21,6 +21,8 @@ _usage() {
   echo
   echo -e "${YELLOW}make resume-to-pdf${NC}   generate PDF from RESUME.md"
   echo
+  echo -e "${YELLOW}make dev-blog${NC}        run the jekyll blog"
+  echo
 }
 
 _usage
