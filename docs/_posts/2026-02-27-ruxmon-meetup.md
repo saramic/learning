@@ -13,6 +13,14 @@ CVE](https://www.meetup.com/ruxmon/events/313290893/)
 
 @hoodiePony gave an intersting talk on cirumventing tamper detection
 
+also has taken part in [CH Con New Zealand hacker con](https://2025.chcon.nz/)
+
+- https://www.youtube.com/c/chconnz - looks like a treasure trove of videos
+
+- https://www.linkedin.com/company/chcon-nz/?originalSubdomain=nz
+
+On the nail polish presentation
+
 - https://www.vice.com/en/article/itll-take-more-than-glitter-nail-polish-to-stop-snooping/
 - https://fahrplan.events.ccc.de/congress/2013/Fahrplan/events/5600.html
 - https://boingboing.net/2013/12/31/glitter-nail-polish-is-the-bes-2.html
