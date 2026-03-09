@@ -1,7 +1,8 @@
-nodejs 20.10.0
+nodejs   20.10.0
 postgres 14.5
-python 3.10.4
-ruby 3.2.2
-rust stable
-yarn 1.22.10
-redis 6.0.8
+python   3.10.4
+ruby     3.2.2
+rust     stable
+yarn     1.22.10
+redis    6.0.8
+golang   latest
