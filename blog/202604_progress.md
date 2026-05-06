@@ -1,5 +1,11 @@
 # Progress April 2026
 
+## Mon 13 Apr
+
+### AI
+
+- AI bots to rewrite OpenSource to have no license https://malus.sh/
+
 ## Electronics next steps
 
 Element 14 competitions
