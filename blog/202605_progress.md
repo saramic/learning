@@ -1,5 +1,30 @@
 # Progress May 2026
 
+## Wed 13 May
+
+- wrapped up watching
+
+  **Null Object Pattern – Design Patterns (ep 18) - Christopher Okhravi**
+
+  [![
+    Null Object Pattern – Design Patterns (ep 18) - Christopher Okhravi
+  ](
+    http://img.youtube.com/vi/rQ7BzfRz7OY/0.jpg
+  )](https://youtu.be/rQ7BzfRz7OY)
+
+  - think about - how far can you move
+    - replace every conditional and replace with polymorphism
+    - and replace every NULL with plymorphism and NULL Object Pattern
+  - [ ] watch this on Null Object Pattern
+
+    **RailsConf 2015 - Nothing is Something - Confreaks**
+
+    [![
+      RailsConf 2015 - Nothing is Something - Confreaks
+    ](
+      http://img.youtube.com/vi/OMPfEXIlTVE/0.jpg
+    )](https://youtu.be/OMPfEXIlTVE)
+
 ## Wed 6 May
 
 ### Good Developer Office setup
