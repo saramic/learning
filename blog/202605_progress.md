@@ -1,5 +1,114 @@
 # Progress May 2026
 
+## Fri 15 May
+
+```
+ffmpeg -y -ss 5 -i big-bad-movie-in.mov \
+    -an \
+    -vf "setpts=PTS/1.5,setparams=color_primaries=bt709:color_trc=bt709:colorspa
+  ce=bt709" \
+    -c:v libx264 -crf 28 -preset fast \
+    -maxrate 1500k -bufsize 3000k \
+    -pix_fmt yuv420p \
+    -movflags +faststart \
+    output.mp4
+```
+
+What each part does:
+
+Flag: -y
+Effect: Overwrite output without prompting
+────────────────────────────────────────
+OPTIONAL
+Flag: -ss 5
+Effect: Skip the first 5 seconds of input
+────────────────────────────────────────
+OPTIONAL
+Flag: -an
+Effect: Strip audio entirely
+────────────────────────────────────────
+OPTIONAL
+Flag: -af "atempo=2.0"
+Effect: speed up audio by 2.0 (or 1.5 whatever to match video)
+────────────────────────────────────────
+Flag: setpts=PTS/1.5
+Effect: Speed up video 1.5x by compressing timestamps
+────────────────────────────────────────
+Flag: setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709
+────────────────────────────────────────
+Flag: -c:v libx264
+Effect: Encode to H.264
+────────────────────────────────────────
+Flag: -crf 28
+Effect: Quality level (higher = smaller file, 28 is visually acceptable)
+────────────────────────────────────────
+Flag: -preset fast
+Effect: Encoding speed/compression tradeoff
+────────────────────────────────────────
+Flag: -maxrate 1500k -bufsize 3000k
+Effect: Hard bitrate cap to guarantee sub-10MB output
+────────────────────────────────────────
+Flag: -pix_fmt yuv420p
+Effect: Standard pixel format for browser compatibility
+────────────────────────────────────────
+Flag: -movflags +faststart
+Effect: Move metadata to the front of the file for instant playback
+────────────────────────────────────────
+
+> The key fix: Your iPhone 13 Pro records in Dolby Vision (HLG/BT.2020 HDR).
+> Even after re-encoding to H.264, ffmpeg was carrying over the HDR color
+> metadata. Browsers that encounter HLG metadata on an H.264 stream can stall or
+>  stop decoding partway through — which is why you were only seeing the first
+> ~6 seconds. The setparams filter overwrites that metadata to standard SDR
+> (BT.709) before encoding.
+
+✻ Cogitated for 1m 21s
+
+※ recap: Converted iPhone video for Jekyll blog: trimmed 5s, muted, 1.5x speed,
+  fixed HDR metadata causing 6-second browser stall. Test by hard refreshing the
+   blog page to confirm full video playback. (disable recaps in /config)
+
+### Adding backing track
+
+Adding a backing track from x.mp3:
+
+```
+  ffmpeg -y -ss 5 -i /Users/michael/Downloads/IMG_2921.MOV \
+    -i x.mp3 \
+    -vf "setpts=PTS/1.5,setparams=color_primaries=bt709:color_trc=bt709:colorspa
+  ce=bt709" \
+    -af "atempo=1.0" \
+    -map 0:v -map 1:a \
+    -shortest \
+    -c:v libx264 -crf 28 -preset fast \
+    -maxrate 1500k -bufsize 3000k \
+    -pix_fmt yuv420p \
+    -c:a aac -b:a 128k \
+    -movflags +faststart \
+    output.mp4
+```
+
+Key additions:
+
+┌───────────────┬─────────────────────────────────────────────────────────┐
+│     Flag      │                         Effect                          │
+├───────────────┼─────────────────────────────────────────────────────────┤
+│ -i x.mp3      │ Second input — the backing track                        │
+├───────────────┼─────────────────────────────────────────────────────────┤
+│ -map 0:v      │ Take video from first input (the MOV)                   │
+├───────────────┼─────────────────────────────────────────────────────────┤
+│ -map 1:a      │ Take audio from second input (the MP3)                  │
+├───────────────┼─────────────────────────────────────────────────────────┤
+│ -shortest     │ Stop when the shorter stream ends (so video doesn't     │
+│               │ hang waiting for a long MP3, or vice versa)             │
+├───────────────┼─────────────────────────────────────────────────────────┤
+│ -c:a aac -b:a │ Encode the MP3 audio to AAC for MP4 compatibility       │
+│  128k         │                                                         │
+└───────────────┴─────────────────────────────────────────────────────────┘
+
+If the MP3 is shorter than the video and you want it to loop, add -stream_loop
+ -1 -i x.mp3 (put the -stream_loop -1 before the -i x.mp3).
+
 ## Thu 14 May
 
 - Van life or maybe initially car office and overnight travel
