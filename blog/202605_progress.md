@@ -1,5 +1,32 @@
 # Progress May 2026
 
+## Thu 14 May
+
+- Van life or maybe initially car office and overnight travel
+
+- Geoffery Huntley (as recommended by John Sherwood)
+    - https://ghuntley.com/a-new-chapter/
+
+    - inspiration
+
+      **VAN TOUR | The Most Beautiful Camper Van Conversion Ever Made? - Jordan Osmond**
+      [![
+        VAN TOUR | The Most Beautiful Camper Van Conversion Ever Made? - Jordan Osmond
+      ](
+        http://img.youtube.com/vi/l-DgMYB6L0c/0.jpg
+      )](https://youtu.be/l-DgMYB6L0c)
+
+- google search for [setup in car to work on a computer](
+  https://www.google.com/search?q=setup+in+car+to+work+on+a+computer&udm=2)
+  - [https://www.mikaelajudd.com/how-to-create-a-remote-office-in-your-car/](
+    https://www.mikaelajudd.com/how-to-create-a-remote-office-in-your-car/)
+  - [https://www.reddit.com/r/priusdwellers/comments/mu9y1h/car_office_with_second_computer_display/](
+    https://www.reddit.com/r/priusdwellers/comments/mu9y1h/car_office_with_second_computer_display/)
+  - [Amazon Laptop Screen Extender 14", FHD 1080P Portable Monitor for Laptop,
+    Light Monitor Extender Plug&Play, IPS Display Computer Monitor for Laptop
+    13-17” (Screen Length: 11.81"-16.14") for Travel Work](
+    https://www.amazon.com/dp/B0GJ9W9GXQ) ~$100
+
 ## Wed 13 May
 
 - wrapped up watching
