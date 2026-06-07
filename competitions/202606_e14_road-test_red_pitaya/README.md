@@ -7,6 +7,18 @@ https://community.element14.com/products/roadtest/rt/roadtests/711/engineers_wan
 
 [./red_pitaya_roadtest_proposal.md](./red_pitaya_roadtest_proposal.md)
 
+Generate PDF with script
+
+```shell
+python make_pdf.py
+```
+
+as plain old pandoc was ugly and didn't work with some emoji failed (Ω, 🦀)
+
+```shell
+pandoc red_pitaya_roadtest_proposal.md -o red_pitaya_roadtest_proposal.pdf
+```
+
 ## Initial ideas
 
 **Red Pitaya STEMlab 125-14 PRO Gen 2 — Road Test Project Ideas**
