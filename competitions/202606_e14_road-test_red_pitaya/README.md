@@ -3,6 +3,10 @@
 [Red Pitaya STEMlab 125-14 PRO Gen 2 Starter Kit!](
 https://community.element14.com/products/roadtest/rt/roadtests/711/engineers_wanted_to_review_the_red_pitaya_stemlab_125-14_pro_gen_2_starter_kit)
 
+## Final submitted idea
+
+[./red_pitaya_roadtest_proposal.md](./red_pitaya_roadtest_proposal.md)
+
 ## Initial ideas
 
 **Red Pitaya STEMlab 125-14 PRO Gen 2 — Road Test Project Ideas**
