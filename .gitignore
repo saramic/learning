@@ -3,3 +3,5 @@
 __pycache__
 Brewfile.lock.json
 Brewfile.post_uninstall.lock.json
+node_modules
+tmp

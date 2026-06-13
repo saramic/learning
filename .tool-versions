@@ -6,3 +6,4 @@ rust     stable
 yarn     1.22.10
 redis    6.0.8
 golang   latest
+pnpm     latest

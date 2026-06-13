@@ -1,0 +1,11 @@
+{
+  "name": "gemini-talk-review",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "analyse": "node gemini-video-analyzer.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}
