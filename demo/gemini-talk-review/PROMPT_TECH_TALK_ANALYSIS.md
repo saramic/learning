@@ -34,7 +34,17 @@ Walk through the talk segment by segment. Each segment corresponds to a coherent
 
 **c) Strengths** — What was done well: clear framing, strong anecdote, memorable quote, effective slide design, good use of examples.
 
-**d) Weaknesses** — What didn't land as well, felt underdeveloped, or was a missed opportunity — even if not wrong enough to be a flagged issue. Examples: a concept introduced but not followed through, a transition that felt abrupt, a section that was too rushed to be actionable, an analogy that was underexplained, a question raised but never answered.
+**d) Weaknesses** — What didn't land as well, felt underdeveloped, or was a missed opportunity — even if not wrong enough to be a flagged issue. Every segment has room for improvement; do not skip this field. Ask: Did the speaker assume too much prior knowledge? Was a concept introduced but not followed through? Was the transition rushed? Was an important limitation of this approach left unacknowledged? Was a concrete example missing? Was a question raised but never answered? Was there an opportunity to show rather than tell that was not taken?
+
+**e) Slide feedback** — Assess the slides shown during this segment:
+   - What is on screen — text, diagrams, images, bullet lists, data tables, speaker only?
+   - Does the slide reinforce what the speaker is saying, or does it compete with or distract from it?
+   - Is the text density appropriate — or are there walls of text, or conversely slides so sparse they add nothing?
+   - Is the visual hierarchy clear — does the eye know where to go first?
+   - Would a key point be lost if the viewer only read the slide without hearing the speech? (Points that live only in speech and not on screen risk being missed by distracted viewers.)
+   - Is there a missed opportunity to use a diagram, chart, or visual where text or bullets are used instead?
+   - Are font sizes, contrast, and layout readable at the back of a conference room?
+   - Are there any slides that would make excellent standalone shareable images — and do they look it?
 
 **f) Issues** — Flag specific problems with severity:
    - `critical`: advice that is actively harmful if applied
@@ -51,9 +61,9 @@ Walk through the talk segment by segment. Each segment corresponds to a coherent
    - `missing_caveat` — an important limitation or tradeoff omitted
    - `unclear_explanation` — explanation likely to confuse rather than illuminate
 
-**g) Prior art gaps** — What books, frameworks, or research does this segment's content overlap with but not cite? Be specific: name the work, the author, and what the connection is. Prioritise the engineering leadership canon (see Step 3).
+**h) Prior art gaps** — What books, frameworks, or research does this segment's content overlap with but not cite? Be specific: name the work, the author, and what the connection is. Prioritise the engineering leadership canon (see Step 3).
 
-**h) Highlights** — Flag the strongest moments:
+**i) Highlights** — Flag the strongest moments:
    - `key_insight` — novel or elegantly stated idea
    - `excellent_explanation` — complex concept made unusually clear
    - `quotable_moment` — crisp, memorable statement capturing the core message
@@ -169,7 +179,17 @@ segments:
     weaknesses: |
       What didn't land as well or felt underdeveloped — a concept introduced but not followed through,
       an abrupt transition, a section too rushed to be actionable, an analogy left unexplained,
-      a question raised but not answered. Null if nothing notable.
+      a question raised but not answered, a limitation of the approach not acknowledged.
+      Every segment has room for improvement; always complete this field.
+
+    slide:
+      what_is_shown: |
+        What is on screen during this segment — text, diagrams, bullet lists, data, images, speaker only.
+      supports_speech: "reinforces|competes|neutral|no_slide"
+      feedback: |
+        Specific observations: text density, visual hierarchy, readability at the back of a room,
+        whether key points are on the slide or only spoken, missed opportunities for diagrams or
+        visuals, whether any slides would work as standalone shareable images.
 
     issues:
       - timestamp: "HH:MM:SS"
@@ -198,6 +218,8 @@ Before finalising output, verify:
 - ✅ Every segment summary is prose description of what was actually said — not a restatement of the topic label
 - ✅ Every issue has a quoted claim and a correction
 - ✅ Severity is conservative — prefer `major` over `minor` when uncertain
+- ✅ Every segment has a `weaknesses` entry — do not leave it empty even for strong segments; every segment has room for improvement
+- ✅ Every segment has a `slide` entry — describe what is on screen, whether it reinforces or competes with speech, and give specific design feedback; note any slides that could work as standalone shareable images
 - ✅ Every abstract framework claim is checked for a concrete paired example — flag `ungrounded_abstraction` if none exists
 - ✅ Every metric or survey result is checked for org size, methodology, and confounding factors — flag `missing_metric_context` if absent
 - ✅ Every named person is checked: does slide name match spoken name/alias? Flag `name_alias_inconsistency` if not
