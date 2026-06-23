@@ -19,7 +19,7 @@
 > shunt unwanted RF energy away from sensitive circuitry.
 >
 > ## Key Features
-> 
+>
 > * Broadband EMI Attenuation: Effective suppression across common interference
 >   bands (Wi-Fi, LTE, “mystery lab noise”) via continuous conductive shielding
 > * Configurable Ground Reference Network: Optional clip-on grounding lead
@@ -78,7 +78,7 @@ from electrostatic and magnetic measurements — no optical equipment needed.
   relates current to force
 - Together they encode how fast electromagnetic disturbances propagate — which
   turns out to be `c`
-  
+
 ### DIY backyard experiment
 
 You don't need to measure `μ₀` (it's defined exactly as `4π×10⁻⁷`). So your
@@ -236,3 +236,283 @@ When your Arduino spits out a τ, and your maths produces something in the
 neighbourhood of 2–3 × 10⁸ m/s, you've reproduced one of the great intellectual
 leaps in physics history — the realisation that electricity, magnetism, and
 light are the same phenomenon — using kitchen foil in your backyard.
+
+## Jupyter setup
+
+```sh
+# for my ~/.zshrc setup
+export WITH_CONDA=1
+. ~/.zshrc
+conda create -n ipy_env   # only once off as global
+conda activate ipy_env
+conda install ipython     # only once off
+conda install jupyter     # only once off
+jupyter notebook
+```
+
+## Plan
+
+### 1. Material Characterisation
+
+- **Thickness** — micrometer on a stack of 10 sheets ÷ 10; compare to nominal 16
+  µm
+- **Mass per unit area** — cut a known area (e.g. 10×10 cm), weigh on accurate
+  scales; derive thickness from Al density (2700 kg/m³) and cross-check
+
+### 2. Mechanical Tests
+
+- **Tensile / breaking strain** — hang increasing weights from a strip of known
+  cross-section; compare to ~80 MPa × measured area
+- **Fold score threshold** — score with increasing force (small weights on a
+  rounded edge) to bracket the crease threshold (expect 1–5 N)
+
+### 3. HCl Dissolution (chemistry with purpose)
+
+- Reaction: `2Al + 6HCl → 2AlCl₃ + 3H₂`
+- Weigh a precise area of foil → drop in dilute HCl → weigh vessel + foil
+  periodically
+- Mass loss = H₂ evolved; from stoichiometry derive how much Al reacted →
+  cross-check thickness/purity
+- Compare measured dissolution rate to published data for 99.x% Al foil (food
+  grade is typically 99.35 %)
+- ⚠️ do outdoors, avoid breathing HCl fumes
+
+### 4. RF Attenuation — 433 MHz & 2.4 GHz
+- **433 MHz Arduino radios**: establish baseline RSSI/range; wrap the receiver
+  in N layers of foil; log at which layer count comms fail
+- **nRF24L01 (2.4 GHz)**: same layering test; 2.4 GHz has shorter wavelength so
+  expect it to attenuate faster than 433 MHz — a nice comparison curve
+- Plot layers vs RSSI (if the module exposes it) or simply "still linked /
+  dropped"
+
+### 5. mmWave Radar Attenuation
+- Point the radar at a fixed object; record baseline return; add foil layers
+  between radar and target
+- Foil is highly reflective at mmWave — expect strong reflection with even one
+  layer; the interesting question is whether it kills the signal *behind* the
+  foil or just bounces it back
+- Try: flat sheet, crumpled sheet, double-walled "Faraday tube" — crumpling
+  should scatter rather than reflect
+
+### 6. DIY Capacitor → Maxwell's Speed of Light
+- See detailed method above — build foil parallel-plate cap, measure C with
+  Arduino RC timing, compute ε₀, then `c = 1/√(ε₀μ₀)`
+- Aim: get within 20% of 3×10⁸ m/s using only foil, a ruler, and an Arduino
+
+### Write-up arc
+Material spec → mechanical → chemical purity → RF characterisation (three
+frequencies) → the party trick (speed of light). That's a genuine multi-domain
+review of "just foil".
+
+## Experiments
+
+### 1. Material Characterisation
+
+**Cutting accurate 10×10 cm coupons**
+- Print a 10×10 cm box on paper; lay foil on top; tape corners down
+- Metal ruler + scalpel on a self-healing mat — one clean pass, no sawing
+- Cut 5 coupons per batch; weigh all 5 together and divide to reduce per-coupon scale noise
+
+#### a. Thickness (micrometer stack method)
+
+`t = total / sheets`; compare to nominal 16 µm
+
+| trial | sheets | total (mm) | per sheet (µm) | Δ from 16 µm |
+|------:|-------:|-----------:|---------------:|-------------:|
+|     1 |     10 |            |                |              |
+|     2 |     10 |            |                |              |
+|     3 |     10 |            |                |              |
+|     1 |     20 |            |                |              |
+|     2 |     20 |            |                |              |
+|     3 |     20 |            |                |              |
+| **mean** |   |            |                |              |
+
+#### b. Mass per coupon → density cross-check
+
+`t_mass = m / (A × ρ)` where A = 0.01 m², ρ = 2700 kg/m³
+Expected mass of one 10×10 cm coupon at 16 µm: `0.01 × 16e-6 × 2700` = **0.432 g**
+
+| coupon | mass (g) | t from mass (µm) | Δ from micrometer (µm) |
+|-------:|---------:|-----------------:|-----------------------:|
+|      1 |          |                  |                        |
+|      2 |          |                  |                        |
+|      3 |          |                  |                        |
+|      4 |          |                  |                        |
+|      5 |          |                  |                        |
+| **mean** |        |                  |                        |
+
+---
+
+### 2. Mechanical Tests
+
+#### a. Tensile (strip method)
+
+Cut a 10 mm-wide strip across the full 300 mm roll width.
+Cross-section = `10 mm × t_measured`. Expected failure ~80 MPa → ~13 N → ~1.3 kg for a 10 mm strip.
+
+| trial | width (mm) | failure load (g) | UTS (MPa) | notes |
+|------:|-----------:|-----------------:|----------:|-------|
+|     1 |            |                  |           |       |
+|     2 |            |                  |           |       |
+|     3 |            |                  |           |       |
+
+#### b. Fold / score threshold
+
+Blunt tool on a 1 mm edge, increasing mass. Record lightest load that leaves a permanent set.
+
+| trial | load (g) | permanent crease? |
+|------:|---------:|-------------------|
+|     1 |          |                   |
+|     2 |          |                   |
+|     3 |          |                   |
+
+---
+
+### 3. HCl Dissolution
+
+⚠️ Outdoors. Safety glasses. Dilute hardware HCl ~1:3 in water → ~5–10 %.
+
+Reaction: `2Al + 6HCl → 2AlCl₃ + 3H₂↑`
+
+Tare a beaker of HCl on the scales. Drop in one 10×10 cm coupon. Log **beaker mass** — H₂ escapes so mass drops as Al dissolves. Total expected H₂ from one coupon: `0.432 g Al × (6/54) × 2` = **0.096 g**.
+
+Stoichiometry shortcut: `H₂ lost (g) × (27/3) = Al dissolved (g)`
+
+| time (s) | beaker mass (g) | H₂ lost (g) | Al dissolved (g) | % of coupon |
+|---------:|----------------:|-------------:|-----------------:|------------:|
+|        0 |                 | 0            | 0                | 0           |
+|       30 |                 |              |                  |             |
+|       60 |                 |              |                  |             |
+|      120 |                 |              |                  |             |
+|      300 |                 |              |                  |             |
+| complete |                 |              |                  |             |
+
+From final Al dissolved + known area → independent thickness check.
+
+---
+
+### 4. RF Attenuation
+
+#### Test geometry
+
+```
+[TX] ←── fixed 30 cm ──→ [RX / TinySA probe]
+                   │
+             [N layers foil
+              perpendicular
+              to path]
+```
+
+Add one layer at a time. Keep TX–RX distance fixed. Record dBm on TinySA **or** link metrics from the module.
+
+#### TinySA tips
+
+- Centre on test frequency, span ±5 MHz, RBW auto, average 5 sweeps per reading
+- Standard TinySA: 100 kHz–960 MHz → covers 433 MHz ✓
+- **TinySA Ultra needed for 2.4 GHz** (nRF24, Zigbee); if not available use packet-loss method below
+
+#### a. 433 MHz
+
+Hold DATA pin HIGH on FS1000A/XY-FST for continuous carrier; TinySA measures received dBm.
+
+```cpp
+// 433 MHz TX — continuous carrier on pin 12
+void setup() { pinMode(12, OUTPUT); digitalWrite(12, HIGH); }
+void loop() {}
+```
+
+| layers | dBm (TinySA) | Δ baseline (dB) | linked? |
+|-------:|-------------:|----------------:|---------|
+|      0 |              | 0               | yes     |
+|      1 |              |                 |         |
+|      2 |              |                 |         |
+|      5 |              |                 |         |
+|     10 |              |                 |         |
+
+#### b. nRF24L01+ 2.4 GHz — packet-loss method
+
+nRF24L01+ exposes RPD (Received Power Detector: HIGH if >−64 dBm) — not true RSSI, but packet loss rate gives an attenuation curve.
+
+```cpp
+// RX side — RF24 library
+#include <RF24.h>
+RF24 radio(7, 8);
+
+void setup() {
+  Serial.begin(115200);
+  radio.begin();
+  radio.setChannel(76);               // 2476 MHz
+  radio.setPALevel(RF24_PA_MAX);
+  radio.setDataRate(RF24_250KBPS);    // lowest rate = most link margin
+  radio.openReadingPipe(1, 0xF0F0F0F0E1LL);
+  radio.startListening();
+}
+
+void loop() {
+  static uint32_t rx = 0, t0 = 0;
+  if (radio.available()) { uint8_t b[32]; radio.read(b, 32); rx++; }
+  if (millis() - t0 > 1000) {
+    Serial.print("RPD:"); Serial.print(radio.testRPD());
+    Serial.print("  pkt/s:"); Serial.println(rx);
+    rx = 0; t0 = millis();
+  }
+}
+// TX side: openWritingPipe same address, radio.write() every 10 ms
+```
+
+| layers | RPD (0/1) | pkt/s (of ~100) | loss % |
+|-------:|----------:|----------------:|-------:|
+|      0 |           |                 |        |
+|      1 |           |                 |        |
+|      2 |           |                 |        |
+|      5 |           |                 |        |
+
+#### c. Zigbee 2.4 GHz — RSSI via AT command
+
+For XBee Series 2: `ATDB` returns last-hop RSSI in −dBm. For other modules check coordinator software for RSSI field.
+
+```python
+import serial, time
+
+s = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+s.write(b'+++'); time.sleep(1)        # enter command mode
+s.write(b'ATDB\r'); time.sleep(0.2)
+raw = s.read(s.in_waiting).strip()
+print(f"RSSI: -{int(raw, 16)} dBm")
+s.write(b'ATCN\r')                    # exit
+```
+
+| layers | RSSI (dBm) | Δ baseline (dB) | linked? |
+|-------:|-----------:|----------------:|---------|
+|      0 |            | 0               | yes     |
+|      1 |            |                 |         |
+|      2 |            |                 |         |
+|      5 |            |                 |         |
+
+---
+
+### 5. mmWave Radar
+
+Point radar at a fixed hard target ~1 m away. Note baseline amplitude/SNR. Insert foil perpendicular to beam path.
+
+| config                         | amplitude / SNR | target still detected? | notes |
+|--------------------------------|----------------:|------------------------|-------|
+| baseline (no foil)             |                 | yes                    |       |
+| 1 layer flat                   |                 |                        |       |
+| 2 layers flat                  |                 |                        |       |
+| 1 layer crumpled               |                 |                        |       |
+| foil cylinder around target    |                 |                        |       |
+
+Expected: flat foil reflects strongly back to radar (target behind it disappears); crumpled scatters the beam. The Faraday-tube config should ghost the target entirely.
+
+---
+
+### 6. DIY Capacitor → Speed of Light
+
+Method: [Mega extension](#mega-extension---maxwells-speed-of-light-calculation) above. Code: [Plan §6](#6-diy-capacitor--maxwells-speed-of-light).
+
+| trial | A (m²) | d (m) | C (pF) | ε₀ (×10⁻¹² F/m) | c (×10⁸ m/s) | % error |
+|------:|-------:|------:|-------:|----------------:|-------------:|--------:|
+|     1 |        |       |        |                 |              |         |
+|     2 |        |       |        |                 |              |         |
+|     3 |        |       |        |                 |              |         |
