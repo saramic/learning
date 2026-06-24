@@ -1,0 +1,8 @@
+[tools]
+node = "24"
+
+[tasks.slides]
+description = "run slide show using marp"
+run = """
+  npx @marp-team/marp-cli slides.md --preview
+"""
