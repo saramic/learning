@@ -2,16 +2,21 @@
 ### AI as master controller — you as the one who has to show up
 
 <!-- 
-Michael Milewski — failure-driven.com
-Engineering leader at The Martec, Polish Scout leader, electronics hobbyist
-Tonight: not a Ruby talk. A talk about what happened when I stopped orchestrating AI and let it orchestrate me.
+- Michael Milewski
+- failure-driven.com
+- Engineering leader at The Martec
+- electronics hobbyist
+- Tonight:
+
+not a Ruby talk. A talk about what happened when I stopped
+orchestrating AI and let it orchestrate me.
 -->
 
 ---
 
-## The Dream Loop Problem
+## The Dream-build Loop Problem
 
-> "The dream loop was too long."
+> "The dream-build loop was too long."
 
 - Ideas were cheap. Execution was the bottleneck
 - Gap between "I want to build X" and actually building it: **months, years**
@@ -19,16 +24,23 @@ Tonight: not a Ruby talk. A talk about what happened when I stopped orchestratin
 - Notebooks full of projects I never started
 
 <!-- 
-Everyone here has a drawer of components, a list of side projects, a graveyard of half-finished ideas.
-The constraint was never creativity. It was the execution gap.
+- everyone has dreams
+- unfinshed projects
+- ideas
+- new years resolution
+- side projects
+- for me that is boxes of electronics components
+- The constraint was never creativity. It was the execution gap.
 -->
 
 ---
 
 ## The Inversion
-Human ──orchestrates──▶ AI
+Human ──▶ orchestrates──▶ AI
+
 ### vs
-AI ──orchestrates──▶ Human
+
+AI ────▶ orchestrates──▶ Human
 
 - Conventional model: you decide, AI assists
 - New model: AI holds the context, suggests next steps, reviews feasibility
@@ -36,8 +48,10 @@ AI ──orchestrates──▶ Human
 - The cost: something else is doing the orchestrating
 
 <!-- 
-This is the thesis. Everything tonight is an example of it.
-I am getting more done than ever. I am also, genuinely, the AI's hands.
+- This is the thesis.
+- Everything tonight is an example of it.
+- I am getting more done than ever
+- I am also, genuinely, the AI's hands.
 -->
 
 ---
@@ -45,13 +59,14 @@ I am getting more done than ever. I am also, genuinely, the AI's hands.
 ## Act 1: The Warm-Up — Scouts
 
 - Badge writeups, risk assessments, hike plans
-- Bilingual field passport for a camp on Minjerribah
+- Bilingual reprot translations
 - **Removed the friction** between knowing what needed doing and having a document exist
 - Anyone here do volunteer work? You know the admin tax. AI ate it.
 
 <!-- 
-Not glamorous. But this is where most people stop.
-"I use AI for documents." Great. Keep going.
+- Not glamorous.
+- this is where most people stop.
+- "I use AI for documents." Great. Keep going.
 -->
 
 ---
@@ -64,8 +79,11 @@ Not glamorous. But this is where most people stop.
 - **Everyone's doing this.** This is table stakes.
 
 <!-- 
-60 seconds on this slide. They know. Move on.
-The interesting stuff is coming.
+- this is every other talk on AI
+- it is comprehensive at knowing a topic
+- tying your code base together
+- doing on mass refactoring that you never had time for
+- building tools you never had time for
 -->
 
 ---
@@ -78,7 +96,12 @@ The interesting stuff is coming.
 - I started saying yes to things I would have deferred forever
 
 <!-- 
-This is where it got weird. And fun. And slightly dangerous.
+- I have a bunch of ideas and not enough time to execute on them
+- I have dreams that by the time I get some ideas, a blocker, time
+  passes and I move onto the next thing
+- This is where it got weird.
+- And fun.
+- And slightly dangerous.
 -->
 
 ---
@@ -91,27 +114,42 @@ This is where it got weird. And fun. And slightly dangerous.
 - Simulated it in an HTML canvas before cutting a single piece of Perspex
 
 <!-- 
-I would never have attempted this mechanism solo. Too much to research, too many unknowns.
-AI held the context. I held the jigsaw.
+- I would have only got so far by myself
+- I had ideas that I needed to visualise
+- AI held the context, I held the jigsaw
 -->
 
 ---
 
 ![Computer animation of vault door mechanism](https://saramic.github.io/sentinel-box/assets/20260511_lock_unlock_vault_door.gif)
 
-<!-- Simulation first. AI wrote this. I verified it looked right. -->
+<!--
+- Simulation first.
+- AI wrote this.
+- it got it wrong a bunch of times
+- I had to verify
+- but it proved it might work
+-->
 
 ---
 
 ![Hand cut perspex model of vault door mechanism](https://saramic.github.io/sentinel-box/assets/20260512_perspex_model.gif)
 
-<!-- Then I built it. Real Perspex, real stepper motor, real crank-slider. -->
+<!--
+- So I built it
+- real perspex
+-->
 
 ---
 
 ![Hand cut perspex gear teeth](https://saramic.github.io/sentinel-box/assets/20260524_mechanism_01.jpg)
 
-<!-- These gear teeth. Hand cut. From a design I didn't fully understand until AI explained it three times. -->
+<!--
+- AI convinced me to cut the teeth
+- on the electroncis side
+- AI convinced me to rewrite the drivers in rust
+- I got second prize - I was hooked
+-->
 
 ---
 
@@ -123,15 +161,22 @@ AI held the context. I held the jigsaw.
 - And a water-directed cannon 🔫
 
 <!-- 
-Industrial protocol, distributed nodes, real-time visualisation.
-Six weeks. With a day job and three kids.
+- AI wrote the application
+- it won me $1500 worth of gear - along w 10 other
+- with an industrial protocol
+- I still had to fit in kids and fun
 -->
 
 ---
 
 <video src="https://saramic.github.io/green-brain/assets/20260620_palying_around_with_firing_the_cannon.mp4" controls width="800"></video>
 
-<!-- This is the water cannon. It did not always go where intended. -->
+<!--
+- my idea - Green brain
+- this is a water cannon
+- AI sorted the deets - I held the soldering iron
+- AI had lots of ideas on why noise was moving the servos to the side
+-->
 
 ---
 
@@ -143,8 +188,9 @@ Six weeks. With a day job and three kids.
 - HCl dissolution kinetics, tensile strength, RF attenuation at 433 MHz
 
 <!-- 
-When you're in the frenzy, even a joke becomes a real experiment.
-AI helped me structure the methodology. I did the chemistry. Outdoors. With safety glasses.
+- When you're in the frenzy, even a joke becomes a real experiment.
+- AI helped me structure the methodology.
+- I did the chemistry. Outdoors. With safety glasses.
 -->
 
 ---
@@ -154,42 +200,45 @@ AI helped me structure the methodology. I did the chemistry. Outdoors. With safe
 ![](./images/al_foil_acid.jpg)
 
 <!-- 
-Two of three attempts were too vigorous to measure.
-Fresh acid + warm exothermic reaction = thermal runaway.
-Same principle as a battery fire. I learned this the hard way.
+- literally - I was pooring acid in reactions threatening my deck
 -->
 
 ---
 
 <video src="https://saramic.github.io/learning/assets/2026-06-23/al_foil_acid_runaway_reaction.mp4" controls width="800"></video>
 
-<!-- That's hydrogen gas. And HCl vapour. And me, outside, slightly alarmed. -->
+<!--
+- That's hydrogen gas. And HCl vapour. And me, outside, slightly alarmed.
+- AI failed to tell me the reaction it was looking for was mild
+- I gunned it and made it a thermal runaway
+- Same principle as a battery fire
+- At this point I am literally the AI's Biatch
+- made me think - what was AI making the neighbour do - will we have some
+  kind of coordinated apocalypse by AI controlling the tinkerers?
+-->
 
 ---
 
 ![tiny SA setup on my kitchen bench with cat in the background as I attenuate RF with aluminium foil](https://saramic.github.io/learning/assets/2026-06-23/rf_tiny_sa_side.jpg)
 
 <!-- 
-RF attenuation at 433 MHz. TinySA Ultra. Kitchen bench. Cat photobombing.
-30 dB total attenuation over 24 layers. Theory predicted 31.6 dB per layer — 
-turns out indoor multipath is a thing.
+- RF attenuation at 433 MHz.
+- I was sending Radio waves and adding interference / attenuation
+- AI was analysing why the results were not what it predicted
 -->
 
 ---
 
 ## The JBL Earbuds
 
-![](./images/jbl_battery.jpg)
-
-- Wife's JBL earbuds: declared broken
-- New confidence: **pull it apart, figure it out**
-- Decided it was broken → extracted the battery → charged it directly
-- It worked. Mostly.
+![](./assets/jbl_earbud_battery.jpg)
 
 <!-- 
-Six months ago I would have thrown these out or sent them for repair.
-Now I have a soldering iron, a bench power supply, and enough AI-given confidence to be dangerous.
-This is what the dream loop collapsing looks like in domestic life.
+- Wife's earbuds were not charging
+- 6 month's ago I would have "dreamt" of doing something
+- AI gave me new confidence to buy stuff on Amazon and fix it
+- I prononced it dead - according to AI
+- so I disected - only to find it kind of still worked
 -->
 
 ---
@@ -199,9 +248,11 @@ This is what the dream loop collapsing looks like in domestic life.
 <video src="assets/gracie_and_michael_recorder_web.mp4" controls width="800"></video>
 
 <!-- 
-AI composed a four-part recorder arrangement.
-I had to convince my children to perform it.
-The AI has no idea what it started.
+- Scouts, coding, electronics, why not music
+- I wanted to compose multi part music
+- AI composed it
+- I had to convince my children to perform it.
+- The AI has no idea what it started.
 -->
 
 ---
@@ -231,10 +282,8 @@ GEMINI_API_KEY=xxx ruby gemini_talk_review.rb talk.mp4
 ```
 
 <!-- 
-Start recording now if you haven't already.
-Feed the last 20 minutes into Gemini via the Files API.
-Read back: energy moment, despair moment, best clip for X, 80-word summary.
-The talk is analysing itself. This is the point.
+- what did AI make me do most recently?
+- this talk! let's analyse
 -->
 
 ---
@@ -248,15 +297,18 @@ The talk is analysing itself. This is the point.
 ## The Honest Bit
 
 - I'm getting more done than I have in years
-- The dream loop has collapsed across every domain
+- The dream-build loop has collapsed across every domain
 - The cost is that something else is doing the orchestrating
 - I am, genuinely, the AI's agent
 
-> *"Where's your dream loop — and what's it costing you?"*
+> *"Where's your dream-build loop — and what's it costing you?"*
 
 <!-- 
-Not a pitch. Not a warning. Just an observation.
-The frenzy is real. The output is real. The question is whether you're comfortable being the one who has to show up.
-Thanks.
-failure-driven.com — @saramic
+- Not a pitch.
+- Not a warning.
+- Just an observation.
+- The frenzy is real. The output is real. The question is whether you're
+  comfortable being the one who has to show up.
+- Thanks.
+- failure-driven.com — @saramic
 -->
