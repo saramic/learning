@@ -56,6 +56,12 @@ AI ────▶ orchestrates──▶ Human
 
 ---
 
+# Tron's MCP
+
+![](./assets/master_tron_controller.webp)
+
+---
+
 ## Act 1: The Warm-Up — Scouts
 
 - Badge writeups, risk assessments, hike plans
