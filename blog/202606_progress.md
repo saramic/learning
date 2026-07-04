@@ -1,5 +1,145 @@
 # Progress June 2026
 
+## Thu 25 Jun
+
+- learn some key bindings for claude
+  - https://code.claude.com/docs/en/interactive-mode
+  - https://code.claude.com/docs/en/interactive-mode#built-in-commands
+- langflow and keycloak SSO?
+  - https://www.youtube.com/watch?v=TnqWr06PghA
+  - integration tests for keycloak
+    - https://www.youtube.com/watch?v=gX9BWk-AiqE
+  - getting started with keycload
+    - https://www.youtube.com/watch?v=fvxQ8bW0vO8
+- we tried trunk based dev Dave Farley
+  - https://www.youtube.com/watch?v=CR3LP2n2dWw
+- Canva and AI creation
+  - https://www.youtube.com/watch?v=ZbuXb3n7L0Y
+
+- can I make my own mixer basec on
+  - https://www.amazon.com.au/dp/B0BQLJYSBX?ref_=mr_referred_us_au_au&th=1
+  - but with only one smart slider
+  - can a home made mic compare to
+    - https://www.amazon.com.au/dp/B08P7QTZM5?ref_=mr_referred_us_au_au&th=1
+
+- ChatGPT on transistors
+  - https://chatgpt.com/c/69755ac5-efc8-8322-87a2-9059b38c0d55
+
+- slings
+  - slings https://www.youtube.com/watch?v=gzlYGjVF8Kg
+  - https://www.reddit.com/r/Slinging/comments/16qmw60/how_to_make_a_beginner_sling_in_2_minutes_with_25/
+  - knots https://www.google.com/search?q=how+to+make+a+sling+-+paracord+or+simpler&oq=how+to+make+a+sling+-+paracord+or+simpler&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRigATIHCAUQIRiPAtIBCDYyMDZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8
+
+- random yOutube
+  - This Ridiculous $200 AI GPU Shouldn’t Be This Good - Hardware Haven
+    - https://www.youtube.com/watch?v=7DAPd5MGodY
+  - This LPU is 2000% Faster Than a GPU! - Hefty LLM
+    - https://www.youtube.com/watch?v=5s5qnEVe34k
+  - DONT Buy these GPU's for Local AI! (learn from my mistake) - Ai Flux
+    - https://www.youtube.com/watch?v=ozqorev2_34
+  - How 6,000 Christians Stopped 80,000 Ottomans — The Siege of Belgrade - EuropaRise
+    - https://www.youtube.com/watch?v=XBGlI6toaAM
+  - Daft Punk within https://www.youtube.com/watch?v=Q5l2ChAqRDg
+
+- wrap up Green Brain
+  - https://claude.ai/chat/7003d935-0929-4754-94ff-abc68fae32a4
+    - poor man's DAQ for LabView
+
+  - some better visuals
+    - https://www.google.com/search?sca_esv=892b23014290b200&sxsrf=ANbL-n7xtj9WaJXS3rWdaBr17qUvNObg4A:1781735025448&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpV6Bbbmx4QVaoKkiRQ2jlwvCHF0Eqz8cUq4JjDCZnrJEJPua1MxnlJWIzg-ca3uHtIoKdi0gAHS3m0W86wI_pK79ixcKZItb891ui7Ss-XAzDGy8Knqm-GBZ7Hr7O0geJ5qo8JRBFVi7ZXEKkfY9PQNrvWipHnjONTk5iWEjrkVthZbeqXVBnuxYNUEr_BoH20HL-zQ&q=labview+how+to+make+the+frontend+prettier&sa=X&ved=2ahUKEwj--pmaqI-VAxXuT2wGHYfINmwQtKgLegQIFhAB&biw=900&bih=1043&dpr=2#sv=CAMSWBoyKhBlLUlmQUlfNW1MNjVoYUhNMg5JZkFJXzVtTDY1aGFITToOUzJ4UmxOOEtyNjlyWE0gBCocCgZtb3NhaWMSEGUtSWZBSV81bUw2NWhhSE0YADABOAAYByCN6p_mAjoASggQARgBIAEoAQ
+    - https://www.dmcinfo.com/blog/25232/6-tips-for-labview-ui-and-ux-design/
+    - https://digilent.com/blog/my-labview-tutorials/?srsltid=AfmBOop9vlce6AW89UVTxCXdqFdiAzeFnafaYEqPTY3FGt44GAfuTG5l
+    - https://forums.ni.com/t5/LabVIEW/Creating-new-objects-on-the-Front-Panel-at-runtime/td-p/4320095
+    - https://www.google.com/search?q=how+to+model+in+labview+a+virtual+instrument+that+is+built+in+software&oq=how+to+model+in+labview+a+virtual+instrument+that+is+built+in+software&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTE2NTk5ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
+
+TRON
+- The Making of Tron 1982 Full Documentary - Technology for Storytelling
+  - https://www.youtube.com/watch?v=sbgHMrLPQrE
+  - Why TRON Never Became Star Wars - Movie Overload
+    - https://www.youtube.com/watch?v=xJsMQDueE5M&t=716s
+
+USBC charging - not actually USBC
+  - https://electronics.stackexchange.com/questions/694041/tp4056-usb-c-charging-module-not-working
+
+contensts
+- https://www.electronicwings.com/contests
+- https://www.hackster.io/contests/invent-the-future-with-arduino-uno-q-and-app-lab/participants#challengeNav
+- https://www.hackster.io/contests/invent-the-future-with-arduino-uno-q-and-app-lab/overview#challengeNav
+- https://www.hackster.io/contests/invent-the-future-with-arduino-uno-q-and-app-lab/discussion/
+
+ODB poirts
+  - https://www.speedycarkeys.com.au/how-obd-ports-and-can-bus-hacks-are-used-by-thieves-to-reprogram-cars/
+  - https://www.google.com/search?q=youtube+why+prado+are+so+easy+to+steal+with+can+bus+hack&oq=youtube+why+prado+are+so+easy+to+steal+with+can+bus+hack&gs_lcrp=EgZjaHJvbWUyCwgAEEUYChg5GKABMgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgcIBBAhGI8CMgcIBRAhGI8C0gEJMTIxNDlqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8
+
+- I Killed 4 Sensors Before Finding This One - Mellow_Labs
+  - https://www.youtube.com/watch?v=z-O44-vogfE
+- This Forgotten Transistor is Making a Comeback?! (JFET) EB#67 - GreatScott!
+  - https://www.youtube.com/watch?v=-fSjLF4u4kE
+- How did they make it this small?? - Jeff Geerling
+  - https://www.youtube.com/watch?v=zYZbZJZfCFI
+
+Oh My
+  - https://github.com/Yeachan-Heo/oh-my-codex
+  - claude https://code.claude.com/docs/en/claude-directory
+tiny SA info
+  - http://athome.kaashoek.com/tinySA/python/
+  - https://github.com/g4ixt/QtTinySA/releases
+  - https://tinysa.org/wiki/pmwiki.php?n=Main.PCSW
+  - https://tinysa.org/wiki/pmwiki.php?n=Main.HomePage
+  - doppler weather radar
+    - https://groups.io/g/tinysa/topic/is_tinysa_ultra_possible_to/99334615
+
+- People tracker
+  - https://github.com/baldacchino/OpenVinoPeopleTracker
+- God's eye intel tracker
+  - https://www.spatialintelligence.ai/p/the-intelligence-monopoly-is-over
+  - Ex-Google PM Builds God's Eye to Monitor Iran in 4D - Bilawal Sidhu
+    - https://www.youtube.com/watch?v=0p8o7AeHDzg
+  - https://github.com/BigBodyCobain/Shadowbroker
+  - https://drive.google.com/file/d/1JH6B0vU6i_mB4QSpD22TaOYoDLcqETZc/view
+  - https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE
+  - https://experience.arcgis.com/experience/ebe374c40c1a4231a06075155b0e8cb9/#data_s=id%3AdataSource_1-19cb172f92d-layer-86%3A341
+
+COde learning compared to real code problems
+  - https://app.codecrafters.io/catalog
+
+- They stole my invention... so I got revenge. - Morley Kert
+  - https://www.youtube.com/watch?v=wCD6KecZhM0
+- I Hacked This Temu Router. What I Found Should Be Illegal. - Low Level
+  - https://www.youtube.com/watch?v=KsiuA5gOl1o
+
+- https://leanpub.com/patterns-of-application-development-using-ai
+
+### Red Pitaya
+
+- https://gzhls.at/blob/ldb/b/c/0/e/0b1db1416f8bb83f483d8419ce9f95f37a6a.pdf
+- https://ioe.sxu.edu.cn/newlab5/publish/RSI%20(2).pdf
+- https://manuals.plus/m/5622af8aef2464e2598aa7c4a732e305dfdb505a0afa315f9b73d5f18979d91a.pdf
+- https://redpitaya.readthedocs.io/en/latest/developerGuide/hardware/GEN2/125-14_Gen2_Z7020_Pro/top.html
+- https://www.cnx-software.com/2025/06/24/red-pitaya-stemlab-125-14-pro-gen-2-is-an-amd-zynq-7010-7020-based-board-for-measurement-control-and-signal-processing/
+- https://www.elektormagazine.com/news/red-pitaya-stemlab-gen-2?trk=public_post_comment-text
+- https://ioe.sxu.edu.cn/newlab5/publish/RSI%20(2).pdf
+- Oscilloscopes, Logic Analyzers & More: Meet Red Pitaya - Electromaker
+  - https://www.youtube.com/watch?v=LOtnG6yVGHk
+- https://www.controlpaths.com/2026/03/15/red-pitaya-gen2-audio-pwm-signal/
+
+
+- EEVblog 1752 - Texas Instruments SCREWED UP the NE5532! - EEVblog
+  - https://www.youtube.com/watch?v=22ZmmZ67SMY
+
+- I tried Super Useful Future Tech! (That you can use Today) - GreatScott!
+  - https://www.youtube.com/watch?v=D86an4uN7FE
+
+- TRANSFORMED A $2 AIRPLANE INTO A RADIO-CONTROLLED FIGHTER JET - Slivki Show
+  - https://www.youtube.com/watch?v=40OgMNH3l4o
+
+ - https://www.youtube.com/watch?v=JDTRmF8PPgY
+
+- If I can build this at home, what is the CIA hiding? - FPV Geek
+  - https://www.youtube.com/watch?v=piSsKisBaag
+
+- EEVblog 1718 - Cheap 1GHz Oscilloscopes are Useless? ($5 DIY 1GHz Resistive Probe)
+  - https://www.youtube.com/watch?v=E3G9G79YErg
 ## Fri 19 Jun
 
 ### AI driven multi melody recorder concort
