@@ -1,0 +1,58 @@
+<div class="bar">
+  <h1 class="brand">Rubbury &times; Physics</h1>
+  <p class="tagline">Speed of Light Calculator &mdash; from a microwave standing-wave chocolate-melt
+  experiment: <code>c = f &times; &lambda;</code>, where adjacent hot spots are &lambda;/2 apart.</p>
+
+  <p class="gallery-link"><a href="#gallery">&darr; See photos from the experiment</a></p>
+
+  <form method="post" action="/">
+    <div class="field">
+      <label for="frequency_mhz">Magnetron frequency (MHz)</label>
+      <input type="number" step="any" min="0" name="frequency_mhz" id="frequency_mhz"
+             value="<%= frequency_mhz %>" required>
+    </div>
+
+    <div class="field">
+      <label for="spot_distance_cm">Measured distance across hot spots (cm)</label>
+      <input type="number" step="any" min="0" name="spot_distance_cm" id="spot_distance_cm"
+             value="<%= spot_distance_cm %>" required>
+    </div>
+
+    <div class="field">
+      <label for="gap_count">Number of &lambda;/2 gaps spanned by that measurement</label>
+      <input type="number" step="1" min="1" name="gap_count" id="gap_count"
+             value="<%= gap_count %>" required>
+    </div>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <% if error_message %>
+    <p class="alert"><%= error_message %></p>
+  <% end %>
+
+  <% if calculation %>
+    <div class="result">
+      <table class="result-table">
+        <tr><th>Average spot spacing (&lambda;/2)</th><td><%= format("%.3f", calculation.avg_spacing_cm) %> cm</td></tr>
+        <tr><th>Wavelength (&lambda;)</th><td><%= format("%.3f", calculation.wavelength_cm) %> cm</td></tr>
+        <tr><th>Speed of light (c)</th><td><%= format("%.4e", calculation.speed_of_light_ms) %> m/s</td></tr>
+        <tr><th>Error vs. accepted value</th><td><%= format("%.2f", calculation.percent_error) %>%</td></tr>
+      </table>
+    </div>
+  <% end %>
+</div>
+
+<section class="gallery" id="gallery">
+  <h2>From the Lab</h2>
+  <div class="gallery-grid">
+    <% gallery_photos.each do |photo| %>
+      <figure>
+        <a href="<%= photo[:src] %>" target="_blank" rel="noopener">
+          <img src="<%= photo[:src] %>" alt="<%= photo[:caption] %>" loading="lazy">
+        </a>
+        <figcaption><%= photo[:caption] %></figcaption>
+      </figure>
+    <% end %>
+  </div>
+</section>
