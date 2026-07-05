@@ -14,14 +14,14 @@ servers:
 ssh:
   user: ubuntu
 
-# Enable SSL auto certification via Let's Encrypt and allow for multiple apps
-# (e.g. peregrino) on the same server, routed by host.
-#
-# c.pair-with.me is proxied through Cloudflare — set its SSL/TLS mode to "Full"
-# in the Cloudflare dashboard so Cloudflare-to-origin traffic stays encrypted
-# and Kamal's own Let's Encrypt cert is used for that leg.
+# Cloudflare in front of c.pair-with.me is set to "Flexible" SSL mode (shared with
+# other sites, so not changing it here) — meaning Cloudflare terminates TLS with the
+# visitor's browser and connects to this origin over plain HTTP. So the proxy serves
+# plain HTTP too (no `ssl: true`); forcing HTTPS here would redirect that plain HTTP
+# request back to HTTPS, which Cloudflare would loop forever. `host` still gets us
+# routing by hostname, so this coexists with other apps (e.g. peregrino) on the
+# same server.
 proxy:
-  ssl: true
   host: c.pair-with.me
 
 registry:
