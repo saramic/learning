@@ -1,0 +1,40 @@
+<nav class="tabs">
+  <a href="/">Intro</a>
+  <a href="/standing-waves" class="active">Standing Waves</a>
+  <a href="/gallery">Gallery</a>
+  <a href="/calculator">Calculator</a>
+</nav>
+
+<div class="bar">
+  <h1 class="brand">Standing Waves</h1>
+  <p class="tagline">Why the microwave leaves melted <em>spots</em> instead of melting everything evenly.</p>
+
+  <p>
+    A microwave cavity is a closed metal box. The magnetron emits a wave that travels
+    across the cavity, reflects off the far (metal) wall, and travels back &mdash; inverted,
+    since a wave flips phase when it reflects off a fixed boundary. With the incident and
+    reflected waves now travelling in <em>opposite</em> directions at the same frequency,
+    they add together to form a <strong>standing wave</strong>: a pattern that no longer
+    travels anywhere, but instead oscillates in place.
+  </p>
+
+  <img src="/images/standing-wave-diagram.svg"
+       alt="Animated diagram: an incident wave and its inverted reflection travelling in opposite directions sum to a standing wave with double the amplitude at the antinodes and fixed nodes in between"
+       style="width: 100%; margin: 1.2rem 0; display: block;">
+
+  <p>
+    At certain fixed points &mdash; the <strong>nodes</strong> &mdash; the incident and reflected
+    waves always cancel exactly, so the field there is always zero. Exactly halfway between
+    each pair of nodes sits an <strong>antinode</strong>, where the two waves always reinforce
+    each other. There, the combined field swings between <strong>+2A and &minus;2A</strong>:
+    double the amplitude of either wave alone.
+  </p>
+
+  <p>
+    Nodes and antinodes are spaced <strong>&lambda;/2</strong> apart, and it's the antinodes
+    that matter for the chocolate: field <em>intensity</em> depends on amplitude squared, so
+    the antinodes are where the microwave's energy is concentrated into hot spots &mdash;
+    exactly where the chocolate melts first. Measure the spacing between melted spots, double
+    it to get &lambda;, and the <a href="/calculator">calculator</a> does the rest.
+  </p>
+</div>

@@ -1,0 +1,33 @@
+<nav class="tabs">
+  <a href="/">Intro</a>
+  <a href="/standing-waves">Standing Waves</a>
+  <a href="/gallery" class="active">Gallery</a>
+  <a href="/calculator">Calculator</a>
+</nav>
+
+<div class="bar">
+  <h1 class="brand">From the Lab</h1>
+  <p class="tagline">Photos from a real run of this experiment. Click a photo to open it, then click
+  again to zoom in on details like the ruler markings.</p>
+
+  <div class="gallery-grid">
+    <% photos.each do |photo| %>
+      <figure>
+        <a href="#<%= photo[:id] %>">
+          <img src="<%= photo[:src] %>" alt="<%= photo[:caption] %>" loading="lazy">
+        </a>
+        <figcaption><%= photo[:caption] %></figcaption>
+      </figure>
+    <% end %>
+  </div>
+</div>
+
+<% photos.each do |photo| %>
+  <a href="#" id="<%= photo[:id] %>" class="lightbox">
+    <img src="<%= photo[:src] %>" alt="<%= photo[:caption] %>">
+    <span><%= photo[:caption] %></span>
+    <span class="close-hint">click image to zoom &middot; &larr; &rarr; or space to browse &middot; esc to close</span>
+  </a>
+<% end %>
+
+<script src="/js/gallery-lightbox.js" defer></script>

@@ -63,22 +63,43 @@
         border-radius: 4px;
       }
 
-      .gallery-link {
-        text-align: center;
-        margin: 0 0 1.6rem;
+      .tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gallery-link a {
-        color: var(--chocolate);
-        font-weight: bold;
-        font-size: 0.88rem;
+      .tabs a {
+        padding: 0.5rem 1.15rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--gold);
         text-decoration: none;
-        border-bottom: 1px dashed var(--chocolate-light);
+        font-weight: bold;
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        border: 2px solid transparent;
       }
 
-      .gallery-link a:hover {
-        color: var(--brand-purple);
-        border-bottom-color: var(--brand-purple);
+      .tabs a:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .tabs a.active {
+        background: var(--cream);
+        color: var(--chocolate-dark);
+        border-color: var(--chocolate);
+      }
+
+      .bar p {
+        line-height: 1.65;
+      }
+
+      .bar p.tagline {
+        line-height: 1.5;
       }
 
       .field {
@@ -186,20 +207,6 @@
         margin: 0 auto;
       }
 
-      .gallery {
-        margin-top: 2.8rem;
-      }
-
-      .gallery h2 {
-        font-family: 'Brush Script MT', 'Segoe Script', cursive;
-        font-style: italic;
-        text-align: center;
-        color: var(--gold);
-        font-size: 2rem;
-        margin: 0 0 1.3rem;
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
-      }
-
       .gallery-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -217,6 +224,7 @@
 
       .gallery-grid a {
         display: block;
+        cursor: zoom-in;
       }
 
       .gallery-grid img {
@@ -232,6 +240,60 @@
         font-size: 0.8rem;
         text-align: center;
         color: var(--chocolate-dark);
+      }
+
+      /* Pure-CSS lightbox: each thumbnail links to #photo-N, which reveals this
+         fixed overlay via the :target selector — no JS needed. */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(20, 6, 30, 0.9);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        text-decoration: none;
+        cursor: zoom-out;
+        overflow: auto;
+      }
+
+      .lightbox:target {
+        display: flex;
+      }
+
+      .lightbox img {
+        max-width: 100%;
+        max-height: 78vh;
+        border-radius: 10px;
+        border: 4px solid var(--chocolate-light);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        cursor: zoom-in;
+        flex-shrink: 0;
+      }
+
+      .lightbox img.zoomed {
+        max-width: none;
+        max-height: none;
+        width: auto;
+        cursor: zoom-out;
+        margin: auto;
+      }
+
+      .lightbox span {
+        margin-top: 1rem;
+        color: var(--cream);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      .lightbox .close-hint {
+        margin-top: 0.4rem;
+        color: var(--gold);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
     </style>
   </head>
