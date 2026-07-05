@@ -30,9 +30,12 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-# Build locally (via QEMU emulation for amd64 on an Apple Silicon Mac) and push
-# to ghcr.io; the server only ever pulls the finished image.
+# Build on the server itself (native amd64) rather than locally via QEMU emulation.
+# QEMU's user-mode emulation is known to intermittently segfault while compiling
+# native C extensions (puma, erb, nio4r, etc.) — it can pass once and then fail on
+# an identical rebuild. Building remotely sidesteps that entirely, same as peregrino.
 builder:
   arch: amd64
+  remote: ssh://ubuntu@peregrino-c
 
 # No database, sessions, or secrets are used by this app, so no `env:` block is needed.
