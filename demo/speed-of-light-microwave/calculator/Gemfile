@@ -16,6 +16,7 @@ gem "rake"
 
 group :development do
   gem "hanami-webconsole", "~> 3.0.0"
+  gem "kamal", require: false
 end
 
 group :development, :test do

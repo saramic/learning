@@ -1,0 +1,38 @@
+# Name of your application. Used to uniquely configure containers.
+service: speed-of-light-calculator
+
+# Pushed to GitHub Container Registry under the saramic org, same as peregrino.
+image: saramic/speed-of-light-calculator
+
+# Deploy to peregrino-c (uses the HostName/User/IdentityFile already set up in ~/.ssh/config).
+servers:
+  web:
+    - peregrino-c
+
+# ~/.ssh/config points peregrino-c at the "ubuntu" user; Kamal defaults to "root"
+# unless told otherwise, so this has to be set explicitly.
+ssh:
+  user: ubuntu
+
+# Enable SSL auto certification via Let's Encrypt and allow for multiple apps
+# (e.g. peregrino) on the same server, routed by host.
+#
+# c.pair-with.me is proxied through Cloudflare — set its SSL/TLS mode to "Full"
+# in the Cloudflare dashboard so Cloudflare-to-origin traffic stays encrypted
+# and Kamal's own Let's Encrypt cert is used for that leg.
+proxy:
+  ssl: true
+  host: c.pair-with.me
+
+registry:
+  server: ghcr.io
+  username: saramic
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Build locally (via QEMU emulation for amd64 on an Apple Silicon Mac) and push
+# to ghcr.io; the server only ever pulls the finished image.
+builder:
+  arch: amd64
+
+# No database, sessions, or secrets are used by this app, so no `env:` block is needed.

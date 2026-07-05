@@ -1,0 +1,8 @@
+.git
+.kamal
+.env.local
+log
+tmp
+test
+*.md
+.tool-versions
