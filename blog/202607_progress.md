@@ -1,5 +1,183 @@
 # Progress July 2026
 
+## Wed 29 Jul
+
+### Composition
+
+- Hold the line [https://musescore.com/user/26661481/scores/4795742](
+  https://musescore.com/user/26661481/scores/4795742)
+
+### Model railroad
+
+- Oval layout that generally appeals
+  [https://www.facebook.com/photo/?fbid=4219940751657942&set=gm.10161865653002201&idorvanity=70609292200](
+  https://www.facebook.com/photo/?fbid=4219940751657942&set=gm.10161865653002201&idorvanity=70609292200)
+
+### Evil Martians
+
+had a cool radar animation on [https://evilmartians.com/](
+https://evilmartians.com/)
+
+Also Storybook Workbench to audit UI's
+
+[https://evilmartians.com/chronicles/storybook-workbench-audit-vibe-coded-uis-and-find-hidden-bugs-in-hours](
+https://evilmartians.com/chronicles/storybook-workbench-audit-vibe-coded-uis-and-find-hidden-bugs-in-hours)
+
+### Illustrated Chemistry, Biology and Forensics
+
+Although I am full swing with my electronics and Element 14 contests, I do want
+to see if @hambreros and I watching Breaking Bad and doing Chemistry next year
+will get him to do some experiments with me. Also @tamadillo is doing Biology
+and so may get something out of some of those.
+
+If I remember correctly, the Forensics one is also pretty good with classifying
+hair, pulling finger prints, identifying drug traces and testing for blood, the
+hair one could come in handy for bathroom mess arguments.
+
+Seems one of the main things is a microscope, I wander how much tech has
+changed and availability has become cheaper. Some resources below:
+- amazon has some mini ones that claim 4k via usb but often comments claim
+  otherwise.
+- Kent & Faith seem to rank well on SEO and maybe having something that doubles
+  for soldering could be good
+  - ~ $160 [https://www.kentfaith.com.au/GW45.0009_dm9-7](
+    https://www.kentfaith.com.au/GW45.0009_dm9-7)
+- ~ $500 for a 40x-5000x trinocular - visual and digital [Compound Microscope,
+  40X-5000X Kentfaith Trinocular Microscope
+  [https://www.kentfaith.com.au/GW45.0066_composite-three-eye-optical-microscope-40x-5000x-magnification-with-electronic-eyepiece-and-mechanic](
+  https://www.kentfaith.com.au/GW45.0066_composite-three-eye-optical-microscope-40x-5000x-magnification-with-electronic-eyepiece-and-mechanic)
+- ~ $400 Swift SW380T 40X-2500X trinocular on Amazon
+
+- book with a guide
+  [https://joyfulmicrobe.com/best-compound-microscopes-for-bacteria/](
+  https://joyfulmicrobe.com/best-compound-microscopes-for-bacteria/)
+  - also this
+    [https://joyfulmicrobe.com/home-microscope/](
+    https://joyfulmicrobe.com/home-microscope/)
+- digital vs traditional
+  [https://zoomble.eu/blogs/news/digital-microscope-vs-traditional-microscope](
+  https://zoomble.eu/blogs/news/digital-microscope-vs-traditional-microscope)
+- guide to buying a digital
+  [https://www.microscopeworld.com/blog/the-complete-guide-to-buying-a-digital-microscope/](
+  https://www.microscopeworld.com/blog/the-complete-guide-to-buying-a-digital-microscope/)
+- Australian store
+  [https://microscopes.com.au/collections/clearance](
+  https://microscopes.com.au/collections/clearance)
+
+### Frontend Architecture
+
+free course [https://frontendatscale.com/courses/frontend-architecture/foundations/what-is-frontend-architecture/](
+https://frontendatscale.com/courses/frontend-architecture/foundations/what-is-frontend-architecture/)
+
+## Mon 27 Jul
+
+### IP Mesh radio - RasPi 5 + Halow MM8108
+
+- **I Stole This from the Military - Data Slayer**
+
+  [![
+    I Stole This from the Military - Data Slayer
+  ](http://img.youtube.com/vi/b7IMBHMjNv8/0.jpg)](https://youtu.be/b7IMBHMjNv8)
+
+- https://github.com/buildwithparallel/openwrt-morse-rpi5
+- Haven 2
+  - https://buildwithparallel.com/products/haven
+
+### Backyard railroad
+
+- **Building the ULTIMATE Beginner Locomotive for Backyard Railroading! -
+  J.T.Engineering**
+
+  [![
+    Building the ULTIMATE Beginner Locomotive for Backyard Railroading! -
+    J.T.Engineering
+  ](http://img.youtube.com/vi/yeBT80pZPyw/0.jpg)](https://youtu.be/yeBT80pZPyw)
+
+  - 7 1/2 gauge, and a low cost approach to build ~$1300 USD
+  - plans [https://www.jtengineeringmodels.com/](
+    https://www.jtengineeringmodels.com/)
+
+### EDC carry bag etc
+
+- **This Is Everything I Carry to Work From Anywhere (EDC 2026) - ark.curate**
+
+  [![
+    This Is Everything I Carry to Work From Anywhere (EDC 2026) - ark.curate
+  ](http://img.youtube.com/vi/AkopmZNFyKY/0.jpg)](https://youtu.be/AkopmZNFyKY)
+
+  - setup to carry what you need to work remote
+  - TomToc UrbanEx T77 - 26l
+  - [Logi MX anywhere 3S](
+    https://www.logitech.com/en-us/shop/p/mx-anywhere-3s-for-mac.910-006944)
+  - cool stand - cards, find my, remote control, stand
+    - https://www.moft.com/products/magsafe-tripod-wallet-stand-with-find-my
+  - separate out wallets
+    - simline wallet - https://secrid.com/en-global/premium-slimwallet-dusk-black--/
+    - for ID's - https://www.goyard.com/eu_en/porte-cartes-saint-sulpice.html
+  - external 2TB drive??? nice USB C
+    - https://planckgear.com/products/planck-ssd
+  - reason for hand written notes - to slow down and have different perspective
+  - cool looking charger
+    - https://aulumu.com/products/m10-10000mah-multi-charging-dual-mag-power-bank
+    - which got me thinking for the Girls EU trip
+    - TSA approved is limited to 100W and 100-160W may be allowed with prior
+      airline approval
+      - https://nitecoreaustralia.com.au/shop/power-banks/nitecore-nb10000-gen4/
+      - smallest seems to be the INIU - Amazon $110
+        - NIU Laptop Power Bank, Smallest 25000mAh
+
+### Rubik's 2x2 swap 2 corners
+
+To swap two adjacent corners on a **2x2** Rubik's cube, hold the cube with the
+two unsolved corners in the front-right position. Use the standard adjacent
+corner swap algorithm (**T-perm** or **R-perm** variant):
+
+```
+R U R' U' R' F R2 U' R' U' R U R' F'
+```
+
+## Sun 26 Jul
+
+### Start Koro
+
+```sh
+cd ~/.voicemode/services/kokoro
+uv venv
+source .venv/bin/activate
+./start-gpu_mac.sh
+
+░░░░░░░░░░░░░░░░░░░░░░░░
+
+    ╔═╗┌─┐┌─┐┌┬┐
+    ╠╣ ├─┤└─┐ │
+    ╚  ┴ ┴└─┘ ┴
+    ╦╔═┌─┐┬┌─┌─┐
+    ╠╩╗│ │├┴┐│ │
+    ╩ ╩└─┘┴ ┴└─┘
+
+░░░░░░░░░░░░░░░░░░░░░░░░
+
+Model warmed up on cuda: kokoro_v1
+CUDA: False
+67 voice packs loaded
+
+Beta Web Player: http://0.0.0.0:8880/web/
+or http://localhost:8880/web/
+░░░░░░░░░░░░░░░░░░░░░░░░
+
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8880 (Press CTRL+C to quit)
+```
+
+but runs in foreground
+
+```sh
+curl http://localhost:8880/v1/audio/speech \
+    -H "Content-Type: application/json" \
+    -d '{"model": "kokoro", "input": "this is hello world from me", "voice": "am_adam"}' \
+    --output /tmp/speech.mp3 && afplay /tmp/speech.mp3
+```
+
 ## Fri 24 Jul
 
 ### On procrastination
@@ -276,6 +454,18 @@ its MCA — just say the word.
   - having a drop in zoom the whole day long
   - 9 minutes to review
   - got the designer committing
+  - use DX to get "Engineering intelligence"
+    [https://getdx.com/](https://getdx.com/)
+  - by the way, currently we do things like
+    - PRs merged by developer
+    ```
+    gh search prs --owner themartec \
+      --created 2026-07-01..2026-07-30 \
+      --json author,state --limit 1000 \
+      | jq -r 'group_by(.author.login)[] |
+        "\(.[0].author.login)\ttotal=\(length)\tmerged=\(map(select(.state=="merged"))|length)"' \
+      | sort -t= -k2 -rn
+    ```
 
 - **Effective Code Reviews with Conventional Comments • Paul Slaughter &
   Adrienne Braganza • GOTO 2025 - GOTO Conferences**
