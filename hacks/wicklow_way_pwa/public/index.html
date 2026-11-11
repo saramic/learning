@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Wicklow Way 1–4</title>
+    <meta name="description" content="Offline map of Wicklow Way stages 1–4 with GPS that remembers where you were." />
+    <meta name="theme-color" content="#1f5130" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Wicklow 1–4" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-180.png" />
+    <link rel="stylesheet" href="lib/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="map" aria-label="Map"></div>
+
+    <section id="panel" aria-live="polite">
+      <div id="progress">Waiting for GPS…</div>
+      <div id="status"></div>
+    </section>
+
+    <div id="download" hidden>
+      <p id="download-text">Offline map not on this device yet (23 MB).</p>
+      <progress id="download-bar" max="1" value="0" hidden></progress>
+      <button id="download-btn" type="button">Download map</button>
+    </div>
+
+    <nav id="controls" aria-label="Map controls">
+      <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+      <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+      <button id="follow" type="button" aria-label="Follow my location" aria-pressed="false">◎</button>
+      <button id="menu-btn" type="button" aria-label="Stages and settings" aria-expanded="false">☰</button>
+    </nav>
+
+    <section id="menu" hidden>
+      <h2>Jump to</h2>
+      <div id="stage-buttons"></div>
+      <h2>Settings</h2>
+      <label><input type="checkbox" id="wake" /> Keep screen on</label>
+      <label><input type="checkbox" id="big-text" /> Extra large text</label>
+      <button id="clear-trail" type="button" class="secondary">Clear my walked trail</button>
+      <p class="small"><a href="data/wicklow-way-stages-1-4.gpx" download>Download GPX of stages 1–4</a> (for Earthmate, Organic Maps, OsmAnd)</p>
+      <p class="small" id="about"></p>
+    </section>
+
+    <script src="lib/leaflet.js"></script>
+    <script src="lib/pmtiles.js"></script>
+    <script src="lib/protomaps-leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -23,3 +23,7 @@ track that I am actively spending time learning and hopefully improving.
   * [blog](blog)
     * [Jan 2019](blog/201901_progress.md)
 
+## Hacks
+
+  * [Wicklow Way stages 1–4 offline PWA](hacks/wicklow_way_pwa) —
+    [open the app](https://saramic.github.io/learning/wicklow/)

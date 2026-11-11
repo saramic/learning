@@ -1,0 +1,165 @@
+:root {
+  --ink: #111;
+  --paper: #fff;
+  --accent: #1f5130;
+  --button: rgba(255, 255, 255, 0.96);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --text-size: 20px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body.big-text {
+  --text-size: 28px;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #e8e4d8;
+  color: var(--ink);
+  font: var(--text-size) / 1.3 system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+#map {
+  position: fixed;
+  inset: 0;
+  background: #e8e4d8;
+}
+
+button {
+  font: inherit;
+  color: var(--ink);
+  background: var(--button);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+#panel {
+  position: fixed;
+  top: calc(var(--safe-top) + 8px);
+  left: 8px;
+  right: 8px;
+  z-index: 1000;
+  padding: 10px 14px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  font-weight: 700;
+}
+
+#status {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+#status:empty {
+  display: none;
+}
+
+#controls {
+  position: fixed;
+  right: 10px;
+  bottom: calc(var(--safe-bottom) + 24px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#controls button {
+  width: 68px;
+  height: 68px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#follow[aria-pressed="true"] {
+  background: #1565c0;
+  color: #fff;
+}
+
+#download,
+#menu {
+  position: fixed;
+  left: 8px;
+  right: 88px;
+  bottom: calc(var(--safe-bottom) + 24px);
+  z-index: 1001;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+#download p {
+  margin: 0 0 8px;
+}
+
+#download progress {
+  width: 100%;
+  height: 20px;
+}
+
+#download button,
+#menu button {
+  width: 100%;
+  min-height: 56px;
+  margin: 6px 0;
+}
+
+#menu h2 {
+  margin: 4px 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#menu label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+}
+
+#menu input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+}
+
+#stage-buttons button {
+  text-align: left;
+  padding-left: 14px;
+  border-left-width: 12px;
+}
+
+button.secondary {
+  box-shadow: none;
+}
+
+.small {
+  font-size: 0.65em;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.leaflet-tooltip.place-label {
+  font: 700 16px/1.2 system-ui, sans-serif;
+  border: 2px solid var(--ink);
+}
+
+.leaflet-control-attribution {
+  font-size: 11px;
+}
